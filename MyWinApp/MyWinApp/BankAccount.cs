@@ -44,27 +44,56 @@ namespace MyWinApp
                     MessageBox.Show("Enter User Name Please!");
                     return;
                 }
+                userNameLabel.Text = "";
+                if(IsUserDuplicateExists(userName))
+                {
+                    userNameLabel.Text = "Duplicate User Name Found";
+                    return;
+                }
+   
                 firstName = firstNameTextBox.Text;
                 lastName = lastNameTextBox.Text;
+
                 if (String.IsNullOrEmpty(contactNoTextBox.Text))
                 {
                     MessageBox.Show("Enter Contact No. Please!");
                     return;
                 }
                 contactNo = Convert.ToInt32(contactNoTextBox.Text);
+                contactNoLabel.Text = "";
+                if (IsContactNoDuplicateExists(contactNo))
+                {
+                    contactNoLabel.Text = "Duplicate Contact No Found";
+                    return;
+                }
+
                 email = emailTextBox.Text;
                 if (String.IsNullOrEmpty(email))
                 {
                     MessageBox.Show("Enter Your Email Please!");
                     return;
                 }
+                emailLabel.Text = "";
+                if (IsEmailDuplicateExists(email))
+                {
+                    emailLabel.Text = "Duplicate Email Found";
+                    return;
+                }
+
                 address = addressTextBox.Text;
+
                 if (String.IsNullOrEmpty(accountNoTextBox.Text))
                 {
                     MessageBox.Show("Enter User Account No. Please!");
                     return;
                 }
-                accountNo = Convert.ToInt32(accountNoTextBox.Text);
+                accountNo = Convert.ToInt32(accountNoTextBox.Text); 
+                accountNoLabel.Text = "";
+                if (IsAccountNoDuplicateExists(accountNo))
+                {
+                    accountNoLabel.Text = "Duplicate Account No Found";
+                    return;
+                }
 
                 userNames.Add(userName);
                 firstNames.Add(firstName);
@@ -96,6 +125,54 @@ namespace MyWinApp
 
             }
             return message;
+        }
+        private bool IsUserDuplicateExists(string userName)
+        {
+            bool isExist = false;
+            foreach(string checkUserName in userNames)
+            {
+                if(checkUserName==userName)
+                {
+                    isExist = true;
+                }
+            }
+            return isExist;
+        }
+        private bool IsContactNoDuplicateExists(int contactNo)
+        {
+            bool isExist = false;
+            foreach (int checkContactNo in contactNos)
+            {
+                if (checkContactNo == contactNo)
+                {
+                    isExist = true;
+                }
+            }
+            return isExist;
+        }
+        private bool IsEmailDuplicateExists(string email)
+        {
+            bool isExist = false;
+            foreach (string checkEmail in emails)
+            {
+                if (checkEmail == email)
+                {
+                    isExist = true;
+                }
+            }
+            return isExist;
+        }
+        private bool IsAccountNoDuplicateExists(int accountNo)
+        {
+            bool isExist = false;
+            foreach (int checkAccountNo in accountNos)
+            {
+                if (checkAccountNo == accountNo)
+                {
+                    isExist = true;
+                }
+            }
+            return isExist;
         }
     }
 }
