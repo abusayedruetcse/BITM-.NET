@@ -102,6 +102,16 @@ namespace MyWinApp
                     MessageBox.Show("Enter User Account No. Please!");
                     return;
                 }
+                if (System.Text.RegularExpressions.Regex.IsMatch(accountNoTextBox.Text, "[^0-9]"))
+                {
+                    MessageBox.Show("Please enter only numeric Account No.");
+                    return;
+                }
+                if(accountNoTextBox.TextLength!=9)
+                {
+                    MessageBox.Show("Enter only 9 numeric digits Account No.");
+                    return;
+                }
                 accountNo = Convert.ToInt32(accountNoTextBox.Text); 
                 accountNoLabel.Text = "";
                 if (IsAccountNoDuplicateExists(accountNo))
