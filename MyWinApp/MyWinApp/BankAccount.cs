@@ -59,6 +59,16 @@ namespace MyWinApp
                     MessageBox.Show("Enter Contact No. Please!");
                     return;
                 }
+                if (System.Text.RegularExpressions.Regex.IsMatch(contactNoTextBox.Text, "[^0-9]"))
+                {
+                    MessageBox.Show("Please enter only numbers.");
+                    return;
+                }
+                if(contactNoTextBox.TextLength!=11)
+                {
+                    MessageBox.Show("Enter Contact No. 11 Numeric Digits Only!");
+                    return;
+                }
                 contactNo = Convert.ToInt32(contactNoTextBox.Text);
                 contactNoLabel.Text = "";
                 if (IsContactNoDuplicateExists(contactNo))
