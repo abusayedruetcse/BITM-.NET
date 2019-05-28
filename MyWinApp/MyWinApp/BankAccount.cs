@@ -83,6 +83,11 @@ namespace MyWinApp
                     MessageBox.Show("Enter Your Email Please!");
                     return;
                 }
+                if(!email.Contains("@"))
+                {
+                    MessageBox.Show("Please enter correct Email with @.");
+                    return;
+                }
                 emailLabel.Text = "";
                 if (IsEmailDuplicateExists(email))
                 {
