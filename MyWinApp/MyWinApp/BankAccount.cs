@@ -19,6 +19,7 @@ namespace MyWinApp
         List<string> emails = new List<string>();
         List<string> addresss = new List<string>();
         List<int> accountNos = new List<int>();
+        List<int> balances = new List<int>();
 
 
         public BankAccount()
@@ -127,6 +128,7 @@ namespace MyWinApp
                 emails.Add(email);
                 addresss.Add(address);
                 accountNos.Add(accountNo);
+                balances.Add(0);
 
             }
             catch(Exception exception)
@@ -198,6 +200,112 @@ namespace MyWinApp
                 }
             }
             return isExist;
+        }
+        private void DepositeButton_Click(object sender, EventArgs e)
+        {
+            int amount;
+            int index;
+            index = IsValidAccountNumber();
+            if (index < 0)
+            {
+                if (index == -1)
+                {
+                    MessageBox.Show("Account No. is not valid, Enter a correct Account");
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+            else
+            {
+                amount = Convert.ToInt32(amountTextBox.Text);
+                balances[index] += amount;
+            }
+
+        }
+
+        private void WithdrawButton_Click(object sender, EventArgs e)
+        {
+            int amount;
+            int index;
+            index = IsValidAccountNumber();
+            if (index <0)
+            {
+                if(index==-1)
+                {
+                    MessageBox.Show("Account No. is not valid, Enter a correct Account");
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+                
+            }
+            else
+            {
+                amount = Convert.ToInt32(amountTextBox.Text);
+                balances[index] -= amount;
+            }
+        }
+        private int IsValidAccountNumber()
+        {
+            int accountNumber;
+            int index;
+            if (String.IsNullOrEmpty(accountNumberTextBox.Text))
+            {
+                MessageBox.Show("Enter Account Number!");
+                return -2;
+            }
+            if (System.Text.RegularExpressions.Regex.IsMatch(accountNumberTextBox.Text, "[^0-9]"))
+            {
+                MessageBox.Show("Please enter only numeric Account Number.");
+                return -2;
+            }
+            accountNumber = Convert.ToInt32(accountNumberTextBox.Text);
+            index = AccountNumberToIndex(accountNumber);
+            return index;
+        }
+
+        private int AccountNumberToIndex(int accountNumber)
+        {
+
+            for (int index = 0; index < accountNos.Count; index++)
+            {
+                if (accountNos[index] == accountNumber)
+                {
+                    return index;
+                }
+            }
+            return -1;
+
+        }
+
+        private void BalanceButton_Click(object sender, EventArgs e)
+        {
+            int index;
+            index = IsValidAccountNumber();
+            if (index < 0)
+            {
+                if (index == -1)
+                {
+                    MessageBox.Show("Account No. is not valid, Enter a correct Account");
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Balance is: " + balances[index]);
+            }
+            
         }
     }
 }

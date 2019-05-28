@@ -300,6 +300,7 @@
             this.DepositeButton.TabIndex = 28;
             this.DepositeButton.Text = "Deposite";
             this.DepositeButton.UseVisualStyleBackColor = true;
+            this.DepositeButton.Click += new System.EventHandler(this.DepositeButton_Click);
             // 
             // WithdrawButton
             // 
@@ -309,6 +310,7 @@
             this.WithdrawButton.TabIndex = 29;
             this.WithdrawButton.Text = "Withdraw";
             this.WithdrawButton.UseVisualStyleBackColor = true;
+            this.WithdrawButton.Click += new System.EventHandler(this.WithdrawButton_Click);
             // 
             // BalanceButton
             // 
@@ -318,6 +320,7 @@
             this.BalanceButton.TabIndex = 30;
             this.BalanceButton.Text = "Balance";
             this.BalanceButton.UseVisualStyleBackColor = true;
+            this.BalanceButton.Click += new System.EventHandler(this.BalanceButton_Click);
             // 
             // showRichTextBox
             // 
