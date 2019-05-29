@@ -35,6 +35,7 @@
             this.ReverseButton = new System.Windows.Forms.Button();
             this.SumButton = new System.Windows.Forms.Button();
             this.CopyButton = new System.Windows.Forms.Button();
+            this.DuplicateButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // showRichTextBox
@@ -102,11 +103,22 @@
             this.CopyButton.UseVisualStyleBackColor = true;
             this.CopyButton.Click += new System.EventHandler(this.CopyButton_Click);
             // 
+            // DuplicateButton
+            // 
+            this.DuplicateButton.Location = new System.Drawing.Point(359, 267);
+            this.DuplicateButton.Name = "DuplicateButton";
+            this.DuplicateButton.Size = new System.Drawing.Size(75, 23);
+            this.DuplicateButton.TabIndex = 7;
+            this.DuplicateButton.Text = "Duplicate";
+            this.DuplicateButton.UseVisualStyleBackColor = true;
+            this.DuplicateButton.Click += new System.EventHandler(this.DuplicateButton_Click);
+            // 
             // ListExercise
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DuplicateButton);
             this.Controls.Add(this.CopyButton);
             this.Controls.Add(this.SumButton);
             this.Controls.Add(this.ReverseButton);
@@ -130,5 +142,6 @@
         private System.Windows.Forms.Button ReverseButton;
         private System.Windows.Forms.Button SumButton;
         private System.Windows.Forms.Button CopyButton;
+        private System.Windows.Forms.Button DuplicateButton;
     }
 }

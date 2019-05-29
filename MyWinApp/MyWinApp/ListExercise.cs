@@ -103,5 +103,45 @@ namespace MyWinApp
             message += "\n";
             showRichTextBox.Text = message;
         }
+
+        private void DuplicateButton_Click(object sender, EventArgs e)
+        {
+            List<int> duplicateNumbers = new List<int>();
+            bool[] IsDoneNumber = new bool[numbers.Count];
+            bool IsDuplicate;
+            string message = "";
+            message += Display("The values stored into the List are");
+            message += "The Duplicate Elements into the List are: ";
+            message += ":\n";
+            for (int firstIndex = 0; firstIndex < numbers.Count - 1; firstIndex++)
+            {
+                IsDuplicate = false;
+                if (!IsDoneNumber[firstIndex])
+                {
+                    IsDoneNumber[firstIndex] = true;
+                    for (int secondIndex = firstIndex + 1; secondIndex < numbers.Count; secondIndex++)
+                    {
+                        if (numbers[firstIndex] == numbers[secondIndex])
+                        {
+                            IsDoneNumber[secondIndex] = true;
+                            IsDuplicate = true;
+                        }
+                    }
+                }
+                if (IsDuplicate)
+                {
+                    duplicateNumbers.Add(numbers[firstIndex]);
+                }
+            }
+            foreach (int duplicateNumber in duplicateNumbers)
+            {
+                message += duplicateNumber + " ";
+            }
+            message += "\n";
+
+            message += "Total number of Duplicate Elements is: ";
+            message += duplicateNumbers.Count;
+            showRichTextBox.Text = message;
+        }
     }
 }
