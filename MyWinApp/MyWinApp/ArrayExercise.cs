@@ -24,14 +24,30 @@ namespace MyWinApp
         private void AddButton_Click(object sender, EventArgs e)
         {
             numbers[count] = Convert.ToInt32(numberTextBox.Text);
-            count++;
-            string message = "Elements in array are : ";
-            for(int index=0;index<count;index++)
+            count++;           
+            showRichTextBox.Text = Display("Elements in array are");
+        }
+
+        private void ReverseButton_Click(object sender, EventArgs e)
+        {
+            string message = "";
+            message += Display("The values store into the array are");
+            message += "The values store into the array in reverse are : \n";
+            for(int index=count-1; index>=0; index--)
             {
                 message += numbers[index] + " ";
             }
             showRichTextBox.Text = message;
-
+        }
+        private string Display(string message)
+        {
+            message += ":\n";
+            for(int index=0; index<count; index++)
+            {
+                message += numbers[index] + " ";
+            }
+            message += "\n";
+            return message;
         }
     }
 }
