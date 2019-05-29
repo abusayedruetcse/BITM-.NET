@@ -116,5 +116,32 @@ namespace MyWinApp
             message += duplicate;
             showRichTextBox.Text = message;
         }
+
+        private void UniqueButton_Click(object sender, EventArgs e)
+        {
+            bool isUnique;
+            string unique="";
+            string message = "";
+            message += Display("The elements stored in the first array are");
+            message += "The unique elements are:\n";
+            for(int firstIndex=0; firstIndex<count; firstIndex++)
+            {
+                isUnique = true;
+                for(int secondIndex=0; secondIndex<count; secondIndex++)
+                {
+                    if(numbers[firstIndex]==numbers[secondIndex]&& firstIndex!=secondIndex)
+                    {
+                        isUnique = false;
+                        break;
+                    }
+                }
+                if(isUnique)
+                {
+                    unique += numbers[firstIndex]+" ";
+                }
+            }
+            message += unique;
+            showRichTextBox.Text = message;
+        }
     }
 }
