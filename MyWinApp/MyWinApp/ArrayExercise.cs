@@ -168,5 +168,30 @@ namespace MyWinApp
 
             showRichTextBox.Text = message;
         }
+
+        private void OddEvenButton_Click(object sender, EventArgs e)
+        {
+            string odd = "";
+            string even = "";
+            string message = "";
+            message += Display("The values store into the array are");
+            for(int index=0; index<count; index++)
+            {
+                if(numbers[index]%2==0)
+                {
+                    even += numbers[index] + " ";
+                }
+                else
+                {
+                    odd += numbers[index] + " ";
+                }
+            }
+            message += "The Even elements are: \n";
+            message += even;
+            message += "\n";
+            message += "The Odd elements are : \n";
+            message += odd;
+            showRichTextBox.Text = message;
+        }
     }
 }
