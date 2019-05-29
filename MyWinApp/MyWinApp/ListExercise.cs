@@ -113,7 +113,7 @@ namespace MyWinApp
             message += Display("The values stored into the List are");
             message += "The Duplicate Elements into the List are: ";
             message += ":\n";
-            for (int firstIndex = 0; firstIndex < numbers.Count - 1; firstIndex++)
+            for (int firstIndex = 0; firstIndex < numbers.Count; firstIndex++)
             {
                 IsDuplicate = false;
                 if (!IsDoneNumber[firstIndex])
@@ -142,6 +142,47 @@ namespace MyWinApp
             message += "Total number of Duplicate Elements is: ";
             message += duplicateNumbers.Count;
             showRichTextBox.Text = message;
+        }
+
+        private void UniqueButton_Click(object sender, EventArgs e)
+        {
+            List<int> uniqueNumbers = new List<int>();
+            bool[] isDone = new bool[numbers.Count];
+            bool isUnique=false;
+            string message = "";
+            message += Display("The values stored into the List are");
+            message += "The Unique Elements into the List are: ";
+            message += ":\n";
+            for(int firstIndex=0; firstIndex<numbers.Count; firstIndex++)
+            {            
+                if(!isDone[firstIndex])
+                {
+                    isUnique = true;
+                    isDone[firstIndex] = true;
+                    for(int secondIndex=firstIndex+1; secondIndex<numbers.Count; secondIndex++)
+                    {
+                        if(!isDone[secondIndex])
+                        {
+                            if(numbers[firstIndex]==numbers[secondIndex])
+                            {
+                                isUnique = false;
+                                isDone[secondIndex] = true;
+                            }
+                        }
+                    }
+                } 
+                if(isUnique)
+                {
+                    uniqueNumbers.Add(numbers[firstIndex]);
+                }
+            }
+            foreach(int uniqueNumber in uniqueNumbers)
+            {
+                message += uniqueNumber + " ";
+            }
+            message += "\n";
+            showRichTextBox.Text = message;
+
         }
     }
 }

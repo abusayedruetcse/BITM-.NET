@@ -36,6 +36,7 @@
             this.SumButton = new System.Windows.Forms.Button();
             this.CopyButton = new System.Windows.Forms.Button();
             this.DuplicateButton = new System.Windows.Forms.Button();
+            this.UniqueButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // showRichTextBox
@@ -113,11 +114,22 @@
             this.DuplicateButton.UseVisualStyleBackColor = true;
             this.DuplicateButton.Click += new System.EventHandler(this.DuplicateButton_Click);
             // 
+            // UniqueButton
+            // 
+            this.UniqueButton.Location = new System.Drawing.Point(359, 305);
+            this.UniqueButton.Name = "UniqueButton";
+            this.UniqueButton.Size = new System.Drawing.Size(75, 23);
+            this.UniqueButton.TabIndex = 8;
+            this.UniqueButton.Text = "Unique";
+            this.UniqueButton.UseVisualStyleBackColor = true;
+            this.UniqueButton.Click += new System.EventHandler(this.UniqueButton_Click);
+            // 
             // ListExercise
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.UniqueButton);
             this.Controls.Add(this.DuplicateButton);
             this.Controls.Add(this.CopyButton);
             this.Controls.Add(this.SumButton);
@@ -143,5 +155,6 @@
         private System.Windows.Forms.Button SumButton;
         private System.Windows.Forms.Button CopyButton;
         private System.Windows.Forms.Button DuplicateButton;
+        private System.Windows.Forms.Button UniqueButton;
     }
 }
