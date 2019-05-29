@@ -143,5 +143,30 @@ namespace MyWinApp
             message += unique;
             showRichTextBox.Text = message;
         }
+
+        private void MaxMinButton_Click(object sender, EventArgs e)
+        {
+            int maxNumber;
+            int minNumber;
+            string message = "";
+            message += Display("The values store into the array are");
+            maxNumber = minNumber = numbers[0];
+            for(int index=0; index<count; index++)
+            {
+                if(numbers[index]>maxNumber)
+                {
+                    maxNumber = numbers[index];
+                }
+                if(numbers[index]<minNumber)
+                {
+                    minNumber = numbers[index];
+                }
+            }
+            message += "Maximum element is : "+maxNumber;
+            message += "\n";
+            message += "Minimum element is : " + minNumber;
+
+            showRichTextBox.Text = message;
+        }
     }
 }
