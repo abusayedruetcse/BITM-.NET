@@ -81,5 +81,40 @@ namespace MyWinApp
             }
             showRichTextBox.Text = message;
         }
+
+        private void DuplicateButton_Click(object sender, EventArgs e)
+        {
+            string duplicate = "";
+            bool[] isDone = new bool[size];
+            bool isDuplicate;
+            string message = "";
+            message += Display("The elements stored in the first array are");
+            message += "The duplicate elements are:\n";
+            for (int firstIndex=0; firstIndex < count; firstIndex++)
+            {
+                isDuplicate = false;
+                if(!isDone[firstIndex])
+                {
+                    isDone[firstIndex] = true;
+                    for(int secondIndex=0; secondIndex<count; secondIndex++)
+                    {
+                        if(!isDone[secondIndex])
+                        {
+                            if(numbers[firstIndex]==numbers[secondIndex])
+                            {
+                                isDuplicate = true;
+                                isDone[secondIndex] = true;
+                            }
+                        }
+                    }
+                }
+                if(isDuplicate)
+                {
+                    duplicate += numbers[firstIndex] + " ";
+                }
+            }
+            message += duplicate;
+            showRichTextBox.Text = message;
+        }
     }
 }
