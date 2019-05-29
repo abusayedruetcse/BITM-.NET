@@ -49,5 +49,20 @@ namespace MyWinApp
             message += "\n";
             return message;
         }
+
+        private void SumButton_Click(object sender, EventArgs e)
+        {
+            int sumNumbers;
+            string message = "";
+            message += Display("The values store into the array are");
+            message += "Sum of all elements stored in the array is: ";
+            sumNumbers = 0;
+            for(int index=0; index<count; index++)
+            {
+                sumNumbers += numbers[index];
+            }
+            message += sumNumbers;
+            showRichTextBox.Text = message;
+        }
     }
 }
