@@ -184,5 +184,29 @@ namespace MyWinApp
             showRichTextBox.Text = message;
 
         }
+
+        private void MaxMinButton_Click(object sender, EventArgs e)
+        {
+            int maxNumber;
+            int minNumber;
+            string message = "";
+            message += Display("The values stored into the List are");
+            maxNumber = minNumber = numbers[0];
+            foreach(int number in numbers)
+            {
+                if(number>maxNumber)
+                {
+                    maxNumber = number;
+                } 
+                if(number<minNumber)
+                {
+                    minNumber = number;
+                }
+            }
+            message += "Maximum element is : " + maxNumber;
+            message += "\n";
+            message += "Minimum element is : " + minNumber;
+            showRichTextBox.Text = message;
+        }
     }
 }
