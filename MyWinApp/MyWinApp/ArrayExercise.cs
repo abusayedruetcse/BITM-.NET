@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace MyWinApp
 {
-    public partial class StoreArray : Form
+    public partial class ArrayExercise : Form
     {
         const int size = 10;
         int[] numbers = new int[size];
         int count = 0;
 
-        public StoreArray()
+        public ArrayExercise()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace MyWinApp
 {
-    partial class StoreArray
+    partial class ArrayExercise
     {
         /// <summary>
         /// Required designer variable.
