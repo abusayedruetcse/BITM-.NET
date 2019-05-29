@@ -208,5 +208,29 @@ namespace MyWinApp
             message += "Minimum element is : " + minNumber;
             showRichTextBox.Text = message;
         }
+
+        private void OddEvenButton_Click(object sender, EventArgs e)
+        {
+            string odd="";
+            string even="";
+            string message = "";
+            message += Display("The values stored into the List are");
+            foreach(int number in numbers)
+            {
+                if(number%2==0)
+                {
+                    even += number + " ";
+                }
+                else
+                {
+                    odd += number + " ";
+                }
+            }
+            message += "The Even elements are: \n";
+            message += even + "\n";
+            message += "The Odd elements are: \n";
+            message += odd;
+            showRichTextBox.Text = message;
+        }
     }
 }

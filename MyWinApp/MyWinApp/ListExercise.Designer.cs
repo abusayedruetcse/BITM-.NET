@@ -38,6 +38,7 @@
             this.DuplicateButton = new System.Windows.Forms.Button();
             this.UniqueButton = new System.Windows.Forms.Button();
             this.MaxMinButton = new System.Windows.Forms.Button();
+            this.OddEvenButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // showRichTextBox
@@ -135,11 +136,22 @@
             this.MaxMinButton.UseVisualStyleBackColor = true;
             this.MaxMinButton.Click += new System.EventHandler(this.MaxMinButton_Click);
             // 
+            // OddEvenButton
+            // 
+            this.OddEvenButton.Location = new System.Drawing.Point(266, 350);
+            this.OddEvenButton.Name = "OddEvenButton";
+            this.OddEvenButton.Size = new System.Drawing.Size(75, 23);
+            this.OddEvenButton.TabIndex = 10;
+            this.OddEvenButton.Text = "OddEven";
+            this.OddEvenButton.UseVisualStyleBackColor = true;
+            this.OddEvenButton.Click += new System.EventHandler(this.OddEvenButton_Click);
+            // 
             // ListExercise
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.OddEvenButton);
             this.Controls.Add(this.MaxMinButton);
             this.Controls.Add(this.UniqueButton);
             this.Controls.Add(this.DuplicateButton);
@@ -169,5 +181,6 @@
         private System.Windows.Forms.Button DuplicateButton;
         private System.Windows.Forms.Button UniqueButton;
         private System.Windows.Forms.Button MaxMinButton;
+        private System.Windows.Forms.Button OddEvenButton;
     }
 }
