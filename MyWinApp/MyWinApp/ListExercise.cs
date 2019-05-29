@@ -84,5 +84,24 @@ namespace MyWinApp
 
             showRichTextBox.Text = message;
         }
+
+        private void CopyButton_Click(object sender, EventArgs e)
+        {
+            List<int> copyNumbers = new List<int>();
+            string message = "";
+            message += Display("The values stored into the List are");
+            message += "The Elements copied into the second List are: ";
+            message += ":\n";
+            foreach(int number in numbers)
+            {
+                copyNumbers.Add(number);
+            }
+            foreach(int copyNumber in copyNumbers)
+            {
+                message += copyNumber + " ";
+            }
+            message += "\n";
+            showRichTextBox.Text = message;
+        }
     }
 }
