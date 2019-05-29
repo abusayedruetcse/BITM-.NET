@@ -279,5 +279,39 @@ namespace MyWinApp
             message += "\n";
             showRichTextBox.Text = message; 
         }
+
+        private void InsertButton_Click(object sender, EventArgs e)
+        {
+            string message = "";
+            message += Display("The exist List list is : ");
+            try
+            {
+                int number;
+                if(String.IsNullOrEmpty(addTextBox.Text))
+                {
+                    MessageBox.Show("Enter a Number!");
+                    return;
+                }
+                if(System.Text.RegularExpressions.Regex.IsMatch(addTextBox.Text,"[^0-9]"))
+                {
+                    MessageBox.Show("Enter a numeric Number!");
+                    return;
+                }
+                number = Convert.ToInt32(addTextBox.Text);
+                numbers.Add(number);
+                int index = numbers.Count-1;                
+                while( index > 0 && numbers[index-1]>number)
+                {
+                    numbers[index] = numbers[index - 1];
+                    index--;
+                }
+                numbers[index] = number;
+            }catch(Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+            message += Display("After Insert the list is : ");
+            showRichTextBox.Text = message;
+        }
     }
 }
