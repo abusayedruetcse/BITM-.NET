@@ -68,5 +68,21 @@ namespace MyWinApp
 
             showRichTextBox.Text = message;
         }
+
+        private void SumButton_Click(object sender, EventArgs e)
+        {
+            int sumElements;
+            string message = "";
+            message += Display("The values stored into the List are");
+            message += "Sum of all Elements stored in the List is: ";
+            sumElements = 0;
+            foreach(int number in numbers)
+            {
+                sumElements += number;
+            }
+            message += sumElements;
+
+            showRichTextBox.Text = message;
+        }
     }
 }
