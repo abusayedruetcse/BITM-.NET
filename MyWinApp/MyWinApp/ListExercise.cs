@@ -53,5 +53,20 @@ namespace MyWinApp
         {
             showRichTextBox.Text = Display("Elements in List are");
         }
+
+        private void ReverseButton_Click(object sender, EventArgs e)
+        {
+            string message = "";
+            message += Display("The values stored into the List are");
+            message += "The values stored into the List in Reverse are";
+            message += ":\n";
+            for(int index=numbers.Count-1; index>=0; index--)
+            {
+                message += numbers[index] + " ";
+            }
+            message += "\n";
+
+            showRichTextBox.Text = message;
+        }
     }
 }
