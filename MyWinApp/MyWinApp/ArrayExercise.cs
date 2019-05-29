@@ -64,5 +64,22 @@ namespace MyWinApp
             message += sumNumbers;
             showRichTextBox.Text = message;
         }
+
+        private void CopyButton_Click(object sender, EventArgs e)
+        {
+            int[] copyNumbers = new int[size];
+            string message = "";
+            message += Display("The elements stored in the first array are");
+            message += "The elements copied into the second array are :\n";
+            for(int index=0; index<count; index++)
+            {
+                copyNumbers[index] = numbers[index];
+            }
+            for(int index=0; index<count; index++)
+            {
+                message += copyNumbers[index] + " ";
+            }
+            showRichTextBox.Text = message;
+        }
     }
 }
