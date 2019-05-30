@@ -147,5 +147,53 @@ namespace MyWinApp
             topTotalTextBox.Text = soldierNames[topTotalIndex];
 
         }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            string message = "";
+            message += "Soldier No.\tSoldier Name\tAverage Score\tTotal Score\n";
+            string userSearchInput;
+            userSearchInput = searchTextBox.Text;            
+            if(SoldierNoRadioButton.Checked)
+            {
+                if (String.IsNullOrEmpty(userSearchInput))
+                {
+                    MessageBox.Show("Enter a Soldier No.");
+                    return;
+                }
+                int soldierNoIndex = soldierNos.IndexOf(userSearchInput);
+                if(soldierNoIndex==-1)
+                {
+                    MessageBox.Show("Soldier Not Found!");
+                    showRichTextBox.Text = "";
+                    return;
+                }
+                else
+                {
+                    message += soldierNos[soldierNoIndex] + "\t" + soldierNames[soldierNoIndex] + "\t" + averageScores[soldierNoIndex] + "\t" + totalScores[soldierNoIndex] + "\n";
+                    showRichTextBox.Text = message;
+                }
+            }
+            if(SoldierNameRadioButton.Checked)
+            {
+                if (String.IsNullOrEmpty(userSearchInput))
+                {
+                    MessageBox.Show("Enter a Soldier Name");
+                    return;
+                }
+                int soldierNameIndex = soldierNames.IndexOf(userSearchInput);
+                if (soldierNameIndex == -1)
+                {
+                    MessageBox.Show("Soldier Not Found!");
+                    showRichTextBox.Text = "";
+                    return;
+                }
+                else
+                {
+                    message += soldierNos[soldierNameIndex] + "\t" + soldierNames[soldierNameIndex] + "\t" + averageScores[soldierNameIndex] + "\t" + totalScores[soldierNameIndex] + "\n";
+                    showRichTextBox.Text = message;
+                }
+            }
+        }
     }
 }
