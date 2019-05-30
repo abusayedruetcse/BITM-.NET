@@ -193,5 +193,52 @@ namespace MyWinApp
             message += odd;
             showRichTextBox.Text = message;
         }
+
+        private void AscDescButton_Click(object sender, EventArgs e)
+        {
+            string message = "";
+            message += Display("The values store into the array are");
+            bool[] isDone = new bool[size];
+            List<int> ascNumbers = new List<int>();
+            int minIndex;
+            for(int firstIndex=0; firstIndex<count; firstIndex++)
+            {
+                int index = 0;
+                while(index < count && isDone[index])
+                {
+                    index++;
+                }
+                if(index==count)
+                {
+                    break;
+                }
+                minIndex = index;
+                for(int secondIndex=0; secondIndex<count; secondIndex++)
+                {
+                    if(!isDone[secondIndex])
+                    {
+                        if(numbers[secondIndex]<numbers[minIndex])
+                        {
+                            minIndex = secondIndex;
+                        }
+                    }
+                }
+                ascNumbers.Add(numbers[minIndex]);
+                isDone[minIndex] = true;
+            }
+            message += "Elements of array in sorted ascending order: \n";
+            foreach (int ascNumber in ascNumbers)
+            {
+                message += ascNumber + " ";
+            }
+            message += "\n";
+            message += "Elements of the array in sorted descending order:\n ";
+            for (int index= ascNumbers.Count-1; index>=0; index--)
+            {
+                message += ascNumbers[index] + " ";
+            }
+            message += "\n";
+            showRichTextBox.Text = message;
+        }
     }
 }

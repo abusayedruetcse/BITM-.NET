@@ -38,6 +38,7 @@
             this.UniqueButton = new System.Windows.Forms.Button();
             this.MaxMinButton = new System.Windows.Forms.Button();
             this.OddEvenButton = new System.Windows.Forms.Button();
+            this.AscDescButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddButton
@@ -135,11 +136,22 @@
             this.OddEvenButton.UseVisualStyleBackColor = true;
             this.OddEvenButton.Click += new System.EventHandler(this.OddEvenButton_Click);
             // 
+            // AscDescButton
+            // 
+            this.AscDescButton.Location = new System.Drawing.Point(385, 318);
+            this.AscDescButton.Name = "AscDescButton";
+            this.AscDescButton.Size = new System.Drawing.Size(75, 23);
+            this.AscDescButton.TabIndex = 10;
+            this.AscDescButton.Text = "AscDesc";
+            this.AscDescButton.UseVisualStyleBackColor = true;
+            this.AscDescButton.Click += new System.EventHandler(this.AscDescButton_Click);
+            // 
             // ArrayExercise
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.AscDescButton);
             this.Controls.Add(this.OddEvenButton);
             this.Controls.Add(this.MaxMinButton);
             this.Controls.Add(this.UniqueButton);
@@ -169,5 +181,6 @@
         private System.Windows.Forms.Button UniqueButton;
         private System.Windows.Forms.Button MaxMinButton;
         private System.Windows.Forms.Button OddEvenButton;
+        private System.Windows.Forms.Button AscDescButton;
     }
 }
