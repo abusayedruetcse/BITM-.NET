@@ -64,6 +64,12 @@
     <Compile Include="CustomerForm.Designer.cs">
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FireRangeAutomationSystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FireRangeAutomationSystem.Designer.cs">
+      <DependentUpon>FireRangeAutomationSystem.cs</DependentUpon>
+    </Compile>
     <Compile Include="ListExercise.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FireRangeAutomationSystem.resx">
+      <DependentUpon>FireRangeAutomationSystem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListExercise.resx">
       <DependentUpon>ListExercise.cs</DependentUpon>

@@ -18,10 +18,11 @@ namespace MyWinApp
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new PersonalInformationForm());
             //Application.Run(new Calculator());
-            Application.Run(new ArrayExercise());
+            //plication.Run(new ArrayExercise());
             //Application.Run(new CustomerForm());
             //Application.Run(new BankAccount());
             //Application.Run(new ListExercise());
+            Application.Run(new FireRangeAutomationSystem());
         }
     }
 }
