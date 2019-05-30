@@ -36,7 +36,7 @@ namespace MyWinApp
                 int target2Score;
                 int target3Score;
                 int target4Score;
-
+                int sumOfScore;
                 soldierNo = soldierNoTextBox.Text;
                 if (String.IsNullOrEmpty(soldierNo))
                 {
@@ -106,7 +106,9 @@ namespace MyWinApp
                 target2Scores.Add(target2Score);
                 target3Scores.Add(target3Score);
                 target4Scores.Add(target4Score);
-
+                sumOfScore = target1Score + target2Score + target3Score + target4Score;
+                totalScores.Add(sumOfScore);
+                averageScores.Add((double)(sumOfScore) / 4);
             }
             catch (Exception exception)
             {
@@ -134,13 +136,16 @@ namespace MyWinApp
             string message = "";
             message += "Soldier No.\tSoldier Name\tAverage Score\tTotal Score\n";           
             for(int index=0; index<soldierNos.Count; index++)
-            {
-                totalScores.Add(target1Scores[index] + target2Scores[index] + target3Scores[index] + target4Scores[index]);
-                averageScores.Add((double)(totalScores[index]) / 4);
+            {                             
                 message += soldierNos[index]+"\t"+soldierNames[index]+"\t"+averageScores[index]+"\t"+totalScores[index]+"\n";
             }
-            showRichTextBox.Text = message;           
-            
+            showRichTextBox.Text = message;
+           
+            int topAverageIndex = averageScores.IndexOf(averageScores.Max());
+            topAverageTextBox.Text = soldierNames[topAverageIndex];
+            int topTotalIndex = totalScores.IndexOf(totalScores.Max());
+            topTotalTextBox.Text = soldierNames[topTotalIndex];
+
         }
     }
 }
