@@ -240,5 +240,29 @@ namespace MyWinApp
             message += "\n";
             showRichTextBox.Text = message;
         }
+
+        private void InsertButton_Click(object sender, EventArgs e)
+        {
+            string message = "";
+            message += Display("The exist array list is :  ");
+            message += "After Insert the list is : \n";
+            int insertNumber;
+            insertNumber = Convert.ToInt32(numberTextBox.Text);
+            int index = count;
+            while(index>0 &&numbers[index-1]>insertNumber)
+            {
+                numbers[index] = numbers[index - 1];
+                index--;
+            }
+            numbers[index] = insertNumber;
+            count++;
+
+            for(index=0; index<count; index++)
+            {
+                message += numbers[index] + " ";
+            }
+            message += "\n";
+            showRichTextBox.Text = message;
+        }
     }
 }
