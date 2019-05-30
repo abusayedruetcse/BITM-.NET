@@ -127,6 +127,20 @@ namespace MyWinApp
             }
             return isDuplicate;
 
-        }       
+        }
+
+        private void ShowAllButton_Click(object sender, EventArgs e)
+        {
+            string message = "";
+            message += "Soldier No.\tSoldier Name\tAverage Score\tTotal Score\n";           
+            for(int index=0; index<soldierNos.Count; index++)
+            {
+                totalScores.Add(target1Scores[index] + target2Scores[index] + target3Scores[index] + target4Scores[index]);
+                averageScores.Add((double)(totalScores[index]) / 4);
+                message += soldierNos[index]+"\t"+soldierNames[index]+"\t"+averageScores[index]+"\t"+totalScores[index]+"\n";
+            }
+            showRichTextBox.Text = message;           
+            
+        }
     }
 }
