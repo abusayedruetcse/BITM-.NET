@@ -197,6 +197,7 @@
             this.userNameTextBox.Name = "userNameTextBox";
             this.userNameTextBox.Size = new System.Drawing.Size(183, 20);
             this.userNameTextBox.TabIndex = 15;
+            this.userNameTextBox.Text = "12";
             // 
             // firstNameTextBox
             // 
