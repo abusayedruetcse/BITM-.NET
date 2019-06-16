@@ -34,6 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.ShowButton = new System.Windows.Forms.Button();
+            this.displayDataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.displayDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // SaveButton
@@ -86,12 +88,22 @@
             this.ShowButton.TabIndex = 10;
             this.ShowButton.Text = "Show";
             this.ShowButton.UseVisualStyleBackColor = true;
+            this.ShowButton.Click += new System.EventHandler(this.ShowButton_Click);
+            // 
+            // displayDataGridView
+            // 
+            this.displayDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.displayDataGridView.Location = new System.Drawing.Point(96, 178);
+            this.displayDataGridView.Name = "displayDataGridView";
+            this.displayDataGridView.Size = new System.Drawing.Size(487, 150);
+            this.displayDataGridView.TabIndex = 11;
             // 
             // DatabaseConnection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.displayDataGridView);
             this.Controls.Add(this.ShowButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -100,6 +112,7 @@
             this.Controls.Add(this.SaveButton);
             this.Name = "DatabaseConnection";
             this.Text = "DatabaseConnection";
+            ((System.ComponentModel.ISupportInitialize)(this.displayDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -113,5 +126,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button ShowButton;
+        private System.Windows.Forms.DataGridView displayDataGridView;
     }
 }

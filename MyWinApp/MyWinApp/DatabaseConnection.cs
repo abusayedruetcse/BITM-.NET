@@ -69,5 +69,32 @@ namespace MyWinApp
                 MessageBox.Show(excetion.Message);
             }
         }
+
+        private void ShowButton_Click(object sender, EventArgs e)
+        {
+            string connectionString = @"Server=PC-301-17\SQLEXPRESS ;Database=StudentDB ; Integrated Security=True ";
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+            string commandString = @"SELECT * FROM Students";
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+            sqlConnection.Open();
+
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+            sqlDataAdapter.SelectCommand = sqlCommand;
+
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+
+            if(dataTable.Rows.Count>0)
+            {
+                displayDataGridView.DataSource = dataTable;
+            }
+            else
+            {
+                MessageBox.Show("No Student Info");
+            }
+            sqlConnection.Close();
+        }
     }
 }
