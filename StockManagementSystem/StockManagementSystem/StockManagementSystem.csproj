@@ -58,6 +58,12 @@
     <Compile Include="CompanySetup.Designer.cs">
       <DependentUpon>CompanySetup.cs</DependentUpon>
     </Compile>
+    <Compile Include="FeatureList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeatureList.Designer.cs">
+      <DependentUpon>FeatureList.cs</DependentUpon>
+    </Compile>
     <Compile Include="ItemSetup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CompanySetup.resx">
       <DependentUpon>CompanySetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FeatureList.resx">
+      <DependentUpon>FeatureList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ItemSetup.resx">
       <DependentUpon>ItemSetup.cs</DependentUpon>
