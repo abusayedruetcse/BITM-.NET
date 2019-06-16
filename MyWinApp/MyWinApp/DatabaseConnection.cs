@@ -36,7 +36,7 @@ namespace MyWinApp
             {
                 //1
                 SqlConnection sqlConnection = new SqlConnection();
-                string connectionString = @"Server=PC-301-17\SQLEXPRESS ;Database=StudentDB ; Integrated Security=True ";
+                string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS ;Database=StudentDB ; Integrated Security=True ";
                 sqlConnection.ConnectionString = connectionString;
 
                 //2
@@ -72,7 +72,7 @@ namespace MyWinApp
 
         private void ShowButton_Click(object sender, EventArgs e)
         {
-            string connectionString = @"Server=PC-301-17\SQLEXPRESS ;Database=StudentDB ; Integrated Security=True ";
+            string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS ;Database=StudentDB ; Integrated Security=True ";
             SqlConnection sqlConnection = new SqlConnection(connectionString);
 
             string commandString = @"SELECT * FROM Students";
