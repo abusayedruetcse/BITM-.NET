@@ -29,11 +29,15 @@
         private void InitializeComponent()
         {
             this.SaveButton = new System.Windows.Forms.Button();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(577, 97);
+            this.SaveButton.Location = new System.Drawing.Point(300, 174);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 0;
@@ -41,20 +45,61 @@
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
+            // nameTextBox
+            // 
+            this.nameTextBox.Location = new System.Drawing.Point(206, 100);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(169, 20);
+            this.nameTextBox.TabIndex = 2;
+            // 
+            // addressTextBox
+            // 
+            this.addressTextBox.Location = new System.Drawing.Point(206, 132);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(169, 20);
+            this.addressTextBox.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(94, 97);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Name";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(94, 132);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Address";
+            // 
             // DatabaseConnection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.addressTextBox);
+            this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.SaveButton);
             this.Name = "DatabaseConnection";
             this.Text = "DatabaseConnection";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.TextBox addressTextBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
     }
 }

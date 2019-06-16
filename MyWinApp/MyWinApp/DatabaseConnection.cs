@@ -20,8 +20,10 @@ namespace MyWinApp
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            string name = "ALI";
-            string address = "Mirpur";
+            string name = "";
+            string address = "";
+            name = nameTextBox.Text;
+            address = addressTextBox.Text;
             Insert(name,address);
             
         }
