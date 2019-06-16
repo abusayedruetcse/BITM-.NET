@@ -20,16 +20,24 @@ namespace MyWinApp
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            string name = "ALI";
+            string address = "Mirpur";
+            Insert(name,address);
+            
+        }
+        private void Insert(string name,string address)
+        {
             try
             {
                 //1
                 SqlConnection sqlConnection = new SqlConnection();
-                String connectionString = @"Server=PC-301-17\SQLEXPRESS ;Database=StudentDB ; Integrated Security=True ";
+                string connectionString = @"Server=PC-301-17\SQLEXPRESS ;Database=StudentDB ; Integrated Security=True ";
                 sqlConnection.ConnectionString = connectionString;
 
                 //2
                 SqlCommand sqlCommand = new SqlCommand();
-                String commandString = @"INSERT INTO Students(RollNo,Name,Age,Address,DistrictID) VALUES('CSE001', 'ALI', 21, 'Mirpur', 1)";
+                //string commandString = @"INSERT INTO Students(RollNo,Name,Age,Address,DistrictID) VALUES('CSE001', 'ALI', 21, 'Mirpur', 1)";
+                string commandString = @"INSERT INTO Students(RollNo,Name,Age,Address,DistrictID) VALUES('CSE001', '"+name+"', 21, '"+address+"', 1)";
                 sqlCommand.CommandText = commandString;
                 sqlCommand.Connection = sqlConnection;
 
@@ -55,9 +63,6 @@ namespace MyWinApp
             {
                 MessageBox.Show(excetion.Message);
             }
-            
-
-
         }
     }
 }
