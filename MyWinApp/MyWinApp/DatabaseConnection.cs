@@ -35,7 +35,16 @@ namespace MyWinApp
             sqlConnection.Open();
 
             //4
-            sqlCommand.ExecuteNonQuery();
+            int isExecuted = 0;
+            isExecuted=sqlCommand.ExecuteNonQuery();
+            if(isExecuted>0)
+            {
+                MessageBox.Show("Saved Successfully");
+            }
+            else
+            {
+                MessageBox.Show("Save Failed!");
+            }
 
             //5
             sqlConnection.Close();
