@@ -17,17 +17,20 @@ namespace MyWinApp
         {
             InitializeComponent();
         }
-
+        class Department
+        {
+            public string Name { set; get; }
+            public string Address { set; get; }
+        }
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            string name = "";
-            string address = "";
-            name = nameTextBox.Text;
-            address = addressTextBox.Text;
-            Insert(name,address);
+            Department department = new Department();
+            department.Name = nameTextBox.Text;
+            department.Address= addressTextBox.Text;
+            Insert(department);
             
         }
-        private void Insert(string name,string address)
+        private void Insert(Department department)
         {
             try
             {
@@ -39,7 +42,7 @@ namespace MyWinApp
                 //2
                 SqlCommand sqlCommand = new SqlCommand();
                 //string commandString = @"INSERT INTO Students(RollNo,Name,Age,Address,DistrictID) VALUES('CSE001', 'ALI', 21, 'Mirpur', 1)";
-                string commandString = @"INSERT INTO Students(RollNo,Name,Age,Address,DistrictID) VALUES('CSE001', '"+name+"', 21, '"+address+"', 1)";
+                string commandString = @"INSERT INTO Students(RollNo,Name,Age,Address,DistrictID) VALUES('CSE001', '"+department.Name+"', 21, '"+department.Address+"', 1)";
                 sqlCommand.CommandText = commandString;
                 sqlCommand.Connection = sqlConnection;
 
