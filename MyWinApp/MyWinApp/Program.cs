@@ -20,9 +20,10 @@ namespace MyWinApp
             //Application.Run(new Calculator());
             //Application.Run(new ArrayExercise());
             //Application.Run(new CustomerForm());
-            Application.Run(new BankAccount());
+            //Application.Run(new BankAccount());
             //Application.Run(new ListExercise());
             //Application.Run(new FireRangeAutomationSystem());
+            Application.Run(new DatabaseConnection());
         }
     }
 }
