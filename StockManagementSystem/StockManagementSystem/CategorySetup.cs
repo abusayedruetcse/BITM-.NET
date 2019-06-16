@@ -23,6 +23,7 @@ namespace StockManagementSystem
             string name = "";
             name = nameTextBox.Text;
             Insert(name);
+            Display();
         }
         private void Insert(string name)
         {
@@ -62,6 +63,36 @@ namespace StockManagementSystem
                 MessageBox.Show(exception.Message);
             }
         }
+        private void Display()
+        {
+            try
+            {
+                //1
+                string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";
+                SqlConnection sqlConnection = new SqlConnection(connectionString);
+                //2
+                string commandString = @"SELECT * FROM Categories";
+                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+                //3
+                sqlConnection.Open();
+                //4
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+                sqlDataAdapter.SelectCommand = sqlCommand;
+
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                categoryDataGridView.DataSource = dataTable;
+                //5
+                sqlConnection.Close();
+            }
+            catch(Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+
+        }
+
         
     }
 }

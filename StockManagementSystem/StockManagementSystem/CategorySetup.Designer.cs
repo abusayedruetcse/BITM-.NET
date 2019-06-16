@@ -49,13 +49,13 @@
             // 
             this.nameTextBox.Location = new System.Drawing.Point(157, 39);
             this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(216, 20);
+            this.nameTextBox.Size = new System.Drawing.Size(177, 20);
             this.nameTextBox.TabIndex = 1;
             // 
             // SaveButton
             // 
             this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveButton.Location = new System.Drawing.Point(297, 80);
+            this.SaveButton.Location = new System.Drawing.Point(259, 81);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 2;
@@ -66,9 +66,9 @@
             // categoryDataGridView
             // 
             this.categoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.categoryDataGridView.Location = new System.Drawing.Point(56, 151);
+            this.categoryDataGridView.Location = new System.Drawing.Point(82, 149);
             this.categoryDataGridView.Name = "categoryDataGridView";
-            this.categoryDataGridView.Size = new System.Drawing.Size(316, 195);
+            this.categoryDataGridView.Size = new System.Drawing.Size(252, 195);
             this.categoryDataGridView.TabIndex = 3;
             // 
             // CategorySetup
