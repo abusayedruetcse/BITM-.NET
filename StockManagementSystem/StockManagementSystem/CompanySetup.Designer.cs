@@ -37,11 +37,13 @@
             // 
             // companyDataGridView
             // 
+            this.companyDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.companyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.companyDataGridView.Location = new System.Drawing.Point(86, 157);
             this.companyDataGridView.Name = "companyDataGridView";
             this.companyDataGridView.Size = new System.Drawing.Size(316, 195);
             this.companyDataGridView.TabIndex = 7;
+            this.companyDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.companyDataGridView_CellClick);
             // 
             // SaveButton
             // 
@@ -52,6 +54,7 @@
             this.SaveButton.TabIndex = 6;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // nameTextBox
             // 

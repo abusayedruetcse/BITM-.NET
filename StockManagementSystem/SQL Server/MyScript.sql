@@ -11,3 +11,7 @@ INSERT INTO Categories (Name)
 VALUES ('Stationary')
 
 SELECT * FROM Categories
+
+UPDATE Categories
+SET Name= 'Jamil'
+WHERE SL= 3

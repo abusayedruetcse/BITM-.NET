@@ -65,10 +65,11 @@
             // 
             // categoryDataGridView
             // 
+            this.categoryDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.categoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.categoryDataGridView.Location = new System.Drawing.Point(82, 149);
+            this.categoryDataGridView.Location = new System.Drawing.Point(39, 149);
             this.categoryDataGridView.Name = "categoryDataGridView";
-            this.categoryDataGridView.Size = new System.Drawing.Size(252, 195);
+            this.categoryDataGridView.Size = new System.Drawing.Size(330, 195);
             this.categoryDataGridView.TabIndex = 3;
             this.categoryDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.categoryDataGridView_CellClick);
             // 

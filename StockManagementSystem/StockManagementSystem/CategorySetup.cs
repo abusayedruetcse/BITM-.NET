@@ -104,7 +104,6 @@ namespace StockManagementSystem
                     MessageBox.Show("Update Failed!");
                 }
 
-
                 //5
                 sqlConnection.Close();
             }
