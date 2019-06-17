@@ -70,6 +70,7 @@
             this.categoryDataGridView.Name = "categoryDataGridView";
             this.categoryDataGridView.Size = new System.Drawing.Size(252, 195);
             this.categoryDataGridView.TabIndex = 3;
+            this.categoryDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.categoryDataGridView_CellClick);
             // 
             // CategorySetup
             // 

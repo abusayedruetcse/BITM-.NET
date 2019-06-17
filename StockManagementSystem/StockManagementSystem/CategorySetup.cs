@@ -13,16 +13,27 @@ namespace StockManagementSystem
 {
     public partial class CategorySetup : Form
     {
+        int SL;
         public CategorySetup()
         {
             InitializeComponent();
+            Display();
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
             string name = "";
-            name = nameTextBox.Text;
-            Insert(name);
+            if (SaveButton.Text.Equals("Save"))
+            {               
+                name = nameTextBox.Text;
+                Insert(name);
+            }
+            else
+            {
+                name = nameTextBox.Text;
+                Update(name);
+                SaveButton.Text = "Save";
+            }
             Display();
         }
         private void Insert(string name)
@@ -63,6 +74,45 @@ namespace StockManagementSystem
                 MessageBox.Show(exception.Message);
             }
         }
+        private void Update(string name)
+        {
+            try
+            {
+                //1
+                SqlConnection sqlConnection = new SqlConnection();
+                string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS ; Database=StockManagementDB ; Integrated Security=true";
+                sqlConnection.ConnectionString = connectionString;
+
+                //2
+                SqlCommand sqlCommand = new SqlCommand();
+                string commandString = "UPDATE Categories SET Name =  '" + name + "' WHERE SL = " + SL + "";
+                sqlCommand.CommandText = commandString;
+                sqlCommand.Connection = sqlConnection;
+
+                //3
+                sqlConnection.Open();
+
+                //4 
+                int isExecuted = 0;
+                isExecuted= sqlCommand.ExecuteNonQuery();
+                if(isExecuted>0)
+                {
+                    MessageBox.Show("Updated Successfully");
+                }
+                else
+                {
+                    MessageBox.Show("Update Failed!");
+                }
+
+
+                //5
+                sqlConnection.Close();
+            }
+            catch(Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }            
+        }
         private void Display()
         {
             try
@@ -93,6 +143,16 @@ namespace StockManagementSystem
 
         }
 
-        
+        private void categoryDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(categoryDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                categoryDataGridView.CurrentRow.Selected = true;
+                nameTextBox.Text = categoryDataGridView.Rows[e.RowIndex].Cells["Name"].FormattedValue.ToString();
+                SL = Convert.ToInt32(categoryDataGridView.Rows[e.RowIndex].Cells["SL"].FormattedValue);
+                SaveButton.Text = "Update";
+
+            }
+        }
     }
 }
