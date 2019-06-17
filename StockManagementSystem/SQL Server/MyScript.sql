@@ -32,3 +32,5 @@ CompanyID int,
 ReorderLevel int,
 )
 -- DROP TABLE Items
+SELECT ID FROM Items WHERE Name='' AND CategoryID = AND CompanyID=
+SELECT * FROM Items
