@@ -20,44 +20,14 @@ namespace StockManagementSystem
 
         private void categoryComboBox_Click(object sender, EventArgs e)
         {
-            try
-            {
-                //1
-                SqlConnection sqlConnection = new SqlConnection();
-                string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";
-                sqlConnection.ConnectionString = connectionString;
-
-                //2
-                SqlCommand sqlCommand = new SqlCommand();
-                string commandString = @"SELECT * FROM Categories";
-                sqlCommand.CommandText = commandString;
-                sqlCommand.Connection = sqlConnection;
-
-                //3
-                sqlConnection.Open();
-                //4
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-                sqlDataAdapter.SelectCommand = sqlCommand;
-
-                DataTable dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-
-                foreach(DataRow dataRow in dataTable.Rows)
-                {
-                    categoryComboBox.Items.Add(dataRow["Name"].ToString());
-                }
-                
-                //5
-                sqlConnection.Close();
-            }
-            catch(Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-             
+            ComboxBoxWithSelect("Categories");             
         }
 
         private void companyComboBox_Click(object sender, EventArgs e)
+        {
+            ComboxBoxWithSelect("Companies");
+        }
+        private void ComboxBoxWithSelect(string tableName)
         {
             try
             {
@@ -68,7 +38,7 @@ namespace StockManagementSystem
 
                 //2
                 SqlCommand sqlCommand = new SqlCommand();
-                string commandString = @"SELECT * FROM Companies";
+                string commandString = @"SELECT * FROM "+tableName;
                 sqlCommand.CommandText = commandString;
                 sqlCommand.Connection = sqlConnection;
 
@@ -81,11 +51,21 @@ namespace StockManagementSystem
                 DataTable dataTable = new DataTable();
                 sqlDataAdapter.Fill(dataTable);
 
-                foreach (DataRow dataRow in dataTable.Rows)
+                if(tableName.Equals("Companies"))
                 {
-                    companyComboBox.Items.Add(dataRow["Name"].ToString());
+                    foreach (DataRow dataRow in dataTable.Rows)
+                    {
+                        companyComboBox.Items.Add(dataRow["Name"].ToString());
+                    }
                 }
-
+                else
+                {
+                    foreach (DataRow dataRow in dataTable.Rows)
+                    {
+                        categoryComboBox.Items.Add(dataRow["Name"].ToString());
+                    }
+                }
+                
                 //5
                 sqlConnection.Close();
             }
