@@ -86,6 +86,7 @@
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(175, 21);
             this.categoryComboBox.TabIndex = 4;
+            this.categoryComboBox.Click += new System.EventHandler(this.categoryComboBox_Click);
             // 
             // companyComboBox
             // 
@@ -94,6 +95,7 @@
             this.companyComboBox.Name = "companyComboBox";
             this.companyComboBox.Size = new System.Drawing.Size(175, 21);
             this.companyComboBox.TabIndex = 5;
+            this.companyComboBox.Click += new System.EventHandler(this.companyComboBox_Click);
             // 
             // itemNameTextBox
             // 

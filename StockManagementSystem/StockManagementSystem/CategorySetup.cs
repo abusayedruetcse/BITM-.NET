@@ -26,7 +26,7 @@ namespace StockManagementSystem
             if (SaveButton.Text.Equals("Save"))
             {               
                 name = nameTextBox.Text;
-                Insert(name);
+                Insert(name);                
             }
             else
             {
@@ -34,6 +34,7 @@ namespace StockManagementSystem
                 Update(name);
                 SaveButton.Text = "Save";
             }
+            nameTextBox.Text = "";
             Display();
         }
         private void Insert(string name)

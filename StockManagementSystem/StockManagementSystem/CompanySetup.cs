@@ -34,6 +34,7 @@ namespace StockManagementSystem
                 Update(name);
                 SaveButton.Text = "Save";
             }
+            nameTextBox.Text = "";
             Display();
         }
         private void Insert(string name)
@@ -144,14 +145,21 @@ namespace StockManagementSystem
 
         private void companyDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (companyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            try
             {
-                companyDataGridView.CurrentRow.Selected = true;
-                nameTextBox.Text = companyDataGridView.Rows[e.RowIndex].Cells["Name"].FormattedValue.ToString();
-                SL = Convert.ToInt32(companyDataGridView.Rows[e.RowIndex].Cells["SL"].FormattedValue);
-                SaveButton.Text = "Update";
+                if (companyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    companyDataGridView.CurrentRow.Selected = true;
+                    nameTextBox.Text = companyDataGridView.Rows[e.RowIndex].Cells["Name"].FormattedValue.ToString();
+                    SL = Convert.ToInt32(companyDataGridView.Rows[e.RowIndex].Cells["SL"].FormattedValue);
+                    SaveButton.Text = "Update";
 
+                }
+            }catch(Exception exception)
+            {
+                MessageBox.Show(exception.Message);
             }
+            
         }
     }
 }
