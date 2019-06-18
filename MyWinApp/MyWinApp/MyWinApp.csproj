@@ -140,6 +140,7 @@
     <EmbeddedResource Include="StudentUi.resx">
       <DependentUpon>StudentUi.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\MyWinApp.Models.Student.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

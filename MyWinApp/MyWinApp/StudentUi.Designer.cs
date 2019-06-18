@@ -36,6 +36,7 @@
             this.ShowButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.displayDataGridView = new System.Windows.Forms.DataGridView();
+            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SaveButton = new System.Windows.Forms.Button();
             this.districtComboBox = new System.Windows.Forms.ComboBox();
@@ -49,9 +50,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.rollNoTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rollNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.districtIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.District = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.displayDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.districtBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -104,6 +113,7 @@
             this.ShowButton.TabIndex = 0;
             this.ShowButton.Text = "Show";
             this.ShowButton.UseVisualStyleBackColor = true;
+            this.ShowButton.Click += new System.EventHandler(this.ShowButton_Click);
             // 
             // groupBox2
             // 
@@ -119,12 +129,26 @@
             // 
             this.displayDataGridView.AllowUserToAddRows = false;
             this.displayDataGridView.AllowUserToDeleteRows = false;
+            this.displayDataGridView.AutoGenerateColumns = false;
             this.displayDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.displayDataGridView.Location = new System.Drawing.Point(6, 24);
+            this.displayDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SL,
+            this.rollNoDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.ageDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn,
+            this.districtIDDataGridViewTextBoxColumn,
+            this.District});
+            this.displayDataGridView.DataSource = this.studentBindingSource;
+            this.displayDataGridView.Location = new System.Drawing.Point(7, 16);
             this.displayDataGridView.Name = "displayDataGridView";
             this.displayDataGridView.ReadOnly = true;
             this.displayDataGridView.Size = new System.Drawing.Size(489, 169);
             this.displayDataGridView.TabIndex = 0;
+            // 
+            // studentBindingSource
+            // 
+            this.studentBindingSource.DataSource = typeof(MyWinApp.Models.Student);
             // 
             // groupBox1
             // 
@@ -244,6 +268,56 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Roll No";
             // 
+            // SL
+            // 
+            this.SL.HeaderText = "SL";
+            this.SL.Name = "SL";
+            this.SL.ReadOnly = true;
+            // 
+            // rollNoDataGridViewTextBoxColumn
+            // 
+            this.rollNoDataGridViewTextBoxColumn.DataPropertyName = "RollNo";
+            this.rollNoDataGridViewTextBoxColumn.HeaderText = "RollNo";
+            this.rollNoDataGridViewTextBoxColumn.Name = "rollNoDataGridViewTextBoxColumn";
+            this.rollNoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.rollNoDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ageDataGridViewTextBoxColumn
+            // 
+            this.ageDataGridViewTextBoxColumn.DataPropertyName = "Age";
+            this.ageDataGridViewTextBoxColumn.HeaderText = "Age";
+            this.ageDataGridViewTextBoxColumn.Name = "ageDataGridViewTextBoxColumn";
+            this.ageDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // districtIDDataGridViewTextBoxColumn
+            // 
+            this.districtIDDataGridViewTextBoxColumn.DataPropertyName = "DistrictID";
+            this.districtIDDataGridViewTextBoxColumn.HeaderText = "DistrictID";
+            this.districtIDDataGridViewTextBoxColumn.Name = "districtIDDataGridViewTextBoxColumn";
+            this.districtIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.districtIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // District
+            // 
+            this.District.DataPropertyName = "District";
+            this.District.HeaderText = "District";
+            this.District.Name = "District";
+            this.District.ReadOnly = true;
+            // 
             // StudentUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -258,6 +332,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.displayDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.districtBindingSource)).EndInit();
@@ -287,5 +362,13 @@
         private System.Windows.Forms.TextBox rollNoTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.BindingSource districtBindingSource;
+        private System.Windows.Forms.BindingSource studentBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rollNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ageDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn districtIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn District;
     }
 }

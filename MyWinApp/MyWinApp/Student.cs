@@ -13,5 +13,7 @@ namespace MyWinApp.Models
         public int Age { get; set; }
         public string Address { get; set; }
         public int DistrictID { get; set; }  
+        //
+        public string District { get; set; }
     }
 }
