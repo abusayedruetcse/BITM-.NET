@@ -42,7 +42,7 @@ namespace StockManagementSystem
             try
             {
                 //1
-                string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";
+                string connectionString = @"Server=PC-301-17\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";
                 SqlConnection sqlConnection = new SqlConnection();
                 sqlConnection.ConnectionString = connectionString;
 
@@ -81,7 +81,7 @@ namespace StockManagementSystem
             {
                 //1
                 SqlConnection sqlConnection = new SqlConnection();
-                string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS ; Database=StockManagementDB ; Integrated Security=true";
+                string connectionString = @"Server=PC-301-17\SQLEXPRESS ; Database=StockManagementDB ; Integrated Security=true";
                 sqlConnection.ConnectionString = connectionString;
 
                 //2
@@ -118,7 +118,7 @@ namespace StockManagementSystem
             try
             {
                 //1
-                string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";
+                string connectionString = @"Server=PC-301-17\SQLEXPRESS ; Database=StockManagementDB;Integrated Security=True";
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
                 //2
                 string commandString = @"SELECT * FROM Companies";
