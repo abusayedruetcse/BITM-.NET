@@ -14,7 +14,7 @@ namespace MyWinApp
 {
     public partial class StudentUi : Form
     {
-        string connectionString = @"Server=PC-301-17\SQLEXPRESS; Database=StudentDB; Integrated Security=True";
+        string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS; Database=StudentDB; Integrated Security=True";
         SqlConnection sqlConnection;
         string commandString;
         SqlCommand sqlCommand;
@@ -49,7 +49,7 @@ namespace MyWinApp
             }
 
             sqlConnection.Close();
-
+            districtComboBox.Text = "<Select District>";
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -60,6 +60,13 @@ namespace MyWinApp
             student.Address = addressTextBox.Text;
             student.DistrictID = Convert.ToInt32(districtComboBox.SelectedValue);
             InsertStudent(student);
+            //Cleaning the text box
+            rollNoTextBox.Text = "";
+            nameTextBox.Text = "";
+            ageTextBox.Text = "";
+            addressTextBox.Text = "";
+            districtComboBox.Text = "<Select District>";
+
         }
         private void InsertStudent(Student student)
         {

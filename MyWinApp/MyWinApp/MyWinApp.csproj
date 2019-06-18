@@ -70,7 +70,6 @@
     <Compile Include="DatabaseConnection.Designer.cs">
       <DependentUpon>DatabaseConnection.cs</DependentUpon>
     </Compile>
-    <Compile Include="District.cs" />
     <Compile Include="FireRangeAutomationSystem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +82,8 @@
     <Compile Include="ListExercise.Designer.cs">
       <DependentUpon>ListExercise.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\District.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="PersonalInformationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,7 +98,6 @@
     <Compile Include="ArrayExercise.Designer.cs">
       <DependentUpon>ArrayExercise.cs</DependentUpon>
     </Compile>
-    <Compile Include="Student.cs" />
     <Compile Include="StudentUi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +140,7 @@
     <EmbeddedResource Include="StudentUi.resx">
       <DependentUpon>StudentUi.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\MyWinApp.Models.District.datasource" />
     <None Include="Properties\DataSources\MyWinApp.Models.Student.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -154,5 +155,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
