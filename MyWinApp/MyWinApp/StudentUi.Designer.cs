@@ -60,6 +60,7 @@
             this.rollNoTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.districtBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.messageLabel = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.displayDataGridView)).BeginInit();
@@ -331,11 +332,20 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Roll No";
             // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.Location = new System.Drawing.Point(22, 266);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 13);
+            this.messageLabel.TabIndex = 9;
+            // 
             // StudentUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 300);
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -352,6 +362,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.districtBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.districtBindingSource)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -393,5 +404,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn District;
         private System.Windows.Forms.BindingSource studentBindingSource1;
         private System.Windows.Forms.BindingSource districtBindingSource1;
+        private System.Windows.Forms.Label messageLabel;
     }
 }

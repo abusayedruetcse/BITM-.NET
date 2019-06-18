@@ -54,10 +54,40 @@ namespace MyWinApp
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            if (String.IsNullOrEmpty(rollNoTextBox.Text))
+            {
+                messageLabel.Text = "RollNo Field is Empty!";
+                return;
+            }
             student.RollNo = rollNoTextBox.Text;
+            if (String.IsNullOrEmpty(nameTextBox.Text))
+            {
+                messageLabel.Text = "Name Field is Empty!";
+                return;
+            }
             student.Name = nameTextBox.Text;
+            if(String.IsNullOrEmpty(ageTextBox.Text))
+            {
+                messageLabel.Text = "Age Field is Empty!";
+                return;
+            }
+            if(System.Text.RegularExpressions.Regex.IsMatch(ageTextBox.Text,"[^0-9]"))
+            {
+                messageLabel.Text = "Enter Numeric Value for Age";
+                return;
+            }
             student.Age = Convert.ToInt32(ageTextBox.Text);
+            if (String.IsNullOrEmpty(addressTextBox.Text))
+            {
+                messageLabel.Text = "Address Field is Empty!";
+                return;
+            }
             student.Address = addressTextBox.Text;
+            if(districtComboBox.Text.Equals("<Select District>"))
+            {
+                messageLabel.Text = "Select District";
+                return;
+            }
             student.DistrictID = Convert.ToInt32(districtComboBox.SelectedValue);
             InsertStudent(student);
             //Cleaning the text box
