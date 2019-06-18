@@ -137,13 +137,12 @@ DistrictID int FOREIGN KEY REFERENCES Districts(ID)
 
 )
 
-SELECT * FROM Students
+SELECT RollNo, s.Name, Age, Address, d.Name AS District FROM Students AS s LEFT JOIN Districts AS d ON s.DistrictId=d.ID WHERE RollNo='CSE100' 
 
 CREATE VIEW StudensView
 AS
-SELECT s.ID, RollNo, s.Name, Age, Address, DistrictID, d.Name AS District
-FROM Students AS s LEFT JOIN Districts AS d
-ON s.DistrictID=d.ID
+SELECT s.ID, RollNo, s.Name, Age, Address, DistrictID, d.Name AS District FROM Students AS s LEFT JOIN Districts AS d ON s.DistrictID=d.ID
 
 SELECT * FROM StudensView
+UPDATE Students SET Name='', Age='', DistrictID= ,Address='' WHERE RollNo=''
 

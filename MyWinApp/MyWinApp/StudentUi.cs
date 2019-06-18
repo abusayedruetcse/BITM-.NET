@@ -140,9 +140,13 @@ namespace MyWinApp
 
         private void ShowButton_Click(object sender, EventArgs e)
         {
+            display();
+        }
+        private void display()
+        {
             try
             {
-                commandString = @"SELECT * FROM StudensView";
+                commandString = @"SELECT s.ID, RollNo, s.Name, Age, Address, DistrictID, d.Name AS District FROM Students AS s LEFT JOIN Districts AS d ON s.DistrictID=d.ID";
                 sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 sqlConnection.Open();
@@ -157,7 +161,7 @@ namespace MyWinApp
                 }
                 sqlConnection.Close();
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
             }
@@ -187,6 +191,96 @@ namespace MyWinApp
                 MessageBox.Show(exception.Message);
             }
             return isDuplicate;
+        }
+
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            student.RollNo = rollNoTextBox.Text;
+            if (String.IsNullOrEmpty(nameTextBox.Text))
+            {
+                messageLabel.Text = "Name Field is Empty!";
+                return;
+            }
+            student.Name = nameTextBox.Text;
+            if (String.IsNullOrEmpty(ageTextBox.Text))
+            {
+                messageLabel.Text = "Age Field is Empty!";
+                return;
+            }
+            if (System.Text.RegularExpressions.Regex.IsMatch(ageTextBox.Text, "[^0-9]"))
+            {
+                messageLabel.Text = "Enter Numeric Value for Age";
+                return;
+            }
+            student.Age = Convert.ToInt32(ageTextBox.Text);
+            if (String.IsNullOrEmpty(addressTextBox.Text))
+            {
+                messageLabel.Text = "Address Field is Empty!";
+                return;
+            }
+            student.Address = addressTextBox.Text;
+            if (districtComboBox.Text.Equals("<Select District>"))
+            {
+                messageLabel.Text = "Select District";
+                return;
+            }
+            student.DistrictID = Convert.ToInt32(districtComboBox.SelectedValue);
+            UpdateStudent(student);
+            //Cleaning the text box
+            rollNoTextBox.Text = "";
+            nameTextBox.Text = "";
+            ageTextBox.Text = "";
+            addressTextBox.Text = "";
+            districtComboBox.Text = "<Select District>";           
+        }
+        private void UpdateStudent(Student student)
+        {
+            try
+            {
+                commandString = @"UPDATE Students SET Name='" + student.Name + "', Age=" + student.Age + ", DistrictID= " + student.DistrictID + ",Address='" + student.Address + "' WHERE RollNo='" + student.RollNo + "'";
+                sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+                display();
+            }catch(Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+            
+        }
+        private void displayDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {           
+            
+            
+            try
+            {        
+                rollNoTextBox.Text = displayDataGridView.CurrentRow.Cells["RollNo"].FormattedValue.ToString();
+                commandString = @"SELECT RollNo, s.Name, Age, Address, d.Name AS District FROM Students AS s LEFT JOIN Districts AS d ON s.DistrictId=d.ID WHERE RollNo='"+rollNoTextBox.Text+"' ";
+                sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                sqlConnection.Open();
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                if(dataTable.Rows.Count>0)
+                {
+                    DataRow row = dataTable.Rows[0];
+                    nameTextBox.Text = row["Name"].ToString();
+                    ageTextBox.Text = row["Age"].ToString();
+                    districtComboBox.Text = row["District"].ToString();
+                    addressTextBox.Text = row["Address"].ToString();
+                }
+
+                sqlConnection.Close();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
     }
 }
