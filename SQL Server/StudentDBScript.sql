@@ -136,3 +136,14 @@ Address VARCHAR(MAX),
 DistrictID int FOREIGN KEY REFERENCES Districts(ID)
 
 )
+
+SELECT * FROM Students
+
+CREATE VIEW StudensView
+AS
+SELECT s.ID, RollNo, s.Name, Age, Address, DistrictID, d.Name AS District
+FROM Students AS s LEFT JOIN Districts AS d
+ON s.DistrictID=d.ID
+
+SELECT * FROM StudensView
+

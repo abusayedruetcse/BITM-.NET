@@ -84,7 +84,7 @@ namespace MyWinApp
 
         private void ShowButton_Click(object sender, EventArgs e)
         {
-            commandString = @"SELECT s.ID, RollNo, s.Name, Age, Address, DistrictID, d.Name AS District FROM Students AS s LEFT JOIN Districts AS d ON s.DistrictID=d.ID";
+            commandString = @"SELECT * FROM StudensView";
             sqlCommand = new SqlCommand(commandString,sqlConnection);
 
             sqlConnection.Open();
