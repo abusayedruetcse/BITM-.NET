@@ -70,6 +70,7 @@
     <Compile Include="DatabaseConnection.Designer.cs">
       <DependentUpon>DatabaseConnection.cs</DependentUpon>
     </Compile>
+    <Compile Include="District.cs" />
     <Compile Include="FireRangeAutomationSystem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +96,13 @@
     </Compile>
     <Compile Include="ArrayExercise.Designer.cs">
       <DependentUpon>ArrayExercise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student.cs" />
+    <Compile Include="StudentUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentUi.Designer.cs">
+      <DependentUpon>StudentUi.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="BankAccount.resx">
       <DependentUpon>BankAccount.cs</DependentUpon>
@@ -128,6 +136,9 @@
     </Compile>
     <EmbeddedResource Include="ArrayExercise.resx">
       <DependentUpon>ArrayExercise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentUi.resx">
+      <DependentUpon>StudentUi.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

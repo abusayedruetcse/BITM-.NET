@@ -22,8 +22,9 @@ namespace MyWinApp
             //Application.Run(new CustomerForm());
             //Application.Run(new BankAccount());
             //Application.Run(new ListExercise());
-            Application.Run(new FireRangeAutomationSystem());
+            //Application.Run(new FireRangeAutomationSystem());
             //Application.Run(new DatabaseConnection());
+            Application.Run(new StudentUi());
         }
     }
 }

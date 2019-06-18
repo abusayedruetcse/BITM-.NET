@@ -1,4 +1,5 @@
 CREATE DATABASE StudentDB
+--DROP DATABASE StudentDB
 USE StudentDB
 //FirstTask
 CREATE TABLE Product
@@ -55,6 +56,7 @@ Address VARCHAR(200),
 DistrictID int
 )
 --DROP TABLE Students
+
 INSERT INTO Students(RollNo,Name,Age,Address,DistrictID)
 VALUES ('CSE001','ALI', 21,'Mirpur', 1)
 INSERT INTO Students(RollNo,Name,Age,Address,DistrictID)
@@ -104,3 +106,33 @@ ON d.ID=s.DistrictID
 SELECT s.Name, d.Name AS [District Name] , s.DistrictID
 FROM Districts AS d,Students AS s 
 WHERE d.ID=s.DistrictID
+
+//Teachers Instruction
+
+CREATE TABLE Districts(
+
+ID int IDENTITY (1,1) PRIMARY KEY,
+
+Name VARCHAR(50)
+
+)
+
+INSERT INTO Districts Values ('Dhaka')
+
+INSERT INTO Districts Values ('Chitagong')
+
+CREATE TABLE Students(
+
+ID int IDENTITY (1,1) PRIMARY KEY,
+
+RollNo VARCHAR(10),
+
+Name VARCHAR(100),
+
+Age int,
+
+Address VARCHAR(MAX),
+
+DistrictID int FOREIGN KEY REFERENCES Districts(ID)
+
+)
