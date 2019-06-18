@@ -33,27 +33,40 @@ namespace MyWinApp
         }
         private void LoadDistrict()
         {
-            commandString = @"SELECT * FROM Districts";
-            sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-            sqlConnection.Open();
-
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-
-            DataTable dataTable = new DataTable();
-            sqlDataAdapter.Fill(dataTable);
-
-            if(dataTable.Rows.Count>0)
+            try
             {
-                districtComboBox.DataSource = dataTable;
-            }
+                commandString = @"SELECT * FROM Districts";
+                sqlCommand = new SqlCommand(commandString, sqlConnection);
 
-            sqlConnection.Close();
-            districtComboBox.Text = "<Select District>";
+                sqlConnection.Open();
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count > 0)
+                {
+                    districtComboBox.DataSource = dataTable;
+                }
+
+                sqlConnection.Close();
+                districtComboBox.Text = "<Select District>";
+
+            }
+            catch(Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }            
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            if(IsRollDuplicate(rollNoTextBox.Text))
+            {
+                messageLabel.Text = "Roll No is Duplicate,Enter Unique Roll No";
+                return;
+            }
             if (String.IsNullOrEmpty(rollNoTextBox.Text))
             {
                 messageLabel.Text = "RollNo Field is Empty!";
@@ -100,41 +113,80 @@ namespace MyWinApp
         }
         private void InsertStudent(Student student)
         {
-            commandString = @"INSERT INTO Students(RollNo,Name,Age,Address,DistrictID) VALUES ('" + student.RollNo + "','" + student.Name + "'," + student.Age + ",'" + student.Address + "', " + student.DistrictID + ")";
-            sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-            sqlConnection.Open();
-
-            int isExecuted;
-            isExecuted = sqlCommand.ExecuteNonQuery();
-            if (isExecuted > 0)
+            try
             {
-                MessageBox.Show("Saved");
-            }
-            else
-            {
-                MessageBox.Show("Save Failed!");
-            }
-            sqlConnection.Close();
+                commandString = @"INSERT INTO Students(RollNo,Name,Age,Address,DistrictID) VALUES ('" + student.RollNo + "','" + student.Name + "'," + student.Age + ",'" + student.Address + "', " + student.DistrictID + ")";
+                sqlCommand = new SqlCommand(commandString, sqlConnection);
 
+                sqlConnection.Open();
+
+                int isExecuted;
+                isExecuted = sqlCommand.ExecuteNonQuery();
+                if (isExecuted > 0)
+                {
+                    messageLabel.Text = "Student Information Saved";
+                }
+                else
+                {
+                    messageLabel.Text = "Save Failed!";
+                }
+                sqlConnection.Close();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
 
         private void ShowButton_Click(object sender, EventArgs e)
         {
-            commandString = @"SELECT * FROM StudensView";
-            sqlCommand = new SqlCommand(commandString,sqlConnection);
-
-            sqlConnection.Open();
-
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-            DataTable dataTable = new DataTable();
-            sqlDataAdapter.Fill(dataTable);
-
-            if(dataTable.Rows.Count>0)
+            try
             {
-                displayDataGridView.DataSource = dataTable;
-            }           
-            sqlConnection.Close();
+                commandString = @"SELECT * FROM StudensView";
+                sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                sqlConnection.Open();
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count > 0)
+                {
+                    displayDataGridView.DataSource = dataTable;
+                }
+                sqlConnection.Close();
+            }
+            catch(Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+        private bool IsRollDuplicate(string roll)
+        {
+            bool isDuplicate = false;
+            try
+            {               
+                commandString = @"SELECT * FROM Students WHERE RollNo ='" + roll + "'";
+                sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                sqlConnection.Open();
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count> 0)
+                {
+                    isDuplicate = true;
+                }
+                sqlConnection.Close();              
+            }
+            catch(Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+            return isDuplicate;
         }
     }
 }
