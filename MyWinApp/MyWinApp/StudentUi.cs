@@ -226,6 +226,7 @@ namespace MyWinApp
             }
             student.DistrictID = Convert.ToInt32(districtComboBox.SelectedValue);
             UpdateStudent(student);
+            messageLabel.Text = "Successfully Edited!";
             //Cleaning the text box
             rollNoTextBox.Text = "";
             nameTextBox.Text = "";
@@ -276,6 +277,36 @@ namespace MyWinApp
                 }
 
                 sqlConnection.Close();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            student.RollNo = rollNoTextBox.Text;
+            DeleteStudent(student);
+            messageLabel.Text = student.RollNo + " Student is deleted successfully";
+            //Cleaning the text box
+            rollNoTextBox.Text = "";
+            nameTextBox.Text = "";
+            ageTextBox.Text = "";
+            addressTextBox.Text = "";
+            districtComboBox.Text = "<Select District>";
+        }
+        private void DeleteStudent(Student student)
+        {
+            try
+            {
+                commandString = @"DELETE Students WHERE RollNo='"+student.RollNo+"'";
+                sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+                display();
             }
             catch (Exception exception)
             {
