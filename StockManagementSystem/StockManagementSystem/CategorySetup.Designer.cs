@@ -32,6 +32,7 @@
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.SaveButton = new System.Windows.Forms.Button();
             this.categoryDataGridView = new System.Windows.Forms.DataGridView();
+            this.messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.categoryDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,11 +74,20 @@
             this.categoryDataGridView.TabIndex = 3;
             this.categoryDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.categoryDataGridView_CellClick);
             // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.Location = new System.Drawing.Point(82, 81);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 13);
+            this.messageLabel.TabIndex = 4;
+            // 
             // CategorySetup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(446, 397);
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.categoryDataGridView);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.nameTextBox);
@@ -96,5 +106,6 @@
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.DataGridView categoryDataGridView;
+        private System.Windows.Forms.Label messageLabel;
     }
 }

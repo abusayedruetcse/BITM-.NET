@@ -146,3 +146,5 @@ SELECT s.ID, RollNo, s.Name, Age, Address, DistrictID, d.Name AS District FROM S
 SELECT * FROM StudensView
 UPDATE Students SET Name='', Age='', DistrictID= ,Address='' WHERE RollNo=''
 
+DELETE Students 
+WHERE RollNo='CSE100'

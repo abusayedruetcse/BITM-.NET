@@ -3,7 +3,7 @@ CREATE DATABASE StockManagementDB
 USE StockManagementDB
 CREATE TABLE Categories
 (
-SL int IDENTITY(1,1),
+ID int IDENTITY(1,1),
 Name VARCHAR(25)
 )
 -- DROP TABLE Categories
@@ -18,10 +18,12 @@ WHERE SL= 3
 
 CREATE TABLE Companies
 (
-SL int IDENTITY(1,1),
+ID int IDENTITY(1,1),
 Name VARCHAR(25)
 )
 -- DROP TABLE Companies
+
+SELECT * FROM Companies
 
 CREATE TABLE Items
 (
@@ -30,7 +32,32 @@ Name VARCHAR(25),
 CategoryID int,
 CompanyID int,
 ReorderLevel int,
+AvailableQuantity int
 )
 -- DROP TABLE Items
 SELECT ID FROM Items WHERE Name='' AND CategoryID = AND CompanyID=
 SELECT * FROM Items
+
+CREATE TABLE StockIns
+(
+ID int IDENTITY(1,1),
+Date VARCHAR(10),
+Quantity int,
+ItemID int
+)
+-- DROP TABLE StockIns
+CREATE TABLE StockOuts
+(
+ID int IDENTITY(1,1),
+Date VARCHAR(20),
+Quantity int,
+Action VARCHAR(8),
+ItemID int
+)
+
+SELECT DISTINCT cat.Name
+FROM  Categories AS cat LEFT JOIN Items As i
+ON i.CategoryID=cat.ID
+WHERE i.CompanyID= 3
+
+SELECT DISTINCT cat.Name FROM  Categories AS cat LEFT JOIN Items As i ON i.CategoryID=cat.ID WHERE i.CompanyID= 3

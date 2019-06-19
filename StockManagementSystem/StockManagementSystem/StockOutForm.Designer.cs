@@ -1,6 +1,6 @@
 ﻿namespace StockManagementSystem
 {
-    partial class StockOut
+    partial class StockOutForm
     {
         /// <summary>
         /// Required designer variable.

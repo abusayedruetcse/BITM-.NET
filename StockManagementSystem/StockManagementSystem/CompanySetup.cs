@@ -13,7 +13,7 @@ namespace StockManagementSystem
 {
     public partial class CompanySetup : Form
     {
-        int SL = 0;
+        int ID = 0;
         public CompanySetup()
         {
             InitializeComponent();
@@ -42,7 +42,7 @@ namespace StockManagementSystem
             try
             {
                 //1
-                string connectionString = @"Server=PC-301-17\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";
+                string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";
                 SqlConnection sqlConnection = new SqlConnection();
                 sqlConnection.ConnectionString = connectionString;
 
@@ -60,11 +60,11 @@ namespace StockManagementSystem
                 isExecuted = sqlCommand.ExecuteNonQuery();
                 if (isExecuted > 0)
                 {
-                    MessageBox.Show("Saved Successfully");
+                    messageLabel.Text = "Saved Successfully";
                 }
                 else
                 {
-                    MessageBox.Show("Save Failed!");
+                    messageLabel.Text = "Save Failed!";
                 }
                 //5
                 sqlConnection.Close();
@@ -81,12 +81,12 @@ namespace StockManagementSystem
             {
                 //1
                 SqlConnection sqlConnection = new SqlConnection();
-                string connectionString = @"Server=PC-301-17\SQLEXPRESS ; Database=StockManagementDB ; Integrated Security=true";
+                string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS ; Database=StockManagementDB ; Integrated Security=true";
                 sqlConnection.ConnectionString = connectionString;
 
                 //2
                 SqlCommand sqlCommand = new SqlCommand();
-                string commandString = "UPDATE Companies SET Name =  '" + name + "' WHERE SL = " + SL + "";
+                string commandString = "UPDATE Companies SET Name =  '" + name + "' WHERE ID = " + ID + "";
                 sqlCommand.CommandText = commandString;
                 sqlCommand.Connection = sqlConnection;
 
@@ -98,11 +98,11 @@ namespace StockManagementSystem
                 isExecuted = sqlCommand.ExecuteNonQuery();
                 if (isExecuted > 0)
                 {
-                    MessageBox.Show("Updated Successfully");
+                    messageLabel.Text = "Updated Successfully";
                 }
                 else
                 {
-                    MessageBox.Show("Update Failed!");
+                    messageLabel.Text = "Update Failed!";
                 }
 
                 //5
@@ -118,7 +118,7 @@ namespace StockManagementSystem
             try
             {
                 //1
-                string connectionString = @"Server=PC-301-17\SQLEXPRESS ; Database=StockManagementDB;Integrated Security=True";
+                string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS ; Database=StockManagementDB;Integrated Security=True";
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
                 //2
                 string commandString = @"SELECT * FROM Companies";
@@ -151,7 +151,7 @@ namespace StockManagementSystem
                 {
                     companyDataGridView.CurrentRow.Selected = true;
                     nameTextBox.Text = companyDataGridView.Rows[e.RowIndex].Cells["Name"].FormattedValue.ToString();
-                    SL = Convert.ToInt32(companyDataGridView.Rows[e.RowIndex].Cells["SL"].FormattedValue);
+                    ID = Convert.ToInt32(companyDataGridView.Rows[e.RowIndex].Cells["ID"].FormattedValue);
                     SaveButton.Text = "Update";
 
                 }

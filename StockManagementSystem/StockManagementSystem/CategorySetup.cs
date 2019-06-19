@@ -8,12 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StockManagementSystem.Models;
 
 namespace StockManagementSystem
 {
     public partial class CategorySetup : Form
     {
-        int SL;
+        int ID;
         public CategorySetup()
         {
             InitializeComponent();
@@ -42,7 +43,7 @@ namespace StockManagementSystem
             try
             {
                 //1
-                string connectionString = @"Server=PC-301-17\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";
+                string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";
                 SqlConnection sqlConnection = new SqlConnection();
                 sqlConnection.ConnectionString = connectionString;
 
@@ -59,12 +60,12 @@ namespace StockManagementSystem
                 int isExecuted = 0;
                 isExecuted= sqlCommand.ExecuteNonQuery(); 
                 if (isExecuted>0)
-                {
-                    MessageBox.Show("Saved Successfully");
+                {                    
+                    messageLabel.Text = "Saved Successfully";
                 }
                 else
                 {
-                    MessageBox.Show("Save Failed!");
+                    messageLabel.Text = "Save Failed!";
                 }
                 //5
                 sqlConnection.Close();
@@ -81,12 +82,12 @@ namespace StockManagementSystem
             {
                 //1
                 SqlConnection sqlConnection = new SqlConnection();
-                string connectionString = @"Server=PC-301-17\SQLEXPRESS ; Database=StockManagementDB ; Integrated Security=true";
+                string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS ; Database=StockManagementDB ; Integrated Security=true";
                 sqlConnection.ConnectionString = connectionString;
 
                 //2
                 SqlCommand sqlCommand = new SqlCommand();
-                string commandString = "UPDATE Categories SET Name =  '" + name + "' WHERE SL = " + SL + "";
+                string commandString = "UPDATE Categories SET Name =  '" + name + "' WHERE ID = " + ID + "";
                 sqlCommand.CommandText = commandString;
                 sqlCommand.Connection = sqlConnection;
 
@@ -98,11 +99,11 @@ namespace StockManagementSystem
                 isExecuted= sqlCommand.ExecuteNonQuery();
                 if(isExecuted>0)
                 {
-                    MessageBox.Show("Updated Successfully");
+                    messageLabel.Text = "Updated Successfully";
                 }
                 else
                 {
-                    MessageBox.Show("Update Failed!");
+                    messageLabel.Text = "Update Failed!";
                 }
 
                 //5
@@ -118,7 +119,7 @@ namespace StockManagementSystem
             try
             {
                 //1
-                string connectionString = @"Server=PC-301-17\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";
+                string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS ;Database=StockManagementDB;Integrated Security=True";
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
                 //2
                 string commandString = @"SELECT * FROM Categories";
@@ -149,7 +150,7 @@ namespace StockManagementSystem
             {
                 categoryDataGridView.CurrentRow.Selected = true;
                 nameTextBox.Text = categoryDataGridView.Rows[e.RowIndex].Cells["Name"].FormattedValue.ToString();
-                SL = Convert.ToInt32(categoryDataGridView.Rows[e.RowIndex].Cells["SL"].FormattedValue);
+                ID = Convert.ToInt32(categoryDataGridView.Rows[e.RowIndex].Cells["ID"].FormattedValue);
                 SaveButton.Text = "Update";
 
             }
