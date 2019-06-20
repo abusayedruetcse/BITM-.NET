@@ -17,10 +17,10 @@ namespace StockManagementSystem
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FeatureList());
-            //Application.Run(new CategorySetup());
+            Application.Run(new CategorySetup());
             //Application.Run(new CompanySetup());
             //Application.Run(new ItemSetup());
-            Application.Run(new StockInForm());
+            //Application.Run(new StockInForm());
             //Application.Run(new StockOut());
             //Application.Run(new SearchandViewItemsSummary());
             //Application.Run(new ViewBetweenTwoDatesReport());

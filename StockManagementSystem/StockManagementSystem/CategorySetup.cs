@@ -17,7 +17,10 @@ namespace StockManagementSystem
         int ID;
         public CategorySetup()
         {
-            InitializeComponent();
+            InitializeComponent();           
+        }
+        private void CategorySetup_Load(object sender, EventArgs e)
+        {
             Display();
         }
 
@@ -133,7 +136,7 @@ namespace StockManagementSystem
                 DataTable dataTable = new DataTable();
                 sqlDataAdapter.Fill(dataTable);
 
-                categoryDataGridView.DataSource = dataTable;
+                categoryDataGridView.DataSource = dataTable;                
                 //5
                 sqlConnection.Close();
             }
@@ -141,6 +144,8 @@ namespace StockManagementSystem
             {
                 MessageBox.Show(exception.Message);
             }
+            foreach (DataGridViewRow row in categoryDataGridView.Rows)
+                row.Cells["SL"].Value = (row.Index + 1).ToString();
 
         }
 
@@ -155,5 +160,7 @@ namespace StockManagementSystem
 
             }
         }
+
+        
     }
 }
