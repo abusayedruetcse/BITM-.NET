@@ -13,11 +13,19 @@ using StockManagementSystem.Models;
 namespace StockManagementSystem
 {
     public partial class CategorySetup : Form
-    {
-        int ID;
+    {        
+        string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";
+        SqlConnection sqlConnection;
+        string commandString;
+        SqlCommand sqlCommand;
+        SqlDataAdapter sqlDataAdapter;
+        DataTable dataTable;
+        Category category;
         public CategorySetup()
         {
-            InitializeComponent();           
+            InitializeComponent();
+            sqlConnection = new SqlConnection(connectionString);
+            category = new Category();
         }
         private void CategorySetup_Load(object sender, EventArgs e)
         {
@@ -45,14 +53,11 @@ namespace StockManagementSystem
         {
             try
             {
-                //1
-                string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";
-                SqlConnection sqlConnection = new SqlConnection();
-                sqlConnection.ConnectionString = connectionString;
+                //1          
 
                 //2
-                string commandString = @"INSERT INTO Categories (Name) VALUES('"+name+"')";
-                SqlCommand sqlCommand = new SqlCommand();
+                commandString = @"INSERT INTO Categories (Name) VALUES('"+name+"')";
+                sqlCommand = new SqlCommand();
                 sqlCommand.CommandText = commandString;
                 sqlCommand.Connection = sqlConnection;
 
@@ -83,14 +88,11 @@ namespace StockManagementSystem
         {
             try
             {
-                //1
-                SqlConnection sqlConnection = new SqlConnection();
-                string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS ; Database=StockManagementDB ; Integrated Security=true";
-                sqlConnection.ConnectionString = connectionString;
+                
 
                 //2
-                SqlCommand sqlCommand = new SqlCommand();
-                string commandString = "UPDATE Categories SET Name =  '" + name + "' WHERE ID = " + ID + "";
+                sqlCommand = new SqlCommand();
+                commandString = "UPDATE Categories SET Name =  '" + name + "' WHERE ID = " + category.ID + "";
                 sqlCommand.CommandText = commandString;
                 sqlCommand.Connection = sqlConnection;
 
@@ -121,19 +123,16 @@ namespace StockManagementSystem
         {
             try
             {
-                //1
-                string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS ;Database=StockManagementDB;Integrated Security=True";
-                SqlConnection sqlConnection = new SqlConnection(connectionString);
-                //2
-                string commandString = @"SELECT * FROM Categories";
-                SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+                
+                commandString = @"SELECT * FROM Categories";
+                sqlCommand = new SqlCommand(commandString, sqlConnection);
                 //3
                 sqlConnection.Open();
                 //4
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+                sqlDataAdapter = new SqlDataAdapter();
                 sqlDataAdapter.SelectCommand = sqlCommand;
 
-                DataTable dataTable = new DataTable();
+                dataTable = new DataTable();
                 sqlDataAdapter.Fill(dataTable);
 
                 categoryDataGridView.DataSource = dataTable;                
@@ -154,8 +153,8 @@ namespace StockManagementSystem
             if(categoryDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
                 categoryDataGridView.CurrentRow.Selected = true;
-                nameTextBox.Text = categoryDataGridView.Rows[e.RowIndex].Cells["Name"].FormattedValue.ToString();
-                ID = Convert.ToInt32(categoryDataGridView.Rows[e.RowIndex].Cells["ID"].FormattedValue);
+                nameTextBox.Text = categoryDataGridView.Rows[e.RowIndex].Cells["NameColumn"].FormattedValue.ToString();
+                category.ID = Convert.ToInt32(categoryDataGridView.Rows[e.RowIndex].Cells["IDColumn"].FormattedValue);
                 SaveButton.Text = "Update";
 
             }
