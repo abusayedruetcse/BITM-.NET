@@ -75,16 +75,16 @@ namespace MyWinApp.Repository
             return dataTable;
         }
 
-        public void InsertStudent(Student student)
+        public int InsertStudent(Student student)
         {
+            int isExecuted =0;
             try
             {
                 commandString = @"INSERT INTO Students(RollNo,Name,Age,Address,DistrictID) VALUES ('" + student.RollNo + "','" + student.Name + "'," + student.Age + ",'" + student.Address + "', " + student.DistrictID + ")";
                 sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 sqlConnection.Open();
-
-                int isExecuted;
+                
                 isExecuted = sqlCommand.ExecuteNonQuery();                
                 sqlConnection.Close();
             }
@@ -92,6 +92,7 @@ namespace MyWinApp.Repository
             {
                 //MessageBox.Show(exception.Message);
             }
+            return isExecuted;
         }
     }
 }

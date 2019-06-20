@@ -77,7 +77,17 @@ namespace MyWinApp
                 return;
             }
             student.DistrictID = Convert.ToInt32(districtComboBox.SelectedValue);
-            _studentManager.InsertStudent(student);
+            int isExecuted = 0;
+            isExecuted=_studentManager.InsertStudent(student);
+
+            if (isExecuted > 0)
+            {
+                messageLabel.Text = "Student Information Saved";
+            }
+            else
+            {
+                messageLabel.Text = "Save Failed!";
+            }
             //Cleaning the text box
             rollNoTextBox.Text = "";
             nameTextBox.Text = "";

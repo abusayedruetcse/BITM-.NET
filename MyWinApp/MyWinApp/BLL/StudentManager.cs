@@ -20,9 +20,9 @@ namespace MyWinApp.BLL
         {
             return _studentRepository.ShowStudents();
         }
-        public void InsertStudent(Student student)
+        public int InsertStudent(Student student)
         {
-             _studentRepository.InsertStudent(student);
+            return _studentRepository.InsertStudent(student);
         }
     }
     
