@@ -165,6 +165,8 @@ namespace MyWinApp
             {
                 MessageBox.Show(exception.Message);
             }
+            foreach (DataGridViewRow row in displayDataGridView.Rows)
+                row.Cells["SL"].Value = (row.Index + 1).ToString();
         }
         private bool IsRollDuplicate(string roll)
         {
