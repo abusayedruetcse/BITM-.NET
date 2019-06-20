@@ -154,8 +154,8 @@ namespace StockManagementSystem
             if(categoryDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
                 categoryDataGridView.CurrentRow.Selected = true;
-                nameTextBox.Text = categoryDataGridView.Rows[e.RowIndex].Cells["NameColumn"].FormattedValue.ToString();
-                category.ID = Convert.ToInt32(categoryDataGridView.Rows[e.RowIndex].Cells["IDColumn"].FormattedValue);
+                nameTextBox.Text = categoryDataGridView.Rows[e.RowIndex].Cells["dataGridViewTextBoxColumn1"].FormattedValue.ToString();
+                category.ID = Convert.ToInt32(categoryDataGridView.Rows[e.RowIndex].Cells["iDDataGridViewTextBoxColumn"].FormattedValue);
                 SaveButton.Text = "Update";
 
             }
