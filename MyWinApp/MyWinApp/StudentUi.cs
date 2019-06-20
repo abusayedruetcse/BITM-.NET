@@ -14,7 +14,7 @@ namespace MyWinApp
 {
     public partial class StudentUi : Form
     {
-        string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS; Database=StudentDB; Integrated Security=True";
+        string connectionString = @"Server=PC-301-17\SQLEXPRESS; Database=StudentDB; Integrated Security=True";
         SqlConnection sqlConnection;
         string commandString;
         SqlCommand sqlCommand;
