@@ -52,6 +52,7 @@
     <Compile Include="BankAccount.Designer.cs">
       <DependentUpon>BankAccount.cs</DependentUpon>
     </Compile>
+    <Compile Include="BLL\StudentManager.cs" />
     <Compile Include="Calculator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +99,7 @@
     <Compile Include="ArrayExercise.Designer.cs">
       <DependentUpon>ArrayExercise.cs</DependentUpon>
     </Compile>
+    <Compile Include="Repository\StudentRepository.cs" />
     <Compile Include="StudentUi.cs">
       <SubType>Form</SubType>
     </Compile>

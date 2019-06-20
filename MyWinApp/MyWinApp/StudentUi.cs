@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MyWinApp.Models;
+using MyWinApp.BLL;
 
 namespace MyWinApp
 {
@@ -18,8 +19,7 @@ namespace MyWinApp
         SqlConnection sqlConnection;
         string commandString;
         SqlCommand sqlCommand;
-        Student student;
-
+        Student student;        
         public StudentUi()
         {
             InitializeComponent();          
@@ -29,37 +29,12 @@ namespace MyWinApp
 
         private void StudentUi_Load(object sender, EventArgs e)
         {
-            LoadDistrict();
+            StudentManager _studentManager;
+            _studentManager = new StudentManager();            
+            districtComboBox.DataSource = _studentManager.LoadDistrict();
+            districtComboBox.Text = "<Select District>";
         }
-        private void LoadDistrict()
-        {
-            try
-            {
-                commandString = @"SELECT * FROM Districts";
-                sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-                sqlConnection.Open();
-
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-
-                DataTable dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-
-                if (dataTable.Rows.Count > 0)
-                {
-                    districtComboBox.DataSource = dataTable;
-                }
-
-                sqlConnection.Close();
-                districtComboBox.Text = "<Select District>";
-
-            }
-            catch(Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }            
-        }
-
+        
         private void SaveButton_Click(object sender, EventArgs e)
         {
             if(IsRollDuplicate(rollNoTextBox.Text))
