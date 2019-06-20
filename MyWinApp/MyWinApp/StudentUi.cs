@@ -15,7 +15,7 @@ namespace MyWinApp
 {
     public partial class StudentUi : Form
     {
-        string connectionString = @"Server=PC-301-17\SQLEXPRESS; Database=StudentDB; Integrated Security=True";
+        string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS; Database=StudentDB; Integrated Security=True";
         SqlConnection sqlConnection;
         string commandString;
         SqlCommand sqlCommand;
@@ -199,7 +199,7 @@ namespace MyWinApp
             
             try
             {        
-                rollNoTextBox.Text = displayDataGridView.CurrentRow.Cells["RollNo"].FormattedValue.ToString();
+                rollNoTextBox.Text = displayDataGridView.CurrentRow.Cells["RollNoColumn"].FormattedValue.ToString();
                 commandString = @"SELECT RollNo, s.Name, Age, Address, d.Name AS District FROM Students AS s LEFT JOIN Districts AS d ON s.DistrictId=d.ID WHERE RollNo='"+rollNoTextBox.Text+"' ";
                 sqlCommand = new SqlCommand(commandString, sqlConnection);
 
