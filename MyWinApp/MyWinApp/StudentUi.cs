@@ -19,7 +19,8 @@ namespace MyWinApp
         SqlConnection sqlConnection;
         string commandString;
         SqlCommand sqlCommand;
-        Student student;        
+        Student student;
+        StudentManager _studentManager;
         public StudentUi()
         {
             InitializeComponent();          
@@ -28,8 +29,7 @@ namespace MyWinApp
         }
 
         private void StudentUi_Load(object sender, EventArgs e)
-        {
-            StudentManager _studentManager;
+        {           
             _studentManager = new StudentManager();            
             districtComboBox.DataSource = _studentManager.LoadDistrict();
             districtComboBox.Text = "<Select District>";
@@ -115,34 +115,11 @@ namespace MyWinApp
 
         private void ShowButton_Click(object sender, EventArgs e)
         {
-            display();
-        }
-        private void display()
-        {
-            try
-            {
-                commandString = @"SELECT s.ID, RollNo, s.Name, Age, Address, DistrictID, d.Name AS District FROM Students AS s LEFT JOIN Districts AS d ON s.DistrictID=d.ID";
-                sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-                sqlConnection.Open();
-
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                DataTable dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-
-                if (dataTable.Rows.Count > 0)
-                {
-                    displayDataGridView.DataSource = dataTable;
-                }
-                sqlConnection.Close();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
+            displayDataGridView.DataSource=_studentManager.ShowStudents();
             foreach (DataGridViewRow row in displayDataGridView.Rows)
-                row.Cells["SL"].Value = (row.Index + 1).ToString();
+                   row.Cells["SL"].Value = (row.Index + 1).ToString();
         }
+        
         private bool IsRollDuplicate(string roll)
         {
             bool isDuplicate = false;
@@ -221,8 +198,11 @@ namespace MyWinApp
                 sqlConnection.Open();
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
-                display();
-            }catch(Exception exception)
+                displayDataGridView.DataSource = _studentManager.ShowStudents();
+                foreach (DataGridViewRow row in displayDataGridView.Rows)
+                    row.Cells["SL"].Value = (row.Index + 1).ToString();
+            }
+            catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
             }
@@ -283,7 +263,9 @@ namespace MyWinApp
                 sqlConnection.Open();
                 sqlCommand.ExecuteNonQuery();
                 sqlConnection.Close();
-                display();
+                displayDataGridView.DataSource = _studentManager.ShowStudents();
+                foreach (DataGridViewRow row in displayDataGridView.Rows)
+                    row.Cells["SL"].Value = (row.Index + 1).ToString();
             }
             catch (Exception exception)
             {

@@ -14,9 +14,10 @@ namespace MyWinApp.Repository
         SqlConnection sqlConnection;
         string commandString;
         SqlCommand sqlCommand;
+        SqlDataAdapter sqlDataAdapter;
+        DataTable dataTable;
         public DataTable LoadDistrict()
-        {
-            DataTable dataTable = new DataTable(); ;
+        {          
             try
             {
                 sqlConnection = new SqlConnection(connectionString);
@@ -25,9 +26,8 @@ namespace MyWinApp.Repository
 
                 sqlConnection.Open();
 
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-
-                
+                sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                dataTable = new DataTable();               
                 sqlDataAdapter.Fill(dataTable);
 
                 if (dataTable.Rows.Count > 0)
@@ -42,6 +42,35 @@ namespace MyWinApp.Repository
             {
                 //MessageBox.Show(exception.Message);
             }
+            return dataTable;
+        }
+
+        public DataTable ShowStudents()
+        {
+            try
+            {
+                commandString = @"SELECT s.ID, RollNo, s.Name, Age, Address, DistrictID, d.Name AS District FROM Students AS s LEFT JOIN Districts AS d ON s.DistrictID=d.ID";
+                sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                sqlConnection.Open();
+
+                sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count > 0)
+                {
+                    //displayDataGridView.DataSource = dataTable;
+                }
+                sqlConnection.Close();
+            }
+            catch (Exception exception)
+            {
+                //MessageBox.Show(exception.Message);
+            }
+            //foreach (DataGridViewRow row in displayDataGridView.Rows)
+            //    row.Cells["SL"].Value = (row.Index + 1).ToString();
+
             return dataTable;
         }
     }

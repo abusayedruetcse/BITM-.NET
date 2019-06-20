@@ -15,5 +15,11 @@ namespace MyWinApp.BLL
         {
             return _studentRepository.LoadDistrict();
         }
+        public DataTable ShowStudents()
+        {
+            return _studentRepository.ShowStudents();
+        }
     }
+    
+
 }
