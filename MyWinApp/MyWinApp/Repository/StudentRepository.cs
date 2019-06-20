@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
+using MyWinApp.Models;
 
 namespace MyWinApp.Repository
 {
@@ -72,6 +73,25 @@ namespace MyWinApp.Repository
             //    row.Cells["SL"].Value = (row.Index + 1).ToString();
 
             return dataTable;
+        }
+
+        public void InsertStudent(Student student)
+        {
+            try
+            {
+                commandString = @"INSERT INTO Students(RollNo,Name,Age,Address,DistrictID) VALUES ('" + student.RollNo + "','" + student.Name + "'," + student.Age + ",'" + student.Address + "', " + student.DistrictID + ")";
+                sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                sqlConnection.Open();
+
+                int isExecuted;
+                isExecuted = sqlCommand.ExecuteNonQuery();                
+                sqlConnection.Close();
+            }
+            catch (Exception exception)
+            {
+                //MessageBox.Show(exception.Message);
+            }
         }
     }
 }

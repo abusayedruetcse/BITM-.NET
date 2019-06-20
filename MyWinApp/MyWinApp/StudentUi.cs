@@ -77,7 +77,7 @@ namespace MyWinApp
                 return;
             }
             student.DistrictID = Convert.ToInt32(districtComboBox.SelectedValue);
-            InsertStudent(student);
+            _studentManager.InsertStudent(student);
             //Cleaning the text box
             rollNoTextBox.Text = "";
             nameTextBox.Text = "";
@@ -86,32 +86,7 @@ namespace MyWinApp
             districtComboBox.Text = "<Select District>";
 
         }
-        private void InsertStudent(Student student)
-        {
-            try
-            {
-                commandString = @"INSERT INTO Students(RollNo,Name,Age,Address,DistrictID) VALUES ('" + student.RollNo + "','" + student.Name + "'," + student.Age + ",'" + student.Address + "', " + student.DistrictID + ")";
-                sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-                sqlConnection.Open();
-
-                int isExecuted;
-                isExecuted = sqlCommand.ExecuteNonQuery();
-                if (isExecuted > 0)
-                {
-                    messageLabel.Text = "Student Information Saved";
-                }
-                else
-                {
-                    messageLabel.Text = "Save Failed!";
-                }
-                sqlConnection.Close();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-        }
+        
 
         private void ShowButton_Click(object sender, EventArgs e)
         {
