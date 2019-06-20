@@ -145,6 +145,7 @@ namespace StockManagementSystem
             }
             foreach (DataGridViewRow row in categoryDataGridView.Rows)
                 row.Cells["SL"].Value = (row.Index + 1).ToString();
+            categoryDataGridView.RowHeadersVisible = false;
 
         }
 
