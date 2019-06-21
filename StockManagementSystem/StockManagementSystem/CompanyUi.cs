@@ -16,8 +16,7 @@ namespace StockManagementSystem
         int ID = 0;
         public CompanySetup()
         {
-            InitializeComponent();
-            Display();
+            InitializeComponent();            
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -25,11 +24,19 @@ namespace StockManagementSystem
             string name = "";
             if (SaveButton.Text.Equals("Save"))
             {
+                if(String.IsNullOrEmpty(nameTextBox.Text))
+                {
+                    return;
+                }
                 name = nameTextBox.Text;
                 Insert(name);
             }
             else
             {
+                if (String.IsNullOrEmpty(nameTextBox.Text))
+                {
+                    return;
+                }
                 name = nameTextBox.Text;
                 Update(name);
                 SaveButton.Text = "Save";
@@ -133,13 +140,18 @@ namespace StockManagementSystem
                 sqlDataAdapter.Fill(dataTable);
 
                 companyDataGridView.DataSource = dataTable;
-                //5
+                companyDataGridView.RowHeadersVisible = false;
+                
+              //5
                 sqlConnection.Close();
             }
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
             }
+            foreach (DataGridViewRow row in companyDataGridView.Rows)         
+                row.Cells["SL"].Value = (row.Index + 1).ToString();
+            
 
         }
 
@@ -150,8 +162,8 @@ namespace StockManagementSystem
                 if (companyDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
                 {
                     companyDataGridView.CurrentRow.Selected = true;
-                    nameTextBox.Text = companyDataGridView.Rows[e.RowIndex].Cells["Name"].FormattedValue.ToString();
-                    ID = Convert.ToInt32(companyDataGridView.Rows[e.RowIndex].Cells["ID"].FormattedValue);
+                    nameTextBox.Text = companyDataGridView.Rows[e.RowIndex].Cells["NameColumn"].FormattedValue.ToString();
+                    ID = Convert.ToInt32(companyDataGridView.Rows[e.RowIndex].Cells["IDColumn"].FormattedValue);
                     SaveButton.Text = "Update";
 
                 }
@@ -160,6 +172,11 @@ namespace StockManagementSystem
                 MessageBox.Show(exception.Message);
             }
             
+        }
+
+        private void CompanySetup_Load(object sender, EventArgs e)
+        {
+            Display();
         }
     }
 }

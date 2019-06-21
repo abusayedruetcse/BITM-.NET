@@ -1,6 +1,6 @@
 ﻿namespace StockManagementSystem
 {
-    partial class ViewBetweenTwoDatesReport
+    partial class ViewUi
     {
         /// <summary>
         /// Required designer variable.

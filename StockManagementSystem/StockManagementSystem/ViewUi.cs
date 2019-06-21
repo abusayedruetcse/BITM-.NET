@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace StockManagementSystem
 {
-    public partial class ViewBetweenTwoDatesReport : Form
+    public partial class ViewUi : Form
     {
-        public ViewBetweenTwoDatesReport()
+        public ViewUi()
         {
             InitializeComponent();
         }

@@ -12,7 +12,7 @@ using StockManagementSystem.Models;
 
 namespace StockManagementSystem
 {
-    public partial class StockInForm : Form
+    public partial class StockInUi : Form
     {
         string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS ;Database=StockManagementDB;Integrated Security=True";
         SqlConnection sqlConnection;
@@ -21,7 +21,7 @@ namespace StockManagementSystem
         SqlDataAdapter sqlDataAdapter;
         DataTable dataTable;
         StockIn stockIn;
-        public StockInForm()
+        public StockInUi()
         {
             InitializeComponent();
             sqlConnection = new SqlConnection(connectionString);

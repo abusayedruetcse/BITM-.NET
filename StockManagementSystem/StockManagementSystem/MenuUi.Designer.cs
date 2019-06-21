@@ -1,6 +1,6 @@
 ﻿namespace StockManagementSystem
 {
-    partial class FeatureList
+    partial class MenuUi
     {
         /// <summary>
         /// Required designer variable.

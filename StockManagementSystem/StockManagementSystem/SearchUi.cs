@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace StockManagementSystem
 {
-    public partial class StockOutForm : Form
+    public partial class SearchUi : Form
     {
-        public StockOutForm()
+        public SearchUi()
         {
             InitializeComponent();
         }
 
-       
+        
     }
 }
