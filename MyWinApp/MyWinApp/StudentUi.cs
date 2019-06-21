@@ -19,6 +19,8 @@ namespace MyWinApp
         SqlConnection sqlConnection;
         string commandString;
         SqlCommand sqlCommand;
+        SqlDataAdapter sqlDataAdapter;
+        DataTable dataTable;
         Student student;
         StudentManager _studentManager;
         public StudentUi()
@@ -33,6 +35,11 @@ namespace MyWinApp
             _studentManager = new StudentManager();            
             districtComboBox.DataSource = _studentManager.LoadDistrict();
             districtComboBox.Text = "<Select District>";
+            //Display Records
+            displayDataGridView.DataSource = _studentManager.ShowStudents();
+            foreach (DataGridViewRow row in displayDataGridView.Rows)
+                row.Cells["SL"].Value = (row.Index + 1).ToString();
+            displayDataGridView.RowHeadersVisible = false;
         }
         
         private void SaveButton_Click(object sender, EventArgs e)
@@ -189,6 +196,56 @@ namespace MyWinApp
 
             SaveButton.Text = "Confirm";           
         }
-        
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            student.RollNo = rollNoTextBox.Text;
+            student.Name = nameTextBox.Text;
+            SearchStudent(student);
+        }
+        private void SearchStudent(Student student)
+        {
+            messageLabel.Text = "";
+            commandString = "";
+            if(!String.IsNullOrEmpty(student.RollNo))
+            {
+                commandString = "SELECT * FROM Students WHERE RollNo LIKE '%"+student.RollNo+"%'";
+            }
+            if (!String.IsNullOrEmpty(student.Name))
+            {
+                commandString = "SELECT * FROM Students WHERE Name LIKE '%" + student.Name + "%'";
+            }
+            if (!String.IsNullOrEmpty(student.RollNo)&& !String.IsNullOrEmpty(student.Name))
+            {
+                commandString = "SELECT * FROM Students WHERE RollNo LIKE '%" + student.RollNo + "%' AND Name LIKE '%"+student.Name+"%'";
+            }
+
+            if(!String.IsNullOrEmpty(commandString))
+            {
+                sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                sqlConnection.Open();
+
+                sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count > 0)
+                {
+                    displayDataGridView.DataSource = dataTable;
+                }
+                else
+                {
+                    messageLabel.Text = "Not Found the Student";
+                    displayDataGridView.DataSource = null;
+                }
+                sqlConnection.Close();
+            }else
+            {
+                messageLabel.Text = "Not Found the Student";
+                displayDataGridView.DataSource = null;
+            }
+            
+        }
     }
 }

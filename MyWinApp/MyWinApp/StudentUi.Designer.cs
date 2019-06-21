@@ -36,6 +36,15 @@
             this.ShowButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.displayDataGridView = new System.Windows.Forms.DataGridView();
+            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.District = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RollNoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AgeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DistrictColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.SaveButton = new System.Windows.Forms.Button();
@@ -51,15 +60,6 @@
             this.rollNoTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.messageLabel = new System.Windows.Forms.Label();
-            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.District = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RollNoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AgeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DistrictColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.displayDataGridView)).BeginInit();
@@ -89,6 +89,7 @@
             this.SearchButton.TabIndex = 0;
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // DeleteButton
             // 
@@ -153,6 +154,77 @@
             this.displayDataGridView.ReadOnly = true;
             this.displayDataGridView.Size = new System.Drawing.Size(489, 169);
             this.displayDataGridView.TabIndex = 0;
+            // 
+            // SL
+            // 
+            this.SL.FillWeight = 91.37056F;
+            this.SL.HeaderText = "SL";
+            this.SL.Name = "SL";
+            this.SL.ReadOnly = true;
+            // 
+            // District
+            // 
+            this.District.DataPropertyName = "District";
+            this.District.HeaderText = "District";
+            this.District.Name = "District";
+            this.District.ReadOnly = true;
+            this.District.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "ID";
+            this.dataGridViewTextBoxColumn11.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Visible = false;
+            // 
+            // RollNoColumn
+            // 
+            this.RollNoColumn.DataPropertyName = "RollNo";
+            this.RollNoColumn.FillWeight = 91.80123F;
+            this.RollNoColumn.HeaderText = "RollNo";
+            this.RollNoColumn.Name = "RollNoColumn";
+            this.RollNoColumn.ReadOnly = true;
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.DataPropertyName = "Name";
+            this.NameColumn.FillWeight = 164.6766F;
+            this.NameColumn.HeaderText = "Name";
+            this.NameColumn.Name = "NameColumn";
+            this.NameColumn.ReadOnly = true;
+            // 
+            // AgeColumn
+            // 
+            this.AgeColumn.DataPropertyName = "Age";
+            this.AgeColumn.FillWeight = 80.96285F;
+            this.AgeColumn.HeaderText = "Age";
+            this.AgeColumn.Name = "AgeColumn";
+            this.AgeColumn.ReadOnly = true;
+            // 
+            // AddressColumn
+            // 
+            this.AddressColumn.DataPropertyName = "Address";
+            this.AddressColumn.FillWeight = 91.80123F;
+            this.AddressColumn.HeaderText = "Address";
+            this.AddressColumn.Name = "AddressColumn";
+            this.AddressColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "DistrictID";
+            this.dataGridViewTextBoxColumn16.HeaderText = "DistrictID";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Visible = false;
+            // 
+            // DistrictColumn
+            // 
+            this.DistrictColumn.DataPropertyName = "District";
+            this.DistrictColumn.FillWeight = 79.38753F;
+            this.DistrictColumn.HeaderText = "District";
+            this.DistrictColumn.Name = "DistrictColumn";
+            this.DistrictColumn.ReadOnly = true;
             // 
             // studentBindingSource
             // 
@@ -283,77 +355,6 @@
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(0, 13);
             this.messageLabel.TabIndex = 9;
-            // 
-            // SL
-            // 
-            this.SL.FillWeight = 91.37056F;
-            this.SL.HeaderText = "SL";
-            this.SL.Name = "SL";
-            this.SL.ReadOnly = true;
-            // 
-            // District
-            // 
-            this.District.DataPropertyName = "District";
-            this.District.HeaderText = "District";
-            this.District.Name = "District";
-            this.District.ReadOnly = true;
-            this.District.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "ID";
-            this.dataGridViewTextBoxColumn11.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Visible = false;
-            // 
-            // RollNoColumn
-            // 
-            this.RollNoColumn.DataPropertyName = "RollNo";
-            this.RollNoColumn.FillWeight = 91.80123F;
-            this.RollNoColumn.HeaderText = "RollNo";
-            this.RollNoColumn.Name = "RollNoColumn";
-            this.RollNoColumn.ReadOnly = true;
-            // 
-            // NameColumn
-            // 
-            this.NameColumn.DataPropertyName = "Name";
-            this.NameColumn.FillWeight = 164.6766F;
-            this.NameColumn.HeaderText = "Name";
-            this.NameColumn.Name = "NameColumn";
-            this.NameColumn.ReadOnly = true;
-            // 
-            // AgeColumn
-            // 
-            this.AgeColumn.DataPropertyName = "Age";
-            this.AgeColumn.FillWeight = 80.96285F;
-            this.AgeColumn.HeaderText = "Age";
-            this.AgeColumn.Name = "AgeColumn";
-            this.AgeColumn.ReadOnly = true;
-            // 
-            // AddressColumn
-            // 
-            this.AddressColumn.DataPropertyName = "Address";
-            this.AddressColumn.FillWeight = 91.80123F;
-            this.AddressColumn.HeaderText = "Address";
-            this.AddressColumn.Name = "AddressColumn";
-            this.AddressColumn.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "DistrictID";
-            this.dataGridViewTextBoxColumn16.HeaderText = "DistrictID";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            this.dataGridViewTextBoxColumn16.Visible = false;
-            // 
-            // DistrictColumn
-            // 
-            this.DistrictColumn.DataPropertyName = "District";
-            this.DistrictColumn.FillWeight = 79.38753F;
-            this.DistrictColumn.HeaderText = "District";
-            this.DistrictColumn.Name = "DistrictColumn";
-            this.DistrictColumn.ReadOnly = true;
             // 
             // StudentUi
             // 
