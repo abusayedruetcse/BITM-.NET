@@ -37,68 +37,83 @@ namespace MyWinApp
         
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if(SaveButton.Text.Equals("Save"))
+            if(SaveButton.Text.Equals("Confirm"))
             {
-                if (IsRollDuplicate(rollNoTextBox.Text))
-                {
-                    messageLabel.Text = "Roll No is Duplicate,Enter Unique Roll No";
-                    return;
-                }
-                if (String.IsNullOrEmpty(rollNoTextBox.Text))
-                {
-                    messageLabel.Text = "RollNo Field is Empty!";
-                    return;
-                }
-            }           
-            student.RollNo = rollNoTextBox.Text;
-            if (String.IsNullOrEmpty(nameTextBox.Text))
-            {
-                messageLabel.Text = "Name Field is Empty!";
-                return;
-            }
-            student.Name = nameTextBox.Text;
-            if(String.IsNullOrEmpty(ageTextBox.Text))
-            {
-                messageLabel.Text = "Age Field is Empty!";
-                return;
-            }
-            if(System.Text.RegularExpressions.Regex.IsMatch(ageTextBox.Text,"[^0-9]"))
-            {
-                messageLabel.Text = "Enter Numeric Value for Age";
-                return;
-            }
-            student.Age = Convert.ToInt32(ageTextBox.Text);
-            if (String.IsNullOrEmpty(addressTextBox.Text))
-            {
-                messageLabel.Text = "Address Field is Empty!";
-                return;
-            }
-            student.Address = addressTextBox.Text;
-            if(districtComboBox.Text.Equals("<Select District>"))
-            {
-                messageLabel.Text = "Select District";
-                return;
-            }
-            student.DistrictID = Convert.ToInt32(districtComboBox.SelectedValue);
-            int isExecuted = 0;
-            if(SaveButton.Text.Equals("Save"))
-            {
-                isExecuted = _studentManager.InsertStudent(student);
+                student.RollNo = rollNoTextBox.Text;
+                DeleteStudent(student);
+                messageLabel.Text = student.RollNo + " Student is deleted successfully";
             }
             else
             {
-                isExecuted= UpdateStudent(student);
-            }
-            
+                if (SaveButton.Text.Equals("Save"))
+                {
+                    if (IsRollDuplicate(rollNoTextBox.Text))
+                    {
+                        messageLabel.Text = "Roll No is Duplicate,Enter Unique Roll No";
+                        return;
+                    }
+                    if (String.IsNullOrEmpty(rollNoTextBox.Text))
+                    {
+                        messageLabel.Text = "RollNo Field is Empty!";
+                        return;
+                    }
+                }
+                student.RollNo = rollNoTextBox.Text;
+                if (String.IsNullOrEmpty(nameTextBox.Text))
+                {
+                    messageLabel.Text = "Name Field is Empty!";
+                    return;
+                }
+                student.Name = nameTextBox.Text;
+                if (String.IsNullOrEmpty(ageTextBox.Text))
+                {
+                    messageLabel.Text = "Age Field is Empty!";
+                    return;
+                }
+                if (System.Text.RegularExpressions.Regex.IsMatch(ageTextBox.Text, "[^0-9]"))
+                {
+                    messageLabel.Text = "Enter Numeric Value for Age";
+                    return;
+                }
+                student.Age = Convert.ToInt32(ageTextBox.Text);
+                if (String.IsNullOrEmpty(addressTextBox.Text))
+                {
+                    messageLabel.Text = "Address Field is Empty!";
+                    return;
+                }
+                student.Address = addressTextBox.Text;
+                if (districtComboBox.Text.Equals("<Select District>"))
+                {
+                    messageLabel.Text = "Select District";
+                    return;
+                }
+                student.DistrictID = Convert.ToInt32(districtComboBox.SelectedValue);
+                int isExecuted = 0;
+                if (SaveButton.Text.Equals("Save"))
+                {
+                    isExecuted = _studentManager.InsertStudent(student);
+                }
+                else
+                {
+                    isExecuted = _studentManager.UpdateStudent(student);
+                }
 
-            if (isExecuted > 0)
-            {
-                messageLabel.Text = "Student Information "+SaveButton.Text+"d";
-            }
-            else
-            {
-                messageLabel.Text = SaveButton.Text+" Failed!";
-            }
+
+                if (isExecuted > 0)
+                {
+                    messageLabel.Text = "Student Information " + SaveButton.Text + "d";
+                }
+                else
+                {
+                    messageLabel.Text = SaveButton.Text + " Failed!";
+                }
+            } 
+            //Display data 
+            displayDataGridView.DataSource = _studentManager.ShowStudents();
+            foreach (DataGridViewRow row in displayDataGridView.Rows)
+                row.Cells["SL"].Value = (row.Index + 1).ToString();
+            displayDataGridView.RowHeadersVisible = false;
+
             //Cleaning the text box
             rollNoTextBox.Text = "";
             nameTextBox.Text = "";
@@ -153,30 +168,26 @@ namespace MyWinApp
             addressTextBox.Text = displayDataGridView.CurrentRow.Cells["AddressColumn"].FormattedValue.ToString();
 
             SaveButton.Text = "Update";                    
-        }
-        private int UpdateStudent(Student student)
-        {
-            int isExecuted = 0;
-            isExecuted = _studentManager.UpdateStudent(student);
-            displayDataGridView.DataSource = _studentManager.ShowStudents();
-            foreach (DataGridViewRow row in displayDataGridView.Rows)
-                row.Cells["SL"].Value = (row.Index + 1).ToString();
-            displayDataGridView.RowHeadersVisible = false;
-            return isExecuted;
-        }
+        }    
         
-
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            student.RollNo = rollNoTextBox.Text;
-            DeleteStudent(student);
-            messageLabel.Text = student.RollNo + " Student is deleted successfully";
+            rollNoTextBox.Text = displayDataGridView.CurrentRow.Cells["RollNoColumn"].FormattedValue.ToString();
+            nameTextBox.Text = displayDataGridView.CurrentRow.Cells["NameColumn"].FormattedValue.ToString();
+            ageTextBox.Text = displayDataGridView.CurrentRow.Cells["AgeColumn"].FormattedValue.ToString();
+            districtComboBox.Text = displayDataGridView.CurrentRow.Cells["DistrictColumn"].FormattedValue.ToString();
+            addressTextBox.Text = displayDataGridView.CurrentRow.Cells["AddressColumn"].FormattedValue.ToString();
+
+            SaveButton.Text = "Confirm";
+            //student.RollNo = rollNoTextBox.Text;
+            //DeleteStudent(student);
+            //messageLabel.Text = student.RollNo + " Student is deleted successfully";
             //Cleaning the text box
-            rollNoTextBox.Text = "";
-            nameTextBox.Text = "";
-            ageTextBox.Text = "";
-            addressTextBox.Text = "";
-            districtComboBox.Text = "<Select District>";
+            //rollNoTextBox.Text = "";
+            //nameTextBox.Text = "";
+            //ageTextBox.Text = "";
+            //addressTextBox.Text = "";
+            //districtComboBox.Text = "<Select District>";
         }
         private void DeleteStudent(Student student)
         {
