@@ -135,6 +135,7 @@
             this.displayDataGridView.AllowUserToAddRows = false;
             this.displayDataGridView.AllowUserToDeleteRows = false;
             this.displayDataGridView.AutoGenerateColumns = false;
+            this.displayDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.displayDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.displayDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SL,
@@ -286,6 +287,7 @@
             // 
             // SL
             // 
+            this.SL.FillWeight = 91.37056F;
             this.SL.HeaderText = "SL";
             this.SL.Name = "SL";
             this.SL.ReadOnly = true;
@@ -309,6 +311,7 @@
             // RollNoColumn
             // 
             this.RollNoColumn.DataPropertyName = "RollNo";
+            this.RollNoColumn.FillWeight = 91.80123F;
             this.RollNoColumn.HeaderText = "RollNo";
             this.RollNoColumn.Name = "RollNoColumn";
             this.RollNoColumn.ReadOnly = true;
@@ -316,6 +319,7 @@
             // dataGridViewTextBoxColumn13
             // 
             this.dataGridViewTextBoxColumn13.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn13.FillWeight = 164.6766F;
             this.dataGridViewTextBoxColumn13.HeaderText = "Name";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
@@ -323,6 +327,7 @@
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.DataPropertyName = "Age";
+            this.dataGridViewTextBoxColumn14.FillWeight = 80.96285F;
             this.dataGridViewTextBoxColumn14.HeaderText = "Age";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.ReadOnly = true;
@@ -330,6 +335,7 @@
             // dataGridViewTextBoxColumn15
             // 
             this.dataGridViewTextBoxColumn15.DataPropertyName = "Address";
+            this.dataGridViewTextBoxColumn15.FillWeight = 91.80123F;
             this.dataGridViewTextBoxColumn15.HeaderText = "Address";
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
@@ -345,6 +351,7 @@
             // dataGridViewTextBoxColumn17
             // 
             this.dataGridViewTextBoxColumn17.DataPropertyName = "District";
+            this.dataGridViewTextBoxColumn17.FillWeight = 79.38753F;
             this.dataGridViewTextBoxColumn17.HeaderText = "District";
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.ReadOnly = true;

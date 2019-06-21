@@ -103,6 +103,7 @@ namespace MyWinApp
             displayDataGridView.DataSource=_studentManager.ShowStudents();
             foreach (DataGridViewRow row in displayDataGridView.Rows)
                    row.Cells["SL"].Value = (row.Index + 1).ToString();
+            displayDataGridView.RowHeadersVisible = false;
         }
         
         private bool IsRollDuplicate(string roll)
@@ -186,6 +187,7 @@ namespace MyWinApp
                 displayDataGridView.DataSource = _studentManager.ShowStudents();
                 foreach (DataGridViewRow row in displayDataGridView.Rows)
                     row.Cells["SL"].Value = (row.Index + 1).ToString();
+                displayDataGridView.RowHeadersVisible = false;
             }
             catch (Exception exception)
             {
@@ -251,6 +253,7 @@ namespace MyWinApp
                 displayDataGridView.DataSource = _studentManager.ShowStudents();
                 foreach (DataGridViewRow row in displayDataGridView.Rows)
                     row.Cells["SL"].Value = (row.Index + 1).ToString();
+                displayDataGridView.RowHeadersVisible = false;
             }
             catch (Exception exception)
             {
