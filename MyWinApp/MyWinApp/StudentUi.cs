@@ -37,16 +37,19 @@ namespace MyWinApp
         
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if(IsRollDuplicate(rollNoTextBox.Text))
+            if(SaveButton.Text.Equals("Save"))
             {
-                messageLabel.Text = "Roll No is Duplicate,Enter Unique Roll No";
-                return;
-            }
-            if (String.IsNullOrEmpty(rollNoTextBox.Text))
-            {
-                messageLabel.Text = "RollNo Field is Empty!";
-                return;
-            }
+                if (IsRollDuplicate(rollNoTextBox.Text))
+                {
+                    messageLabel.Text = "Roll No is Duplicate,Enter Unique Roll No";
+                    return;
+                }
+                if (String.IsNullOrEmpty(rollNoTextBox.Text))
+                {
+                    messageLabel.Text = "RollNo Field is Empty!";
+                    return;
+                }
+            }           
             student.RollNo = rollNoTextBox.Text;
             if (String.IsNullOrEmpty(nameTextBox.Text))
             {
@@ -78,15 +81,23 @@ namespace MyWinApp
             }
             student.DistrictID = Convert.ToInt32(districtComboBox.SelectedValue);
             int isExecuted = 0;
-            isExecuted=_studentManager.InsertStudent(student);
-
-            if (isExecuted > 0)
+            if(SaveButton.Text.Equals("Save"))
             {
-                messageLabel.Text = "Student Information Saved";
+                isExecuted = _studentManager.InsertStudent(student);
             }
             else
             {
-                messageLabel.Text = "Save Failed!";
+                isExecuted= UpdateStudent(student);
+            }
+            
+
+            if (isExecuted > 0)
+            {
+                messageLabel.Text = "Student Information "+SaveButton.Text+"d";
+            }
+            else
+            {
+                messageLabel.Text = SaveButton.Text+" Failed!";
             }
             //Cleaning the text box
             rollNoTextBox.Text = "";
@@ -94,7 +105,7 @@ namespace MyWinApp
             ageTextBox.Text = "";
             addressTextBox.Text = "";
             districtComboBox.Text = "<Select District>";
-
+            SaveButton.Text = "Save";
         }
         
 
@@ -135,74 +146,10 @@ namespace MyWinApp
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            student.RollNo = rollNoTextBox.Text;
-            if (String.IsNullOrEmpty(nameTextBox.Text))
-            {
-                messageLabel.Text = "Name Field is Empty!";
-                return;
-            }
-            student.Name = nameTextBox.Text;
-            if (String.IsNullOrEmpty(ageTextBox.Text))
-            {
-                messageLabel.Text = "Age Field is Empty!";
-                return;
-            }
-            if (System.Text.RegularExpressions.Regex.IsMatch(ageTextBox.Text, "[^0-9]"))
-            {
-                messageLabel.Text = "Enter Numeric Value for Age";
-                return;
-            }
-            student.Age = Convert.ToInt32(ageTextBox.Text);
-            if (String.IsNullOrEmpty(addressTextBox.Text))
-            {
-                messageLabel.Text = "Address Field is Empty!";
-                return;
-            }
-            student.Address = addressTextBox.Text;
-            if (districtComboBox.Text.Equals("<Select District>"))
-            {
-                messageLabel.Text = "Select District";
-                return;
-            }
-            student.DistrictID = Convert.ToInt32(districtComboBox.SelectedValue);
-            UpdateStudent(student);
-            messageLabel.Text = "Successfully Edited!";
-            //Cleaning the text box
-            rollNoTextBox.Text = "";
-            nameTextBox.Text = "";
-            ageTextBox.Text = "";
-            addressTextBox.Text = "";
-            districtComboBox.Text = "<Select District>";           
-        }
-        private void UpdateStudent(Student student)
-        {
             try
             {
-                commandString = @"UPDATE Students SET Name='" + student.Name + "', Age=" + student.Age + ", DistrictID= " + student.DistrictID + ",Address='" + student.Address + "' WHERE RollNo='" + student.RollNo + "'";
-                sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-                sqlConnection.Open();
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-                displayDataGridView.DataSource = _studentManager.ShowStudents();
-                foreach (DataGridViewRow row in displayDataGridView.Rows)
-                    row.Cells["SL"].Value = (row.Index + 1).ToString();
-                displayDataGridView.RowHeadersVisible = false;
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-            
-        }
-        private void displayDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {           
-            
-            
-            try
-            {        
                 rollNoTextBox.Text = displayDataGridView.CurrentRow.Cells["RollNoColumn"].FormattedValue.ToString();
-                commandString = @"SELECT RollNo, s.Name, Age, Address, d.Name AS District FROM Students AS s LEFT JOIN Districts AS d ON s.DistrictId=d.ID WHERE RollNo='"+rollNoTextBox.Text+"' ";
+                commandString = @"SELECT RollNo, s.Name, Age, Address, d.Name AS District FROM Students AS s LEFT JOIN Districts AS d ON s.DistrictId=d.ID WHERE RollNo='" + rollNoTextBox.Text + "' ";
                 sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 sqlConnection.Open();
@@ -211,7 +158,7 @@ namespace MyWinApp
                 DataTable dataTable = new DataTable();
                 sqlDataAdapter.Fill(dataTable);
 
-                if(dataTable.Rows.Count>0)
+                if (dataTable.Rows.Count > 0)
                 {
                     DataRow row = dataTable.Rows[0];
                     nameTextBox.Text = row["Name"].ToString();
@@ -226,7 +173,32 @@ namespace MyWinApp
             {
                 MessageBox.Show(exception.Message);
             }
+
+            SaveButton.Text = "Update";                    
         }
+        private int UpdateStudent(Student student)
+        {
+            int isExecuted = 0;
+            try
+            {
+                commandString = @"UPDATE Students SET Name='" + student.Name + "', Age=" + student.Age + ", DistrictID= " + student.DistrictID + ",Address='" + student.Address + "' WHERE RollNo='" + student.RollNo + "'";
+                sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                sqlConnection.Open();               
+                isExecuted= sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+                displayDataGridView.DataSource = _studentManager.ShowStudents();
+                foreach (DataGridViewRow row in displayDataGridView.Rows)
+                    row.Cells["SL"].Value = (row.Index + 1).ToString();
+                displayDataGridView.RowHeadersVisible = false;
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+            return isExecuted;
+        }
+        
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {

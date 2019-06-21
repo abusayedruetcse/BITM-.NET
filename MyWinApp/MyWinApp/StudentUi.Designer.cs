@@ -153,7 +153,6 @@
             this.displayDataGridView.ReadOnly = true;
             this.displayDataGridView.Size = new System.Drawing.Size(489, 169);
             this.displayDataGridView.TabIndex = 0;
-            this.displayDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.displayDataGridView_CellClick);
             // 
             // studentBindingSource
             // 
