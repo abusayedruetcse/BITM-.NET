@@ -112,6 +112,23 @@ namespace MyWinApp.Repository
             }
             return isExecuted;
         }
+        public int DeleteStudent(Student student)
+        {
+            int isExecuted = 0;
+            try
+            {
+                commandString = @"DELETE Students WHERE RollNo='" + student.RollNo + "'";
+                sqlCommand = new SqlCommand(commandString, sqlConnection);
 
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();               
+            }
+            catch (Exception exception)
+            {
+                //MessageBox.Show(exception.Message);
+            }
+            return isExecuted;
+        }
     }
 }

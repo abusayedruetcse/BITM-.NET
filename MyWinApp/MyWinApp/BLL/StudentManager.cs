@@ -28,6 +28,10 @@ namespace MyWinApp.BLL
         {
             return _studentRepository.UpdateStudent(student);
         }
+        public int DeleteStudent(Student student)
+        {
+            return _studentRepository.DeleteStudent(student);
+        }
     }
     
 

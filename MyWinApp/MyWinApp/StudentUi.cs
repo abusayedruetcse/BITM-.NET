@@ -37,11 +37,20 @@ namespace MyWinApp
         
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if(SaveButton.Text.Equals("Confirm"))
+            int isExecuted = 0;
+            if (SaveButton.Text.Equals("Confirm"))
             {
                 student.RollNo = rollNoTextBox.Text;
-                DeleteStudent(student);
-                messageLabel.Text = student.RollNo + " Student is deleted successfully";
+                isExecuted = _studentManager.DeleteStudent(student);
+                if(isExecuted>0)
+                {
+                    messageLabel.Text = student.RollNo + " Student is deleted successfully";
+                }
+                else
+                {
+                    messageLabel.Text = student.RollNo + " Student Deletion is Failed!";
+                }
+                
             }
             else
             {
@@ -88,7 +97,7 @@ namespace MyWinApp
                     return;
                 }
                 student.DistrictID = Convert.ToInt32(districtComboBox.SelectedValue);
-                int isExecuted = 0;
+                
                 if (SaveButton.Text.Equals("Save"))
                 {
                     isExecuted = _studentManager.InsertStudent(student);
@@ -178,36 +187,8 @@ namespace MyWinApp
             districtComboBox.Text = displayDataGridView.CurrentRow.Cells["DistrictColumn"].FormattedValue.ToString();
             addressTextBox.Text = displayDataGridView.CurrentRow.Cells["AddressColumn"].FormattedValue.ToString();
 
-            SaveButton.Text = "Confirm";
-            //student.RollNo = rollNoTextBox.Text;
-            //DeleteStudent(student);
-            //messageLabel.Text = student.RollNo + " Student is deleted successfully";
-            //Cleaning the text box
-            //rollNoTextBox.Text = "";
-            //nameTextBox.Text = "";
-            //ageTextBox.Text = "";
-            //addressTextBox.Text = "";
-            //districtComboBox.Text = "<Select District>";
+            SaveButton.Text = "Confirm";           
         }
-        private void DeleteStudent(Student student)
-        {
-            try
-            {
-                commandString = @"DELETE Students WHERE RollNo='"+student.RollNo+"'";
-                sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-                sqlConnection.Open();
-                sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-                displayDataGridView.DataSource = _studentManager.ShowStudents();
-                foreach (DataGridViewRow row in displayDataGridView.Rows)
-                    row.Cells["SL"].Value = (row.Index + 1).ToString();
-                displayDataGridView.RowHeadersVisible = false;
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-        }
+        
     }
 }
