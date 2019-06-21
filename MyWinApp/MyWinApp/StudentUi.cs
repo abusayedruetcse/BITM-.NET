@@ -145,34 +145,7 @@ namespace MyWinApp
         }
 
         private void EditButton_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    rollNoTextBox.Text = displayDataGridView.CurrentRow.Cells["RollNoColumn"].FormattedValue.ToString();
-            //    commandString = @"SELECT RollNo, s.Name, Age, Address, d.Name AS District FROM Students AS s LEFT JOIN Districts AS d ON s.DistrictId=d.ID WHERE RollNo='" + rollNoTextBox.Text + "' ";
-            //    sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-            //    sqlConnection.Open();
-
-            //    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-            //    DataTable dataTable = new DataTable();
-            //    sqlDataAdapter.Fill(dataTable);
-
-            //    if (dataTable.Rows.Count > 0)
-            //    {
-            //        DataRow row = dataTable.Rows[0];
-            //        nameTextBox.Text = row["Name"].ToString();
-            //        ageTextBox.Text = row["Age"].ToString();
-            //        districtComboBox.Text = row["District"].ToString();
-            //        addressTextBox.Text = row["Address"].ToString();
-            //    }
-
-            //    sqlConnection.Close();
-            //}
-            //catch (Exception exception)
-            //{
-            //    MessageBox.Show(exception.Message);
-            //}
+        {            
             rollNoTextBox.Text = displayDataGridView.CurrentRow.Cells["RollNoColumn"].FormattedValue.ToString();
             nameTextBox.Text = displayDataGridView.CurrentRow.Cells["NameColumn"].FormattedValue.ToString();
             ageTextBox.Text = displayDataGridView.CurrentRow.Cells["AgeColumn"].FormattedValue.ToString();
