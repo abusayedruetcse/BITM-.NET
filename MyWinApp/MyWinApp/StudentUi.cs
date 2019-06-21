@@ -218,50 +218,6 @@ namespace MyWinApp
                 messageLabel.Text = "Not Found the Student";
                 displayDataGridView.DataSource = null;
             }
-        }
-        private void SearchStudent(Student student)
-        {
-            messageLabel.Text = "";
-            commandString = "";
-            if(!String.IsNullOrEmpty(student.RollNo))
-            {
-                commandString = "SELECT * FROM Students WHERE RollNo LIKE '%"+student.RollNo+"%'";
-            }
-            if (!String.IsNullOrEmpty(student.Name))
-            {
-                commandString = "SELECT * FROM Students WHERE Name LIKE '%" + student.Name + "%'";
-            }
-            if (!String.IsNullOrEmpty(student.RollNo)&& !String.IsNullOrEmpty(student.Name))
-            {
-                commandString = "SELECT * FROM Students WHERE RollNo LIKE '%" + student.RollNo + "%' AND Name LIKE '%"+student.Name+"%'";
-            }
-
-            if(!String.IsNullOrEmpty(commandString))
-            {
-                sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-                sqlConnection.Open();
-
-                sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-
-                if (dataTable.Rows.Count > 0)
-                {
-                    displayDataGridView.DataSource = dataTable;
-                }
-                else
-                {
-                    messageLabel.Text = "Not Found the Student";
-                    displayDataGridView.DataSource = null;
-                }
-                sqlConnection.Close();
-            }else
-            {
-                messageLabel.Text = "Not Found the Student";
-                displayDataGridView.DataSource = null;
-            }
-            
-        }
+        }       
     }
 }
