@@ -130,5 +130,40 @@ namespace MyWinApp.Repository
             }
             return isExecuted;
         }
+        public DataTable SearchStudent(Student student)
+        {            
+            commandString = "";
+            if (!String.IsNullOrEmpty(student.RollNo))
+            {
+                commandString = "SELECT * FROM Students WHERE RollNo LIKE '%" + student.RollNo + "%'";
+            }
+            if (!String.IsNullOrEmpty(student.Name))
+            {
+                commandString = "SELECT * FROM Students WHERE Name LIKE '%" + student.Name + "%'";
+            }
+            if (!String.IsNullOrEmpty(student.RollNo) && !String.IsNullOrEmpty(student.Name))
+            {
+                commandString = "SELECT * FROM Students WHERE RollNo LIKE '%" + student.RollNo + "%' AND Name LIKE '%" + student.Name + "%'";
+            }
+
+            if (!String.IsNullOrEmpty(commandString))
+            {
+                sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                sqlConnection.Open();
+
+                sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+                             
+                sqlConnection.Close();
+                return dataTable;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
     }
 }

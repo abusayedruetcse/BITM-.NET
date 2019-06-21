@@ -142,6 +142,12 @@ namespace MyWinApp
 
         private void ShowButton_Click(object sender, EventArgs e)
         {
+            rollNoTextBox.Text = "";
+            nameTextBox.Text = "";
+            ageTextBox.Text = "";
+            addressTextBox.Text = "";
+            districtComboBox.Text = "<Select District>";
+            SaveButton.Text = "Save";
             displayDataGridView.DataSource=_studentManager.ShowStudents();
             foreach (DataGridViewRow row in displayDataGridView.Rows)
                    row.Cells["SL"].Value = (row.Index + 1).ToString();
@@ -199,9 +205,19 @@ namespace MyWinApp
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
+            messageLabel.Text = "";
             student.RollNo = rollNoTextBox.Text;
             student.Name = nameTextBox.Text;
-            SearchStudent(student);
+            dataTable = _studentManager.SearchStudent(student);
+            if (dataTable!=null && dataTable.Rows.Count>0)            
+            {
+                displayDataGridView.DataSource = dataTable;
+            }
+            else
+            {
+                messageLabel.Text = "Not Found the Student";
+                displayDataGridView.DataSource = null;
+            }
         }
         private void SearchStudent(Student student)
         {

@@ -32,6 +32,10 @@ namespace MyWinApp.BLL
         {
             return _studentRepository.DeleteStudent(student);
         }
+        public DataTable SearchStudent(Student student)
+        {
+            return _studentRepository.SearchStudent(student);
+        }
     }
     
 
