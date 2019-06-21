@@ -142,6 +142,7 @@ namespace MyWinApp
 
         private void ShowButton_Click(object sender, EventArgs e)
         {
+            messageLabel.Text = "";
             rollNoTextBox.Text = "";
             nameTextBox.Text = "";
             ageTextBox.Text = "";
@@ -182,25 +183,42 @@ namespace MyWinApp
         }
 
         private void EditButton_Click(object sender, EventArgs e)
-        {            
-            rollNoTextBox.Text = displayDataGridView.CurrentRow.Cells["RollNoColumn"].FormattedValue.ToString();
-            nameTextBox.Text = displayDataGridView.CurrentRow.Cells["NameColumn"].FormattedValue.ToString();
-            ageTextBox.Text = displayDataGridView.CurrentRow.Cells["AgeColumn"].FormattedValue.ToString();
-            districtComboBox.Text = displayDataGridView.CurrentRow.Cells["DistrictColumn"].FormattedValue.ToString();
-            addressTextBox.Text = displayDataGridView.CurrentRow.Cells["AddressColumn"].FormattedValue.ToString();
+        {
+            messageLabel.Text = "";
+            if (displayDataGridView.DataSource != null)
+            {
+                rollNoTextBox.Text = displayDataGridView.CurrentRow.Cells["RollNoColumn"].FormattedValue.ToString();
+                nameTextBox.Text = displayDataGridView.CurrentRow.Cells["NameColumn"].FormattedValue.ToString();
+                ageTextBox.Text = displayDataGridView.CurrentRow.Cells["AgeColumn"].FormattedValue.ToString();
+                districtComboBox.Text = displayDataGridView.CurrentRow.Cells["DistrictColumn"].FormattedValue.ToString();
+                addressTextBox.Text = displayDataGridView.CurrentRow.Cells["AddressColumn"].FormattedValue.ToString();
 
-            SaveButton.Text = "Update";                    
+                SaveButton.Text = "Update";
+            }
+            else
+            {
+                messageLabel.Text = "Show Button Click First and Select";
+            }                                
         }    
         
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            rollNoTextBox.Text = displayDataGridView.CurrentRow.Cells["RollNoColumn"].FormattedValue.ToString();
-            nameTextBox.Text = displayDataGridView.CurrentRow.Cells["NameColumn"].FormattedValue.ToString();
-            ageTextBox.Text = displayDataGridView.CurrentRow.Cells["AgeColumn"].FormattedValue.ToString();
-            districtComboBox.Text = displayDataGridView.CurrentRow.Cells["DistrictColumn"].FormattedValue.ToString();
-            addressTextBox.Text = displayDataGridView.CurrentRow.Cells["AddressColumn"].FormattedValue.ToString();
+            messageLabel.Text = "";
+            if (displayDataGridView.DataSource!=null)
+            {
+                rollNoTextBox.Text = displayDataGridView.CurrentRow.Cells["RollNoColumn"].FormattedValue.ToString();
+                nameTextBox.Text = displayDataGridView.CurrentRow.Cells["NameColumn"].FormattedValue.ToString();
+                ageTextBox.Text = displayDataGridView.CurrentRow.Cells["AgeColumn"].FormattedValue.ToString();
+                districtComboBox.Text = displayDataGridView.CurrentRow.Cells["DistrictColumn"].FormattedValue.ToString();
+                addressTextBox.Text = displayDataGridView.CurrentRow.Cells["AddressColumn"].FormattedValue.ToString();
 
-            SaveButton.Text = "Confirm";           
+                SaveButton.Text = "Confirm";
+            }
+            else
+            {
+                messageLabel.Text = "Show Button Click First and Select";
+            }
+                    
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
