@@ -146,56 +146,49 @@ namespace MyWinApp
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                rollNoTextBox.Text = displayDataGridView.CurrentRow.Cells["RollNoColumn"].FormattedValue.ToString();
-                commandString = @"SELECT RollNo, s.Name, Age, Address, d.Name AS District FROM Students AS s LEFT JOIN Districts AS d ON s.DistrictId=d.ID WHERE RollNo='" + rollNoTextBox.Text + "' ";
-                sqlCommand = new SqlCommand(commandString, sqlConnection);
+            //try
+            //{
+            //    rollNoTextBox.Text = displayDataGridView.CurrentRow.Cells["RollNoColumn"].FormattedValue.ToString();
+            //    commandString = @"SELECT RollNo, s.Name, Age, Address, d.Name AS District FROM Students AS s LEFT JOIN Districts AS d ON s.DistrictId=d.ID WHERE RollNo='" + rollNoTextBox.Text + "' ";
+            //    sqlCommand = new SqlCommand(commandString, sqlConnection);
 
-                sqlConnection.Open();
+            //    sqlConnection.Open();
 
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                DataTable dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
+            //    SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            //    DataTable dataTable = new DataTable();
+            //    sqlDataAdapter.Fill(dataTable);
 
-                if (dataTable.Rows.Count > 0)
-                {
-                    DataRow row = dataTable.Rows[0];
-                    nameTextBox.Text = row["Name"].ToString();
-                    ageTextBox.Text = row["Age"].ToString();
-                    districtComboBox.Text = row["District"].ToString();
-                    addressTextBox.Text = row["Address"].ToString();
-                }
+            //    if (dataTable.Rows.Count > 0)
+            //    {
+            //        DataRow row = dataTable.Rows[0];
+            //        nameTextBox.Text = row["Name"].ToString();
+            //        ageTextBox.Text = row["Age"].ToString();
+            //        districtComboBox.Text = row["District"].ToString();
+            //        addressTextBox.Text = row["Address"].ToString();
+            //    }
 
-                sqlConnection.Close();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
+            //    sqlConnection.Close();
+            //}
+            //catch (Exception exception)
+            //{
+            //    MessageBox.Show(exception.Message);
+            //}
+            rollNoTextBox.Text = displayDataGridView.CurrentRow.Cells["RollNoColumn"].FormattedValue.ToString();
+            nameTextBox.Text = displayDataGridView.CurrentRow.Cells["NameColumn"].FormattedValue.ToString();
+            ageTextBox.Text = displayDataGridView.CurrentRow.Cells["AgeColumn"].FormattedValue.ToString();
+            districtComboBox.Text = displayDataGridView.CurrentRow.Cells["DistrictColumn"].FormattedValue.ToString();
+            addressTextBox.Text = displayDataGridView.CurrentRow.Cells["AddressColumn"].FormattedValue.ToString();
 
             SaveButton.Text = "Update";                    
         }
         private int UpdateStudent(Student student)
         {
             int isExecuted = 0;
-            try
-            {
-                commandString = @"UPDATE Students SET Name='" + student.Name + "', Age=" + student.Age + ", DistrictID= " + student.DistrictID + ",Address='" + student.Address + "' WHERE RollNo='" + student.RollNo + "'";
-                sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-                sqlConnection.Open();               
-                isExecuted= sqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-                displayDataGridView.DataSource = _studentManager.ShowStudents();
-                foreach (DataGridViewRow row in displayDataGridView.Rows)
-                    row.Cells["SL"].Value = (row.Index + 1).ToString();
-                displayDataGridView.RowHeadersVisible = false;
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
+            isExecuted = _studentManager.UpdateStudent(student);
+            displayDataGridView.DataSource = _studentManager.ShowStudents();
+            foreach (DataGridViewRow row in displayDataGridView.Rows)
+                row.Cells["SL"].Value = (row.Index + 1).ToString();
+            displayDataGridView.RowHeadersVisible = false;
             return isExecuted;
         }
         

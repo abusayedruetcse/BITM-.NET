@@ -94,5 +94,23 @@ namespace MyWinApp.Repository
             }
             return isExecuted;
         }
+        public int UpdateStudent(Student student)
+        {
+            int isExecuted = 0;
+            try
+            {
+                commandString = @"UPDATE Students SET Name='" + student.Name + "', Age=" + student.Age + ", DistrictID= " + student.DistrictID + ",Address='" + student.Address + "' WHERE RollNo='" + student.RollNo + "'";
+                sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                sqlConnection.Open();
+                isExecuted = sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();                
+            }
+            catch (Exception exception)
+            {
+                //MessageBox.Show(exception.Message);
+            }
+            return isExecuted;
+        }
     }
 }

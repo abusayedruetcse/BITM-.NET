@@ -55,11 +55,11 @@
             this.District = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RollNoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AgeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DistrictColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.displayDataGridView)).BeginInit();
@@ -142,11 +142,11 @@
             this.District,
             this.dataGridViewTextBoxColumn11,
             this.RollNoColumn,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
+            this.NameColumn,
+            this.AgeColumn,
+            this.AddressColumn,
             this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17});
+            this.DistrictColumn});
             this.displayDataGridView.DataSource = this.studentBindingSource;
             this.displayDataGridView.Location = new System.Drawing.Point(7, 16);
             this.displayDataGridView.Name = "displayDataGridView";
@@ -315,29 +315,29 @@
             this.RollNoColumn.Name = "RollNoColumn";
             this.RollNoColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn13
+            // NameColumn
             // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn13.FillWeight = 164.6766F;
-            this.dataGridViewTextBoxColumn13.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.NameColumn.DataPropertyName = "Name";
+            this.NameColumn.FillWeight = 164.6766F;
+            this.NameColumn.HeaderText = "Name";
+            this.NameColumn.Name = "NameColumn";
+            this.NameColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn14
+            // AgeColumn
             // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Age";
-            this.dataGridViewTextBoxColumn14.FillWeight = 80.96285F;
-            this.dataGridViewTextBoxColumn14.HeaderText = "Age";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.AgeColumn.DataPropertyName = "Age";
+            this.AgeColumn.FillWeight = 80.96285F;
+            this.AgeColumn.HeaderText = "Age";
+            this.AgeColumn.Name = "AgeColumn";
+            this.AgeColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn15
+            // AddressColumn
             // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "Address";
-            this.dataGridViewTextBoxColumn15.FillWeight = 91.80123F;
-            this.dataGridViewTextBoxColumn15.HeaderText = "Address";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.AddressColumn.DataPropertyName = "Address";
+            this.AddressColumn.FillWeight = 91.80123F;
+            this.AddressColumn.HeaderText = "Address";
+            this.AddressColumn.Name = "AddressColumn";
+            this.AddressColumn.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn16
             // 
@@ -347,13 +347,13 @@
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
             this.dataGridViewTextBoxColumn16.Visible = false;
             // 
-            // dataGridViewTextBoxColumn17
+            // DistrictColumn
             // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "District";
-            this.dataGridViewTextBoxColumn17.FillWeight = 79.38753F;
-            this.dataGridViewTextBoxColumn17.HeaderText = "District";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.DistrictColumn.DataPropertyName = "District";
+            this.DistrictColumn.FillWeight = 79.38753F;
+            this.DistrictColumn.HeaderText = "District";
+            this.DistrictColumn.Name = "DistrictColumn";
+            this.DistrictColumn.ReadOnly = true;
             // 
             // StudentUi
             // 
@@ -425,10 +425,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn District;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn RollNoColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AgeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AddressColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DistrictColumn;
     }
 }
