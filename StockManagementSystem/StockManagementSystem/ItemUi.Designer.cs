@@ -1,6 +1,6 @@
 ﻿namespace StockManagementSystem
 {
-    partial class ItemSetup
+    partial class ItemUi
     {
         /// <summary>
         /// Required designer variable.

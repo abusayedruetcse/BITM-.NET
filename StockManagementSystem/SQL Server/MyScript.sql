@@ -10,7 +10,8 @@ Name VARCHAR(25)
 INSERT INTO Categories (Name)
 VALUES ('Stationary')
 
-SELECT * FROM Categories
+SELECT DISTINCT cat.Name, i.CategoryID FROM Categories AS cat LEFT JOIN Items AS i ON cat.ID=i.CategoryID WHERE i.CompanyID= 
+SELECT * FROM Items WHERE CategoryID =3 AND CompanyID=3
 
 UPDATE Categories
 SET Name= 'Jamil'
@@ -22,6 +23,8 @@ ID int IDENTITY(1,1),
 Name VARCHAR(25)
 )
 -- DROP TABLE Companies
+DELETE Companies
+WHERE ID=5
 
 SELECT * FROM Companies
 

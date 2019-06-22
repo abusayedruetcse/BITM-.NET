@@ -1,6 +1,6 @@
 ﻿namespace StockManagementSystem
 {
-    partial class CompanySetup
+    partial class CompanyUi
     {
         /// <summary>
         /// Required designer variable.

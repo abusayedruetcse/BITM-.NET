@@ -40,17 +40,18 @@
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.itemComboBox = new System.Windows.Forms.ComboBox();
-            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reorderLevelTextBox = new System.Windows.Forms.TextBox();
             this.availableQuantityTextBox = new System.Windows.Forms.TextBox();
             this.stockInQuantityTextBox = new System.Windows.Forms.TextBox();
             this.SaveButton = new System.Windows.Forms.Button();
             this.stockInDataGridView = new System.Windows.Forms.DataGridView();
             this.messageLabel = new System.Windows.Forms.Label();
+            this.SelectButton = new System.Windows.Forms.Button();
+            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockInDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -138,6 +139,7 @@
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(200, 21);
             this.categoryComboBox.TabIndex = 7;
+            this.categoryComboBox.TabStop = false;
             this.categoryComboBox.ValueMember = "ID";
             this.categoryComboBox.Click += new System.EventHandler(this.categoryComboBox_Click);
             // 
@@ -153,12 +155,9 @@
             this.itemComboBox.Location = new System.Drawing.Point(208, 136);
             this.itemComboBox.Name = "itemComboBox";
             this.itemComboBox.Size = new System.Drawing.Size(200, 21);
-            this.itemComboBox.TabIndex = 8;
+            this.itemComboBox.TabIndex = 16;
             this.itemComboBox.ValueMember = "ID";
-            // 
-            // itemBindingSource
-            // 
-            this.itemBindingSource.DataSource = typeof(StockManagementSystem.Models.Item);
+            this.itemComboBox.Click += new System.EventHandler(this.itemComboBox_Click);
             // 
             // reorderLevelTextBox
             // 
@@ -190,6 +189,7 @@
             this.SaveButton.TabIndex = 12;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // stockInDataGridView
             // 
@@ -208,11 +208,27 @@
             this.messageLabel.Size = new System.Drawing.Size(0, 16);
             this.messageLabel.TabIndex = 14;
             // 
-            // StockIn
+            // SelectButton
+            // 
+            this.SelectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectButton.Location = new System.Drawing.Point(208, 294);
+            this.SelectButton.Name = "SelectButton";
+            this.SelectButton.Size = new System.Drawing.Size(75, 23);
+            this.SelectButton.TabIndex = 15;
+            this.SelectButton.Text = "Select";
+            this.SelectButton.UseVisualStyleBackColor = true;
+            this.SelectButton.Click += new System.EventHandler(this.SelectButton_Click);
+            // 
+            // itemBindingSource
+            // 
+            this.itemBindingSource.DataSource = typeof(StockManagementSystem.Models.Item);
+            // 
+            // StockInUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(569, 488);
+            this.Controls.Add(this.SelectButton);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.stockInDataGridView);
             this.Controls.Add(this.SaveButton);
@@ -228,13 +244,13 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "StockIn";
+            this.Name = "StockInUi";
             this.Text = "Stock In";
             this.Load += new System.EventHandler(this.StockIn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockInDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,7 +274,8 @@
         private System.Windows.Forms.DataGridView stockInDataGridView;
         private System.Windows.Forms.BindingSource companyBindingSource;
         private System.Windows.Forms.BindingSource categoryBindingSource;
-        private System.Windows.Forms.BindingSource itemBindingSource;
         private System.Windows.Forms.Label messageLabel;
+        private System.Windows.Forms.Button SelectButton;
+        private System.Windows.Forms.BindingSource itemBindingSource;
     }
 }

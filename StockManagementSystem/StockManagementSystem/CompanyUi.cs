@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace StockManagementSystem
 {
-    public partial class CompanySetup : Form
+    public partial class CompanyUi : Form
     {
         int ID = 0;
-        public CompanySetup()
+        public CompanyUi()
         {
             InitializeComponent();            
         }
@@ -23,21 +23,23 @@ namespace StockManagementSystem
         {
             string name = "";
             if (SaveButton.Text.Equals("Save"))
-            {
-                if(String.IsNullOrEmpty(nameTextBox.Text))
+            {                
+                name = nameTextBox.Text;
+                if (String.IsNullOrEmpty(name))
                 {
+                    messageLabel.Text = "Name Field is Empty";
                     return;
                 }
-                name = nameTextBox.Text;
                 Insert(name);
             }
             else
-            {
-                if (String.IsNullOrEmpty(nameTextBox.Text))
+            {                
+                name = nameTextBox.Text;
+                if (String.IsNullOrEmpty(name))
                 {
+                    messageLabel.Text = "Name Field is Empty";
                     return;
                 }
-                name = nameTextBox.Text;
                 Update(name);
                 SaveButton.Text = "Save";
             }

@@ -12,7 +12,7 @@ using StockManagementSystem.Models;
 
 namespace StockManagementSystem
 {
-    public partial class ItemSetup : Form
+    public partial class ItemUi : Form
     {
         bool IsCategoryComboxAdded = false;
         bool IsCompanyComboxAdded = false;
@@ -23,7 +23,7 @@ namespace StockManagementSystem
         SqlDataAdapter sqlDataAdapter;
         DataTable dataTable;
         Item item;
-        public ItemSetup()
+        public ItemUi()
         {
             InitializeComponent();
             sqlConnection = new SqlConnection(connectionString);

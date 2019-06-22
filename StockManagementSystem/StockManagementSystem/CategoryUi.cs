@@ -12,7 +12,7 @@ using StockManagementSystem.Models;
 
 namespace StockManagementSystem
 {
-    public partial class CategorySetup : Form
+    public partial class CategoryUi : Form
     {        
         string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";
         SqlConnection sqlConnection;
@@ -21,7 +21,7 @@ namespace StockManagementSystem
         SqlDataAdapter sqlDataAdapter;
         DataTable dataTable;
         Category category;
-        public CategorySetup()
+        public CategoryUi()
         {
             InitializeComponent();
             sqlConnection = new SqlConnection(connectionString);
@@ -33,16 +33,26 @@ namespace StockManagementSystem
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
-        {
+        {           
             string name = "";
             if (SaveButton.Text.Equals("Save"))
             {               
                 name = nameTextBox.Text;
+                if(String.IsNullOrEmpty(name))
+                {
+                    messageLabel.Text = "Name Field is Empty";
+                    return;
+                }
                 Insert(name);                
             }
             else
             {
                 name = nameTextBox.Text;
+                if (String.IsNullOrEmpty(name))
+                {
+                    messageLabel.Text = "Name Field is Empty";
+                    return;
+                }
                 Update(name);
                 SaveButton.Text = "Save";
             }

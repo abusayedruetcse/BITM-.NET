@@ -1,6 +1,6 @@
 ﻿namespace StockManagementSystem
 {
-    partial class CategorySetup
+    partial class CategoryUi
     {
         /// <summary>
         /// Required designer variable.
@@ -33,11 +33,11 @@
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.SaveButton = new System.Windows.Forms.Button();
             this.categoryDataGridView = new System.Windows.Forms.DataGridView();
-            this.messageLabel = new System.Windows.Forms.Label();
-            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.categoryDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -89,18 +89,6 @@
             this.categoryDataGridView.TabIndex = 3;
             this.categoryDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.categoryDataGridView_CellClick);
             // 
-            // messageLabel
-            // 
-            this.messageLabel.AutoSize = true;
-            this.messageLabel.Location = new System.Drawing.Point(82, 81);
-            this.messageLabel.Name = "messageLabel";
-            this.messageLabel.Size = new System.Drawing.Size(0, 13);
-            this.messageLabel.TabIndex = 4;
-            // 
-            // categoryBindingSource
-            // 
-            this.categoryBindingSource.DataSource = typeof(StockManagementSystem.Models.Category);
-            // 
             // SL
             // 
             this.SL.FillWeight = 38.57868F;
@@ -124,7 +112,19 @@
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // CategorySetup
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataSource = typeof(StockManagementSystem.Models.Category);
+            // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.Location = new System.Drawing.Point(82, 81);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 13);
+            this.messageLabel.TabIndex = 4;
+            // 
+            // CategoryUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -134,7 +134,7 @@
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.label1);
-            this.Name = "CategorySetup";
+            this.Name = "CategoryUi";
             this.Text = "Category Setup";
             this.Load += new System.EventHandler(this.CategorySetup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.categoryDataGridView)).EndInit();
