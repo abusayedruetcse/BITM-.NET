@@ -1,0 +1,15 @@
+CREATE DATABASE MobileModelInfoDB
+--DROP DATABASE MobileModelInfoDB
+USE MobileModelInfoDB
+
+CREATE TABLE MobileModels
+(
+ModelName VARCHAR(40),
+IMEI VARCHAR(20),
+Price NUMERIC(10,0)
+)
+
+-- DROP TABLE MobileModels
+SELECT * FROM MobileModels
+
+INSERT INTO MobileModels VALUES ('Nokia','123456789098765',123432)
