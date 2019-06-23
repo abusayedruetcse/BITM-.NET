@@ -49,6 +49,8 @@ Quantity int,
 ItemID int
 )
 -- DROP TABLE StockIns
+SELECT * FROM StockIns
+
 CREATE TABLE StockOuts
 (
 ID int IDENTITY(1,1),

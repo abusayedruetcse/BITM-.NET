@@ -36,6 +36,10 @@ namespace MyWinApp.BLL
         {
             return _studentRepository.SearchStudent(student);
         }
+        public bool IsRollDuplicate(string roll)
+        {
+            return _studentRepository.IsRollDuplicate(roll);
+        }
     }
     
 

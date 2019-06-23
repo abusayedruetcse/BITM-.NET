@@ -63,7 +63,7 @@ namespace MyWinApp
             {
                 if (SaveButton.Text.Equals("Save"))
                 {
-                    if (IsRollDuplicate(rollNoTextBox.Text))
+                    if (_studentManager.IsRollDuplicate(rollNoTextBox.Text))
                     {
                         messageLabel.Text = "Roll No is Duplicate,Enter Unique Roll No";
                         return;
@@ -153,34 +153,7 @@ namespace MyWinApp
             foreach (DataGridViewRow row in displayDataGridView.Rows)
                    row.Cells["SL"].Value = (row.Index + 1).ToString();
             displayDataGridView.RowHeadersVisible = false;
-        }
-        
-        private bool IsRollDuplicate(string roll)
-        {
-            bool isDuplicate = false;
-            try
-            {               
-                commandString = @"SELECT * FROM Students WHERE RollNo ='" + roll + "'";
-                sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-                sqlConnection.Open();
-
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                DataTable dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-
-                if (dataTable.Rows.Count> 0)
-                {
-                    isDuplicate = true;
-                }
-                sqlConnection.Close();              
-            }
-            catch(Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-            return isDuplicate;
-        }
+        }        
 
         private void EditButton_Click(object sender, EventArgs e)
         {

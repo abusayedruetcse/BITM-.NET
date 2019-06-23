@@ -125,7 +125,10 @@ namespace StockManagementSystem
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            
+            stockIn.Date= DateTime.Now.ToString("dd/MM/yyyy");
+            stockIn.ItemID = Convert.ToInt32(itemComboBox.SelectedValue);
+            stockIn.Quantity = Convert.ToInt32(stockInQuantityTextBox.Text);
+            InsertStockIn(stockIn);
         }
 
         private void SelectButton_Click(object sender, EventArgs e)
@@ -152,8 +155,18 @@ namespace StockManagementSystem
             {
                 MessageBox.Show(exception.Message);
             }
-            string sysUIFormat = CultureInfo.CurrentUICulture.DateTimeFormat.ShortDatePattern;
-            stockInQuantityTextBox.Text = sysUIFormat;
+          
+            
+            
+        }
+        private void  InsertStockIn(StockIn stockIn)
+        {
+            commandString = @"INSERT INTO StockIns VALUES('" + stockIn.Date + "'," + stockIn.Quantity+ "," + stockIn.ItemID + ")";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+            sqlConnection.Open();
+            sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
         }
 
         

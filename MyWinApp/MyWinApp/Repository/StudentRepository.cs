@@ -165,5 +165,31 @@ namespace MyWinApp.Repository
             }
 
         }
+        public bool IsRollDuplicate(string roll)
+        {
+            bool isDuplicate = false;
+            try
+            {
+                commandString = @"SELECT * FROM Students WHERE RollNo ='" + roll + "'";
+                sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                sqlConnection.Open();
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                if (dataTable.Rows.Count > 0)
+                {
+                    isDuplicate = true;
+                }
+                sqlConnection.Close();
+            }
+            catch (Exception exception)
+            {
+                //MessageBox.Show(exception.Message);
+            }
+            return isDuplicate;
+        }
     }
 }
