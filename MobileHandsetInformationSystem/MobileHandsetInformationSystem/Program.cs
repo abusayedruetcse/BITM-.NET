@@ -16,9 +16,9 @@ namespace MobileHandsetInformationSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new IndexUi());
+            Application.Run(new IndexUi());
             // Application.Run(new SaveUi());
-            Application.Run(new SearchRangeUi());
+            //Application.Run(new SearchRangeUi());
 
         }
     }
