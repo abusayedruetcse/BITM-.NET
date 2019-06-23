@@ -209,6 +209,15 @@ namespace MyWinApp
                 messageLabel.Text = "Not Found the Student";
                 displayDataGridView.DataSource = null;
             }
-        }       
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            DateForm dateForm = new DateForm();
+            dateForm.Show();
+            this.Hide();
+        }
+
+        
     }
 }

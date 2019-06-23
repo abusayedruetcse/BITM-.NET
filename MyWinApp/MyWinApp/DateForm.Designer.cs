@@ -43,8 +43,9 @@
             this.toBirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.displayDataGridView = new System.Windows.Forms.DataGridView();
-            this.SearchButton = new System.Windows.Forms.Button();
             this.DateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SearchButton = new System.Windows.Forms.Button();
+            this.StudentUiButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.displayDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -189,6 +190,11 @@
             this.displayDataGridView.Size = new System.Drawing.Size(152, 150);
             this.displayDataGridView.TabIndex = 14;
             // 
+            // DateOfBirth
+            // 
+            this.DateOfBirth.HeaderText = "Date Of Birth";
+            this.DateOfBirth.Name = "DateOfBirth";
+            // 
             // SearchButton
             // 
             this.SearchButton.Location = new System.Drawing.Point(559, 157);
@@ -199,16 +205,22 @@
             this.SearchButton.UseVisualStyleBackColor = true;
             this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
-            // DateOfBirth
+            // StudentUiButton
             // 
-            this.DateOfBirth.HeaderText = "Date Of Birth";
-            this.DateOfBirth.Name = "DateOfBirth";
+            this.StudentUiButton.Location = new System.Drawing.Point(52, 278);
+            this.StudentUiButton.Name = "StudentUiButton";
+            this.StudentUiButton.Size = new System.Drawing.Size(75, 23);
+            this.StudentUiButton.TabIndex = 16;
+            this.StudentUiButton.Text = "StudentUi";
+            this.StudentUiButton.UseVisualStyleBackColor = true;
+            this.StudentUiButton.Click += new System.EventHandler(this.StudentUiButton_Click);
             // 
             // DateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.StudentUiButton);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.displayDataGridView);
             this.Controls.Add(this.toBirthDateTimePicker);
@@ -252,5 +264,6 @@
         private System.Windows.Forms.DataGridView displayDataGridView;
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateOfBirth;
+        private System.Windows.Forms.Button StudentUiButton;
     }
 }

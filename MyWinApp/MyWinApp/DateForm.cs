@@ -54,5 +54,12 @@ namespace MyWinApp
             displayDataGridView.DataSource = dataTable;
             sqlConnection.Close();
         }
+
+        private void StudentUiButton_Click(object sender, EventArgs e)
+        {          
+            StudentUi studentUi = new StudentUi();
+            studentUi.Show();
+            this.Hide();
+        }
     }
 }

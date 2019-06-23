@@ -24,8 +24,8 @@ namespace MyWinApp
             //Application.Run(new ListExercise());
             //Application.Run(new FireRangeAutomationSystem());
             //Application.Run(new DatabaseConnection());
-            Application.Run(new StudentUi());
-            //Application.Run(new DateForm());
+            //Application.Run(new StudentUi());
+            Application.Run(new DateForm());
         }
     }
 }

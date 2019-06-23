@@ -60,6 +60,7 @@
             this.rollNoTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.messageLabel = new System.Windows.Forms.Label();
+            this.ExitButton = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.displayDataGridView)).BeginInit();
@@ -249,6 +250,7 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Student Information";
+            //this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // SaveButton
             // 
@@ -356,11 +358,22 @@
             this.messageLabel.Size = new System.Drawing.Size(0, 13);
             this.messageLabel.TabIndex = 9;
             // 
+            // ExitButton
+            // 
+            this.ExitButton.Location = new System.Drawing.Point(22, 255);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(75, 23);
+            this.ExitButton.TabIndex = 10;
+            this.ExitButton.Text = "Exit";
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            // 
             // StudentUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 300);
+            this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -431,5 +444,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn AddressColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn DistrictColumn;
+        private System.Windows.Forms.Button ExitButton;
     }
 }
