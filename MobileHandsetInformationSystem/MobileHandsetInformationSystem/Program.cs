@@ -19,6 +19,7 @@ namespace MobileHandsetInformationSystem
             Application.Run(new IndexUi());
             // Application.Run(new SaveUi());
             //Application.Run(new SearchRangeUi());
+            //Application.Run(new SearchIMEIUi());
 
         }
     }

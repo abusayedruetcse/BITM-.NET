@@ -18,7 +18,8 @@ namespace MobileHandsetInformationSystem.Repository
         DataTable dataTable;
         public MobileModelRepositoy()
         {
-            connectionString = @"Server=PC-301-17\SQLEXPRESS; Database=MobileModelInfoDB; Integrated Security=True";
+            //connectionString = @"Server=PC-301-17\SQLEXPRESS; Database=MobileModelInfoDB; Integrated Security=True";
+            connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS; Database=MobileModelInfoDB; Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
         }
         public bool IsIMEIDuplicate(MobileModel mobileModel)
@@ -88,10 +89,30 @@ namespace MobileHandsetInformationSystem.Repository
             catch (Exception exception)
             {
                 //MessageBox.Show(exception.Message);
-            }
-            //foreach (DataGridViewRow row in displayDataGridView.Rows)
-            //    row.Cells["SL"].Value = (row.Index + 1).ToString();
+            }            
 
+            return dataTable;
+        }
+        public DataTable SearchByIMEI(MobileModel mobileModel)
+        {
+            try
+            {
+                commandString = @"SELECT * FROM MobileModels WHERE  IMEI = '"+mobileModel.IMEI+"' ";
+                sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+                sqlConnection.Open();
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                
+                sqlConnection.Close();
+            }
+            catch (Exception exception)
+            {
+                //MessageBox.Show(exception.Message);
+            }          
             return dataTable;
         }
     }

@@ -31,7 +31,8 @@ namespace MobileHandsetInformationSystem
 
         private void searchIMEILabel_Click(object sender, EventArgs e)
         {
-
+            SearchIMEIUi searchIMEIUi = new SearchIMEIUi();
+            searchIMEIUi.Show();
         }
     }
 }

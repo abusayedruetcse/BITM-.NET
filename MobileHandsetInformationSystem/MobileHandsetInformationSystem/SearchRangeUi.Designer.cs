@@ -35,11 +35,11 @@
             this.fromTextBox = new System.Windows.Forms.TextBox();
             this.toTextBox = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.mobileModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modelNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iMEIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mobileModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mobileModelBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -89,6 +89,7 @@
             // dataGridView1
             // 
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SI,
@@ -98,16 +99,12 @@
             this.dataGridView1.DataSource = this.mobileModelBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(156, 213);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(442, 150);
             this.dataGridView1.TabIndex = 5;
             // 
-            // mobileModelBindingSource
-            // 
-            this.mobileModelBindingSource.DataSource = typeof(MobileHandsetInformationSystem.Models.MobileModel);
-            // 
             // SI
             // 
-            this.SI.DataPropertyName = "ModelName";
             this.SI.HeaderText = "SI#";
             this.SI.Name = "SI";
             // 
@@ -128,6 +125,10 @@
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
             this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            // 
+            // mobileModelBindingSource
+            // 
+            this.mobileModelBindingSource.DataSource = typeof(MobileHandsetInformationSystem.Models.MobileModel);
             // 
             // SearchRangeUi
             // 
@@ -158,10 +159,10 @@
         private System.Windows.Forms.TextBox fromTextBox;
         private System.Windows.Forms.TextBox toTextBox;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource mobileModelBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn SI;
         private System.Windows.Forms.DataGridViewTextBoxColumn modelNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn iMEIDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource mobileModelBindingSource;
     }
 }

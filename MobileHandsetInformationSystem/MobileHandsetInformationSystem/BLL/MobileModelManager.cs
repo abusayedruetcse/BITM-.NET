@@ -30,5 +30,9 @@ namespace MobileHandsetInformationSystem.BLL
         {
             return _mobileModelRepositoy.SearchByPrice(range1, range2);
         }
+        public DataTable SearchByIMEI(MobileModel mobileModel)
+        {
+            return _mobileModelRepositoy.SearchByIMEI(mobileModel);
+        }
     }
 }

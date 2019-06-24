@@ -63,6 +63,12 @@
     <Compile Include="SaveUi.Designer.cs">
       <DependentUpon>SaveUi.cs</DependentUpon>
     </Compile>
+    <Compile Include="SearchIMEIUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchIMEIUi.Designer.cs">
+      <DependentUpon>SearchIMEIUi.cs</DependentUpon>
+    </Compile>
     <Compile Include="SearchRangeUi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     </Compile>
     <EmbeddedResource Include="SaveUi.resx">
       <DependentUpon>SaveUi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchIMEIUi.resx">
+      <DependentUpon>SearchIMEIUi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchRangeUi.resx">
       <DependentUpon>SearchRangeUi.cs</DependentUpon>

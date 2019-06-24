@@ -27,7 +27,10 @@ namespace MobileHandsetInformationSystem
         {
             dataGridView1.DataSource = _mobileModelManager.SearchByPrice(fromTextBox.Text, toTextBox.Text);
             dataGridView1.RowHeadersVisible = false;
-            
+            foreach(DataGridViewRow row in dataGridView1.Rows)
+            {
+                row.Cells["SI"].Value = (row.Index + 1).ToString();
+            }
         }
     }
 }
