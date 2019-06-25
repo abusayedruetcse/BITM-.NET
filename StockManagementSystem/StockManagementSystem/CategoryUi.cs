@@ -1,31 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using StockManagementSystem.Models;
+using StockManagementSystem.BLL;
 
 namespace StockManagementSystem
 {
     public partial class CategoryUi : Form
-    {        
-        string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";
-        SqlConnection sqlConnection;
-        string commandString;
-        SqlCommand sqlCommand;
-        SqlDataAdapter sqlDataAdapter;
-        DataTable dataTable;
+    {                       
         Category category;
+        CategoryManager _categoryManager;
         public CategoryUi()
         {
-            InitializeComponent();
-            sqlConnection = new SqlConnection(connectionString);
+            InitializeComponent();            
             category = new Category();
+            _categoryManager = new CategoryManager();
         }
         private void CategorySetup_Load(object sender, EventArgs e)
         {
@@ -42,7 +36,7 @@ namespace StockManagementSystem
                 {
                     messageLabel.Text = "Name Field is Empty";
                     return;
-                }
+                }               
                 Insert(name);                
             }
             else
@@ -52,7 +46,7 @@ namespace StockManagementSystem
                 {
                     messageLabel.Text = "Name Field is Empty";
                     return;
-                }
+                }               
                 Update(name);
                 SaveButton.Text = "Save";
             }
@@ -61,98 +55,35 @@ namespace StockManagementSystem
         }
         private void Insert(string name)
         {
-            try
+            category.Name = name;
+            int isExecuted = 0;
+            isExecuted = _categoryManager.Insert(category);
+            if (isExecuted > 0)
             {
-                //1          
-
-                //2
-                commandString = @"INSERT INTO Categories (Name) VALUES('"+name+"')";
-                sqlCommand = new SqlCommand();
-                sqlCommand.CommandText = commandString;
-                sqlCommand.Connection = sqlConnection;
-
-                //3
-                sqlConnection.Open();
-
-                //4
-                int isExecuted = 0;
-                isExecuted= sqlCommand.ExecuteNonQuery(); 
-                if (isExecuted>0)
-                {                    
-                    messageLabel.Text = "Saved Successfully";
-                }
-                else
-                {
-                    messageLabel.Text = "Save Failed!";
-                }
-                //5
-                sqlConnection.Close();
-
+                messageLabel.Text = "Saved Successfully";
             }
-            catch (Exception exception)
+            else
             {
-                MessageBox.Show(exception.Message);
-            }
+                messageLabel.Text = "Save Failed!";
+            }            
         }
         private void Update(string name)
         {
-            try
+            category.Name = name;
+            int isExecuted = 0;
+            isExecuted = _categoryManager.Update(category);
+            if(isExecuted>0)
             {
-                
-
-                //2
-                sqlCommand = new SqlCommand();
-                commandString = "UPDATE Categories SET Name =  '" + name + "' WHERE ID = " + category.ID + "";
-                sqlCommand.CommandText = commandString;
-                sqlCommand.Connection = sqlConnection;
-
-                //3
-                sqlConnection.Open();
-
-                //4 
-                int isExecuted = 0;
-                isExecuted= sqlCommand.ExecuteNonQuery();
-                if(isExecuted>0)
-                {
-                    messageLabel.Text = "Updated Successfully";
-                }
-                else
-                {
-                    messageLabel.Text = "Update Failed!";
-                }
-
-                //5
-                sqlConnection.Close();
+                messageLabel.Text = "Updated Successfully";
             }
-            catch(Exception exception)
+            else
             {
-                MessageBox.Show(exception.Message);
-            }            
-        }
+                messageLabel.Text = "Update Failed!";
+            }
+        }        
         private void Display()
-        {
-            try
-            {
-                
-                commandString = @"SELECT * FROM Categories";
-                sqlCommand = new SqlCommand(commandString, sqlConnection);
-                //3
-                sqlConnection.Open();
-                //4
-                sqlDataAdapter = new SqlDataAdapter();
-                sqlDataAdapter.SelectCommand = sqlCommand;
-
-                dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-
-                categoryDataGridView.DataSource = dataTable;                
-                //5
-                sqlConnection.Close();
-            }
-            catch(Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
+        {            
+            categoryDataGridView.DataSource = _categoryManager.Display();
             foreach (DataGridViewRow row in categoryDataGridView.Rows)
                 row.Cells["SL"].Value = (row.Index + 1).ToString();
             categoryDataGridView.RowHeadersVisible = false;

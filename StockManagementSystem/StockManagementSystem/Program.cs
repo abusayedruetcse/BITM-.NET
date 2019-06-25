@@ -16,11 +16,11 @@ namespace StockManagementSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new FeatureList());
+            Application.Run(new MenuUi());
             //Application.Run(new CategoryUi());
             //Application.Run(new CompanyUi());
             //Application.Run(new ItemUi());
-            Application.Run(new StockInUi());
+            //Application.Run(new StockInUi());
             //Application.Run(new StockOut());
             //Application.Run(new SearchandViewItemsSummary());
             //Application.Run(new ViewBetweenTwoDatesReport());
