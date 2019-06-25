@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using StockManagementSystem.Models;
+using StockManagementSystem.BLL;
 
 namespace StockManagementSystem
 {
@@ -23,11 +24,13 @@ namespace StockManagementSystem
         SqlDataAdapter sqlDataAdapter;
         DataTable dataTable;
         Item item;
+        ItemManager _itemManager;
         public ItemUi()
         {
             InitializeComponent();
             sqlConnection = new SqlConnection(connectionString);
             item = new Item();
+            _itemManager = new ItemManager();
         }
 
         private void categoryComboBox_Click(object sender, EventArgs e)
@@ -136,32 +139,42 @@ namespace StockManagementSystem
         }
         private void Insert(Item item)
         {
-            try
+            int isExecuted = 0;
+            isExecuted = _itemManager.Insert(item);
+            if (isExecuted > 0)
             {
-                //1
-                commandString = @"INSERT INTO Items VALUES('"+item.Name+"',"+item.CategoryID+" ,"+item.CompanyID+","+item.ReorderLevel+", 0 )";
-                sqlCommand = new SqlCommand();
-                sqlCommand.CommandText = commandString;
-                sqlCommand.Connection = sqlConnection;
-
-                //3
-                sqlConnection.Open();
-
-                //4
-                int isExecuted = 0;
-                isExecuted = sqlCommand.ExecuteNonQuery();
-                if (isExecuted > 0)
-                {
-                    messageLabel.Text = "Saved Successfully";
-                }
-                else
-                {
-                    messageLabel.Text = "Save Failed!";
-                }
-                //5
-                sqlConnection.Close();
-
+                messageLabel.Text = "Saved Successfully";
             }
+            else
+            {
+                messageLabel.Text = "Save Failed!";
+            }
+            //try
+            //{
+            //    //1
+            //    commandString = @"INSERT INTO Items VALUES('"+item.Name+"',"+item.CategoryID+" ,"+item.CompanyID+","+item.ReorderLevel+", 0 )";
+            //    sqlCommand = new SqlCommand();
+            //    sqlCommand.CommandText = commandString;
+            //    sqlCommand.Connection = sqlConnection;
+
+            //    //3
+            //    sqlConnection.Open();
+
+            //    //4
+            //    int isExecuted = 0;
+            //    isExecuted = sqlCommand.ExecuteNonQuery();
+            //    if (isExecuted > 0)
+            //    {
+            //        messageLabel.Text = "Saved Successfully";
+            //    }
+            //    else
+            //    {
+            //        messageLabel.Text = "Save Failed!";
+            //    }
+            //    //5
+            //    sqlConnection.Close();
+
+        }
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
