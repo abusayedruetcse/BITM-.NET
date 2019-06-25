@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\CategoryManager.cs" />
+    <Compile Include="BLL\CompanyManager.cs" />
     <Compile Include="CategoryUi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +89,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CategoryRepository.cs" />
+    <Compile Include="Repository\CompanyRepository.cs" />
     <Compile Include="SearchUi.cs">
       <SubType>Form</SubType>
     </Compile>
