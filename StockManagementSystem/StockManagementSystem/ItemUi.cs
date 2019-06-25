@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,129 +12,71 @@ using StockManagementSystem.BLL;
 namespace StockManagementSystem
 {
     public partial class ItemUi : Form
-    {
-        bool IsCategoryComboxAdded = false;
-        bool IsCompanyComboxAdded = false;
-        string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS ;Database=StockManagementDB;Integrated Security=True";
-        SqlConnection sqlConnection;
-        string commandString;
-        SqlCommand sqlCommand;
-        SqlDataAdapter sqlDataAdapter;
-        DataTable dataTable;
+    {       
         Item item;
         ItemManager _itemManager;
         public ItemUi()
         {
-            InitializeComponent();
-            sqlConnection = new SqlConnection(connectionString);
+            InitializeComponent();          
             item = new Item();
             _itemManager = new ItemManager();
         }
 
         private void categoryComboBox_Click(object sender, EventArgs e)
         {
-            if(!IsCategoryComboxAdded)
-            {
-                ComboxBoxWithSelect("Categories");
-            }
-            IsCategoryComboxAdded = true;
+            categoryComboBox.DataSource = _itemManager.ComboxBoxWithSelect("Categories");            
         }
 
         private void companyComboBox_Click(object sender, EventArgs e)
         {
-            if(!IsCompanyComboxAdded)
-            {
-                ComboxBoxWithSelect("Companies");
-            }
-            IsCompanyComboxAdded = true;
+            companyComboBox.DataSource = _itemManager.ComboxBoxWithSelect("Companies");            
         }
-        private void ComboxBoxWithSelect(string tableName)
-        {
-            try
-            { 
-                commandString = @"SELECT * FROM " + tableName;
-                sqlCommand = new SqlCommand();                
-                sqlCommand.CommandText = commandString;
-                sqlCommand.Connection = sqlConnection;
-
-                //3
-                sqlConnection.Open();
-                //4
-                sqlDataAdapter = new SqlDataAdapter();
-                sqlDataAdapter.SelectCommand = sqlCommand;
-
-                dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-
-                if(tableName.Equals("Companies"))
-                {
-                    companyComboBox.DataSource = dataTable;
-                }
-                else
-                {
-                    categoryComboBox.DataSource = dataTable;
-                }
-                
-                //5
-                sqlConnection.Close();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-
-        }
-
+       
         private void SaveButton_Click(object sender, EventArgs e)
-        {                              
+        {   
+            if(String.IsNullOrEmpty(categoryComboBox.Text))
+            {
+                messageLabel.Text = "Select Category First";
+                return;
+            }
             item.CategoryID = Convert.ToInt32(categoryComboBox.SelectedValue);
+            if (String.IsNullOrEmpty(companyComboBox.Text))
+            {
+                messageLabel.Text = "Select Company First";
+                return;
+            }
             item.CompanyID = Convert.ToInt32(companyComboBox.SelectedValue);
-            item.Name = itemNameTextBox.Text;
-            item.ReorderLevel = reorderLevelTextBox.Text;
-            if(IsDuplicate(item))
+            if(String.IsNullOrEmpty(itemNameTextBox.Text))
+            {
+                messageLabel.Text = "Enter Item ";
+                return;
+            }
+            item.Name = itemNameTextBox.Text;            
+            if(_itemManager.IsDuplicate(item))
             {
                 messageLabel.Text = "Item is Duplicate!";
                 return;
             }
+            if (String.IsNullOrEmpty(reorderLevelTextBox.Text))
+            {
+                messageLabel.Text = "Enter Reorder Level ";
+                return;
+            }
+            if (System.Text.RegularExpressions.Regex.IsMatch(reorderLevelTextBox.Text, "[^0-9]"))
+            {
+                messageLabel.Text = "Enter Only Digits";
+                return;
+            }
+            item.ReorderLevel = Convert.ToInt32(reorderLevelTextBox.Text);
+
             Insert(item);
             //cleaning
             categoryComboBox.Text = "";
             companyComboBox.Text = "";
             itemNameTextBox.Text = "";
             reorderLevelTextBox.Text = "";
-        }
-        
-        private bool IsDuplicate(Item item)
-        {
-            bool isDuplicate = false;
-            try
-            {
-                //1
-                commandString = @"SELECT ID FROM Items WHERE Name='"+item.Name+"' AND CategoryID ="+item.CategoryID+" AND CompanyID="+item.CompanyID;
-                sqlCommand = new SqlCommand(commandString, sqlConnection);
-                //3
-                sqlConnection.Open();
-                //4
-                sqlDataAdapter = new SqlDataAdapter();
-                sqlDataAdapter.SelectCommand = sqlCommand;
-
-                dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-                
-                if(dataTable!=null && dataTable.Rows.Count>0)
-                {
-                    isDuplicate = true;
-                }
-                
-                //5
-                sqlConnection.Close();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-            return isDuplicate;
-        }
+        }       
+       
         private void Insert(Item item)
         {
             int isExecuted = 0;
@@ -148,37 +88,7 @@ namespace StockManagementSystem
             else
             {
                 messageLabel.Text = "Save Failed!";
-            }
-            //try
-            //{
-            //    //1
-            //    commandString = @"INSERT INTO Items VALUES('"+item.Name+"',"+item.CategoryID+" ,"+item.CompanyID+","+item.ReorderLevel+", 0 )";
-            //    sqlCommand = new SqlCommand();
-            //    sqlCommand.CommandText = commandString;
-            //    sqlCommand.Connection = sqlConnection;
-
-            //    //3
-            //    sqlConnection.Open();
-
-            //    //4
-            //    int isExecuted = 0;
-            //    isExecuted = sqlCommand.ExecuteNonQuery();
-            //    if (isExecuted > 0)
-            //    {
-            //        messageLabel.Text = "Saved Successfully";
-            //    }
-            //    else
-            //    {
-            //        messageLabel.Text = "Save Failed!";
-            //    }
-            //    //5
-            //    sqlConnection.Close();
-
-        }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
+            }           
         }
     }
 }
