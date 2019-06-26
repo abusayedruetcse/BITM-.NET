@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using StockManagementSystem.Models;
+using StockManagementSystem.BLL;
 
 namespace StockManagementSystem
 {
@@ -23,66 +24,41 @@ namespace StockManagementSystem
         DataTable dataTable;
         StockIn stockIn;
         Item item;
+        StockInManager _stockInManager;
         public StockInUi()
         {
             InitializeComponent();
             sqlConnection = new SqlConnection(connectionString);
             stockIn = new StockIn();
             item = new Item();
+            _stockInManager = new StockInManager();
         }
 
+        
         private void StockIn_Load(object sender, EventArgs e)
         {
-            
-            
-
             //company
-            commandString = @"SELECT * FROM Companies";
-            sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-            sqlConnection.Open();
-
-            sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-            dataTable = new DataTable();
-            sqlDataAdapter.Fill(dataTable);
-
+            dataTable= _stockInManager.LoadCompanyToComboBox();
             companyComboBox.DataSource = dataTable;
-            if (dataTable.Rows.Count ==0)
+            if (dataTable.Rows.Count == 0)
             {
                 companyComboBox.Text = "";
+                messageLabel.Text = "No Company in Database";
             }
-
-            sqlConnection.Close();
-            //category            
-            commandString = @"SELECT * FROM Categories";            
-            try
+            //category      
+            dataTable = _stockInManager.LoadCategoryToComboBox();
+            categoryComboBox.DataSource = dataTable;
+            if (dataTable.Rows.Count == 0)
             {
-                sqlCommand = new SqlCommand(commandString, sqlConnection);
-                sqlConnection.Open();
-
-                sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-
-                categoryComboBox.DataSource = dataTable;
-                if (dataTable.Rows.Count == 0)
-                {
-                    categoryComboBox.Text = "";
-                }
-                sqlConnection.Close();
+                companyComboBox.Text = "";
+                messageLabel.Text = "No Category in Database";
             }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-
+            //Cleaning Text fields.
             companyComboBox.Text = "-Select-";
             categoryComboBox.Text = "-Select-";
             itemComboBox.Text = "-Select-";
             reorderLevelTextBox.Text = "<View>";
             availableQuantityTextBox.Text = "<View>";
-
-
         }
 
         private void companyComboBox_Click(object sender, EventArgs e)
