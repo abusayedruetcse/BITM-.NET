@@ -300,21 +300,15 @@ namespace StockManagementSystem
         }
 
         private void stockInDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //Company company = new Company();
-            //Category category = new Category();
+        {           
             int currentQuantity = Convert.ToInt32(stockInDataGridView.Rows[e.RowIndex].Cells["quantityDataGridViewTextBoxColumn"].Value);
             item.ID = Convert.ToInt32(stockInDataGridView.Rows[e.RowIndex].Cells["itemIDDataGridViewTextBoxColumn"].Value);
             dataTable = GetItem(item);
             //display into textbox
             if(dataTable.Rows.Count>0)
             {
-                companyComboBox.SelectedValue = dataTable.Rows[0]["CompanyID"];
-                //company.ID = Convert.ToInt32(companyComboBox.SelectedValue);
-                //companyComboBox.Text = GetCompanyName(company).Name;
-                categoryComboBox.SelectedValue = dataTable.Rows[0]["CategoryID"];
-                //category.ID = Convert.ToInt32(categoryComboBox.SelectedValue);
-                //categoryComboBox.Text = GetCategoryName(category).Name;
+                companyComboBox.SelectedValue = dataTable.Rows[0]["CompanyID"];                
+                categoryComboBox.SelectedValue = dataTable.Rows[0]["CategoryID"];               
                 itemComboBox.Text = dataTable.Rows[0]["Name"].ToString();
                 reorderLevelTextBox.Text = dataTable.Rows[0]["ReorderLevel"].ToString();
                 availableQuantityTextBox.Text = dataTable.Rows[0]["AvailableQuantity"].ToString();
@@ -327,49 +321,7 @@ namespace StockManagementSystem
             
             //updating for StockIn
             stockIn.ID= Convert.ToInt32(stockInDataGridView.Rows[e.RowIndex].Cells["iDDataGridViewTextBoxColumn"].Value);   
-        }
-        private Category GetCategoryName(Category category)
-        {
-            commandString = @"SELECT * FROM Categories WHERE ID=" + category.ID + "";
-            try
-            {
-                sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-                sqlConnection.Open();
-
-                sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-                category.Name = dataTable.Rows[0]["Name"].ToString();
-                sqlConnection.Close();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-            return category;
-        }
-        private Company GetCompanyName(Company company)
-        {
-            commandString = @"SELECT * FROM Companies WHERE ID=" + company.ID + "";
-            try
-            {
-                sqlCommand = new SqlCommand(commandString, sqlConnection);
-
-                sqlConnection.Open();
-
-                sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-                dataTable = new DataTable();
-                sqlDataAdapter.Fill(dataTable);
-                company.Name = dataTable.Rows[0]["Name"].ToString();
-                sqlConnection.Close();
-            }
-            catch (Exception exception)
-            {
-                MessageBox.Show(exception.Message);
-            }
-            return company;
-        }
+        }             
         private DataTable GetItem(Item item)
         {
             commandString = @"SELECT * FROM Items WHERE ID="+item.ID+"";
