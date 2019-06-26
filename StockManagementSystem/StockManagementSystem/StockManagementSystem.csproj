@@ -153,6 +153,7 @@
     <None Include="Properties\DataSources\StockManagementSystem.Models.Category.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Models.Company.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Models.Item.datasource" />
+    <None Include="Properties\DataSources\StockManagementSystem.Models.StockIn.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

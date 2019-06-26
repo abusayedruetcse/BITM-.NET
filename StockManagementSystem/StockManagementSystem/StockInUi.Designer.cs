@@ -40,25 +40,37 @@
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.itemComboBox = new System.Windows.Forms.ComboBox();
+            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.reorderLevelTextBox = new System.Windows.Forms.TextBox();
             this.availableQuantityTextBox = new System.Windows.Forms.TextBox();
             this.stockInQuantityTextBox = new System.Windows.Forms.TextBox();
             this.SaveButton = new System.Windows.Forms.Button();
             this.stockInDataGridView = new System.Windows.Forms.DataGridView();
+            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Action = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockInBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.messageLabel = new System.Windows.Forms.Label();
             this.SelectButton = new System.Windows.Forms.Button();
-            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.stockInDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stockInDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockInDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockInBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(67, 53);
+            this.label1.Location = new System.Drawing.Point(70, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 16);
             this.label1.TabIndex = 0;
@@ -68,7 +80,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(67, 92);
+            this.label2.Location = new System.Drawing.Point(70, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 16);
             this.label2.TabIndex = 1;
@@ -78,7 +90,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(67, 136);
+            this.label3.Location = new System.Drawing.Point(70, 122);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 16);
             this.label3.TabIndex = 2;
@@ -88,7 +100,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(67, 180);
+            this.label4.Location = new System.Drawing.Point(70, 166);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 16);
             this.label4.TabIndex = 3;
@@ -98,7 +110,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(67, 218);
+            this.label5.Location = new System.Drawing.Point(70, 204);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(116, 16);
             this.label5.TabIndex = 4;
@@ -108,7 +120,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(67, 260);
+            this.label6.Location = new System.Drawing.Point(70, 246);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(106, 16);
             this.label6.TabIndex = 5;
@@ -119,7 +131,7 @@
             this.companyComboBox.DataSource = this.companyBindingSource;
             this.companyComboBox.DisplayMember = "Name";
             this.companyComboBox.FormattingEnabled = true;
-            this.companyComboBox.Location = new System.Drawing.Point(208, 53);
+            this.companyComboBox.Location = new System.Drawing.Point(211, 39);
             this.companyComboBox.Name = "companyComboBox";
             this.companyComboBox.Size = new System.Drawing.Size(200, 21);
             this.companyComboBox.TabIndex = 6;
@@ -135,7 +147,7 @@
             this.categoryComboBox.DataSource = this.categoryBindingSource;
             this.categoryComboBox.DisplayMember = "Name";
             this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(208, 92);
+            this.categoryComboBox.Location = new System.Drawing.Point(211, 78);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(200, 21);
             this.categoryComboBox.TabIndex = 7;
@@ -152,30 +164,34 @@
             this.itemComboBox.DataSource = this.itemBindingSource;
             this.itemComboBox.DisplayMember = "Name";
             this.itemComboBox.FormattingEnabled = true;
-            this.itemComboBox.Location = new System.Drawing.Point(208, 136);
+            this.itemComboBox.Location = new System.Drawing.Point(211, 122);
             this.itemComboBox.Name = "itemComboBox";
             this.itemComboBox.Size = new System.Drawing.Size(200, 21);
             this.itemComboBox.TabIndex = 16;
             this.itemComboBox.ValueMember = "ID";
             this.itemComboBox.Click += new System.EventHandler(this.itemComboBox_Click);
             // 
+            // itemBindingSource
+            // 
+            this.itemBindingSource.DataSource = typeof(StockManagementSystem.Models.Item);
+            // 
             // reorderLevelTextBox
             // 
-            this.reorderLevelTextBox.Location = new System.Drawing.Point(208, 180);
+            this.reorderLevelTextBox.Location = new System.Drawing.Point(211, 166);
             this.reorderLevelTextBox.Name = "reorderLevelTextBox";
             this.reorderLevelTextBox.Size = new System.Drawing.Size(200, 20);
             this.reorderLevelTextBox.TabIndex = 9;
             // 
             // availableQuantityTextBox
             // 
-            this.availableQuantityTextBox.Location = new System.Drawing.Point(208, 218);
+            this.availableQuantityTextBox.Location = new System.Drawing.Point(211, 204);
             this.availableQuantityTextBox.Name = "availableQuantityTextBox";
             this.availableQuantityTextBox.Size = new System.Drawing.Size(200, 20);
             this.availableQuantityTextBox.TabIndex = 10;
             // 
             // stockInQuantityTextBox
             // 
-            this.stockInQuantityTextBox.Location = new System.Drawing.Point(208, 260);
+            this.stockInQuantityTextBox.Location = new System.Drawing.Point(211, 246);
             this.stockInQuantityTextBox.Name = "stockInQuantityTextBox";
             this.stockInQuantityTextBox.Size = new System.Drawing.Size(200, 20);
             this.stockInQuantityTextBox.TabIndex = 11;
@@ -183,7 +199,7 @@
             // SaveButton
             // 
             this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveButton.Location = new System.Drawing.Point(333, 295);
+            this.SaveButton.Location = new System.Drawing.Point(336, 292);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 12;
@@ -193,11 +209,72 @@
             // 
             // stockInDataGridView
             // 
+            this.stockInDataGridView.AutoGenerateColumns = false;
             this.stockInDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.stockInDataGridView.Location = new System.Drawing.Point(36, 326);
+            this.stockInDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SL,
+            this.ItemName,
+            this.dateDataGridViewTextBoxColumn,
+            this.quantityDataGridViewTextBoxColumn,
+            this.Action,
+            this.iDDataGridViewTextBoxColumn,
+            this.itemIDDataGridViewTextBoxColumn});
+            this.stockInDataGridView.DataSource = this.stockInBindingSource;
+            this.stockInDataGridView.Location = new System.Drawing.Point(12, 326);
             this.stockInDataGridView.Name = "stockInDataGridView";
-            this.stockInDataGridView.Size = new System.Drawing.Size(423, 150);
+            this.stockInDataGridView.RowHeadersVisible = false;
+            this.stockInDataGridView.Size = new System.Drawing.Size(502, 150);
             this.stockInDataGridView.TabIndex = 13;
+            this.stockInDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.stockInDataGridView_CellContentClick);
+            // 
+            // SL
+            // 
+            this.SL.DataPropertyName = "SL";
+            this.SL.HeaderText = "SI";
+            this.SL.Name = "SL";
+            // 
+            // ItemName
+            // 
+            this.ItemName.DataPropertyName = "ItemName";
+            this.ItemName.HeaderText = "Item";
+            this.ItemName.Name = "ItemName";
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            // 
+            // Action
+            // 
+            this.Action.DataPropertyName = "Action";
+            this.Action.HeaderText = "Action";
+            this.Action.Name = "Action";
+            this.Action.Text = "Edit";
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // itemIDDataGridViewTextBoxColumn
+            // 
+            this.itemIDDataGridViewTextBoxColumn.DataPropertyName = "ItemID";
+            this.itemIDDataGridViewTextBoxColumn.HeaderText = "ItemID";
+            this.itemIDDataGridViewTextBoxColumn.Name = "itemIDDataGridViewTextBoxColumn";
+            this.itemIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // stockInBindingSource
+            // 
+            this.stockInBindingSource.DataSource = typeof(StockManagementSystem.Models.StockIn);
             // 
             // messageLabel
             // 
@@ -211,7 +288,7 @@
             // SelectButton
             // 
             this.SelectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectButton.Location = new System.Drawing.Point(208, 294);
+            this.SelectButton.Location = new System.Drawing.Point(211, 292);
             this.SelectButton.Name = "SelectButton";
             this.SelectButton.Size = new System.Drawing.Size(75, 23);
             this.SelectButton.TabIndex = 15;
@@ -219,15 +296,40 @@
             this.SelectButton.UseVisualStyleBackColor = true;
             this.SelectButton.Click += new System.EventHandler(this.SelectButton_Click);
             // 
-            // itemBindingSource
+            // stockInDateTimePicker
             // 
-            this.itemBindingSource.DataSource = typeof(StockManagementSystem.Models.Item);
+            this.stockInDateTimePicker.CustomFormat = " yyyy/ MM/ dd";
+            this.stockInDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.stockInDateTimePicker.Location = new System.Drawing.Point(432, 180);
+            this.stockInDateTimePicker.Name = "stockInDateTimePicker";
+            this.stockInDateTimePicker.Size = new System.Drawing.Size(110, 20);
+            this.stockInDateTimePicker.TabIndex = 17;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(432, 161);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(30, 13);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "Date";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(13, 295);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(0, 13);
+            this.label8.TabIndex = 19;
             // 
             // StockInUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(569, 488);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.stockInDateTimePicker);
             this.Controls.Add(this.SelectButton);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.stockInDataGridView);
@@ -249,8 +351,9 @@
             this.Load += new System.EventHandler(this.StockIn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stockInDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockInDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockInBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,5 +380,16 @@
         private System.Windows.Forms.Label messageLabel;
         private System.Windows.Forms.Button SelectButton;
         private System.Windows.Forms.BindingSource itemBindingSource;
+        private System.Windows.Forms.BindingSource stockInBindingSource;
+        private System.Windows.Forms.DateTimePicker stockInDateTimePicker;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Action;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label8;
     }
 }

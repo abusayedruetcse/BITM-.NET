@@ -41,6 +41,8 @@ AvailableQuantity int
 SELECT ID FROM Items WHERE Name='' AND CategoryID = AND CompanyID=
 SELECT * FROM Items
 
+UPDATE Items SET AvailableQuantity=  WHERE ID=
+
 CREATE TABLE StockIns
 (
 ID int IDENTITY(1,1),
@@ -50,13 +52,13 @@ ItemID int
 )
 -- DROP TABLE StockIns
 SELECT * FROM StockIns
+SELECT Name,Date,Quantity FROM StockIns AS s LEFT OUTER JOIN Items AS i ON s.ItemID=i.ID ORDER BY s.Date DESC 
 
 CREATE TABLE StockOuts
 (
 ID int IDENTITY(1,1),
 Date VARCHAR(20),
 Quantity int,
-Action VARCHAR(8),
 ItemID int
 )
 
