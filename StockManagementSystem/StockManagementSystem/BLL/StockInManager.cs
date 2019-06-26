@@ -23,5 +23,34 @@ namespace StockManagementSystem.BLL
         {
             return _stockInRepository.LoadCategoryToComboBox();
         }
+        public DataTable LoadFilteredItemToComboBox(int categoryID, int companyID)
+        {
+            return _stockInRepository.LoadFilteredItemToComboBox(categoryID, companyID);
+        }
+        public void UpdateItem(Item item)
+        {
+            _stockInRepository.UpdateItem(item);
+        }
+        public void UpdateStockIn(StockIn stockIn)
+        {
+            _stockInRepository.UpdateStockIn(stockIn);
+        }
+        public int InsertStockIn(StockIn stockIn)
+        {
+            return _stockInRepository.InsertStockIn(stockIn);
+        }
+        public DataTable GetItem(Item item)
+        {
+            return _stockInRepository.GetItem(item);
+        }
+        public DataTable DisplayRecords()
+        {
+            return _stockInRepository.DisplayRecords();
+        }
+        public DataTable GetAvailableQuantityAndReorderLevel(int categoryID, int companyID, string itemName)
+        {
+            return _stockInRepository.GetAvailableQuantityAndReorderLevel(categoryID, companyID, itemName);
+        }
+
     }
 }
