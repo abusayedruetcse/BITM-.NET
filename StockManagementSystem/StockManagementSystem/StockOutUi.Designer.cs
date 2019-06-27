@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.stockOutDataGridView = new System.Windows.Forms.DataGridView();
             this.AddButton = new System.Windows.Forms.Button();
             this.stockOutQuantityTextBox = new System.Windows.Forms.TextBox();
@@ -36,6 +37,7 @@
             this.itemComboBox = new System.Windows.Forms.ComboBox();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.companyComboBox = new System.Windows.Forms.ComboBox();
+            this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,7 +47,11 @@
             this.DamageButton = new System.Windows.Forms.Button();
             this.LostButton = new System.Windows.Forms.Button();
             this.SellButton = new System.Windows.Forms.Button();
+            this.messageLabel = new System.Windows.Forms.Label();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.stockOutDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // stockOutDataGridView
@@ -97,19 +103,31 @@
             // 
             // categoryComboBox
             // 
+            this.categoryComboBox.DataSource = this.categoryBindingSource;
+            this.categoryComboBox.DisplayMember = "Name";
             this.categoryComboBox.FormattingEnabled = true;
             this.categoryComboBox.Location = new System.Drawing.Point(247, 54);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(191, 21);
             this.categoryComboBox.TabIndex = 21;
+            this.categoryComboBox.ValueMember = "ID";
+            this.categoryComboBox.Click += new System.EventHandler(this.categoryComboBox_Click);
             // 
             // companyComboBox
             // 
+            this.companyComboBox.DataSource = this.companyBindingSource;
+            this.companyComboBox.DisplayMember = "Name";
             this.companyComboBox.FormattingEnabled = true;
             this.companyComboBox.Location = new System.Drawing.Point(247, 15);
             this.companyComboBox.Name = "companyComboBox";
             this.companyComboBox.Size = new System.Drawing.Size(191, 21);
             this.companyComboBox.TabIndex = 20;
+            this.companyComboBox.ValueMember = "ID";
+            this.companyComboBox.Click += new System.EventHandler(this.companyComboBox_Click);
+            // 
+            // companyBindingSource
+            // 
+            this.companyBindingSource.DataSource = typeof(StockManagementSystem.Models.Company);
             // 
             // label6
             // 
@@ -201,11 +219,24 @@
             this.SellButton.Text = "Sell";
             this.SellButton.UseVisualStyleBackColor = true;
             // 
-            // StockOut
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.Location = new System.Drawing.Point(75, 257);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 13);
+            this.messageLabel.TabIndex = 31;
+            // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataSource = typeof(StockManagementSystem.Models.Category);
+            // 
+            // StockOutUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(558, 488);
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.SellButton);
             this.Controls.Add(this.LostButton);
             this.Controls.Add(this.DamageButton);
@@ -223,9 +254,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "StockOut";
+            this.Name = "StockOutUi";
             this.Text = "Stock Out";
+            this.Load += new System.EventHandler(this.StockOutUi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.stockOutDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,5 +284,8 @@
         private System.Windows.Forms.Button DamageButton;
         private System.Windows.Forms.Button LostButton;
         private System.Windows.Forms.Button SellButton;
+        private System.Windows.Forms.Label messageLabel;
+        private System.Windows.Forms.BindingSource companyBindingSource;
+        private System.Windows.Forms.BindingSource categoryBindingSource;
     }
 }

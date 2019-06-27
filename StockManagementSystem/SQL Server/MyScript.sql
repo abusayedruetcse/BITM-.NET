@@ -10,7 +10,8 @@ Name VARCHAR(25)
 INSERT INTO Categories (Name)
 VALUES ('Stationary')
 
-SELECT DISTINCT cat.Name, i.CategoryID FROM Categories AS cat LEFT JOIN Items AS i ON cat.ID=i.CategoryID WHERE i.CompanyID= 
+SELECT DISTINCT cat.Name, i.CategoryID FROM Categories AS cat LEFT JOIN Items AS i ON cat.ID=i.CategoryID WHERE i.CompanyID= 2
+SELECT DISTINCT com.Name, i.CompanyID FROM Companies AS com LEFT JOIN Items AS i ON com.ID=i.CompanyID WHERE i.CategoryID=3
 SELECT * FROM Items WHERE CategoryID =3 AND CompanyID=3
 
 UPDATE Categories
@@ -40,6 +41,7 @@ AvailableQuantity int
 -- DROP TABLE Items
 SELECT ID FROM Items WHERE Name='' AND CategoryID = AND CompanyID=
 SELECT * FROM Items
+SELECT DISTINCT cat.ID, cat.Name FROM Items AS i LEFT JOIN Categories AS cat ON i.CategoryID=cat.ID WHERE i.CompanyID=2
 
 UPDATE Items SET AvailableQuantity=  WHERE ID=
 
@@ -59,9 +61,11 @@ CREATE TABLE StockOuts
 ID int IDENTITY(1,1),
 Date VARCHAR(20),
 Quantity int,
-ItemID int
+ItemID int,
+Action VARCHAR(7)
 )
 
+-- DROP TABLE StockOuts
 SELECT DISTINCT cat.Name
 FROM  Categories AS cat LEFT JOIN Items As i
 ON i.CategoryID=cat.ID

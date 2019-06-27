@@ -178,7 +178,6 @@ namespace StockManagementSystem
             DisplayRecords();
         }
         
-
         private void stockInDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {           
             int currentQuantity = Convert.ToInt32(stockInDataGridView.Rows[e.RowIndex].Cells["quantityDataGridViewTextBoxColumn"].Value);
@@ -202,8 +201,6 @@ namespace StockManagementSystem
             //updating for StockIn
             stockIn.ID= Convert.ToInt32(stockInDataGridView.Rows[e.RowIndex].Cells["iDDataGridViewTextBoxColumn"].Value);   
         }             
-        
-
-        
+              
     }
 }

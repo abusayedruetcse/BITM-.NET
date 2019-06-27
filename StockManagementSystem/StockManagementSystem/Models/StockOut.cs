@@ -8,6 +8,10 @@ namespace StockManagementSystem.Models
 {
     public class StockOut
     {
-
+        public int ID { get; set; }
+        public string Date { get; set; }
+        public int Quantity { get; set; }
+        public int ItemID { get; set; }
+        public string Action { get; set; }
     }
 }

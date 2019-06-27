@@ -59,6 +59,7 @@
     <Compile Include="BLL\CompanyManager.cs" />
     <Compile Include="BLL\ItemManager.cs" />
     <Compile Include="BLL\StockInManager.cs" />
+    <Compile Include="BLL\StockOutManager.cs" />
     <Compile Include="CategoryUi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +95,7 @@
     <Compile Include="Repository\CompanyRepository.cs" />
     <Compile Include="Repository\ItemRepository.cs" />
     <Compile Include="Repository\StockInRepository.cs" />
+    <Compile Include="Repository\StockOutRepository.cs" />
     <Compile Include="SearchUi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +158,7 @@
     <None Include="Properties\DataSources\StockManagementSystem.Models.Company.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Models.Item.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Models.StockIn.datasource" />
+    <None Include="Properties\DataSources\StockManagementSystem.Models.StockOut.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
