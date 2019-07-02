@@ -164,19 +164,7 @@ namespace StockManagementSystem
                 row.Cells["SL"].Value = (row.Index + 1).ToString();
                 row.Cells["Action"].Value = Convert.ToString("Edit");
             }
-        }
-
-        private void SelectButton_Click(object sender, EventArgs e)
-        {
-            dataTable = _stockInManager.GetAvailableQuantityAndReorderLevel(Convert.ToInt32(categoryComboBox.SelectedValue), Convert.ToInt32(companyComboBox.SelectedValue), itemComboBox.Text);
-            if (dataTable.Rows.Count > 0)
-            {
-                reorderLevelTextBox.Text = dataTable.Rows[0]["ReorderLevel"].ToString();
-                availableQuantityTextBox.Text = dataTable.Rows[0]["AvailableQuantity"].ToString();
-            }
-            //Display on DataGridView
-            DisplayRecords();
-        }
+        }        
         
         private void stockInDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {           
@@ -200,7 +188,18 @@ namespace StockManagementSystem
             
             //updating for StockIn
             stockIn.ID= Convert.ToInt32(stockInDataGridView.Rows[e.RowIndex].Cells["iDDataGridViewTextBoxColumn"].Value);   
-        }             
-              
+        }
+
+        private void itemComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dataTable = _stockInManager.GetAvailableQuantityAndReorderLevel(Convert.ToInt32(categoryComboBox.SelectedValue), Convert.ToInt32(companyComboBox.SelectedValue), itemComboBox.Text);
+            if (dataTable.Rows.Count > 0)
+            {
+                reorderLevelTextBox.Text = dataTable.Rows[0]["ReorderLevel"].ToString();
+                availableQuantityTextBox.Text = dataTable.Rows[0]["AvailableQuantity"].ToString();
+            }
+            //Display on DataGridView
+            DisplayRecords();
+        }
     }
 }

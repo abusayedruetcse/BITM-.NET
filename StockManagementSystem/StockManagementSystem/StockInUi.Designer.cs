@@ -55,7 +55,6 @@
             this.itemIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockInBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.messageLabel = new System.Windows.Forms.Label();
-            this.SelectButton = new System.Windows.Forms.Button();
             this.stockInDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -169,6 +168,7 @@
             this.itemComboBox.Size = new System.Drawing.Size(200, 21);
             this.itemComboBox.TabIndex = 16;
             this.itemComboBox.ValueMember = "ID";
+            this.itemComboBox.SelectedIndexChanged += new System.EventHandler(this.itemComboBox_SelectedIndexChanged);
             this.itemComboBox.Click += new System.EventHandler(this.itemComboBox_Click);
             // 
             // itemBindingSource
@@ -285,17 +285,6 @@
             this.messageLabel.Size = new System.Drawing.Size(0, 16);
             this.messageLabel.TabIndex = 14;
             // 
-            // SelectButton
-            // 
-            this.SelectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectButton.Location = new System.Drawing.Point(211, 292);
-            this.SelectButton.Name = "SelectButton";
-            this.SelectButton.Size = new System.Drawing.Size(75, 23);
-            this.SelectButton.TabIndex = 15;
-            this.SelectButton.Text = "Select";
-            this.SelectButton.UseVisualStyleBackColor = true;
-            this.SelectButton.Click += new System.EventHandler(this.SelectButton_Click);
-            // 
             // stockInDateTimePicker
             // 
             this.stockInDateTimePicker.CustomFormat = " yyyy/ MM/ dd";
@@ -330,7 +319,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.stockInDateTimePicker);
-            this.Controls.Add(this.SelectButton);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.stockInDataGridView);
             this.Controls.Add(this.SaveButton);
@@ -378,7 +366,6 @@
         private System.Windows.Forms.BindingSource companyBindingSource;
         private System.Windows.Forms.BindingSource categoryBindingSource;
         private System.Windows.Forms.Label messageLabel;
-        private System.Windows.Forms.Button SelectButton;
         private System.Windows.Forms.BindingSource itemBindingSource;
         private System.Windows.Forms.BindingSource stockInBindingSource;
         private System.Windows.Forms.DateTimePicker stockInDateTimePicker;
