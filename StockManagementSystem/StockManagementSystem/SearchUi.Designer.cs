@@ -28,30 +28,54 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
             this.companyComboBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.SearchButton = new System.Windows.Forms.Button();
             this.searchViewSummaryDataGridView = new System.Windows.Forms.DataGridView();
+            this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.companyIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.availableQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reorderLevelDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.searchViewSummaryDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // categoryComboBox
             // 
+            this.categoryComboBox.DataSource = this.categoryBindingSource;
+            this.categoryComboBox.DisplayMember = "Name";
             this.categoryComboBox.FormattingEnabled = true;
             this.categoryComboBox.Location = new System.Drawing.Point(263, 66);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(200, 21);
             this.categoryComboBox.TabIndex = 11;
+            this.categoryComboBox.ValueMember = "ID";
+            this.categoryComboBox.SelectedIndexChanged += new System.EventHandler(this.categoryComboBox_SelectedIndexChanged);
             // 
             // companyComboBox
             // 
+            this.companyComboBox.DataSource = this.companyBindingSource;
+            this.companyComboBox.DisplayMember = "Name";
             this.companyComboBox.FormattingEnabled = true;
             this.companyComboBox.Location = new System.Drawing.Point(263, 27);
             this.companyComboBox.Name = "companyComboBox";
             this.companyComboBox.Size = new System.Drawing.Size(200, 21);
             this.companyComboBox.TabIndex = 10;
+            this.companyComboBox.ValueMember = "ID";
+            this.companyComboBox.SelectedIndexChanged += new System.EventHandler(this.companyComboBox_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -82,16 +106,100 @@
             this.SearchButton.TabIndex = 12;
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // searchViewSummaryDataGridView
             // 
+            this.searchViewSummaryDataGridView.AutoGenerateColumns = false;
+            this.searchViewSummaryDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.searchViewSummaryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.searchViewSummaryDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SL,
+            this.iDDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.categoryIDDataGridViewTextBoxColumn,
+            this.companyIDDataGridViewTextBoxColumn,
+            this.CompanyName,
+            this.CategoryName,
+            this.availableQuantityDataGridViewTextBoxColumn,
+            this.reorderLevelDataGridViewTextBoxColumn});
+            this.searchViewSummaryDataGridView.DataSource = this.itemBindingSource;
             this.searchViewSummaryDataGridView.Location = new System.Drawing.Point(42, 188);
             this.searchViewSummaryDataGridView.Name = "searchViewSummaryDataGridView";
+            this.searchViewSummaryDataGridView.RowHeadersVisible = false;
             this.searchViewSummaryDataGridView.Size = new System.Drawing.Size(539, 207);
             this.searchViewSummaryDataGridView.TabIndex = 13;
             // 
-            // SearchandViewItemsSummary
+            // companyBindingSource
+            // 
+            this.companyBindingSource.DataSource = typeof(StockManagementSystem.Models.Company);
+            // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataSource = typeof(StockManagementSystem.Models.Category);
+            // 
+            // itemBindingSource
+            // 
+            this.itemBindingSource.DataSource = typeof(StockManagementSystem.Models.Item);
+            // 
+            // SL
+            // 
+            this.SL.DataPropertyName = "SL";
+            this.SL.HeaderText = "SI";
+            this.SL.Name = "SL";
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Item";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // categoryIDDataGridViewTextBoxColumn
+            // 
+            this.categoryIDDataGridViewTextBoxColumn.DataPropertyName = "CategoryID";
+            this.categoryIDDataGridViewTextBoxColumn.HeaderText = "CategoryID";
+            this.categoryIDDataGridViewTextBoxColumn.Name = "categoryIDDataGridViewTextBoxColumn";
+            this.categoryIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // companyIDDataGridViewTextBoxColumn
+            // 
+            this.companyIDDataGridViewTextBoxColumn.DataPropertyName = "CompanyID";
+            this.companyIDDataGridViewTextBoxColumn.HeaderText = "CompanyID";
+            this.companyIDDataGridViewTextBoxColumn.Name = "companyIDDataGridViewTextBoxColumn";
+            this.companyIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // CompanyName
+            // 
+            this.CompanyName.DataPropertyName = "Company";
+            this.CompanyName.HeaderText = "Company";
+            this.CompanyName.Name = "CompanyName";
+            // 
+            // CategoryName
+            // 
+            this.CategoryName.DataPropertyName = "Category";
+            this.CategoryName.HeaderText = "Category";
+            this.CategoryName.Name = "CategoryName";
+            // 
+            // availableQuantityDataGridViewTextBoxColumn
+            // 
+            this.availableQuantityDataGridViewTextBoxColumn.DataPropertyName = "AvailableQuantity";
+            this.availableQuantityDataGridViewTextBoxColumn.HeaderText = "Available Quantity";
+            this.availableQuantityDataGridViewTextBoxColumn.Name = "availableQuantityDataGridViewTextBoxColumn";
+            // 
+            // reorderLevelDataGridViewTextBoxColumn
+            // 
+            this.reorderLevelDataGridViewTextBoxColumn.DataPropertyName = "ReorderLevel";
+            this.reorderLevelDataGridViewTextBoxColumn.HeaderText = "Reorder Level";
+            this.reorderLevelDataGridViewTextBoxColumn.Name = "reorderLevelDataGridViewTextBoxColumn";
+            // 
+            // SearchUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -102,9 +210,13 @@
             this.Controls.Add(this.companyComboBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "SearchandViewItemsSummary";
+            this.Name = "SearchUi";
             this.Text = "Search and View Items Summary";
+            this.Load += new System.EventHandler(this.SearchUi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.searchViewSummaryDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -118,5 +230,17 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.DataGridView searchViewSummaryDataGridView;
+        private System.Windows.Forms.BindingSource categoryBindingSource;
+        private System.Windows.Forms.BindingSource companyBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoryIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn companyIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CompanyName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn availableQuantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reorderLevelDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource itemBindingSource;
     }
 }
