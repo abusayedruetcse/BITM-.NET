@@ -13,5 +13,9 @@ namespace StockManagementSystem.Models
         public int Quantity { get; set; }
         public int ItemID { get; set; }
         public string Action { get; set; }
+        //extra info
+        public string ItemName { get; set; }
+        public string CompanyName { get; set; }
+       
     }
 }

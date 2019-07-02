@@ -78,6 +78,50 @@ namespace StockManagementSystem.Repository
             sqlConnection.Close();
             return dataTable;
         }
+        public DataTable GetAvailableQuantityAndReorderLevel(Item item)
+        {
+            commandString = @"SELECT * FROM Items WHERE Name='" + item.Name + "' AND CategoryID =" + item.CategoryID + " AND CompanyID=" + item.CompanyID + "";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            sqlConnection.Close();
+            return dataTable;
+        }
+        public int InsertStockOut(StockOut stockOut)
+        {
+            int isExecuted = 0;
+            commandString = @"INSERT INTO StockOuts VALUES('" + stockOut.Date + "'," + stockOut.Quantity + "," + stockOut.ItemID + ",'"+stockOut.Action+"')";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+            sqlConnection.Open();
+            isExecuted = sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
+
+            return isExecuted;
+        }
+        public DataTable GetItem(Item item)
+        {
+            commandString = @"SELECT * FROM Items WHERE ID=" + item.ID + "";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            sqlConnection.Close();
+            return dataTable;
+        }
+        public void UpdateItem(Item item)
+        {
+            int isExecuted = 0;
+            commandString = @"UPDATE Items SET AvailableQuantity=" + item.AvailableQuantity + "  WHERE ID=" + item.ID + "";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+            sqlConnection.Open();
+            isExecuted = sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
+        }
 
     }
 }

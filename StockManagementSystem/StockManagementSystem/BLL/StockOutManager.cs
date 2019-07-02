@@ -36,5 +36,21 @@ namespace StockManagementSystem.BLL
         {
             return _stockOutRepository.LoadFilteredItemToComboBox(categoryID, companyID);
         }
+        public DataTable GetAvailableQuantityAndReorderLevel(Item item)
+        {
+            return _stockOutRepository.GetAvailableQuantityAndReorderLevel(item);
+        }
+        public int InsertStockOut(StockOut stockOut)
+        {
+            return _stockOutRepository.InsertStockOut(stockOut);
+        }
+        public DataTable GetItem(Item item)
+        {
+            return _stockOutRepository.GetItem(item);
+        }
+        public void UpdateItem(Item item)
+        {
+            _stockOutRepository.UpdateItem(item);
+        }
     }
 }
