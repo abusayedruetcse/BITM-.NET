@@ -112,20 +112,8 @@ namespace StockManagementSystem
                 messageLabel.Text = "No item Found";
                 itemComboBox.Text = "";
                 return;
-            }
-            
-
-        }
-
-        private void SelectButton_Click(object sender, EventArgs e)
-        {
-            item.Name = itemComboBox.Text;
-            item.CategoryID = Convert.ToInt32(categoryComboBox.SelectedValue);
-            item.CompanyID = Convert.ToInt32(companyComboBox.SelectedValue);
-            dataTable = _stockOutManager.GetAvailableQuantityAndReorderLevel(item);        
-            reorderLevelTextBox.Text = dataTable.Rows[0]["ReorderLevel"].ToString();
-            availableQuantityTextBox.Text = dataTable.Rows[0]["AvailableQuantity"].ToString();
-        }
+            }            
+        }      
         
         private void AddButton_Click(object sender, EventArgs e)
         {
@@ -172,14 +160,28 @@ namespace StockManagementSystem
 
         private void SellButton_Click(object sender, EventArgs e)
         {
+            UpdateStackOut("Sell");
+        }
+
+        private void LostButton_Click(object sender, EventArgs e)
+        {
+            UpdateStackOut("Lost");
+        }
+
+        private void DamageButton_Click(object sender, EventArgs e)
+        {
+            UpdateStackOut("Damage");
+        }
+        private void UpdateStackOut(string action)
+        {
             stockOut = new StockOut();
             stockOut.Date = dateTimePicker.Value.ToString("yyyy-MM-dd");
             foreach (DataGridViewRow row in stockOutDataGridView.Rows)
             {
-                
+
                 stockOut.Quantity = Convert.ToInt32(row.Cells["quantityDataGridViewTextBoxColumn"].Value.ToString());
                 stockOut.ItemID = Convert.ToInt32(row.Cells["itemIDDataGridViewTextBoxColumn"].Value.ToString());
-                stockOut.Action = "Sell";
+                stockOut.Action = action;
                 item.ID = stockOut.ItemID;
                 dataTable = _stockOutManager.GetItem(item);
                 int quantity = Convert.ToInt32(dataTable.Rows[0]["AvailableQuantity"]);
@@ -188,21 +190,24 @@ namespace StockManagementSystem
                 _stockOutManager.UpdateItem(item);
                 int isUpdated = 0;
                 isUpdated = _stockOutManager.InsertStockOut(stockOut);
-                if(isUpdated>0)
+                if (isUpdated > 0)
                 {
                     messageLabel.Text = "Item: " + itemComboBox.Text + " Saved";
                 }
             }
+            listStockOut = new List<StockOut>();
+            stockOutDataGridView.DataSource = null;
+            stockOutDataGridView.DataSource = listStockOut;
         }
 
-        private void LostButton_Click(object sender, EventArgs e)
+        private void itemComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void DamageButton_Click(object sender, EventArgs e)
-        {
-
+            item.Name = itemComboBox.Text;
+            item.CategoryID = Convert.ToInt32(categoryComboBox.SelectedValue);
+            item.CompanyID = Convert.ToInt32(companyComboBox.SelectedValue);
+            dataTable = _stockOutManager.GetAvailableQuantityAndReorderLevel(item);
+            reorderLevelTextBox.Text = dataTable.Rows[0]["ReorderLevel"].ToString();
+            availableQuantityTextBox.Text = dataTable.Rows[0]["AvailableQuantity"].ToString();
         }
     }
 }
