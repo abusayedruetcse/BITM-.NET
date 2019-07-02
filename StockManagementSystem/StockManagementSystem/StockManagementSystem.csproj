@@ -61,6 +61,7 @@
     <Compile Include="BLL\SearchManager.cs" />
     <Compile Include="BLL\StockInManager.cs" />
     <Compile Include="BLL\StockOutManager.cs" />
+    <Compile Include="BLL\ViewManager.cs" />
     <Compile Include="CategoryUi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +99,7 @@
     <Compile Include="Repository\SearchRepository.cs" />
     <Compile Include="Repository\StockInRepository.cs" />
     <Compile Include="Repository\StockOutRepository.cs" />
+    <Compile Include="Repository\ViewRepository.cs" />
     <Compile Include="SearchUi.cs">
       <SubType>Form</SubType>
     </Compile>

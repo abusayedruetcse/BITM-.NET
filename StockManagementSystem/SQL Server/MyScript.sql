@@ -43,9 +43,7 @@ SELECT ID FROM Items WHERE Name='' AND CategoryID = AND CompanyID=
 SELECT * FROM Items
 SELECT DISTINCT cat.ID, cat.Name FROM Items AS i LEFT JOIN Categories AS cat ON i.CategoryID=cat.ID WHERE i.CompanyID=2
 
-SELECT i.Name,com.Name,cat.Name,AvailableQuantity,ReorderLevel
-FROM Items AS i, Categories AS cat, Companies AS com
-WHERE CategoryID=cat.ID AND CompanyID=com.ID AND CategoryID=3 AND CompanyID=3
+SELECT i.Name AS Name,com.Name AS Company,cat.Name AS Category,AvailableQuantity,ReorderLevel FROM Items AS i, Categories AS cat, Companies AS com WHERE CategoryID=cat.ID AND CompanyID=com.ID AND CategoryID=3 AND CompanyID=3
 
 UPDATE Items SET AvailableQuantity=  WHERE ID=
 
@@ -71,6 +69,15 @@ Action VARCHAR(7)
 
 -- DROP TABLE StockOuts
 SELECT * FROM StockOuts
+
+SELECT SUM(Quantity)
+FROM StockOuts
+WHERE Action='Sell' AND Date BETWEEN '2018-00-10' AND '2020-10-10'
+
+SELECT i.Name AS Item, com.Name AS Company, SUM(Quantity) AS Quantity
+FROM StockOuts, Companies AS com,Items AS i
+WHERE ItemID=i.ID AND i.CompanyID=com.ID AND Action='Sell' AND Date BETWEEN '2018-00-10' AND '2020-10-10'
+GROUP BY ItemID,i.Name,com.Name
 
 SELECT DISTINCT cat.Name
 FROM  Categories AS cat LEFT JOIN Items As i

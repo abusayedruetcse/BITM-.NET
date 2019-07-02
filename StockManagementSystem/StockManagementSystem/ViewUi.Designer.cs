@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.soldRadioButton = new System.Windows.Forms.RadioButton();
@@ -36,8 +37,19 @@
             this.SearchButton = new System.Windows.Forms.Button();
             this.viewReportDataGridView = new System.Windows.Forms.DataGridView();
             this.fromDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.toDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.stockOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.companyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.actionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.viewReportDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockOutBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -63,6 +75,7 @@
             // soldRadioButton
             // 
             this.soldRadioButton.AutoSize = true;
+            this.soldRadioButton.Checked = true;
             this.soldRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.soldRadioButton.Location = new System.Drawing.Point(125, 128);
             this.soldRadioButton.Name = "soldRadioButton";
@@ -80,7 +93,6 @@
             this.damagedRadioButton.Name = "damagedRadioButton";
             this.damagedRadioButton.Size = new System.Drawing.Size(87, 20);
             this.damagedRadioButton.TabIndex = 3;
-            this.damagedRadioButton.TabStop = true;
             this.damagedRadioButton.Text = "Damaged";
             this.damagedRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -92,7 +104,6 @@
             this.lostRadioButton.Name = "lostRadioButton";
             this.lostRadioButton.Size = new System.Drawing.Size(51, 20);
             this.lostRadioButton.TabIndex = 4;
-            this.lostRadioButton.TabStop = true;
             this.lostRadioButton.Text = "Lost";
             this.lostRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -105,39 +116,116 @@
             this.SearchButton.TabIndex = 5;
             this.SearchButton.Text = "Search";
             this.SearchButton.UseVisualStyleBackColor = true;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // viewReportDataGridView
             // 
+            this.viewReportDataGridView.AutoGenerateColumns = false;
+            this.viewReportDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.viewReportDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.viewReportDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SL,
+            this.itemNameDataGridViewTextBoxColumn,
+            this.companyNameDataGridViewTextBoxColumn,
+            this.TotalQuantity,
+            this.iDDataGridViewTextBoxColumn,
+            this.dateDataGridViewTextBoxColumn,
+            this.quantityDataGridViewTextBoxColumn,
+            this.itemIDDataGridViewTextBoxColumn,
+            this.actionDataGridViewTextBoxColumn});
+            this.viewReportDataGridView.DataSource = this.stockOutBindingSource;
             this.viewReportDataGridView.Location = new System.Drawing.Point(35, 248);
             this.viewReportDataGridView.Name = "viewReportDataGridView";
+            this.viewReportDataGridView.RowHeadersVisible = false;
             this.viewReportDataGridView.Size = new System.Drawing.Size(511, 164);
             this.viewReportDataGridView.TabIndex = 6;
             // 
             // fromDateTimePicker
             // 
-            this.fromDateTimePicker.CustomFormat = "dd/mm/yyyy";
+            this.fromDateTimePicker.CustomFormat = "yyyy-MM-dd";
             this.fromDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.fromDateTimePicker.Location = new System.Drawing.Point(237, 37);
             this.fromDateTimePicker.Name = "fromDateTimePicker";
             this.fromDateTimePicker.Size = new System.Drawing.Size(94, 20);
             this.fromDateTimePicker.TabIndex = 7;
             // 
-            // dateTimePicker1
+            // toDateTimePicker
             // 
-            this.dateTimePicker1.CustomFormat = "  /  /     ";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(237, 70);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(94, 20);
-            this.dateTimePicker1.TabIndex = 8;
+            this.toDateTimePicker.CustomFormat = "yyyy-MM-dd";
+            this.toDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.toDateTimePicker.Location = new System.Drawing.Point(237, 70);
+            this.toDateTimePicker.Name = "toDateTimePicker";
+            this.toDateTimePicker.Size = new System.Drawing.Size(94, 20);
+            this.toDateTimePicker.TabIndex = 8;
             // 
-            // ViewBetweenTwoDatesReport
+            // stockOutBindingSource
+            // 
+            this.stockOutBindingSource.DataSource = typeof(StockManagementSystem.Models.StockOut);
+            // 
+            // SL
+            // 
+            this.SL.HeaderText = "SI";
+            this.SL.Name = "SL";
+            // 
+            // itemNameDataGridViewTextBoxColumn
+            // 
+            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.HeaderText = "Item";
+            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
+            // 
+            // companyNameDataGridViewTextBoxColumn
+            // 
+            this.companyNameDataGridViewTextBoxColumn.DataPropertyName = "CompanyName";
+            this.companyNameDataGridViewTextBoxColumn.HeaderText = "Company";
+            this.companyNameDataGridViewTextBoxColumn.Name = "companyNameDataGridViewTextBoxColumn";
+            // 
+            // TotalQuantity
+            // 
+            this.TotalQuantity.DataPropertyName = "TotalQuantity";
+            this.TotalQuantity.HeaderText = "Sold/Damaged/Lost Quantity";
+            this.TotalQuantity.Name = "TotalQuantity";
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // itemIDDataGridViewTextBoxColumn
+            // 
+            this.itemIDDataGridViewTextBoxColumn.DataPropertyName = "ItemID";
+            this.itemIDDataGridViewTextBoxColumn.HeaderText = "ItemID";
+            this.itemIDDataGridViewTextBoxColumn.Name = "itemIDDataGridViewTextBoxColumn";
+            this.itemIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // actionDataGridViewTextBoxColumn
+            // 
+            this.actionDataGridViewTextBoxColumn.DataPropertyName = "Action";
+            this.actionDataGridViewTextBoxColumn.HeaderText = "Action";
+            this.actionDataGridViewTextBoxColumn.Name = "actionDataGridViewTextBoxColumn";
+            this.actionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // ViewUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 453);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.toDateTimePicker);
             this.Controls.Add(this.fromDateTimePicker);
             this.Controls.Add(this.viewReportDataGridView);
             this.Controls.Add(this.SearchButton);
@@ -146,9 +234,10 @@
             this.Controls.Add(this.soldRadioButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "ViewBetweenTwoDatesReport";
+            this.Name = "ViewUi";
             this.Text = "View Between Two Dates Report";
             ((System.ComponentModel.ISupportInitialize)(this.viewReportDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockOutBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,6 +253,16 @@
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.DataGridView viewReportDataGridView;
         private System.Windows.Forms.DateTimePicker fromDateTimePicker;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker toDateTimePicker;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn companyNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn actionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource stockOutBindingSource;
     }
 }
