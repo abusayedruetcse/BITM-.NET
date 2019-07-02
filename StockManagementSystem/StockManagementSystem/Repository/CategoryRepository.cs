@@ -10,7 +10,8 @@ namespace StockManagementSystem.Repository
 {
     public class CategoryRepository
     {
-        string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";
+        string connectionString = @"Server=PC-301-17\SQLEXPRESS ; Database=StockManagementDB  ;Integrated Security=True  ";
+        //string connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";
         SqlConnection sqlConnection;
         string commandString;
         SqlCommand sqlCommand;
