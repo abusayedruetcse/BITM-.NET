@@ -117,6 +117,22 @@ namespace StockManagementSystem
         
         private void AddButton_Click(object sender, EventArgs e)
         {
+            messageLabel.Text = "";
+            if (companyComboBox.Text.Equals("-Select-") || companyComboBox.Text == "")
+            {
+                messageLabel.Text = "Select Company";
+                return;
+            }
+            if (categoryComboBox.Text.Equals("-Select-") || categoryComboBox.Text == "")
+            {
+                messageLabel.Text = "Select Category";
+                return;
+            }
+            if (itemComboBox.Text.Equals("-Select-") || itemComboBox.Text == "")
+            {
+                messageLabel.Text = "Select Category";
+                return;
+            }
             stockOut = new StockOut();
             messageLabel.Text = "";
             //Stockout Quantity textfield checking
@@ -154,7 +170,19 @@ namespace StockManagementSystem
             listStockOut.Add(stockOut);
             stockOutDataGridView.DataSource = null;
             stockOutDataGridView.DataSource = listStockOut;
-            
+            //Adding SI column
+            foreach(DataGridViewRow row in stockOutDataGridView.Rows)
+            {
+                row.Cells["SL"].Value = (row.Index + 1).ToString();
+            }
+
+            //Preview 
+            companyComboBox.Text = "-Select-";
+            categoryComboBox.Text = "-Select-";
+            itemComboBox.Text = "-Select-";
+            reorderLevelTextBox.Text = "<View>";
+            availableQuantityTextBox.Text = "<View>";
+            stockOutQuantityTextBox.Text = "";
 
         }
 
