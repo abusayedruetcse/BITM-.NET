@@ -74,10 +74,7 @@ SELECT SUM(Quantity)
 FROM StockOuts
 WHERE Action='Sell' AND Date BETWEEN '2018-00-10' AND '2020-10-10'
 
-SELECT i.Name AS Item, com.Name AS Company, SUM(Quantity) AS Quantity
-FROM StockOuts, Companies AS com,Items AS i
-WHERE ItemID=i.ID AND i.CompanyID=com.ID AND Action='Sell' AND Date BETWEEN '2018-00-10' AND '2020-10-10'
-GROUP BY ItemID,i.Name,com.Name
+SELECT i.Name AS ItemName, com.Name AS CompanyName, SUM(Quantity) AS TotalQuantity FROM StockOuts, Companies AS com,Items AS i WHERE ItemID=i.ID AND i.CompanyID=com.ID AND Action='Sell' AND Date BETWEEN '2018-00-10' AND '2020-10-10' GROUP BY ItemID,i.Name,com.Name
 
 SELECT DISTINCT cat.Name
 FROM  Categories AS cat LEFT JOIN Items As i
