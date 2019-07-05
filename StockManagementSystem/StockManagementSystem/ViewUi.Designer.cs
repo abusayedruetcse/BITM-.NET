@@ -36,18 +36,19 @@
             this.lostRadioButton = new System.Windows.Forms.RadioButton();
             this.SearchButton = new System.Windows.Forms.Button();
             this.viewReportDataGridView = new System.Windows.Forms.DataGridView();
+            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fromDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.toDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.stockOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.PDFButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.viewReportDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockOutBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -140,6 +141,17 @@
             this.viewReportDataGridView.Size = new System.Drawing.Size(511, 164);
             this.viewReportDataGridView.TabIndex = 6;
             // 
+            // SL
+            // 
+            this.SL.HeaderText = "SI";
+            this.SL.Name = "SL";
+            // 
+            // TotalQuantity
+            // 
+            this.TotalQuantity.DataPropertyName = "TotalQuantity";
+            this.TotalQuantity.HeaderText = "Sold/Damaged/Lost Quantity";
+            this.TotalQuantity.Name = "TotalQuantity";
+            // 
             // fromDateTimePicker
             // 
             this.fromDateTimePicker.CustomFormat = "yyyy-MM-dd";
@@ -158,15 +170,6 @@
             this.toDateTimePicker.Size = new System.Drawing.Size(94, 20);
             this.toDateTimePicker.TabIndex = 8;
             // 
-            // stockOutBindingSource
-            // 
-            this.stockOutBindingSource.DataSource = typeof(StockManagementSystem.Models.StockOut);
-            // 
-            // SL
-            // 
-            this.SL.HeaderText = "SI";
-            this.SL.Name = "SL";
-            // 
             // itemNameDataGridViewTextBoxColumn
             // 
             this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
@@ -178,12 +181,6 @@
             this.companyNameDataGridViewTextBoxColumn.DataPropertyName = "CompanyName";
             this.companyNameDataGridViewTextBoxColumn.HeaderText = "Company";
             this.companyNameDataGridViewTextBoxColumn.Name = "companyNameDataGridViewTextBoxColumn";
-            // 
-            // TotalQuantity
-            // 
-            this.TotalQuantity.DataPropertyName = "TotalQuantity";
-            this.TotalQuantity.HeaderText = "Sold/Damaged/Lost Quantity";
-            this.TotalQuantity.Name = "TotalQuantity";
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -220,11 +217,27 @@
             this.actionDataGridViewTextBoxColumn.Name = "actionDataGridViewTextBoxColumn";
             this.actionDataGridViewTextBoxColumn.Visible = false;
             // 
+            // stockOutBindingSource
+            // 
+            this.stockOutBindingSource.DataSource = typeof(StockManagementSystem.Models.StockOut);
+            // 
+            // PDFButton
+            // 
+            this.PDFButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PDFButton.Location = new System.Drawing.Point(471, 418);
+            this.PDFButton.Name = "PDFButton";
+            this.PDFButton.Size = new System.Drawing.Size(75, 23);
+            this.PDFButton.TabIndex = 15;
+            this.PDFButton.Text = "PDF";
+            this.PDFButton.UseVisualStyleBackColor = true;
+            this.PDFButton.Click += new System.EventHandler(this.PDFButton_Click);
+            // 
             // ViewUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 453);
+            this.Controls.Add(this.PDFButton);
             this.Controls.Add(this.toDateTimePicker);
             this.Controls.Add(this.fromDateTimePicker);
             this.Controls.Add(this.viewReportDataGridView);
@@ -264,5 +277,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn itemIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn actionDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource stockOutBindingSource;
+        private System.Windows.Forms.Button PDFButton;
     }
 }

@@ -85,9 +85,8 @@ namespace StockManagementSystem
 
         private void PDFButton_Click(object sender, EventArgs e)
         {
-            string pdfName = companyComboBox.Text + categoryComboBox.Text + ".pdf";
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
-            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(pdfName,FileMode.Create));
+            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Search.pdf",FileMode.Create));
             doc.Open();
             //Paragraph paragraph = new Paragraph("Search and View Item Summary"+Environment.NewLine);
             //doc.Add(paragraph);
