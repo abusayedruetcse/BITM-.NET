@@ -37,8 +37,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SearchButton = new System.Windows.Forms.Button();
             this.searchViewSummaryDataGridView = new System.Windows.Forms.DataGridView();
-            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.PDFButton = new System.Windows.Forms.Button();
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CompanyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +46,8 @@
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.PDFButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchViewSummaryDataGridView)).BeginInit();
@@ -139,21 +139,6 @@
             this.searchViewSummaryDataGridView.Size = new System.Drawing.Size(539, 207);
             this.searchViewSummaryDataGridView.TabIndex = 13;
             // 
-            // itemBindingSource
-            // 
-            this.itemBindingSource.DataSource = typeof(StockManagementSystem.Models.Item);
-            // 
-            // PDFButton
-            // 
-            this.PDFButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PDFButton.Location = new System.Drawing.Point(505, 402);
-            this.PDFButton.Name = "PDFButton";
-            this.PDFButton.Size = new System.Drawing.Size(75, 23);
-            this.PDFButton.TabIndex = 14;
-            this.PDFButton.Text = "PDF";
-            this.PDFButton.UseVisualStyleBackColor = true;
-            this.PDFButton.Click += new System.EventHandler(this.PDFButton_Click);
-            // 
             // SL
             // 
             this.SL.DataPropertyName = "SL";
@@ -210,6 +195,21 @@
             this.companyIDDataGridViewTextBoxColumn.HeaderText = "CompanyID";
             this.companyIDDataGridViewTextBoxColumn.Name = "companyIDDataGridViewTextBoxColumn";
             this.companyIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // itemBindingSource
+            // 
+            this.itemBindingSource.DataSource = typeof(StockManagementSystem.Models.Item);
+            // 
+            // PDFButton
+            // 
+            this.PDFButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PDFButton.Location = new System.Drawing.Point(505, 402);
+            this.PDFButton.Name = "PDFButton";
+            this.PDFButton.Size = new System.Drawing.Size(75, 23);
+            this.PDFButton.TabIndex = 14;
+            this.PDFButton.Text = "PDF";
+            this.PDFButton.UseVisualStyleBackColor = true;
+            this.PDFButton.Click += new System.EventHandler(this.PDFButton_Click);
             // 
             // SearchUi
             // 
