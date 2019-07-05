@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using StockManagementSystem.BLL;
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace StockManagementSystem
 {
@@ -78,6 +81,36 @@ namespace StockManagementSystem
             }
             ReloadCategory();
 
+        }
+
+        private void PDFButton_Click(object sender, EventArgs e)
+        {
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Search.pdf",FileMode.Create));
+            doc.Open();
+            Paragraph paragraph = new Paragraph("Search and View Item Summary"+Environment.NewLine);
+            doc.Add(paragraph);
+            //adding the headers 
+            int noOfColumn = 6;
+            PdfPTable table = new PdfPTable(noOfColumn);           
+            for(int i=0;i<noOfColumn;i++)
+            {
+                table.AddCell(new Phrase(searchViewSummaryDataGridView.Columns[i].HeaderText));
+            }
+            table.HeaderRows = 1;
+            for(int y=0;y<searchViewSummaryDataGridView.Rows.Count;y++)
+            {
+                for(int x=0;x<noOfColumn;x++)
+                {
+                    if(searchViewSummaryDataGridView[x,y].Value!=null)
+                    {
+                        table.AddCell(new Phrase(searchViewSummaryDataGridView[x,y].Value.ToString()));
+                    }
+                }
+            }
+            doc.Add(table);
+            doc.Close();
+            MessageBox.Show("PDF successfully created");
         }
     }
 }
