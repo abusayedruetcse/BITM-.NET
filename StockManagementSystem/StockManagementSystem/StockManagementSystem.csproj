@@ -67,7 +67,9 @@
     <Compile Include="BLL\CategoryManager.cs" />
     <Compile Include="BLL\CompanyManager.cs" />
     <Compile Include="BLL\ItemManager.cs" />
+    <Compile Include="BLL\LogInManager.cs" />
     <Compile Include="BLL\SearchManager.cs" />
+    <Compile Include="BLL\SignUpManager.cs" />
     <Compile Include="BLL\StockInManager.cs" />
     <Compile Include="BLL\StockOutManager.cs" />
     <Compile Include="BLL\ViewManager.cs" />
@@ -82,6 +84,18 @@
     </Compile>
     <Compile Include="CompanyUi.Designer.cs">
       <DependentUpon>CompanyUi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrontUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrontUi.Designer.cs">
+      <DependentUpon>FrontUi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginUi.Designer.cs">
+      <DependentUpon>LoginUi.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuUi.cs">
       <SubType>Form</SubType>
@@ -100,12 +114,15 @@
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\StockIn.cs" />
     <Compile Include="Models\StockOut.cs" />
+    <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\CompanyRepository.cs" />
     <Compile Include="Repository\ItemRepository.cs" />
+    <Compile Include="Repository\LogInRepository.cs" />
     <Compile Include="Repository\SearchRepository.cs" />
+    <Compile Include="Repository\SignUpRepository.cs" />
     <Compile Include="Repository\StockInRepository.cs" />
     <Compile Include="Repository\StockOutRepository.cs" />
     <Compile Include="Repository\ViewRepository.cs" />
@@ -114,6 +131,12 @@
     </Compile>
     <Compile Include="SearchUi.Designer.cs">
       <DependentUpon>SearchUi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SignUpUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignUpUi.Designer.cs">
+      <DependentUpon>SignUpUi.cs</DependentUpon>
     </Compile>
     <Compile Include="StockInUi.cs">
       <SubType>Form</SubType>
@@ -139,6 +162,12 @@
     <EmbeddedResource Include="CompanyUi.resx">
       <DependentUpon>CompanyUi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrontUi.resx">
+      <DependentUpon>FrontUi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginUi.resx">
+      <DependentUpon>LoginUi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MenuUi.resx">
       <DependentUpon>MenuUi.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,6 +185,9 @@
     </Compile>
     <EmbeddedResource Include="SearchUi.resx">
       <DependentUpon>SearchUi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignUpUi.resx">
+      <DependentUpon>SignUpUi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StockInUi.resx">
       <DependentUpon>StockInUi.cs</DependentUpon>
