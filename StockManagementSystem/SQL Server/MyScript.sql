@@ -3,6 +3,7 @@ CREATE DATABASE StockManagementDB
 USE StockManagementDB
 CREATE TABLE UserAccount 
 (
+ID int IDENTITY(1,1),
 Email VARCHAR(35),
 UserName VARCHAR(35),
 Password VARCHAR(35),
@@ -79,6 +80,14 @@ Action VARCHAR(7)
 
 -- DROP TABLE StockOuts
 SELECT * FROM StockOuts
+
+CREATE TABLE InsertUpdateHistory 
+(
+UserID int,
+TabelName VARCHAR(20),
+TableRowNo int,
+DateAndTime VARCHAR(25)
+)
 
 SELECT SUM(Quantity)
 FROM StockOuts
