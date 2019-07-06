@@ -40,9 +40,9 @@ namespace StockManagementSystem.BLL
         {
             return _stockOutRepository.GetAvailableQuantityAndReorderLevel(item);
         }
-        public int InsertStockOut(StockOut stockOut)
+        public int InsertStockOut(StockOut stockOut,History history)
         {
-            return _stockOutRepository.InsertStockOut(stockOut);
+            return _stockOutRepository.InsertStockOut(stockOut,history);
         }
         public DataTable GetItem(Item item)
         {
@@ -51,6 +51,10 @@ namespace StockManagementSystem.BLL
         public void UpdateItem(Item item)
         {
             _stockOutRepository.UpdateItem(item);
+        }
+        public int NoOfRecords()
+        {
+            return _stockOutRepository.NoOfRecords();
         }
     }
 }

@@ -19,13 +19,14 @@ namespace StockManagementSystem
         Item item;
         List<StockOut> listStockOut;
         StockOut stockOut;
+        History history;
         public StockOutUi()
         {
             InitializeComponent();
             _stockOutManager = new StockOutManager();
             item = new Item();
             listStockOut = new List<StockOut>();
-            
+            history = new History();
         }
 
         private void StockOutUi_Load(object sender, EventArgs e)
@@ -202,11 +203,15 @@ namespace StockManagementSystem
         }
         private void UpdateStackOut(string action)
         {
+            history.UserID = UserAccount.ID;
+            history.TableName = "StockOuts";
+            history.DateAndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            history.TableRowNo = _stockOutManager.NoOfRecords();
             stockOut = new StockOut();
             stockOut.Date = dateTimePicker.Value.ToString("yyyy-MM-dd");
             foreach (DataGridViewRow row in stockOutDataGridView.Rows)
             {
-
+                history.TableRowNo += 1;
                 stockOut.Quantity = Convert.ToInt32(row.Cells["quantityDataGridViewTextBoxColumn"].Value.ToString());
                 stockOut.ItemID = Convert.ToInt32(row.Cells["itemIDDataGridViewTextBoxColumn"].Value.ToString());
                 stockOut.Action = action;
@@ -217,7 +222,7 @@ namespace StockManagementSystem
                 item.AvailableQuantity = quantity;
                 _stockOutManager.UpdateItem(item);
                 int isUpdated = 0;
-                isUpdated = _stockOutManager.InsertStockOut(stockOut);
+                isUpdated = _stockOutManager.InsertStockOut(stockOut,history);
                 if (isUpdated > 0)
                 {
                     messageLabel.Text = "Item: " + itemComboBox.Text + " Saved";
