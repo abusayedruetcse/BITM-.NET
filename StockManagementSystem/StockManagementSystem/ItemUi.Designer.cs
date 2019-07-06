@@ -34,13 +34,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.companyComboBox = new System.Windows.Forms.ComboBox();
+            this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.itemNameTextBox = new System.Windows.Forms.TextBox();
             this.reorderLevelTextBox = new System.Windows.Forms.TextBox();
             this.SaveButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
-            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.companyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.BackButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -97,6 +98,10 @@
             this.categoryComboBox.ValueMember = "ID";
             this.categoryComboBox.Click += new System.EventHandler(this.categoryComboBox_Click);
             // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataSource = typeof(StockManagementSystem.Models.Category);
+            // 
             // companyComboBox
             // 
             this.companyComboBox.DataSource = this.companyBindingSource;
@@ -108,6 +113,10 @@
             this.companyComboBox.TabIndex = 5;
             this.companyComboBox.ValueMember = "ID";
             this.companyComboBox.Click += new System.EventHandler(this.companyComboBox_Click);
+            // 
+            // companyBindingSource
+            // 
+            this.companyBindingSource.DataSource = typeof(StockManagementSystem.Models.Company);
             // 
             // itemNameTextBox
             // 
@@ -142,19 +151,24 @@
             this.messageLabel.Size = new System.Drawing.Size(0, 16);
             this.messageLabel.TabIndex = 9;
             // 
-            // categoryBindingSource
+            // BackButton
             // 
-            this.categoryBindingSource.DataSource = typeof(StockManagementSystem.Models.Category);
+            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BackButton.ForeColor = System.Drawing.Color.Red;
+            this.BackButton.Location = new System.Drawing.Point(-1, -1);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(75, 23);
+            this.BackButton.TabIndex = 10;
+            this.BackButton.Text = "Back";
+            this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
-            // companyBindingSource
-            // 
-            this.companyBindingSource.DataSource = typeof(StockManagementSystem.Models.Company);
-            // 
-            // ItemSetup
+            // ItemUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 331);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.reorderLevelTextBox);
@@ -165,7 +179,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "ItemSetup";
+            this.Name = "ItemUi";
             this.Text = "Item Setup";
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).EndInit();
@@ -188,5 +202,6 @@
         private System.Windows.Forms.Label messageLabel;
         private System.Windows.Forms.BindingSource categoryBindingSource;
         private System.Windows.Forms.BindingSource companyBindingSource;
+        private System.Windows.Forms.Button BackButton;
     }
 }

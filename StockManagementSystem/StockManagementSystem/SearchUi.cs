@@ -113,6 +113,11 @@ namespace StockManagementSystem
             MessageBox.Show("PDF successfully created");
         }
 
-        
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MenuUi menuUi = new MenuUi();
+            menuUi.Show();
+        }
     }
 }

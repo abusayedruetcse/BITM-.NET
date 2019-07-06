@@ -40,6 +40,7 @@
             this.TotalQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fromDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.toDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.PDFButton = new System.Windows.Forms.Button();
             this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,7 +49,7 @@
             this.itemIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.PDFButton = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.viewReportDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockOutBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -170,6 +171,17 @@
             this.toDateTimePicker.Size = new System.Drawing.Size(94, 20);
             this.toDateTimePicker.TabIndex = 8;
             // 
+            // PDFButton
+            // 
+            this.PDFButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PDFButton.Location = new System.Drawing.Point(471, 418);
+            this.PDFButton.Name = "PDFButton";
+            this.PDFButton.Size = new System.Drawing.Size(75, 23);
+            this.PDFButton.TabIndex = 15;
+            this.PDFButton.Text = "PDF";
+            this.PDFButton.UseVisualStyleBackColor = true;
+            this.PDFButton.Click += new System.EventHandler(this.PDFButton_Click);
+            // 
             // itemNameDataGridViewTextBoxColumn
             // 
             this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
@@ -221,22 +233,24 @@
             // 
             this.stockOutBindingSource.DataSource = typeof(StockManagementSystem.Models.StockOut);
             // 
-            // PDFButton
+            // BackButton
             // 
-            this.PDFButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PDFButton.Location = new System.Drawing.Point(471, 418);
-            this.PDFButton.Name = "PDFButton";
-            this.PDFButton.Size = new System.Drawing.Size(75, 23);
-            this.PDFButton.TabIndex = 15;
-            this.PDFButton.Text = "PDF";
-            this.PDFButton.UseVisualStyleBackColor = true;
-            this.PDFButton.Click += new System.EventHandler(this.PDFButton_Click);
+            this.BackButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BackButton.ForeColor = System.Drawing.Color.Red;
+            this.BackButton.Location = new System.Drawing.Point(-1, -1);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(75, 23);
+            this.BackButton.TabIndex = 16;
+            this.BackButton.Text = "Back";
+            this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // ViewUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(579, 453);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.PDFButton);
             this.Controls.Add(this.toDateTimePicker);
             this.Controls.Add(this.fromDateTimePicker);
@@ -278,5 +292,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn actionDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource stockOutBindingSource;
         private System.Windows.Forms.Button PDFButton;
+        private System.Windows.Forms.Button BackButton;
     }
 }

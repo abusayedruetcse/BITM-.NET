@@ -1,6 +1,16 @@
 CREATE DATABASE StockManagementDB
 --DROP DATABASE StockManagementDB
 USE StockManagementDB
+CREATE TABLE UserAccount 
+(
+Email VARCHAR(35),
+UserName VARCHAR(35),
+Password VARCHAR(35),
+)
+-- DROP TABLE UserAccount
+SELECT * FROM UserAccount WHERE Password='' AND (Email= '' OR UserName='')
+INSERT INTO UserAccount VALUES('A','B','C')
+
 CREATE TABLE Categories
 (
 ID int IDENTITY(1,1),

@@ -237,5 +237,12 @@ namespace StockManagementSystem
             reorderLevelTextBox.Text = dataTable.Rows[0]["ReorderLevel"].ToString();
             availableQuantityTextBox.Text = dataTable.Rows[0]["AvailableQuantity"].ToString();
         }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MenuUi menuUi = new MenuUi();
+            menuUi.Show();
+        }
     }
 }

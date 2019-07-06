@@ -35,6 +35,7 @@
             this.stockOutLabel = new System.Windows.Forms.Label();
             this.searchLabel = new System.Windows.Forms.Label();
             this.viewLabel = new System.Windows.Forms.Label();
+            this.LogOutButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // categorySetupLabel
@@ -114,11 +115,24 @@
             this.viewLabel.Text = "View Between Two Dates Report";
             this.viewLabel.Click += new System.EventHandler(this.viewLabel_Click);
             // 
+            // LogOutButton
+            // 
+            this.LogOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogOutButton.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.LogOutButton.Location = new System.Drawing.Point(486, 412);
+            this.LogOutButton.Name = "LogOutButton";
+            this.LogOutButton.Size = new System.Drawing.Size(75, 28);
+            this.LogOutButton.TabIndex = 21;
+            this.LogOutButton.Text = "Log Out";
+            this.LogOutButton.UseVisualStyleBackColor = true;
+            this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
+            // 
             // MenuUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 470);
+            this.Controls.Add(this.LogOutButton);
             this.Controls.Add(this.viewLabel);
             this.Controls.Add(this.searchLabel);
             this.Controls.Add(this.stockOutLabel);
@@ -141,5 +155,6 @@
         private System.Windows.Forms.Label stockOutLabel;
         private System.Windows.Forms.Label searchLabel;
         private System.Windows.Forms.Label viewLabel;
+        private System.Windows.Forms.Button LogOutButton;
     }
 }

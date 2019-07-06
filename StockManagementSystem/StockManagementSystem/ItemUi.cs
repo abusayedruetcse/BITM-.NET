@@ -90,5 +90,12 @@ namespace StockManagementSystem
                 messageLabel.Text = "Save Failed!";
             }           
         }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MenuUi menuUi = new MenuUi();
+            menuUi.Show();
+        }
     }
 }
