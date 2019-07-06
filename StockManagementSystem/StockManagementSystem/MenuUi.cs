@@ -75,5 +75,12 @@ namespace StockManagementSystem
             FrontUi frontUi = new FrontUi();
             frontUi.Show();
         }
+
+        private void insertAndUpdateHistory_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HistoryUi historyUi = new HistoryUi();
+            historyUi.Show();
+        }
     }
 }

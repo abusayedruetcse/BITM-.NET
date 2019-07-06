@@ -91,6 +91,12 @@
     <Compile Include="FrontUi.Designer.cs">
       <DependentUpon>FrontUi.cs</DependentUpon>
     </Compile>
+    <Compile Include="HistoryUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoryUi.Designer.cs">
+      <DependentUpon>HistoryUi.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginUi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrontUi.resx">
       <DependentUpon>FrontUi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoryUi.resx">
+      <DependentUpon>HistoryUi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginUi.resx">
       <DependentUpon>LoginUi.cs</DependentUpon>

@@ -36,6 +36,7 @@
             this.searchLabel = new System.Windows.Forms.Label();
             this.viewLabel = new System.Windows.Forms.Label();
             this.LogOutButton = new System.Windows.Forms.Button();
+            this.insertAndUpdateHistory = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // categorySetupLabel
@@ -127,11 +128,23 @@
             this.LogOutButton.UseVisualStyleBackColor = true;
             this.LogOutButton.Click += new System.EventHandler(this.LogOutButton_Click);
             // 
+            // insertAndUpdateHistory
+            // 
+            this.insertAndUpdateHistory.AutoSize = true;
+            this.insertAndUpdateHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.insertAndUpdateHistory.Location = new System.Drawing.Point(177, 393);
+            this.insertAndUpdateHistory.Name = "insertAndUpdateHistory";
+            this.insertAndUpdateHistory.Size = new System.Drawing.Size(159, 16);
+            this.insertAndUpdateHistory.TabIndex = 22;
+            this.insertAndUpdateHistory.Text = "Insert and Update History";
+            this.insertAndUpdateHistory.Click += new System.EventHandler(this.insertAndUpdateHistory_Click);
+            // 
             // MenuUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 470);
+            this.Controls.Add(this.insertAndUpdateHistory);
             this.Controls.Add(this.LogOutButton);
             this.Controls.Add(this.viewLabel);
             this.Controls.Add(this.searchLabel);
@@ -156,5 +169,6 @@
         private System.Windows.Forms.Label searchLabel;
         private System.Windows.Forms.Label viewLabel;
         private System.Windows.Forms.Button LogOutButton;
+        private System.Windows.Forms.Label insertAndUpdateHistory;
     }
 }

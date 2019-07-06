@@ -25,7 +25,7 @@ namespace StockManagementSystem.Repository
         }
         public int Update(Category category)
         {
-            int isExecuted = 0;
+            int isExecuted = 0;          
             try
             {
                 //2

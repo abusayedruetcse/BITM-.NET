@@ -32,6 +32,10 @@ namespace StockManagementSystem.Repository
             dataTable = new DataTable();
             sqlDataAdapter.Fill(dataTable);
             isExecuted = dataTable.Rows.Count;
+            if(isExecuted>0)
+            {
+                UserAccount.ID = Convert.ToInt32(dataTable.Rows[0]["ID"]);
+            }
             sqlConnection.Close();
             return isExecuted > 0;
         }
