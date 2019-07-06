@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="BLL\CategoryManager.cs" />
     <Compile Include="BLL\CompanyManager.cs" />
+    <Compile Include="BLL\HistoryManagement.cs" />
     <Compile Include="BLL\ItemManager.cs" />
     <Compile Include="BLL\LogInManager.cs" />
     <Compile Include="BLL\SearchManager.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CategoryRepository.cs" />
     <Compile Include="Repository\CompanyRepository.cs" />
+    <Compile Include="Repository\HistoryRepository.cs" />
     <Compile Include="Repository\ItemRepository.cs" />
     <Compile Include="Repository\LogInRepository.cs" />
     <Compile Include="Repository\SearchRepository.cs" />
@@ -211,6 +213,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\StockManagementSystem.Models.Category.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Models.Company.datasource" />
+    <None Include="Properties\DataSources\StockManagementSystem.Models.History.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Models.Item.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Models.StockIn.datasource" />
     <None Include="Properties\DataSources\StockManagementSystem.Models.StockOut.datasource" />

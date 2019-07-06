@@ -103,3 +103,13 @@ ON i.CategoryID=cat.ID
 WHERE i.CompanyID= 3
 
 SELECT DISTINCT cat.Name FROM  Categories AS cat LEFT JOIN Items As i ON i.CategoryID=cat.ID WHERE i.CompanyID= 3
+
+SELECT i.TableRowNo,t.Name,u.Email,i.DateAndTime
+FROM InsertUpdateHistory AS i, UserAccount AS u, Companies AS t
+WHERE i.TableName='Companies' AND t.ID=i.TableRowNo AND i.UserID=u.ID
+ORDER BY i.DateAndTime DESC
+
+SELECT i.TableRowNo,t.Name,u.Email,i.DateAndTime
+FROM InsertUpdateHistory AS i, UserAccount AS u, Items AS t
+WHERE i.TableName='Items' AND t.ID=i.TableRowNo AND i.UserID=u.ID
+ORDER BY i.DateAndTime DESC

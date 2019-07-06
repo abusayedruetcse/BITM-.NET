@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.components = new System.ComponentModel.Container();
+            this.historyDataGridView = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.stockOutLabel = new System.Windows.Forms.Label();
             this.stockInLabel = new System.Windows.Forms.Label();
@@ -37,17 +38,38 @@
             this.categorySetupLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BackButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Element = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableRowNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateAndTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.historyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.historyDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.historyBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // historyDataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(261, 109);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(510, 277);
-            this.dataGridView1.TabIndex = 24;
+            this.historyDataGridView.AutoGenerateColumns = false;
+            this.historyDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.historyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.historyDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SL,
+            this.tableRowNoDataGridViewTextBoxColumn,
+            this.Element,
+            this.Email,
+            this.dateAndTimeDataGridViewTextBoxColumn,
+            this.userIDDataGridViewTextBoxColumn,
+            this.tableNameDataGridViewTextBoxColumn});
+            this.historyDataGridView.DataSource = this.historyBindingSource;
+            this.historyDataGridView.Location = new System.Drawing.Point(261, 109);
+            this.historyDataGridView.Name = "historyDataGridView";
+            this.historyDataGridView.RowHeadersVisible = false;
+            this.historyDataGridView.Size = new System.Drawing.Size(510, 277);
+            this.historyDataGridView.TabIndex = 24;
             // 
             // groupBox1
             // 
@@ -73,6 +95,7 @@
             this.stockOutLabel.Size = new System.Drawing.Size(65, 16);
             this.stockOutLabel.TabIndex = 28;
             this.stockOutLabel.Text = "Stock Out";
+            this.stockOutLabel.Click += new System.EventHandler(this.stockOutLabel_Click);
             // 
             // stockInLabel
             // 
@@ -83,6 +106,7 @@
             this.stockInLabel.Size = new System.Drawing.Size(55, 16);
             this.stockInLabel.TabIndex = 27;
             this.stockInLabel.Text = "Stock In";
+            this.stockInLabel.Click += new System.EventHandler(this.stockInLabel_Click);
             // 
             // itemSetupLabel
             // 
@@ -93,6 +117,7 @@
             this.itemSetupLabel.Size = new System.Drawing.Size(71, 16);
             this.itemSetupLabel.TabIndex = 26;
             this.itemSetupLabel.Text = "Item Setup";
+            this.itemSetupLabel.Click += new System.EventHandler(this.itemSetupLabel_Click);
             // 
             // companySetupLabel
             // 
@@ -103,6 +128,7 @@
             this.companySetupLabel.Size = new System.Drawing.Size(104, 16);
             this.companySetupLabel.TabIndex = 25;
             this.companySetupLabel.Text = "Company Setup";
+            this.companySetupLabel.Click += new System.EventHandler(this.companySetupLabel_Click);
             // 
             // categorySetupLabel
             // 
@@ -113,6 +139,7 @@
             this.categorySetupLabel.Size = new System.Drawing.Size(101, 16);
             this.categorySetupLabel.TabIndex = 24;
             this.categorySetupLabel.Text = "Category Setup";
+            this.categorySetupLabel.Click += new System.EventHandler(this.categorySetupLabel_Click);
             // 
             // label1
             // 
@@ -136,6 +163,58 @@
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
+            // SL
+            // 
+            this.SL.FillWeight = 50F;
+            this.SL.HeaderText = "SI";
+            this.SL.Name = "SL";
+            // 
+            // Element
+            // 
+            this.Element.DataPropertyName = "Element";
+            this.Element.FillWeight = 93.27411F;
+            this.Element.HeaderText = "Element";
+            this.Element.Name = "Element";
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.FillWeight = 120F;
+            this.Email.HeaderText = "Email Address";
+            this.Email.Name = "Email";
+            // 
+            // tableRowNoDataGridViewTextBoxColumn
+            // 
+            this.tableRowNoDataGridViewTextBoxColumn.DataPropertyName = "TableRowNo";
+            this.tableRowNoDataGridViewTextBoxColumn.FillWeight = 50F;
+            this.tableRowNoDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.tableRowNoDataGridViewTextBoxColumn.Name = "tableRowNoDataGridViewTextBoxColumn";
+            // 
+            // dateAndTimeDataGridViewTextBoxColumn
+            // 
+            this.dateAndTimeDataGridViewTextBoxColumn.DataPropertyName = "DateAndTime";
+            this.dateAndTimeDataGridViewTextBoxColumn.FillWeight = 93.27411F;
+            this.dateAndTimeDataGridViewTextBoxColumn.HeaderText = "Date And Time";
+            this.dateAndTimeDataGridViewTextBoxColumn.Name = "dateAndTimeDataGridViewTextBoxColumn";
+            // 
+            // userIDDataGridViewTextBoxColumn
+            // 
+            this.userIDDataGridViewTextBoxColumn.DataPropertyName = "UserID";
+            this.userIDDataGridViewTextBoxColumn.HeaderText = "UserID";
+            this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
+            this.userIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // tableNameDataGridViewTextBoxColumn
+            // 
+            this.tableNameDataGridViewTextBoxColumn.DataPropertyName = "TableName";
+            this.tableNameDataGridViewTextBoxColumn.HeaderText = "TableName";
+            this.tableNameDataGridViewTextBoxColumn.Name = "tableNameDataGridViewTextBoxColumn";
+            this.tableNameDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // historyBindingSource
+            // 
+            this.historyBindingSource.DataSource = typeof(StockManagementSystem.Models.History);
+            // 
             // HistoryUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,12 +223,13 @@
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.historyDataGridView);
             this.Name = "HistoryUi";
             this.Text = "Insert and Update History";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.historyDataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.historyBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,7 +237,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView historyDataGridView;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label stockOutLabel;
         private System.Windows.Forms.Label stockInLabel;
@@ -166,5 +246,13 @@
         private System.Windows.Forms.Label categorySetupLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.BindingSource historyBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SL;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tableRowNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Element;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateAndTimeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tableNameDataGridViewTextBoxColumn;
     }
 }
