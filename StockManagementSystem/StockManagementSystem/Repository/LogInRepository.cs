@@ -22,10 +22,10 @@ namespace StockManagementSystem.Repository
             connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS ;Database=StockManagementDB ;Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
         }
-        public bool IsUserValid(UserAccount userAccount)
+        public bool IsUserValid()
         {
             int isExecuted = 0;
-            commandString = @"SELECT * FROM UserAccount WHERE Password='"+userAccount.Password+"' AND (Email= '"+userAccount.Email+"' OR UserName='"+userAccount.UserName+"')";
+            commandString = @"SELECT * FROM UserAccount WHERE Password='"+UserAccount.Password+"' AND (Email= '"+UserAccount.Email+"' OR UserName='"+UserAccount.UserName+"')";
             sqlCommand = new SqlCommand(commandString,sqlConnection);
             sqlConnection.Open();
             sqlDataAdapter = new SqlDataAdapter(sqlCommand);

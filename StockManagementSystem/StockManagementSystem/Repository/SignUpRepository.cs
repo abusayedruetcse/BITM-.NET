@@ -22,10 +22,10 @@ namespace StockManagementSystem.Repository
             connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS ;Database=StockManagementDB ;Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
         }
-        public bool IsUserAccountCreated(UserAccount userAccount)
+        public bool IsUserAccountCreated()
         {
             int isExecuted = 0;
-            commandString = @"INSERT INTO UserAccount VALUES('"+userAccount.Email+"','"+userAccount.UserName+"','"+userAccount.Password+"')";
+            commandString = @"INSERT INTO UserAccount VALUES('"+UserAccount.Email+"','"+UserAccount.UserName+"','"+UserAccount.Password+"')";
             sqlCommand = new SqlCommand(commandString,sqlConnection);
             sqlConnection.Open();
             isExecuted = sqlCommand.ExecuteNonQuery();
@@ -33,10 +33,10 @@ namespace StockManagementSystem.Repository
             return isExecuted > 0;
 
         } 
-        public bool IsPasswordUnique(UserAccount userAccount)
+        public bool IsPasswordUnique()
         {
             int isExecuted = 0;
-            commandString = @"SELECT * FROM UserAccount WHERE Password='" + userAccount.Password + "'";
+            commandString = @"SELECT * FROM UserAccount WHERE Password='" + UserAccount.Password + "'";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             sqlDataAdapter = new SqlDataAdapter(sqlCommand);

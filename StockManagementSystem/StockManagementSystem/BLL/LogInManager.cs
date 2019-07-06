@@ -16,9 +16,9 @@ namespace StockManagementSystem.BLL
             _logInRepository = new LogInRepository();
         }
 
-        public bool IsUserValid(UserAccount userAccount)
+        public bool IsUserValid()
         {
-            return _logInRepository.IsUserValid(userAccount);
+            return _logInRepository.IsUserValid();
         }
     }
 }

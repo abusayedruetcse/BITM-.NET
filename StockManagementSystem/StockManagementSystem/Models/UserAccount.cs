@@ -8,8 +8,8 @@ namespace StockManagementSystem.Models
 {
     public class UserAccount
     {
-        public string Email { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
+        public static string Email { get; set; }
+        public static string UserName { get; set; }
+        public static string Password { get; set; }
     }
 }

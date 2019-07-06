@@ -15,13 +15,13 @@ namespace StockManagementSystem.BLL
         {
             _signUpRepository = new SignUpRepository();
         }
-        public bool IsUserAccountCreated(UserAccount userAccount)
+        public bool IsUserAccountCreated()
         {
-            return _signUpRepository.IsUserAccountCreated(userAccount);
+            return _signUpRepository.IsUserAccountCreated();
         }
-        public bool IsPasswordUnique(UserAccount userAccount)
+        public bool IsPasswordUnique()
         {
-            return _signUpRepository.IsPasswordUnique(userAccount);
+            return _signUpRepository.IsPasswordUnique();
         }
     }
 }

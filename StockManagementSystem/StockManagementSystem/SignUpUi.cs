@@ -32,16 +32,15 @@ namespace StockManagementSystem
 
         private void SignUpButton_Click(object sender, EventArgs e)
         {
-            UserAccount userAccount = new UserAccount();
-            userAccount.Email = emailTextBox.Text;
-            userAccount.UserName = userNameTextBox.Text;          
-            userAccount.Password = passwordTextBox.Text;
-            if(!_signUpManager.IsPasswordUnique(userAccount))
+            UserAccount.Email = emailTextBox.Text;
+            UserAccount.UserName = userNameTextBox.Text;          
+            UserAccount.Password = passwordTextBox.Text;
+            if(!_signUpManager.IsPasswordUnique())
             {
                 messageLabel.Text = "Password is Duplicate";
                 return;
             }
-            if(_signUpManager.IsUserAccountCreated(userAccount))
+            if(_signUpManager.IsUserAccountCreated())
             {
                 this.Hide();
                 LoginUi loginUi = new LoginUi();

@@ -29,12 +29,11 @@ namespace StockManagementSystem
         }
 
         private void LogInButton_Click(object sender, EventArgs e)
-        {
-            UserAccount userAccount = new UserAccount();
-            userAccount.Email = userNameTextBox.Text;
-            userAccount.UserName = userNameTextBox.Text;
-            userAccount.Password = passwordTextBox.Text;
-            if(_logInManager.IsUserValid(userAccount))
+        {           
+            UserAccount.Email = userNameTextBox.Text;
+            UserAccount.UserName = userNameTextBox.Text;
+            UserAccount.Password = passwordTextBox.Text;
+            if(_logInManager.IsUserValid())
             {
                 this.Hide();
                 MenuUi menuUi = new MenuUi();
