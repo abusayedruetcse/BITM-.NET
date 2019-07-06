@@ -21,13 +21,13 @@ namespace StockManagementSystem.BLL
         {
             return _companyRepository.Display();
         }
-        public int Insert(Company company)
+        public int Insert(Company company,History history)
         {
-            return _companyRepository.Insert(company);
+            return _companyRepository.Insert(company,history);
         }
-        public int Update(Company company)
+        public int Update(Company company,History history)
         {
-            return _companyRepository.Update(company);
+            return _companyRepository.Update(company,history);
         }
     }
 }

@@ -15,15 +15,20 @@ namespace StockManagementSystem
     {
         CompanyManager _companyManager;
         Company company;
+        History history;
         public CompanyUi()
         {
             InitializeComponent();
             _companyManager = new CompanyManager();
             company = new Company();
+            history = new History();
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            history.UserID = UserAccount.ID;
+            history.TableName = "Companies";
+            history.DateAndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             string name = "";
             if (SaveButton.Text.Equals("Save"))
             {                
@@ -35,8 +40,9 @@ namespace StockManagementSystem
                 }
                 Insert(name);
             }
-            else
-            {                
+            else   //update
+            {
+                history.TableRowNo = company.ID;
                 name = nameTextBox.Text;
                 if (String.IsNullOrEmpty(name))
                 {
@@ -53,7 +59,7 @@ namespace StockManagementSystem
         {
             company.Name = name;
             int isExecuted = 0;
-            isExecuted = _companyManager.Insert(company);
+            isExecuted = _companyManager.Insert(company,history);
             if (isExecuted > 0)
             {
                 messageLabel.Text = "Saved Successfully";
@@ -67,7 +73,7 @@ namespace StockManagementSystem
         {
             company.Name = name;
             int isExecuted = 0;
-            isExecuted = _companyManager.Update(company);
+            isExecuted = _companyManager.Update(company,history);
             if (isExecuted > 0)
             {
                 messageLabel.Text = "Updated Successfully";
@@ -82,6 +88,7 @@ namespace StockManagementSystem
             companyDataGridView.DataSource = _companyManager.Display();
             foreach (DataGridViewRow row in companyDataGridView.Rows)
                 row.Cells["SL"].Value = (row.Index + 1).ToString();
+            history.TableRowNo = companyDataGridView.Rows.Count + 1;
         }
 
         private void companyDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)

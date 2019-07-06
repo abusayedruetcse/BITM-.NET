@@ -46,12 +46,12 @@ namespace StockManagementSystem.Repository
             }          
             return dataTable;
         }
-        public int Insert(Company company)
+        public int Insert(Company company,History history)
         {
             int isExecuted = 0;
             try
             {
-                commandString = @"INSERT INTO Companies (Name) VALUES('" + company.Name + "')";
+                commandString = @"INSERT INTO Companies (Name) VALUES('" + company.Name + "')"+ "INSERT INTO InsertUpdateHistory VALUES(" + history.UserID + ",'" + history.TableName + "'," + history.TableRowNo + " ,'" + history.DateAndTime + "')";
                 sqlCommand = new SqlCommand();
                 sqlCommand.CommandText = commandString;
                 sqlCommand.Connection = sqlConnection;
@@ -67,13 +67,13 @@ namespace StockManagementSystem.Repository
             }
             return isExecuted;
         }
-        public int Update(Company company)
+        public int Update(Company company,History history)
         {
             int isExecuted = 0;
             try
             {               
                 SqlCommand sqlCommand = new SqlCommand();
-                string commandString = "UPDATE Companies SET Name =  '" + company.Name + "' WHERE ID = " + company.ID + "";
+                string commandString = "UPDATE Companies SET Name =  '" + company.Name + "' WHERE ID = " + company.ID + "" + "INSERT INTO InsertUpdateHistory VALUES(" + history.UserID + ",'" + history.TableName + "'," + history.TableRowNo + " ,'" + history.DateAndTime + "')";
                 sqlCommand.CommandText = commandString;
                 sqlCommand.Connection = sqlConnection;
 
