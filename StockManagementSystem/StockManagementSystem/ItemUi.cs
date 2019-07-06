@@ -15,11 +15,13 @@ namespace StockManagementSystem
     {       
         Item item;
         ItemManager _itemManager;
+        History history;
         public ItemUi()
         {
             InitializeComponent();          
             item = new Item();
             _itemManager = new ItemManager();
+            history = new History();
         }
 
         private void categoryComboBox_Click(object sender, EventArgs e)
@@ -79,8 +81,12 @@ namespace StockManagementSystem
        
         private void Insert(Item item)
         {
+            history.UserID = UserAccount.ID;
+            history.TableName = "Items";
+            history.TableRowNo = _itemManager.NoOfItem() + 1;
+            history.DateAndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             int isExecuted = 0;
-            isExecuted = _itemManager.Insert(item);
+            isExecuted = _itemManager.Insert(item,history);
             if (isExecuted > 0)
             {
                 messageLabel.Text = "Saved Successfully";

@@ -15,9 +15,9 @@ namespace StockManagementSystem.BLL
         {
             _itemRepository = new ItemRepository();
         }
-        public int Insert(Item item)
+        public int Insert(Item item,History history)
         {
-            return _itemRepository.Insert(item);
+            return _itemRepository.Insert(item,history);
         }
         public bool IsDuplicate(Item item)
         {
@@ -26,6 +26,10 @@ namespace StockManagementSystem.BLL
         public DataTable ComboxBoxWithSelect(string tableName)
         {
             return _itemRepository.ComboxBoxWithSelect(tableName);
+        }
+        public int NoOfItem()
+        {
+            return _itemRepository.NoOfItem();
         }
 
     }

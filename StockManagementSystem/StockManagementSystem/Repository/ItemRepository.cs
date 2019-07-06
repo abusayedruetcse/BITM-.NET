@@ -25,12 +25,12 @@ namespace StockManagementSystem.Repository
             sqlConnection = new SqlConnection(connectionString);
             
         }
-        public int Insert(Item item)
+        public int Insert(Item item,History history)
         {
             int isExecuted = 0;
             try
             {
-                commandString = @"INSERT INTO Items VALUES('" + item.Name + "'," + item.CategoryID + " ," + item.CompanyID + "," + item.ReorderLevel + ", 0 )";
+                commandString = @"INSERT INTO Items VALUES('" + item.Name + "'," + item.CategoryID + " ," + item.CompanyID + "," + item.ReorderLevel + ", 0 )" + "INSERT INTO InsertUpdateHistory VALUES(" + history.UserID + ",'" + history.TableName + "'," + history.TableRowNo + " ,'" + history.DateAndTime + "')";
                 sqlCommand = new SqlCommand();
                 sqlCommand.CommandText = commandString;
                 sqlCommand.Connection = sqlConnection;                
@@ -91,6 +91,21 @@ namespace StockManagementSystem.Repository
                 //MessageBox.Show(exception.Message);
             }
             return dataTable;
+        } 
+        public int NoOfItem()
+        {
+            commandString = @"SELECT * FROM Items";
+            sqlCommand = new SqlCommand();
+            sqlCommand.CommandText = commandString;
+            sqlCommand.Connection = sqlConnection;
+
+            sqlConnection.Open();
+            sqlDataAdapter = new SqlDataAdapter();
+            sqlDataAdapter.SelectCommand = sqlCommand;
+            dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            sqlConnection.Close();
+            return dataTable.Rows.Count;
         }
     }
 }
