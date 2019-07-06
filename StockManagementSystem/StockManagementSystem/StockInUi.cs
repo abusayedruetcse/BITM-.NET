@@ -19,12 +19,14 @@ namespace StockManagementSystem
         StockIn stockIn;
         Item item;
         StockInManager _stockInManager;
+        History history;
         public StockInUi()
         {
             InitializeComponent();            
             stockIn = new StockIn();
             item = new Item();
             _stockInManager = new StockInManager();
+            history = new History();
         }        
         private void StockIn_Load(object sender, EventArgs e)
         {
@@ -85,13 +87,17 @@ namespace StockManagementSystem
               
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if(SaveButton.Text.Equals("Confirm"))
+            history.UserID = UserAccount.ID;
+            history.TableName = "StockIns";
+            history.DateAndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            if (SaveButton.Text.Equals("Confirm"))
             {
+                history.TableRowNo = stockIn.ID;
                 int updateQuantity = Convert.ToInt32(stockInQuantityTextBox.Text);
                 item.AvailableQuantity += updateQuantity;
                 stockIn.Quantity = updateQuantity;
                 _stockInManager.UpdateItem(item);
-                _stockInManager.UpdateStockIn(stockIn);
+                _stockInManager.UpdateStockIn(stockIn,history);
                 SaveButton.Text = "Save";
             } 
             else
@@ -140,7 +146,7 @@ namespace StockManagementSystem
         private void InsertStockIn(StockIn stockIn)
         {
             int isExecuted = 0;
-            isExecuted = _stockInManager.InsertStockIn(stockIn);
+            isExecuted = _stockInManager.InsertStockIn(stockIn,history);
             if (isExecuted > 0)
             {
                 messageLabel.Text = "Saved";
@@ -165,6 +171,7 @@ namespace StockManagementSystem
                 row.Cells["Action"].Value = Convert.ToString("Edit");
                 row.Cells["dateDataGridViewTextBoxColumn"].Value = Convert.ToDateTime(row.Cells["dateDataGridViewTextBoxColumn"].Value).ToString("dd-MM-yyyy");
             }
+            history.TableRowNo = stockInDataGridView.Rows.Count + 1;
         }        
         
         private void stockInDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -31,13 +31,13 @@ namespace StockManagementSystem.BLL
         {
             _stockInRepository.UpdateItem(item);
         }
-        public void UpdateStockIn(StockIn stockIn)
+        public void UpdateStockIn(StockIn stockIn,History history)
         {
-            _stockInRepository.UpdateStockIn(stockIn);
+            _stockInRepository.UpdateStockIn(stockIn,history);
         }
-        public int InsertStockIn(StockIn stockIn)
+        public int InsertStockIn(StockIn stockIn,History history)
         {
-            return _stockInRepository.InsertStockIn(stockIn);
+            return _stockInRepository.InsertStockIn(stockIn,history);
         }
         public DataTable GetItem(Item item)
         {
