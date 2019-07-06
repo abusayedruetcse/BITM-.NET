@@ -23,14 +23,14 @@ namespace StockManagementSystem.Repository
             connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
         }
-        public int Update(Category category)
+        public int Update(Category category,History history)
         {
             int isExecuted = 0;          
             try
             {
                 //2
                 sqlCommand = new SqlCommand();
-                commandString = "UPDATE Categories SET Name =  '" + category.Name + "' WHERE ID = " + category.ID + "";
+                commandString = "UPDATE Categories SET Name =  '" + category.Name + "' WHERE ID = " + category.ID + "" + "INSERT INTO InsertUpdateHistory VALUES(" + history.UserID + ",'" + history.TableName + "'," + history.TableRowNo + " ,'" + history.DateAndTime + "')";
                 sqlCommand.CommandText = commandString;
                 sqlCommand.Connection = sqlConnection;
                 sqlConnection.Open();               
@@ -65,12 +65,12 @@ namespace StockManagementSystem.Repository
             }            
             return dataTable;
         }
-        public int Insert(Category category)
+        public int Insert(Category category,History history)
         {
             int isExecuted = 0;
             try
             {
-                commandString = @"INSERT INTO Categories (Name) VALUES('" + category.Name + "')";
+                commandString = @"INSERT INTO Categories (Name) VALUES('" + category.Name + "')"+ "INSERT INTO InsertUpdateHistory VALUES("+history.UserID+",'"+history.TableName+"',"+history.TableRowNo+" ,'"+history.DateAndTime+"')";
                 sqlCommand = new SqlCommand();
                 sqlCommand.CommandText = commandString;
                 sqlCommand.Connection = sqlConnection;

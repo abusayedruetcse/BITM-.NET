@@ -84,11 +84,13 @@ SELECT * FROM StockOuts
 CREATE TABLE InsertUpdateHistory 
 (
 UserID int,
-TabelName VARCHAR(20),
+TableName VARCHAR(20),
 TableRowNo int,
 DateAndTime VARCHAR(25)
 )
-
+-- DROP TABLE InsertUpdateHistory  
+INSERT INTO InsertUpdateHistory VALUES( 1,'sf',4 ,'fs')
+SELECT * FROM InsertUpdateHistory
 SELECT SUM(Quantity)
 FROM StockOuts
 WHERE Action='Sell' AND Date BETWEEN '2018-00-10' AND '2020-10-10'

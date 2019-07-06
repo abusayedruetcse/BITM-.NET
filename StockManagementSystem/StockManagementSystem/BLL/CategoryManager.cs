@@ -15,17 +15,17 @@ namespace StockManagementSystem.BLL
         {
             _categoryRepository = new CategoryRepository();
         }
-        public int Update(Category category)
+        public int Update(Category category,History history)
         {
-            return _categoryRepository.Update(category);
+            return _categoryRepository.Update(category,history);
         }
         public DataTable Display()
         {
             return _categoryRepository.Display();
         }
-        public int Insert(Category category)
+        public int Insert(Category category,History history)
         {
-            return _categoryRepository.Insert(category);
+            return _categoryRepository.Insert(category,history);
         }
     }
 }

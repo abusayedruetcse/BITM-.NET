@@ -15,11 +15,13 @@ namespace StockManagementSystem
     {                       
         Category category;
         CategoryManager _categoryManager;
+        History history;
         public CategoryUi()
         {
             InitializeComponent();            
             category = new Category();
             _categoryManager = new CategoryManager();
+            history = new History();
         }
         private void CategorySetup_Load(object sender, EventArgs e)
         {
@@ -28,6 +30,9 @@ namespace StockManagementSystem
 
         private void SaveButton_Click(object sender, EventArgs e)
         {           
+            history.UserID = UserAccount.ID;
+            history.TableName = "Categories";       
+            history.DateAndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             string name = "";
             if (SaveButton.Text.Equals("Save"))
             {               
@@ -39,8 +44,9 @@ namespace StockManagementSystem
                 }               
                 Insert(name);                
             }
-            else
+            else   //Update
             {
+                history.TableRowNo = category.ID;
                 name = nameTextBox.Text;
                 if (String.IsNullOrEmpty(name))
                 {
@@ -57,7 +63,7 @@ namespace StockManagementSystem
         {
             category.Name = name;
             int isExecuted = 0;
-            isExecuted = _categoryManager.Insert(category);
+            isExecuted = _categoryManager.Insert(category, history);
             if (isExecuted > 0)
             {
                 messageLabel.Text = "Saved Successfully";
@@ -71,7 +77,7 @@ namespace StockManagementSystem
         {
             category.Name = name;
             int isExecuted = 0;
-            isExecuted = _categoryManager.Update(category);
+            isExecuted = _categoryManager.Update(category, history);
             if(isExecuted>0)
             {
                 messageLabel.Text = "Updated Successfully";
@@ -87,6 +93,7 @@ namespace StockManagementSystem
             foreach (DataGridViewRow row in categoryDataGridView.Rows)
                 row.Cells["SL"].Value = (row.Index + 1).ToString();
             categoryDataGridView.RowHeadersVisible = false;
+            history.TableRowNo = categoryDataGridView.Rows.Count + 1;
 
         }
 
