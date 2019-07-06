@@ -37,18 +37,18 @@
             this.SearchButton = new System.Windows.Forms.Button();
             this.viewReportDataGridView = new System.Windows.Forms.DataGridView();
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fromDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.toDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.PDFButton = new System.Windows.Forms.Button();
             this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.fromDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.toDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.PDFButton = new System.Windows.Forms.Button();
             this.BackButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.viewReportDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockOutBindingSource)).BeginInit();
@@ -147,41 +147,6 @@
             this.SL.HeaderText = "SI";
             this.SL.Name = "SL";
             // 
-            // TotalQuantity
-            // 
-            this.TotalQuantity.DataPropertyName = "TotalQuantity";
-            this.TotalQuantity.HeaderText = "Sold/Damaged/Lost Quantity";
-            this.TotalQuantity.Name = "TotalQuantity";
-            // 
-            // fromDateTimePicker
-            // 
-            this.fromDateTimePicker.CustomFormat = "yyyy-MM-dd";
-            this.fromDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.fromDateTimePicker.Location = new System.Drawing.Point(237, 37);
-            this.fromDateTimePicker.Name = "fromDateTimePicker";
-            this.fromDateTimePicker.Size = new System.Drawing.Size(94, 20);
-            this.fromDateTimePicker.TabIndex = 7;
-            // 
-            // toDateTimePicker
-            // 
-            this.toDateTimePicker.CustomFormat = "yyyy-MM-dd";
-            this.toDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.toDateTimePicker.Location = new System.Drawing.Point(237, 70);
-            this.toDateTimePicker.Name = "toDateTimePicker";
-            this.toDateTimePicker.Size = new System.Drawing.Size(94, 20);
-            this.toDateTimePicker.TabIndex = 8;
-            // 
-            // PDFButton
-            // 
-            this.PDFButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PDFButton.Location = new System.Drawing.Point(471, 418);
-            this.PDFButton.Name = "PDFButton";
-            this.PDFButton.Size = new System.Drawing.Size(75, 23);
-            this.PDFButton.TabIndex = 15;
-            this.PDFButton.Text = "PDF";
-            this.PDFButton.UseVisualStyleBackColor = true;
-            this.PDFButton.Click += new System.EventHandler(this.PDFButton_Click);
-            // 
             // itemNameDataGridViewTextBoxColumn
             // 
             this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
@@ -193,6 +158,12 @@
             this.companyNameDataGridViewTextBoxColumn.DataPropertyName = "CompanyName";
             this.companyNameDataGridViewTextBoxColumn.HeaderText = "Company";
             this.companyNameDataGridViewTextBoxColumn.Name = "companyNameDataGridViewTextBoxColumn";
+            // 
+            // TotalQuantity
+            // 
+            this.TotalQuantity.DataPropertyName = "TotalQuantity";
+            this.TotalQuantity.HeaderText = "Sold/Damaged/Lost Quantity";
+            this.TotalQuantity.Name = "TotalQuantity";
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -232,6 +203,35 @@
             // stockOutBindingSource
             // 
             this.stockOutBindingSource.DataSource = typeof(StockManagementSystem.Models.StockOut);
+            // 
+            // fromDateTimePicker
+            // 
+            this.fromDateTimePicker.CustomFormat = " dd- MM- yyyy";
+            this.fromDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.fromDateTimePicker.Location = new System.Drawing.Point(237, 37);
+            this.fromDateTimePicker.Name = "fromDateTimePicker";
+            this.fromDateTimePicker.Size = new System.Drawing.Size(94, 20);
+            this.fromDateTimePicker.TabIndex = 7;
+            // 
+            // toDateTimePicker
+            // 
+            this.toDateTimePicker.CustomFormat = " dd- MM- yyyy";
+            this.toDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.toDateTimePicker.Location = new System.Drawing.Point(237, 70);
+            this.toDateTimePicker.Name = "toDateTimePicker";
+            this.toDateTimePicker.Size = new System.Drawing.Size(94, 20);
+            this.toDateTimePicker.TabIndex = 8;
+            // 
+            // PDFButton
+            // 
+            this.PDFButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PDFButton.Location = new System.Drawing.Point(471, 418);
+            this.PDFButton.Name = "PDFButton";
+            this.PDFButton.Size = new System.Drawing.Size(75, 23);
+            this.PDFButton.TabIndex = 15;
+            this.PDFButton.Text = "PDF";
+            this.PDFButton.UseVisualStyleBackColor = true;
+            this.PDFButton.Click += new System.EventHandler(this.PDFButton_Click);
             // 
             // BackButton
             // 

@@ -163,6 +163,7 @@ namespace StockManagementSystem
             {
                 row.Cells["SL"].Value = (row.Index + 1).ToString();
                 row.Cells["Action"].Value = Convert.ToString("Edit");
+                row.Cells["dateDataGridViewTextBoxColumn"].Value = Convert.ToDateTime(row.Cells["dateDataGridViewTextBoxColumn"].Value).ToString("dd-MM-yyyy");
             }
         }        
         

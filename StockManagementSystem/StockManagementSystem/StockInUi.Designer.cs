@@ -288,11 +288,11 @@
             // 
             // stockInDateTimePicker
             // 
-            this.stockInDateTimePicker.CustomFormat = " yyyy/ MM/ dd";
+            this.stockInDateTimePicker.CustomFormat = " dd- MM- yyyy";
             this.stockInDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.stockInDateTimePicker.Location = new System.Drawing.Point(432, 180);
             this.stockInDateTimePicker.Name = "stockInDateTimePicker";
-            this.stockInDateTimePicker.Size = new System.Drawing.Size(110, 20);
+            this.stockInDateTimePicker.Size = new System.Drawing.Size(90, 20);
             this.stockInDateTimePicker.TabIndex = 17;
             // 
             // label7
