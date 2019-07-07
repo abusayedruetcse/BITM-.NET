@@ -93,7 +93,7 @@ namespace StockManagementSystem.Repository
         public int InsertStockOut(StockOut stockOut,History history)
         {
             int isExecuted = 0;
-            commandString = @"INSERT INTO StockOuts VALUES('" + stockOut.Date + "'," + stockOut.Quantity + "," + stockOut.ItemID + ",'"+stockOut.Action+"')"+ "INSERT INTO InsertUpdateHistory VALUES(" + history.UserID + ",'" + history.TableName + "'," + history.TableRowNo + " ,'" + history.DateAndTime + "')";
+            commandString = @"INSERT INTO StockOuts VALUES('" + stockOut.Date + "'," + stockOut.Quantity + "," + stockOut.ItemID + ",'"+stockOut.Action+"')"+ "INSERT INTO InsertUpdateHistory VALUES(" + history.UserID + ",'" + history.TableName + "'," + history.TableRowNo + " ,'" + history.Element + "','" + history.DateAndTime + "')";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
 
             sqlConnection.Open();

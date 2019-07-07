@@ -206,12 +206,13 @@ namespace StockManagementSystem
             history.UserID = UserAccount.ID;
             history.TableName = "StockOuts";
             history.DateAndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            history.TableRowNo = _stockOutManager.NoOfRecords();
+            history.TableRowNo = _stockOutManager.NoOfRecords();            
             stockOut = new StockOut();
             stockOut.Date = dateTimePicker.Value.ToString("yyyy-MM-dd");
             foreach (DataGridViewRow row in stockOutDataGridView.Rows)
             {
                 history.TableRowNo += 1;
+                history.Element = row.Cells["itemNameDataGridViewTextBoxColumn"].Value.ToString();
                 stockOut.Quantity = Convert.ToInt32(row.Cells["quantityDataGridViewTextBoxColumn"].Value.ToString());
                 stockOut.ItemID = Convert.ToInt32(row.Cells["itemIDDataGridViewTextBoxColumn"].Value.ToString());
                 stockOut.Action = action;
