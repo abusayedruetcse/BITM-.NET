@@ -120,6 +120,7 @@
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\History.cs" />
     <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\SMSDBScript.cs" />
     <Compile Include="Models\StockIn.cs" />
     <Compile Include="Models\StockOut.cs" />
     <Compile Include="Models\UserAccount.cs" />
@@ -158,6 +159,12 @@
     </Compile>
     <Compile Include="StockOutUi.Designer.cs">
       <DependentUpon>StockOutUi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSetupUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemSetupUi.Designer.cs">
+      <DependentUpon>SystemSetupUi.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewUi.cs">
       <SubType>Form</SubType>
@@ -206,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StockOutUi.resx">
       <DependentUpon>StockOutUi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemSetupUi.resx">
+      <DependentUpon>SystemSetupUi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewUi.resx">
       <DependentUpon>ViewUi.cs</DependentUpon>
