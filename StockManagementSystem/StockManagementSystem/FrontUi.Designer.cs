@@ -37,7 +37,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(198, 98);
+            this.label1.Location = new System.Drawing.Point(119, 130);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(345, 31);
             this.label1.TabIndex = 0;
@@ -47,7 +47,7 @@
             // 
             this.LogInButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogInButton.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.LogInButton.Location = new System.Drawing.Point(204, 200);
+            this.LogInButton.Location = new System.Drawing.Point(125, 232);
             this.LogInButton.Name = "LogInButton";
             this.LogInButton.Size = new System.Drawing.Size(140, 32);
             this.LogInButton.TabIndex = 1;
@@ -60,7 +60,7 @@
             this.SignUpButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.SignUpButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SignUpButton.ForeColor = System.Drawing.SystemColors.Window;
-            this.SignUpButton.Location = new System.Drawing.Point(394, 200);
+            this.SignUpButton.Location = new System.Drawing.Point(315, 232);
             this.SignUpButton.Name = "SignUpButton";
             this.SignUpButton.Size = new System.Drawing.Size(140, 32);
             this.SignUpButton.TabIndex = 2;
@@ -72,11 +72,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(599, 406);
             this.Controls.Add(this.SignUpButton);
             this.Controls.Add(this.LogInButton);
             this.Controls.Add(this.label1);
             this.Name = "FrontUi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock Management System";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -50,7 +50,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(65, 52);
+            this.label1.Location = new System.Drawing.Point(140, 109);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 16);
             this.label1.TabIndex = 0;
@@ -60,7 +60,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(65, 88);
+            this.label2.Location = new System.Drawing.Point(140, 145);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 16);
             this.label2.TabIndex = 1;
@@ -70,7 +70,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(65, 130);
+            this.label3.Location = new System.Drawing.Point(140, 187);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 16);
             this.label3.TabIndex = 2;
@@ -80,7 +80,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(65, 174);
+            this.label4.Location = new System.Drawing.Point(140, 231);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 16);
             this.label4.TabIndex = 3;
@@ -91,7 +91,7 @@
             this.categoryComboBox.DataSource = this.categoryBindingSource;
             this.categoryComboBox.DisplayMember = "Name";
             this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(175, 52);
+            this.categoryComboBox.Location = new System.Drawing.Point(250, 109);
             this.categoryComboBox.Name = "categoryComboBox";
             this.categoryComboBox.Size = new System.Drawing.Size(175, 21);
             this.categoryComboBox.TabIndex = 4;
@@ -107,7 +107,7 @@
             this.companyComboBox.DataSource = this.companyBindingSource;
             this.companyComboBox.DisplayMember = "Name";
             this.companyComboBox.FormattingEnabled = true;
-            this.companyComboBox.Location = new System.Drawing.Point(175, 88);
+            this.companyComboBox.Location = new System.Drawing.Point(250, 145);
             this.companyComboBox.Name = "companyComboBox";
             this.companyComboBox.Size = new System.Drawing.Size(175, 21);
             this.companyComboBox.TabIndex = 5;
@@ -120,21 +120,21 @@
             // 
             // itemNameTextBox
             // 
-            this.itemNameTextBox.Location = new System.Drawing.Point(175, 130);
+            this.itemNameTextBox.Location = new System.Drawing.Point(250, 187);
             this.itemNameTextBox.Name = "itemNameTextBox";
             this.itemNameTextBox.Size = new System.Drawing.Size(175, 20);
             this.itemNameTextBox.TabIndex = 6;
             // 
             // reorderLevelTextBox
             // 
-            this.reorderLevelTextBox.Location = new System.Drawing.Point(175, 174);
+            this.reorderLevelTextBox.Location = new System.Drawing.Point(250, 231);
             this.reorderLevelTextBox.Name = "reorderLevelTextBox";
             this.reorderLevelTextBox.Size = new System.Drawing.Size(175, 20);
             this.reorderLevelTextBox.TabIndex = 7;
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(275, 213);
+            this.SaveButton.Location = new System.Drawing.Point(350, 270);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 8;
@@ -146,7 +146,7 @@
             // 
             this.messageLabel.AutoSize = true;
             this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.messageLabel.Location = new System.Drawing.Point(68, 222);
+            this.messageLabel.Location = new System.Drawing.Point(143, 279);
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(0, 16);
             this.messageLabel.TabIndex = 9;
@@ -167,7 +167,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 331);
+            this.ClientSize = new System.Drawing.Size(599, 471);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.SaveButton);
@@ -180,6 +180,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ItemUi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Item Setup";
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).EndInit();

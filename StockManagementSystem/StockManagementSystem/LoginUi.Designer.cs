@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.userNameTextBox = new System.Windows.Forms.TextBox();
+            this.messageLabel = new System.Windows.Forms.Label();
+            this.LogInButton = new System.Windows.Forms.Button();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.LogInButton = new System.Windows.Forms.Button();
-            this.messageLabel = new System.Windows.Forms.Label();
+            this.userNameTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.BackButton = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -47,29 +47,31 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.userNameTextBox);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(115, 63);
+            this.groupBox1.Location = new System.Drawing.Point(96, 85);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(391, 191);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "User Log In";
             // 
-            // label1
+            // messageLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "User Name/ Email";
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.ForeColor = System.Drawing.Color.Red;
+            this.messageLabel.Location = new System.Drawing.Point(23, 141);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 16);
+            this.messageLabel.TabIndex = 5;
             // 
-            // userNameTextBox
+            // LogInButton
             // 
-            this.userNameTextBox.Location = new System.Drawing.Point(144, 43);
-            this.userNameTextBox.Name = "userNameTextBox";
-            this.userNameTextBox.Size = new System.Drawing.Size(214, 22);
-            this.userNameTextBox.TabIndex = 1;
+            this.LogInButton.Location = new System.Drawing.Point(283, 141);
+            this.LogInButton.Name = "LogInButton";
+            this.LogInButton.Size = new System.Drawing.Size(75, 28);
+            this.LogInButton.TabIndex = 4;
+            this.LogInButton.Text = "Log In";
+            this.LogInButton.UseVisualStyleBackColor = true;
+            this.LogInButton.Click += new System.EventHandler(this.LogInButton_Click);
             // 
             // passwordTextBox
             // 
@@ -88,28 +90,26 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Password";
             // 
-            // LogInButton
+            // userNameTextBox
             // 
-            this.LogInButton.Location = new System.Drawing.Point(283, 141);
-            this.LogInButton.Name = "LogInButton";
-            this.LogInButton.Size = new System.Drawing.Size(75, 28);
-            this.LogInButton.TabIndex = 4;
-            this.LogInButton.Text = "Log In";
-            this.LogInButton.UseVisualStyleBackColor = true;
-            this.LogInButton.Click += new System.EventHandler(this.LogInButton_Click);
+            this.userNameTextBox.Location = new System.Drawing.Point(144, 43);
+            this.userNameTextBox.Name = "userNameTextBox";
+            this.userNameTextBox.Size = new System.Drawing.Size(214, 22);
+            this.userNameTextBox.TabIndex = 1;
             // 
-            // messageLabel
+            // label1
             // 
-            this.messageLabel.AutoSize = true;
-            this.messageLabel.ForeColor = System.Drawing.Color.Red;
-            this.messageLabel.Location = new System.Drawing.Point(23, 141);
-            this.messageLabel.Name = "messageLabel";
-            this.messageLabel.Size = new System.Drawing.Size(0, 16);
-            this.messageLabel.TabIndex = 5;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(20, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "User Name/ Email";
             // 
             // BackButton
             // 
-            this.BackButton.Location = new System.Drawing.Point(398, 276);
+            this.BackButton.Location = new System.Drawing.Point(379, 298);
             this.BackButton.Name = "BackButton";
             this.BackButton.Size = new System.Drawing.Size(75, 23);
             this.BackButton.TabIndex = 1;
@@ -121,12 +121,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(655, 341);
+            this.ClientSize = new System.Drawing.Size(599, 406);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LoginUi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Log In";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

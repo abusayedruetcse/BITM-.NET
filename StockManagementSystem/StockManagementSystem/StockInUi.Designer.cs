@@ -328,7 +328,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(569, 488);
+            this.ClientSize = new System.Drawing.Size(599, 491);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -349,6 +349,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "StockInUi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock In";
             this.Load += new System.EventHandler(this.StockIn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).EndInit();

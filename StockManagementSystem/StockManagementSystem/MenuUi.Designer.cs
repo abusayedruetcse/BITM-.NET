@@ -154,6 +154,7 @@
             this.Controls.Add(this.companySetupLabel);
             this.Controls.Add(this.categorySetupLabel);
             this.Name = "MenuUi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu List";
             this.ResumeLayout(false);
             this.PerformLayout();

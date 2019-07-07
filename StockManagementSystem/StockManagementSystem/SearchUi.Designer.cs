@@ -228,7 +228,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(631, 428);
+            this.ClientSize = new System.Drawing.Size(599, 471);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.PDFButton);
             this.Controls.Add(this.searchViewSummaryDataGridView);
@@ -238,6 +238,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "SearchUi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search and View Items Summary";
             this.Load += new System.EventHandler(this.SearchUi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();

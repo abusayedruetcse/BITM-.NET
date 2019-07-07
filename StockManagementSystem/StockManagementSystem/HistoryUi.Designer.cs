@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.historyDataGridView = new System.Windows.Forms.DataGridView();
+            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Element = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.stockOutLabel = new System.Windows.Forms.Label();
             this.stockInLabel = new System.Windows.Forms.Label();
@@ -38,9 +41,6 @@
             this.categorySetupLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BackButton = new System.Windows.Forms.Button();
-            this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Element = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableRowNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateAndTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,6 +70,26 @@
             this.historyDataGridView.RowHeadersVisible = false;
             this.historyDataGridView.Size = new System.Drawing.Size(510, 277);
             this.historyDataGridView.TabIndex = 24;
+            // 
+            // SL
+            // 
+            this.SL.FillWeight = 50F;
+            this.SL.HeaderText = "SI";
+            this.SL.Name = "SL";
+            // 
+            // Element
+            // 
+            this.Element.DataPropertyName = "Element";
+            this.Element.FillWeight = 93.27411F;
+            this.Element.HeaderText = "Element";
+            this.Element.Name = "Element";
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "Email";
+            this.Email.FillWeight = 120F;
+            this.Email.HeaderText = "Email Address";
+            this.Email.Name = "Email";
             // 
             // groupBox1
             // 
@@ -163,26 +183,6 @@
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
-            // SL
-            // 
-            this.SL.FillWeight = 50F;
-            this.SL.HeaderText = "SI";
-            this.SL.Name = "SL";
-            // 
-            // Element
-            // 
-            this.Element.DataPropertyName = "Element";
-            this.Element.FillWeight = 93.27411F;
-            this.Element.HeaderText = "Element";
-            this.Element.Name = "Element";
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "Email";
-            this.Email.FillWeight = 120F;
-            this.Email.HeaderText = "Email Address";
-            this.Email.Name = "Email";
-            // 
             // tableRowNoDataGridViewTextBoxColumn
             // 
             this.tableRowNoDataGridViewTextBoxColumn.DataPropertyName = "TableRowNo";
@@ -219,12 +219,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(799, 471);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.historyDataGridView);
             this.Name = "HistoryUi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Insert and Update History";
             ((System.ComponentModel.ISupportInitialize)(this.historyDataGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);

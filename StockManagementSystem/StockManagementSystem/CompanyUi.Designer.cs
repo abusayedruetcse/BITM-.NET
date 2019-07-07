@@ -55,7 +55,7 @@
             this.IDColumn,
             this.NameColumn});
             this.companyDataGridView.DataSource = this.companyBindingSource;
-            this.companyDataGridView.Location = new System.Drawing.Point(86, 157);
+            this.companyDataGridView.Location = new System.Drawing.Point(133, 190);
             this.companyDataGridView.Name = "companyDataGridView";
             this.companyDataGridView.ReadOnly = true;
             this.companyDataGridView.RowHeadersVisible = false;
@@ -94,7 +94,7 @@
             // SaveButton
             // 
             this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveButton.Location = new System.Drawing.Point(327, 86);
+            this.SaveButton.Location = new System.Drawing.Point(374, 119);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 6;
@@ -104,7 +104,7 @@
             // 
             // nameTextBox
             // 
-            this.nameTextBox.Location = new System.Drawing.Point(187, 45);
+            this.nameTextBox.Location = new System.Drawing.Point(234, 78);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(216, 20);
             this.nameTextBox.TabIndex = 5;
@@ -113,7 +113,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(109, 45);
+            this.label1.Location = new System.Drawing.Point(156, 78);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 16);
             this.label1.TabIndex = 4;
@@ -122,7 +122,7 @@
             // messageLabel
             // 
             this.messageLabel.AutoSize = true;
-            this.messageLabel.Location = new System.Drawing.Point(112, 95);
+            this.messageLabel.Location = new System.Drawing.Point(159, 128);
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(0, 13);
             this.messageLabel.TabIndex = 8;
@@ -143,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 407);
+            this.ClientSize = new System.Drawing.Size(599, 471);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.companyDataGridView);
@@ -151,6 +151,7 @@
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.label1);
             this.Name = "CompanyUi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Company Setup";
             this.Load += new System.EventHandler(this.CompanySetup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.companyDataGridView)).EndInit();

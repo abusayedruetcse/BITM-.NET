@@ -361,7 +361,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(558, 488);
+            this.ClientSize = new System.Drawing.Size(599, 491);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dateTimePicker);
@@ -384,6 +384,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "StockOutUi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Stock Out";
             this.Load += new System.EventHandler(this.StockOutUi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.stockOutDataGridView)).EndInit();
