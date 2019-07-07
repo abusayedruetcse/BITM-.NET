@@ -21,7 +21,7 @@ namespace StockManagementSystem.Models
             "CREATE TABLE Items(ID int IDENTITY(1,1),Name VARCHAR(25),CategoryID int,CompanyID int,ReorderLevel int,AvailableQuantity int)"+
             "CREATE TABLE StockIns(ID int IDENTITY(1,1),Date VARCHAR(10),Quantity int,ItemID int)"+
             "CREATE TABLE StockOuts(ID int IDENTITY(1,1),Date VARCHAR(20),Quantity int,ItemID int,Action VARCHAR(7))"+
-            "";
+            "CREATE TABLE InsertUpdateHistory(UserID int,TableName VARCHAR(20),TableRowNo int,Element VARCHAR(30),DateAndTime VARCHAR(25))";
         public static void Execute()
         {
             SystemSetupManager _systemSetupManager = new SystemSetupManager();

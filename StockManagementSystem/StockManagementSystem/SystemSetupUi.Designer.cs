@@ -35,20 +35,24 @@
             this.serverNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.oldDBRadioButton = new System.Windows.Forms.RadioButton();
+            this.newDBRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.newDBRadioButton);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.oldDBRadioButton);
             this.groupBox1.Controls.Add(this.messageLabel);
             this.groupBox1.Controls.Add(this.runButton);
             this.groupBox1.Controls.Add(this.databaseNameTextBox);
-            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.serverNameTextBox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(93, 105);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(439, 191);
+            this.groupBox1.Size = new System.Drawing.Size(439, 262);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Stock Management System Installation Environment";
@@ -64,7 +68,7 @@
             // 
             // runButton
             // 
-            this.runButton.Location = new System.Drawing.Point(325, 141);
+            this.runButton.Location = new System.Drawing.Point(278, 212);
             this.runButton.Name = "runButton";
             this.runButton.Size = new System.Drawing.Size(75, 28);
             this.runButton.TabIndex = 4;
@@ -74,16 +78,16 @@
             // 
             // databaseNameTextBox
             // 
-            this.databaseNameTextBox.Location = new System.Drawing.Point(186, 88);
+            this.databaseNameTextBox.Location = new System.Drawing.Point(139, 164);
             this.databaseNameTextBox.Name = "databaseNameTextBox";
-            this.databaseNameTextBox.Size = new System.Drawing.Size(214, 22);
+            this.databaseNameTextBox.Size = new System.Drawing.Size(232, 22);
             this.databaseNameTextBox.TabIndex = 3;
             // 
             // serverNameTextBox
             // 
-            this.serverNameTextBox.Location = new System.Drawing.Point(186, 40);
+            this.serverNameTextBox.Location = new System.Drawing.Point(139, 43);
             this.serverNameTextBox.Name = "serverNameTextBox";
-            this.serverNameTextBox.Size = new System.Drawing.Size(214, 22);
+            this.serverNameTextBox.Size = new System.Drawing.Size(232, 22);
             this.serverNameTextBox.TabIndex = 1;
             // 
             // label1
@@ -100,11 +104,31 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 94);
+            this.label2.Location = new System.Drawing.Point(20, 164);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 16);
+            this.label2.Size = new System.Drawing.Size(108, 16);
             this.label2.TabIndex = 2;
-            this.label2.Text = "New Database Name";
+            this.label2.Text = "Database Name";
+            // 
+            // oldDBRadioButton
+            // 
+            this.oldDBRadioButton.AutoSize = true;
+            this.oldDBRadioButton.Location = new System.Drawing.Point(139, 110);
+            this.oldDBRadioButton.Name = "oldDBRadioButton";
+            this.oldDBRadioButton.Size = new System.Drawing.Size(110, 20);
+            this.oldDBRadioButton.TabIndex = 6;
+            this.oldDBRadioButton.Text = "Old Database";
+            this.oldDBRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // newDBRadioButton
+            // 
+            this.newDBRadioButton.AutoSize = true;
+            this.newDBRadioButton.Location = new System.Drawing.Point(255, 110);
+            this.newDBRadioButton.Name = "newDBRadioButton";
+            this.newDBRadioButton.Size = new System.Drawing.Size(116, 20);
+            this.newDBRadioButton.TabIndex = 7;
+            this.newDBRadioButton.Text = "New Database";
+            this.newDBRadioButton.UseVisualStyleBackColor = true;
             // 
             // SystemSetupUi
             // 
@@ -132,5 +156,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox serverNameTextBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RadioButton newDBRadioButton;
+        private System.Windows.Forms.RadioButton oldDBRadioButton;
     }
 }
