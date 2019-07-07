@@ -51,7 +51,7 @@ namespace StockManagementSystem.Repository
             int isExecuted = 0;
             try
             {
-                commandString = @"INSERT INTO Companies (Name) VALUES('" + company.Name + "')"+ "INSERT INTO InsertUpdateHistory VALUES(" + history.UserID + ",'" + history.TableName + "'," + history.TableRowNo + " ,'" + history.DateAndTime + "')";
+                commandString = @"INSERT INTO Companies (Name) VALUES('" + company.Name + "')"+ "INSERT INTO InsertUpdateHistory VALUES(" + history.UserID + ",'" + history.TableName + "'," + history.TableRowNo + " ,'" + history.Element + "','" + history.DateAndTime + "')";
                 sqlCommand = new SqlCommand();
                 sqlCommand.CommandText = commandString;
                 sqlCommand.Connection = sqlConnection;
@@ -73,7 +73,7 @@ namespace StockManagementSystem.Repository
             try
             {               
                 SqlCommand sqlCommand = new SqlCommand();
-                string commandString = "UPDATE Companies SET Name =  '" + company.Name + "' WHERE ID = " + company.ID + "" + "INSERT INTO InsertUpdateHistory VALUES(" + history.UserID + ",'" + history.TableName + "'," + history.TableRowNo + " ,'" + history.DateAndTime + "')";
+                string commandString = "UPDATE Companies SET Name =  '" + company.Name + "' WHERE ID = " + company.ID + "" + "INSERT INTO InsertUpdateHistory VALUES(" + history.UserID + ",'" + history.TableName + "'," + history.TableRowNo + " ,'" + history.Element + "','" + history.DateAndTime + "')";
                 sqlCommand.CommandText = commandString;
                 sqlCommand.Connection = sqlConnection;
 

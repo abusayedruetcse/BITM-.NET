@@ -58,6 +58,7 @@ namespace StockManagementSystem
         private void Insert(string name)
         {
             company.Name = name;
+            history.Element = name;
             int isExecuted = 0;
             isExecuted = _companyManager.Insert(company,history);
             if (isExecuted > 0)
@@ -72,6 +73,7 @@ namespace StockManagementSystem
         private void Update(string name)
         {
             company.Name = name;
+            history.Element = name;
             int isExecuted = 0;
             isExecuted = _companyManager.Update(company,history);
             if (isExecuted > 0)
