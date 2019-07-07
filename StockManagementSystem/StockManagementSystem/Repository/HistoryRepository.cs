@@ -25,7 +25,7 @@ namespace StockManagementSystem.Repository
         }
         public DataTable LoadCategoryCompanyItemHistory(string tableName)
         {
-            commandString = @"SELECT i.TableRowNo AS TableRowNo,t.Name AS Element,u.Email AS Email,i.DateAndTime AS DateAndTime FROM InsertUpdateHistory AS i, UserAccount AS u, " + tableName+" AS t WHERE i.TableName='"+tableName+"' AND t.ID=i.TableRowNo AND i.UserID=u.ID ORDER BY i.DateAndTime DESC";
+            commandString = @"SELECT i.TableRowNo AS TableRowNo,i.Element AS Element,u.Email AS Email,i.DateAndTime AS DateAndTime FROM InsertUpdateHistory AS i, UserAccount AS u WHERE i.TableName='"+tableName+"' AND i.UserID=u.ID ORDER BY i.DateAndTime DESC";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             sqlDataAdapter = new SqlDataAdapter(sqlCommand);

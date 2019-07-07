@@ -113,3 +113,4 @@ SELECT i.TableRowNo,t.Name,u.Email,i.DateAndTime
 FROM InsertUpdateHistory AS i, UserAccount AS u, Items AS t
 WHERE i.TableName='Items' AND t.ID=i.TableRowNo AND i.UserID=u.ID
 ORDER BY i.DateAndTime DESC
+SELECT i.TableRowNo AS TableRowNo,item.Name AS Element,u.Email AS Email,i.DateAndTime AS DateAndTime FROM InsertUpdateHistory AS i, UserAccount AS u, StockIns AS t,Items AS item WHERE i.TableName='StockIns' AND t.ID=i.TableRowNo AND t.ItemID=item.ID AND i.UserID=u.ID ORDER BY i.DateAndTime DESC

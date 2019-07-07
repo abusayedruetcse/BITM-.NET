@@ -30,7 +30,7 @@ namespace StockManagementSystem.Repository
             {
                 //2
                 sqlCommand = new SqlCommand();
-                commandString = "UPDATE Categories SET Name =  '" + category.Name + "' WHERE ID = " + category.ID + "" + "INSERT INTO InsertUpdateHistory VALUES(" + history.UserID + ",'" + history.TableName + "'," + history.TableRowNo + " ,'" + history.DateAndTime + "')";
+                commandString = "UPDATE Categories SET Name =  '" + category.Name + "' WHERE ID = " + category.ID + "" + "INSERT INTO InsertUpdateHistory VALUES(" + history.UserID + ",'" + history.TableName + "'," + history.TableRowNo + " ,'" + history.Element + "' ,'" + history.DateAndTime + "')";
                 sqlCommand.CommandText = commandString;
                 sqlCommand.Connection = sqlConnection;
                 sqlConnection.Open();               
@@ -70,7 +70,7 @@ namespace StockManagementSystem.Repository
             int isExecuted = 0;
             try
             {
-                commandString = @"INSERT INTO Categories (Name) VALUES('" + category.Name + "')"+ "INSERT INTO InsertUpdateHistory VALUES("+history.UserID+",'"+history.TableName+"',"+history.TableRowNo+" ,'"+history.DateAndTime+"')";
+                commandString = @"INSERT INTO Categories (Name) VALUES('" + category.Name + "')"+ "INSERT INTO InsertUpdateHistory VALUES("+history.UserID+",'"+history.TableName+"',"+history.TableRowNo+ " ,'" + history.Element + "' ,'" + history.DateAndTime+"')";
                 sqlCommand = new SqlCommand();
                 sqlCommand.CommandText = commandString;
                 sqlCommand.Connection = sqlConnection;

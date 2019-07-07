@@ -35,19 +35,21 @@ namespace StockManagementSystem
             history.DateAndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             string name = "";
             if (SaveButton.Text.Equals("Save"))
-            {               
+            {           
                 name = nameTextBox.Text;
                 if(String.IsNullOrEmpty(name))
                 {
                     messageLabel.Text = "Name Field is Empty";
                     return;
-                }               
+                }
+                history.Element = name;
                 Insert(name);                
             }
             else   //Update
             {
                 history.TableRowNo = category.ID;
                 name = nameTextBox.Text;
+                history.Element = name;
                 if (String.IsNullOrEmpty(name))
                 {
                     messageLabel.Text = "Name Field is Empty";
