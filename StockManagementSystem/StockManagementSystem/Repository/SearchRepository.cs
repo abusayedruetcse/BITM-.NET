@@ -18,8 +18,6 @@ namespace StockManagementSystem.Repository
         DataTable dataTable;
         public SearchRepository()
         {
-            //connectionString = @"Server=PC-301-17\SQLEXPRESS ; Database=StockManagementDB  ;Integrated Security=True  ";
-            //connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS ;Database=StockManagementDB;Integrated Security=True";
             connectionString = @"Server=" + SMSDBScript.ServerName + ";Database=" + SMSDBScript.DatabaseName + ";Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
         }

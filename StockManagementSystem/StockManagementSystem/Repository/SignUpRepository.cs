@@ -19,7 +19,6 @@ namespace StockManagementSystem.Repository
         DataTable dataTable;
         public SignUpRepository()
         {
-            //connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS ;Database=StockManagementDB ;Integrated Security=True";
             connectionString = @"Server=" + SMSDBScript.ServerName + ";Database=" + SMSDBScript.DatabaseName + ";Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
         }
