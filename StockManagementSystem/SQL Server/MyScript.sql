@@ -1,12 +1,14 @@
 CREATE DATABASE StockManagementDB
 --DROP DATABASE StockManagementDB
+-- //connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";
+            
 USE StockManagementDB
 CREATE TABLE UserAccount 
 (
 ID int IDENTITY(1,1),
 Email VARCHAR(35),
 UserName VARCHAR(35),
-Password VARCHAR(35),
+Password VARCHAR(35)
 )
 -- DROP TABLE UserAccount
 SELECT * FROM UserAccount WHERE Password='' AND (Email= '' OR UserName='')

@@ -73,6 +73,7 @@
     <Compile Include="BLL\SignUpManager.cs" />
     <Compile Include="BLL\StockInManager.cs" />
     <Compile Include="BLL\StockOutManager.cs" />
+    <Compile Include="BLL\SystemSetupManager.cs" />
     <Compile Include="BLL\ViewManager.cs" />
     <Compile Include="CategoryUi.cs">
       <SubType>Form</SubType>
@@ -135,6 +136,7 @@
     <Compile Include="Repository\SignUpRepository.cs" />
     <Compile Include="Repository\StockInRepository.cs" />
     <Compile Include="Repository\StockOutRepository.cs" />
+    <Compile Include="Repository\SystemSetupRepository.cs" />
     <Compile Include="Repository\ViewRepository.cs" />
     <Compile Include="SearchUi.cs">
       <SubType>Form</SubType>

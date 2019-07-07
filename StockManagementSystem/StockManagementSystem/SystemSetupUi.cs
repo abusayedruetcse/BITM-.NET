@@ -22,6 +22,7 @@ namespace StockManagementSystem
         {
             SMSDBScript.ServerName = serverNameTextBox.Text;
             SMSDBScript.DatabaseName = databaseNameTextBox.Text;
+            SMSDBScript.Execute();
             //SMSDBScript.IscreatedDB = true;
             this.Hide();
             FrontUi frontUi = new FrontUi();
