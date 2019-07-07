@@ -90,6 +90,7 @@ namespace StockManagementSystem
             history.UserID = UserAccount.ID;
             history.TableName = "StockIns";
             history.DateAndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            history.Element = itemComboBox.Text;
             if (SaveButton.Text.Equals("Confirm"))
             {
                 history.TableRowNo = stockIn.ID;
@@ -205,7 +206,7 @@ namespace StockManagementSystem
             {
                 reorderLevelTextBox.Text = dataTable.Rows[0]["ReorderLevel"].ToString();
                 availableQuantityTextBox.Text = dataTable.Rows[0]["AvailableQuantity"].ToString();
-            }
+            }            
             //Display on DataGridView
             DisplayRecords();
         }
