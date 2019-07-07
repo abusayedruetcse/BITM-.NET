@@ -30,7 +30,7 @@ namespace StockManagementSystem.Repository
             int isExecuted = 0;
             try
             {
-                commandString = @"INSERT INTO Items VALUES('" + item.Name + "'," + item.CategoryID + " ," + item.CompanyID + "," + item.ReorderLevel + ", 0 )" + "INSERT INTO InsertUpdateHistory VALUES(" + history.UserID + ",'" + history.TableName + "'," + history.TableRowNo + " ,'" + history.DateAndTime + "')";
+                commandString = @"INSERT INTO Items VALUES('" + item.Name + "'," + item.CategoryID + " ," + item.CompanyID + "," + item.ReorderLevel + ", 0 )" + "INSERT INTO InsertUpdateHistory VALUES(" + history.UserID + ",'" + history.TableName + "'," + history.TableRowNo + " ,'" + history.Element + "','" + history.DateAndTime + "')";
                 sqlCommand = new SqlCommand();
                 sqlCommand.CommandText = commandString;
                 sqlCommand.Connection = sqlConnection;                

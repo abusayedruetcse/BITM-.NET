@@ -85,6 +85,7 @@ namespace StockManagementSystem
             history.TableName = "Items";
             history.TableRowNo = _itemManager.NoOfItem() + 1;
             history.DateAndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            history.Element = item.Name;
             int isExecuted = 0;
             isExecuted = _itemManager.Insert(item,history);
             if (isExecuted > 0)
