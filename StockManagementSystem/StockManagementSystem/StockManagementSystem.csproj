@@ -51,6 +51,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
@@ -75,16 +76,16 @@
     <Compile Include="BLL\StockOutManager.cs" />
     <Compile Include="BLL\SystemSetupManager.cs" />
     <Compile Include="BLL\ViewManager.cs" />
-    <Compile Include="CategoryUi.cs">
+    <Compile Include="UI\CategoryUi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CategoryUi.Designer.cs">
+    <Compile Include="UI\CategoryUi.Designer.cs">
       <DependentUpon>CategoryUi.cs</DependentUpon>
     </Compile>
-    <Compile Include="CompanyUi.cs">
+    <Compile Include="UI\CompanyUi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CompanyUi.Designer.cs">
+    <Compile Include="UI\CompanyUi.Designer.cs">
       <DependentUpon>CompanyUi.cs</DependentUpon>
     </Compile>
     <Compile Include="FrontUi.cs">
@@ -93,10 +94,10 @@
     <Compile Include="FrontUi.Designer.cs">
       <DependentUpon>FrontUi.cs</DependentUpon>
     </Compile>
-    <Compile Include="HistoryUi.cs">
+    <Compile Include="UI\HistoryUi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HistoryUi.Designer.cs">
+    <Compile Include="UI\HistoryUi.Designer.cs">
       <DependentUpon>HistoryUi.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginUi.cs">
@@ -111,10 +112,10 @@
     <Compile Include="MenuUi.Designer.cs">
       <DependentUpon>MenuUi.cs</DependentUpon>
     </Compile>
-    <Compile Include="ItemUi.cs">
+    <Compile Include="UI\ItemUi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ItemUi.Designer.cs">
+    <Compile Include="UI\ItemUi.Designer.cs">
       <DependentUpon>ItemUi.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs" />
@@ -138,10 +139,10 @@
     <Compile Include="Repository\StockOutRepository.cs" />
     <Compile Include="Repository\SystemSetupRepository.cs" />
     <Compile Include="Repository\ViewRepository.cs" />
-    <Compile Include="SearchUi.cs">
+    <Compile Include="UI\SearchUi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchUi.Designer.cs">
+    <Compile Include="UI\SearchUi.Designer.cs">
       <DependentUpon>SearchUi.cs</DependentUpon>
     </Compile>
     <Compile Include="SignUpUi.cs">
@@ -150,16 +151,16 @@
     <Compile Include="SignUpUi.Designer.cs">
       <DependentUpon>SignUpUi.cs</DependentUpon>
     </Compile>
-    <Compile Include="StockInUi.cs">
+    <Compile Include="UI\StockInUi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StockInUi.Designer.cs">
+    <Compile Include="UI\StockInUi.Designer.cs">
       <DependentUpon>StockInUi.cs</DependentUpon>
     </Compile>
-    <Compile Include="StockOutUi.cs">
+    <Compile Include="UI\StockOutUi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StockOutUi.Designer.cs">
+    <Compile Include="UI\StockOutUi.Designer.cs">
       <DependentUpon>StockOutUi.cs</DependentUpon>
     </Compile>
     <Compile Include="SystemSetupUi.cs">
@@ -168,22 +169,22 @@
     <Compile Include="SystemSetupUi.Designer.cs">
       <DependentUpon>SystemSetupUi.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewUi.cs">
+    <Compile Include="UI\ViewUi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViewUi.Designer.cs">
+    <Compile Include="UI\ViewUi.Designer.cs">
       <DependentUpon>ViewUi.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CategoryUi.resx">
+    <EmbeddedResource Include="UI\CategoryUi.resx">
       <DependentUpon>CategoryUi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CompanyUi.resx">
+    <EmbeddedResource Include="UI\CompanyUi.resx">
       <DependentUpon>CompanyUi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrontUi.resx">
       <DependentUpon>FrontUi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HistoryUi.resx">
+    <EmbeddedResource Include="UI\HistoryUi.resx">
       <DependentUpon>HistoryUi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginUi.resx">
@@ -192,7 +193,7 @@
     <EmbeddedResource Include="MenuUi.resx">
       <DependentUpon>MenuUi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ItemUi.resx">
+    <EmbeddedResource Include="UI\ItemUi.resx">
       <DependentUpon>ItemUi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -204,22 +205,22 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SearchUi.resx">
+    <EmbeddedResource Include="UI\SearchUi.resx">
       <DependentUpon>SearchUi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SignUpUi.resx">
       <DependentUpon>SignUpUi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StockInUi.resx">
+    <EmbeddedResource Include="UI\StockInUi.resx">
       <DependentUpon>StockInUi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StockOutUi.resx">
+    <EmbeddedResource Include="UI\StockOutUi.resx">
       <DependentUpon>StockOutUi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SystemSetupUi.resx">
       <DependentUpon>SystemSetupUi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewUi.resx">
+    <EmbeddedResource Include="UI\ViewUi.resx">
       <DependentUpon>ViewUi.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
