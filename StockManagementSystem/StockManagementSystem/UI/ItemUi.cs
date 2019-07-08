@@ -35,28 +35,22 @@ namespace StockManagementSystem
         }
        
         private void SaveButton_Click(object sender, EventArgs e)
-        {   
+        {
+            //validation checking
+            messageLabel.ForeColor = Color.Red;
             if(String.IsNullOrEmpty(categoryComboBox.Text))
             {
                 messageLabel.Text = "Select Category First";
                 return;
-            }
-            item.CategoryID = Convert.ToInt32(categoryComboBox.SelectedValue);
+            }            
             if (String.IsNullOrEmpty(companyComboBox.Text))
             {
                 messageLabel.Text = "Select Company First";
                 return;
-            }
-            item.CompanyID = Convert.ToInt32(companyComboBox.SelectedValue);
+            }           
             if(String.IsNullOrEmpty(itemNameTextBox.Text))
             {
                 messageLabel.Text = "Enter Item ";
-                return;
-            }
-            item.Name = itemNameTextBox.Text;            
-            if(_itemManager.IsDuplicate(item))
-            {
-                messageLabel.Text = "Item is Duplicate!";
                 return;
             }
             if (String.IsNullOrEmpty(reorderLevelTextBox.Text))
@@ -69,6 +63,15 @@ namespace StockManagementSystem
                 messageLabel.Text = "Enter Only Digits";
                 return;
             }
+            //assign values
+            item.CategoryID = Convert.ToInt32(categoryComboBox.SelectedValue);
+            item.CompanyID = Convert.ToInt32(companyComboBox.SelectedValue);
+            item.Name = itemNameTextBox.Text;            
+            if(_itemManager.IsDuplicate(item))
+            {
+                messageLabel.Text = "Item is Duplicate!";
+                return;
+            }            
             item.ReorderLevel = Convert.ToInt32(reorderLevelTextBox.Text);
 
             Insert(item);
@@ -90,10 +93,12 @@ namespace StockManagementSystem
             isExecuted = _itemManager.Insert(item,history);
             if (isExecuted > 0)
             {
-                messageLabel.Text = "Saved Successfully";
+                messageLabel.ForeColor = Color.Green;
+                messageLabel.Text = "Saved Successfully";              
             }
             else
             {
+                messageLabel.ForeColor = Color.Green;
                 messageLabel.Text = "Save Failed!";
             }           
         }

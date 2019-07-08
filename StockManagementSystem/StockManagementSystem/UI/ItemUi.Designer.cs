@@ -90,10 +90,11 @@
             // 
             this.categoryComboBox.DataSource = this.categoryBindingSource;
             this.categoryComboBox.DisplayMember = "Name";
+            this.categoryComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryComboBox.FormattingEnabled = true;
             this.categoryComboBox.Location = new System.Drawing.Point(250, 109);
             this.categoryComboBox.Name = "categoryComboBox";
-            this.categoryComboBox.Size = new System.Drawing.Size(175, 21);
+            this.categoryComboBox.Size = new System.Drawing.Size(175, 24);
             this.categoryComboBox.TabIndex = 4;
             this.categoryComboBox.ValueMember = "ID";
             this.categoryComboBox.Click += new System.EventHandler(this.categoryComboBox_Click);
@@ -106,10 +107,11 @@
             // 
             this.companyComboBox.DataSource = this.companyBindingSource;
             this.companyComboBox.DisplayMember = "Name";
+            this.companyComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.companyComboBox.FormattingEnabled = true;
             this.companyComboBox.Location = new System.Drawing.Point(250, 145);
             this.companyComboBox.Name = "companyComboBox";
-            this.companyComboBox.Size = new System.Drawing.Size(175, 21);
+            this.companyComboBox.Size = new System.Drawing.Size(175, 24);
             this.companyComboBox.TabIndex = 5;
             this.companyComboBox.ValueMember = "ID";
             this.companyComboBox.Click += new System.EventHandler(this.companyComboBox_Click);
@@ -120,23 +122,26 @@
             // 
             // itemNameTextBox
             // 
+            this.itemNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.itemNameTextBox.Location = new System.Drawing.Point(250, 187);
             this.itemNameTextBox.Name = "itemNameTextBox";
-            this.itemNameTextBox.Size = new System.Drawing.Size(175, 20);
+            this.itemNameTextBox.Size = new System.Drawing.Size(175, 22);
             this.itemNameTextBox.TabIndex = 6;
             // 
             // reorderLevelTextBox
             // 
+            this.reorderLevelTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reorderLevelTextBox.Location = new System.Drawing.Point(250, 231);
             this.reorderLevelTextBox.Name = "reorderLevelTextBox";
-            this.reorderLevelTextBox.Size = new System.Drawing.Size(175, 20);
+            this.reorderLevelTextBox.Size = new System.Drawing.Size(175, 22);
             this.reorderLevelTextBox.TabIndex = 7;
             // 
             // SaveButton
             // 
+            this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SaveButton.Location = new System.Drawing.Point(350, 270);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveButton.Size = new System.Drawing.Size(75, 25);
             this.SaveButton.TabIndex = 8;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
