@@ -31,6 +31,7 @@ namespace StockManagementSystem
 
         private void StockOutUi_Load(object sender, EventArgs e)
         {
+            stockOutDataGridView.DataSource = null;
             //Preview 
             companyComboBox.Text = "-Select-";
             categoryComboBox.Text = "-Select-";
@@ -203,6 +204,11 @@ namespace StockManagementSystem
         }
         private void UpdateStackOut(string action)
         {
+            if(stockOutDataGridView.DataSource==null)
+            {
+                messageLabel.Text = "No Item is added to DataGridView";
+                return;
+            }
             history.UserID = UserAccount.ID;
             history.TableName = "StockOuts";
             history.DateAndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
