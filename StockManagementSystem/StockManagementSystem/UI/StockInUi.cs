@@ -30,6 +30,7 @@ namespace StockManagementSystem
         }        
         private void StockIn_Load(object sender, EventArgs e)
         {
+            messageLabel.ForeColor = Color.Red;
             //company
             dataTable= _stockInManager.LoadCompanyToComboBox();
             companyComboBox.DataSource = dataTable;
@@ -52,6 +53,8 @@ namespace StockManagementSystem
 
         private void categoryComboBox_Click(object sender, EventArgs e)
         {
+            messageLabel.Text = "";
+            messageLabel.ForeColor = Color.Red;
             if (companyComboBox.Text.Equals("-Select-") || companyComboBox.Text == null)
             {
                 messageLabel.Text = "Select a company first";
@@ -74,6 +77,7 @@ namespace StockManagementSystem
         private void itemComboBox_Click(object sender, EventArgs e)
         {
             messageLabel.Text = "";
+            messageLabel.ForeColor = Color.Red;
             if (categoryComboBox.Text.Equals("-Select-") || categoryComboBox.Text == null)
             {
                 messageLabel.Text = "Select a category first";
@@ -92,6 +96,8 @@ namespace StockManagementSystem
               
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            messageLabel.Text = "";
+            messageLabel.ForeColor = Color.Red;
             history.UserID = UserAccount.ID;
             history.TableName = "StockIns";
             history.DateAndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -104,12 +110,13 @@ namespace StockManagementSystem
                 stockIn.Quantity = updateQuantity;
                 _stockInManager.UpdateItem(item);
                 _stockInManager.UpdateStockIn(stockIn,history);
-                messageLabel.Text = "Updated Successfully";
+                messageLabel.ForeColor = Color.Green;
+                messageLabel.Text = "Updated Successfully";                
                 SaveButton.Text = "Save";
             } 
             else
             {
-                //stockIn.Date= DateTime.Now.ToString("yyyy/MM/dd");
+                stockIn.Date= DateTime.Now.ToString("yyyy/MM/dd");
                 if (companyComboBox.Text.Equals("-Select-"))
                 {
                     messageLabel.Text="Enter a company";
@@ -125,7 +132,7 @@ namespace StockManagementSystem
                     messageLabel.Text = "Enter an Item";
                     return;
                 }
-                stockIn.Date = stockInDateTimePicker.Value.ToString("yyyy-MM-dd");
+                //stockIn.Date = stockInDateTimePicker.Value.ToString("yyyy-MM-dd");
                 stockIn.ItemID = Convert.ToInt32(itemComboBox.SelectedValue);
                 if (String.IsNullOrEmpty(stockInQuantityTextBox.Text))
                 {
@@ -161,10 +168,12 @@ namespace StockManagementSystem
             isExecuted = _stockInManager.InsertStockIn(stockIn,history);
             if (isExecuted > 0)
             {
+                messageLabel.ForeColor = Color.Green;
                 messageLabel.Text = "Saved";
             }
             else
             {
+                messageLabel.ForeColor = Color.Red;
                 messageLabel.Text = "Save Failed";
             }
         }
@@ -175,6 +184,7 @@ namespace StockManagementSystem
             stockInDataGridView.DataSource = dataTable;
             if (dataTable.Rows.Count == 0)
             {
+                messageLabel.ForeColor = Color.Red;
                 messageLabel.Text = "No any records";
             }
             //foreach (DataGridViewRow row in stockInDataGridView.Rows)
@@ -210,6 +220,7 @@ namespace StockManagementSystem
                     reorderLevelTextBox.Text = dataTable.Rows[0]["ReorderLevel"].ToString();
                     availableQuantityTextBox.Text = dataTable.Rows[0]["AvailableQuantity"].ToString();
                 }
+                messageLabel.ForeColor = Color.Green;
                 messageLabel.Text = "Just update Quantity";
                 stockInQuantityTextBox.Text = currentQuantity.ToString();
                 SaveButton.Text = "Confirm";

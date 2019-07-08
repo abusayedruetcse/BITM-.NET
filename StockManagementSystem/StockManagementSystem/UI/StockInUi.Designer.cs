@@ -55,8 +55,6 @@
             this.itemIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockInBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.messageLabel = new System.Windows.Forms.Label();
-            this.stockInDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.BackButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.companyBindingSource)).BeginInit();
@@ -290,24 +288,6 @@
             this.messageLabel.Size = new System.Drawing.Size(0, 16);
             this.messageLabel.TabIndex = 14;
             // 
-            // stockInDateTimePicker
-            // 
-            this.stockInDateTimePicker.CustomFormat = " dd- MM- yyyy";
-            this.stockInDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.stockInDateTimePicker.Location = new System.Drawing.Point(498, 180);
-            this.stockInDateTimePicker.Name = "stockInDateTimePicker";
-            this.stockInDateTimePicker.Size = new System.Drawing.Size(90, 20);
-            this.stockInDateTimePicker.TabIndex = 17;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(498, 161);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(30, 13);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Date";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -335,8 +315,6 @@
             this.ClientSize = new System.Drawing.Size(599, 552);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.stockInDateTimePicker);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.stockInDataGridView);
             this.Controls.Add(this.SaveButton);
@@ -387,8 +365,6 @@
         private System.Windows.Forms.Label messageLabel;
         private System.Windows.Forms.BindingSource itemBindingSource;
         private System.Windows.Forms.BindingSource stockInBindingSource;
-        private System.Windows.Forms.DateTimePicker stockInDateTimePicker;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
