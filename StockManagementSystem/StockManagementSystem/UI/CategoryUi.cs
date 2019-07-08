@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using StockManagementSystem.Models;
 using StockManagementSystem.BLL;
+using System.Data;
 
 namespace StockManagementSystem
 {
@@ -16,12 +17,14 @@ namespace StockManagementSystem
         Category category;
         CategoryManager _categoryManager;
         History history;
+        DataTable dataTable;
         public CategoryUi()
         {
             InitializeComponent();            
             category = new Category();
             _categoryManager = new CategoryManager();
             history = new History();
+            dataTable = new DataTable();
         }
         private void CategorySetup_Load(object sender, EventArgs e)
         {
@@ -34,27 +37,43 @@ namespace StockManagementSystem
             history.TableName = "Categories";       
             history.DateAndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             string name = "";
+            name = nameTextBox.Text;
+            if (String.IsNullOrEmpty(name))
+            {
+                messageLabel.ForeColor = Color.Red;
+                messageLabel.Text = "Category Name Field is Empty";
+                return;
+            }
+            category.Name = name;           
+            history.Element = name;
             if (SaveButton.Text.Equals("Save"))
-            {           
-                name = nameTextBox.Text;
-                if(String.IsNullOrEmpty(name))
+            {
+                if (_categoryManager.IsCategoryDuplicate(category))
                 {
-                    messageLabel.Text = "Name Field is Empty";
+                    messageLabel.ForeColor = Color.Red;
+                    messageLabel.Text = "Category is Duplicate";
                     return;
                 }
-                history.Element = name;
                 Insert(name);                
             }
             else   //Update
             {
-                history.TableRowNo = category.ID;
-                name = nameTextBox.Text;
-                history.Element = name;
-                if (String.IsNullOrEmpty(name))
+                dataTable = _categoryManager.IsUpdateCategoryDuplicate(category);
+                if (dataTable.Rows.Count>0)
                 {
-                    messageLabel.Text = "Name Field is Empty";
+                    if(Convert.ToInt32(dataTable.Rows[0]["ID"]) == category.ID)
+                    {
+                        messageLabel.ForeColor = Color.Green;
+                        messageLabel.Text = "Category is Unchanged";
+                    }
+                    else
+                    {
+                        messageLabel.ForeColor = Color.Red;
+                        messageLabel.Text = "Category is Duplicate";
+                    }                                      
                     return;
-                }               
+                }
+                history.TableRowNo = category.ID;
                 Update(name);
                 SaveButton.Text = "Save";
             }
@@ -68,10 +87,12 @@ namespace StockManagementSystem
             isExecuted = _categoryManager.Insert(category, history);
             if (isExecuted > 0)
             {
+                messageLabel.ForeColor = Color.Green;
                 messageLabel.Text = "Saved Successfully";
             }
             else
             {
+                messageLabel.ForeColor = Color.Red;
                 messageLabel.Text = "Save Failed!";
             }            
         }
@@ -82,10 +103,12 @@ namespace StockManagementSystem
             isExecuted = _categoryManager.Update(category, history);
             if(isExecuted>0)
             {
+                messageLabel.ForeColor = Color.Green;
                 messageLabel.Text = "Updated Successfully";
             }
             else
             {
+                messageLabel.ForeColor = Color.Red;
                 messageLabel.Text = "Update Failed!";
             }
         }        
@@ -94,7 +117,6 @@ namespace StockManagementSystem
             categoryDataGridView.DataSource = _categoryManager.Display();
             foreach (DataGridViewRow row in categoryDataGridView.Rows)
                 row.Cells["SL"].Value = (row.Index + 1).ToString();
-            categoryDataGridView.RowHeadersVisible = false;
             history.TableRowNo = categoryDataGridView.Rows.Count + 1;
 
         }

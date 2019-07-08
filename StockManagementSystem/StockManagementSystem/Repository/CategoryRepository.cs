@@ -22,6 +22,38 @@ namespace StockManagementSystem.Repository
             connectionString = @"Server="+SMSDBScript.ServerName+";Database="+SMSDBScript.DatabaseName+";Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
         }
+        public DataTable IsUpdateCategoryDuplicate(Category category)
+        {
+            commandString = @"SELECT * FROM Categories WHERE Name='" + category.Name + "'";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            sqlDataAdapter = new SqlDataAdapter();
+
+            sqlDataAdapter.SelectCommand = sqlCommand;
+            dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+
+            sqlConnection.Close();
+            if(dataTable.Rows.Count>0)
+            {
+                 
+            }
+            return dataTable;
+        }
+        public bool IsCategoryDuplicate(Category category)
+        {            
+            commandString = @"SELECT * FROM Categories WHERE Name='"+category.Name+"'";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            sqlDataAdapter = new SqlDataAdapter();
+
+            sqlDataAdapter.SelectCommand = sqlCommand;
+            dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+
+            sqlConnection.Close();
+            return dataTable.Rows.Count > 0;
+        }
         public int Update(Category category,History history)
         {
             int isExecuted = 0;          

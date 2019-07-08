@@ -86,6 +86,7 @@
             this.categoryDataGridView.Location = new System.Drawing.Point(121, 189);
             this.categoryDataGridView.Name = "categoryDataGridView";
             this.categoryDataGridView.ReadOnly = true;
+            this.categoryDataGridView.RowHeadersVisible = false;
             this.categoryDataGridView.Size = new System.Drawing.Size(330, 195);
             this.categoryDataGridView.TabIndex = 3;
             this.categoryDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.categoryDataGridView_CellClick);
@@ -100,9 +101,11 @@
             // messageLabel
             // 
             this.messageLabel.AutoSize = true;
+            this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageLabel.ForeColor = System.Drawing.Color.Red;
             this.messageLabel.Location = new System.Drawing.Point(164, 121);
             this.messageLabel.Name = "messageLabel";
-            this.messageLabel.Size = new System.Drawing.Size(0, 13);
+            this.messageLabel.Size = new System.Drawing.Size(0, 16);
             this.messageLabel.TabIndex = 4;
             // 
             // BackButton

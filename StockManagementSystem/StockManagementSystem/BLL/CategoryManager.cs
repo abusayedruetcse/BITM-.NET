@@ -15,6 +15,14 @@ namespace StockManagementSystem.BLL
         {
             _categoryRepository = new CategoryRepository();
         }
+        public DataTable IsUpdateCategoryDuplicate(Category category)
+        {
+            return _categoryRepository.IsUpdateCategoryDuplicate(category);
+        }
+        public bool IsCategoryDuplicate(Category category)
+        {
+            return _categoryRepository.IsCategoryDuplicate(category);
+        }
         public int Update(Category category,History history)
         {
             return _categoryRepository.Update(category,history);
