@@ -21,6 +21,14 @@ namespace StockManagementSystem.BLL
         {
             return _companyRepository.Display();
         }
+        public DataTable IsUpdateCompanyDuplicate(Company company)
+        {
+            return _companyRepository.IsUpdateCompanyDuplicate(company);
+        }
+        public bool IsCompanyDuplicate(Company company)
+        {
+            return _companyRepository.IsCompanyDuplicate(company);
+        }
         public int Insert(Company company,History history)
         {
             return _companyRepository.Insert(company,history);

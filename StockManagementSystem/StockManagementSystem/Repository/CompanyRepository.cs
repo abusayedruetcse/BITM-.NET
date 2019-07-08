@@ -22,7 +22,34 @@ namespace StockManagementSystem.Repository
             connectionString = @"Server=" + SMSDBScript.ServerName + ";Database=" + SMSDBScript.DatabaseName + ";Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
         }
+        public DataTable IsUpdateCompanyDuplicate(Company company)
+        {
+            commandString = @"SELECT * FROM Companies WHERE Name='" + company.Name + "'";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            sqlDataAdapter = new SqlDataAdapter();
 
+            sqlDataAdapter.SelectCommand = sqlCommand;
+            dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+
+            sqlConnection.Close();
+            return dataTable;
+        }
+        public bool IsCompanyDuplicate(Company company)
+        {
+            commandString = @"SELECT * FROM Companies WHERE Name='" + company.Name + "'";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            sqlDataAdapter = new SqlDataAdapter();
+
+            sqlDataAdapter.SelectCommand = sqlCommand;
+            dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+
+            sqlConnection.Close();
+            return dataTable.Rows.Count > 0;
+        }
 
         public DataTable Display()
         {

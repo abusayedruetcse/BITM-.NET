@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using StockManagementSystem.Models;
 using StockManagementSystem.BLL;
+using System.Data;
 
 namespace StockManagementSystem
 {
@@ -16,12 +17,14 @@ namespace StockManagementSystem
         CompanyManager _companyManager;
         Company company;
         History history;
+        DataTable dataTable;
         public CompanyUi()
         {
             InitializeComponent();
             _companyManager = new CompanyManager();
             company = new Company();
             history = new History();
+            dataTable = new DataTable();
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -30,25 +33,42 @@ namespace StockManagementSystem
             history.TableName = "Companies";
             history.DateAndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             string name = "";
+            name = nameTextBox.Text;
+            if (String.IsNullOrEmpty(name))
+            {
+                messageLabel.ForeColor = Color.Red;
+                messageLabel.Text = "Company Name Field is Empty";
+                return;
+            }
+            company.Name = name;
             if (SaveButton.Text.Equals("Save"))
-            {                
-                name = nameTextBox.Text;
-                if (String.IsNullOrEmpty(name))
+            {
+                if (_companyManager.IsCompanyDuplicate(company))
                 {
-                    messageLabel.Text = "Name Field is Empty";
+                    messageLabel.ForeColor = Color.Red;
+                    messageLabel.Text = "Company is Duplicate";
                     return;
                 }
                 Insert(name);
             }
             else   //update
             {
-                history.TableRowNo = company.ID;
-                name = nameTextBox.Text;
-                if (String.IsNullOrEmpty(name))
+                dataTable = _companyManager.IsUpdateCompanyDuplicate(company);
+                if (dataTable.Rows.Count > 0)
                 {
-                    messageLabel.Text = "Name Field is Empty";
+                    if (Convert.ToInt32(dataTable.Rows[0]["ID"]) == company.ID)
+                    {
+                        messageLabel.ForeColor = Color.Green;
+                        messageLabel.Text = "Company is Unchanged";
+                    }
+                    else
+                    {
+                        messageLabel.ForeColor = Color.Red;
+                        messageLabel.Text = "Company is Duplicate";
+                    }
                     return;
                 }
+                history.TableRowNo = company.ID;               
                 Update(name);
                 SaveButton.Text = "Save";
             }
@@ -63,10 +83,12 @@ namespace StockManagementSystem
             isExecuted = _companyManager.Insert(company,history);
             if (isExecuted > 0)
             {
+                messageLabel.ForeColor = Color.Green;
                 messageLabel.Text = "Saved Successfully";
             }
             else
             {
+                messageLabel.ForeColor = Color.Red;
                 messageLabel.Text = "Save Failed!";
             }            
         }
@@ -78,10 +100,12 @@ namespace StockManagementSystem
             isExecuted = _companyManager.Update(company,history);
             if (isExecuted > 0)
             {
+                messageLabel.ForeColor = Color.Green;
                 messageLabel.Text = "Updated Successfully";
             }
             else
             {
+                messageLabel.ForeColor = Color.Red;
                 messageLabel.Text = "Update Failed!";
             }            
         }

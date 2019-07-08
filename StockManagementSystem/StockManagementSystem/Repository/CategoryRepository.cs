@@ -34,10 +34,6 @@ namespace StockManagementSystem.Repository
             sqlDataAdapter.Fill(dataTable);
 
             sqlConnection.Close();
-            if(dataTable.Rows.Count>0)
-            {
-                 
-            }
             return dataTable;
         }
         public bool IsCategoryDuplicate(Category category)
