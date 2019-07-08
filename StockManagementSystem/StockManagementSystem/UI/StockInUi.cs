@@ -35,17 +35,8 @@ namespace StockManagementSystem
             companyComboBox.DataSource = dataTable;
             if (dataTable.Rows.Count == 0)
             {
-                companyComboBox.Text = "";
                 messageLabel.Text = "No Company in Database";
-            }
-            //category      
-            dataTable = _stockInManager.LoadCategoryToComboBox();
-            categoryComboBox.DataSource = dataTable;
-            if (dataTable.Rows.Count == 0)
-            {
-                companyComboBox.Text = "";
-                messageLabel.Text = "No Category in Database";
-            }
+            }            
             //Cleaning Text fields.
             companyComboBox.Text = "-Select-";
             categoryComboBox.Text = "-Select-";
@@ -66,6 +57,17 @@ namespace StockManagementSystem
                 messageLabel.Text = "Select a company first";
                 return;
             }
+
+
+            dataTable = _stockInManager.LoadCategoryToComboBox(Convert.ToInt32(companyComboBox.SelectedValue));
+            categoryComboBox.DataSource = dataTable;
+            if (dataTable.Rows.Count == 0)
+            {
+                //companyComboBox.Text = "";
+                messageLabel.Text = "No Category in Database";
+            }
+
+
             item.CategoryID = Convert.ToInt32(categoryComboBox.SelectedValue);
         }
 
@@ -82,7 +84,10 @@ namespace StockManagementSystem
             if (dataTable.Rows.Count == 0)
             {
                 messageLabel.Text = "Item Not found for this Company and Category";
+                itemComboBox.Text = "-Select-";                
             }
+            availableQuantityTextBox.Text = "<View>";
+            reorderLevelTextBox.Text = "<View>";
         }
               
         private void SaveButton_Click(object sender, EventArgs e)
@@ -99,6 +104,7 @@ namespace StockManagementSystem
                 stockIn.Quantity = updateQuantity;
                 _stockInManager.UpdateItem(item);
                 _stockInManager.UpdateStockIn(stockIn,history);
+                messageLabel.Text = "Updated Successfully";
                 SaveButton.Text = "Save";
             } 
             else
@@ -135,7 +141,7 @@ namespace StockManagementSystem
                 InsertStockIn(stockIn);
                 //update avaiableQuantity
                 item.ID = stockIn.ItemID;
-                dataTable = _stockInManager.GetItem(item);
+                dataTable = _stockInManager.GetItemCompanyCategory(item);
                 int currentQuantity = Convert.ToInt32(dataTable.Rows[0]["AvailableQuantity"]);
                 item.AvailableQuantity = currentQuantity + stockIn.Quantity;
                 _stockInManager.UpdateItem(item);
@@ -165,19 +171,26 @@ namespace StockManagementSystem
 
         private void DisplayRecords()
         {
-            dataTable = _stockInManager.DisplayRecords();
+            dataTable = _stockInManager.DisplayRecords(stockIn);
             stockInDataGridView.DataSource = dataTable;
             if (dataTable.Rows.Count == 0)
             {
-                MessageBox.Show("No any records");
+                messageLabel.Text = "No any records";
             }
-            foreach (DataGridViewRow row in stockInDataGridView.Rows)
+            //foreach (DataGridViewRow row in stockInDataGridView.Rows)
+            //{
+            //    row.Cells["SL"].Value = (row.Index + 1).ToString();
+            //    row.Cells["Action"].Value = Convert.ToString("Edit");
+            //    row.Cells["dateDataGridViewTextBoxColumn"].Value = Convert.ToDateTime(row.Cells["dateDataGridViewTextBoxColumn"].Value).ToString("dd-MM-yyyy");
+            //}
+            for(int i=0;i<stockInDataGridView.Rows.Count-1;i++)
             {
-                row.Cells["SL"].Value = (row.Index + 1).ToString();
-                row.Cells["Action"].Value = Convert.ToString("Edit");
-                row.Cells["dateDataGridViewTextBoxColumn"].Value = Convert.ToDateTime(row.Cells["dateDataGridViewTextBoxColumn"].Value).ToString("dd-MM-yyyy");
+                stockInDataGridView.Rows[i].Cells["SL"].Value = (i + 1).ToString();
+                stockInDataGridView.Rows[i].Cells["Action"].Value = Convert.ToString("Edit");
+                stockInDataGridView.Rows[i].Cells["dateDataGridViewTextBoxColumn"].Value = Convert.ToDateTime(stockInDataGridView.Rows[i].Cells["dateDataGridViewTextBoxColumn"].Value).ToString("dd-MM-yyyy");
             }
-            history.TableRowNo = stockInDataGridView.Rows.Count + 1;
+            history.TableRowNo = _stockInManager.StockInRowCount()+1;
+            
         }        
         
         private void stockInDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -187,16 +200,17 @@ namespace StockManagementSystem
             {
                 int currentQuantity = Convert.ToInt32(stockInDataGridView.Rows[e.RowIndex].Cells["quantityDataGridViewTextBoxColumn"].Value);
                 item.ID = Convert.ToInt32(stockInDataGridView.Rows[e.RowIndex].Cells["itemIDDataGridViewTextBoxColumn"].Value);
-                dataTable = _stockInManager.GetItem(item);
+                dataTable = _stockInManager.GetItemCompanyCategory(item);
                 //display into textbox
                 if (dataTable.Rows.Count > 0)
                 {
-                    companyComboBox.SelectedValue = dataTable.Rows[0]["CompanyID"];
-                    categoryComboBox.SelectedValue = dataTable.Rows[0]["CategoryID"];
-                    itemComboBox.Text = dataTable.Rows[0]["Name"].ToString();
+                    companyComboBox.Text = dataTable.Rows[0]["CompanyName"].ToString();
+                    categoryComboBox.Text = dataTable.Rows[0]["CategoryName"].ToString();
+                    itemComboBox.Text = dataTable.Rows[0]["ItemName"].ToString();
                     reorderLevelTextBox.Text = dataTable.Rows[0]["ReorderLevel"].ToString();
                     availableQuantityTextBox.Text = dataTable.Rows[0]["AvailableQuantity"].ToString();
                 }
+                messageLabel.Text = "Just update Quantity";
                 stockInQuantityTextBox.Text = currentQuantity.ToString();
                 SaveButton.Text = "Confirm";
                 //updating for item     
@@ -214,9 +228,11 @@ namespace StockManagementSystem
 
         private void itemComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            messageLabel.Text = "";
             dataTable = _stockInManager.GetAvailableQuantityAndReorderLevel(Convert.ToInt32(categoryComboBox.SelectedValue), Convert.ToInt32(companyComboBox.SelectedValue), itemComboBox.Text);
             if (dataTable.Rows.Count > 0)
             {
+                stockIn.ItemID = Convert.ToInt32(dataTable.Rows[0]["ID"]);
                 reorderLevelTextBox.Text = dataTable.Rows[0]["ReorderLevel"].ToString();
                 availableQuantityTextBox.Text = dataTable.Rows[0]["AvailableQuantity"].ToString();
             }            

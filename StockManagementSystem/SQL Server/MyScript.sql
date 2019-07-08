@@ -118,3 +118,13 @@ WHERE i.TableName='Items' AND t.ID=i.TableRowNo AND i.UserID=u.ID
 ORDER BY i.DateAndTime DESC
 SELECT i.TableRowNo AS TableRowNo,item.Name AS Element,u.Email AS Email,i.DateAndTime AS DateAndTime FROM InsertUpdateHistory AS i, UserAccount AS u, StockIns AS t,Items AS item WHERE i.TableName='StockIns' AND t.ID=i.TableRowNo AND t.ItemID=item.ID AND i.UserID=u.ID ORDER BY i.DateAndTime DESC
 SELECT i.TableRowNo AS TableRowNo,i.Element AS Element,u.Email AS Email,i.DateAndTime AS DateAndTime FROM InsertUpdateHistory AS i, UserAccount AS u, StockIns AS t WHERE i.TableName='StockIns' AND t.ID=i.TableRowNo AND i.UserID=u.ID ORDER BY i.DateAndTime DESC
+SELECT s.ID AS ID,ItemID, Name AS ItemName,Date,Quantity FROM StockIns AS s LEFT OUTER JOIN Items AS i ON s.ItemID=i.ID WHERE s.ItemID=2 ORDER BY s.Date DESC
+
+
+
+
+
+
+
+
+

@@ -223,6 +223,7 @@
             this.Action,
             this.iDDataGridViewTextBoxColumn,
             this.itemIDDataGridViewTextBoxColumn});
+            this.stockInDataGridView.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.stockInDataGridView.DataSource = this.stockInBindingSource;
             this.stockInDataGridView.Location = new System.Drawing.Point(43, 381);
             this.stockInDataGridView.Name = "stockInDataGridView";

@@ -33,9 +33,9 @@ namespace StockManagementSystem.Repository
             sqlConnection.Close();
             return dataTable;
         }
-        public DataTable LoadCategoryToComboBox()
+        public DataTable LoadCategoryToComboBox(int companyID)
         {
-            commandString = @"SELECT * FROM Categories";
+            commandString = @"SELECT DISTINCT cat.Name AS Name,cat.ID AS ID FROM Categories AS cat , Items AS i WHERE i.CategoryID=cat.ID AND i.CompanyID="+companyID+"";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             sqlDataAdapter = new SqlDataAdapter(sqlCommand);
@@ -44,6 +44,7 @@ namespace StockManagementSystem.Repository
             sqlConnection.Close();
             return dataTable;
         } 
+
         public DataTable LoadFilteredItemToComboBox(int categoryID,int companyID)
         {
             commandString = @"SELECT * FROM Items WHERE CategoryID =" + categoryID + " AND CompanyID=" + companyID + "";
@@ -87,9 +88,9 @@ namespace StockManagementSystem.Repository
 
             return isExecuted;
         }
-        public DataTable GetItem(Item item)
+        public DataTable GetItemCompanyCategory(Item item)
         {
-            commandString = @"SELECT * FROM Items WHERE ID=" + item.ID + "";
+            commandString = @"SELECT i.Name AS ItemName, com.Name AS CompanyName, cat.Name AS CategoryName, AvailableQuantity, ReorderLevel FROM Items AS i, Companies AS com, Categories AS cat WHERE i.ID="+item.ID+" AND i.CompanyID=com.ID AND i.CategoryID=cat.ID";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             sqlDataAdapter = new SqlDataAdapter(sqlCommand);
@@ -98,9 +99,9 @@ namespace StockManagementSystem.Repository
             sqlConnection.Close();
             return dataTable;
         }
-        public DataTable DisplayRecords()
+        public DataTable DisplayRecords(StockIn stockIn)
         {
-            commandString = @"SELECT s.ID AS ID,ItemID, Name AS ItemName,Date,Quantity FROM StockIns AS s LEFT OUTER JOIN Items AS i ON s.ItemID=i.ID ORDER BY s.Date DESC";
+            commandString = @"SELECT s.ID AS ID,ItemID, Name AS ItemName,Date,Quantity FROM StockIns AS s LEFT OUTER JOIN Items AS i ON s.ItemID=i.ID WHERE s.ItemID="+stockIn.ItemID+" ORDER BY s.Date DESC";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             sqlDataAdapter = new SqlDataAdapter(sqlCommand);
@@ -108,6 +109,17 @@ namespace StockManagementSystem.Repository
             sqlDataAdapter.Fill(dataTable);
             sqlConnection.Close();
             return dataTable;
+        }
+        public int StockInRowCount()
+        {
+            commandString = @"SELECT * FROM StockIns";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            sqlConnection.Close();
+            return dataTable.Rows.Count;
         }
         public DataTable GetAvailableQuantityAndReorderLevel(int categoryID,int companyID,string itemName)
         {

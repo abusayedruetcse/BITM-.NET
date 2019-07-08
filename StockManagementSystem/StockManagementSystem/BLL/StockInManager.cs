@@ -19,9 +19,9 @@ namespace StockManagementSystem.BLL
         {
             return _stockInRepository.LoadCompanyToComboBox();
         }
-        public DataTable LoadCategoryToComboBox()
+        public DataTable LoadCategoryToComboBox(int companyID)
         {
-            return _stockInRepository.LoadCategoryToComboBox();
+            return _stockInRepository.LoadCategoryToComboBox(companyID);
         }
         public DataTable LoadFilteredItemToComboBox(int categoryID, int companyID)
         {
@@ -39,13 +39,17 @@ namespace StockManagementSystem.BLL
         {
             return _stockInRepository.InsertStockIn(stockIn,history);
         }
-        public DataTable GetItem(Item item)
+        public DataTable GetItemCompanyCategory(Item item)
         {
-            return _stockInRepository.GetItem(item);
+            return _stockInRepository.GetItemCompanyCategory(item);
         }
-        public DataTable DisplayRecords()
+        public DataTable DisplayRecords(StockIn stockIn)
         {
-            return _stockInRepository.DisplayRecords();
+            return _stockInRepository.DisplayRecords(stockIn);
+        }
+        public int StockInRowCount()
+        {
+            return _stockInRepository.StockInRowCount();
         }
         public DataTable GetAvailableQuantityAndReorderLevel(int categoryID, int companyID, string itemName)
         {
