@@ -70,7 +70,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(70, 39);
+            this.label1.Location = new System.Drawing.Point(123, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 16);
             this.label1.TabIndex = 0;
@@ -80,7 +80,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(70, 78);
+            this.label2.Location = new System.Drawing.Point(123, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 16);
             this.label2.TabIndex = 1;
@@ -90,7 +90,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(70, 122);
+            this.label3.Location = new System.Drawing.Point(123, 122);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 16);
             this.label3.TabIndex = 2;
@@ -100,7 +100,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(70, 166);
+            this.label4.Location = new System.Drawing.Point(123, 166);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(94, 16);
             this.label4.TabIndex = 3;
@@ -110,7 +110,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(70, 204);
+            this.label5.Location = new System.Drawing.Point(123, 204);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(116, 16);
             this.label5.TabIndex = 4;
@@ -120,7 +120,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(70, 246);
+            this.label6.Location = new System.Drawing.Point(123, 246);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(106, 16);
             this.label6.TabIndex = 5;
@@ -130,10 +130,11 @@
             // 
             this.companyComboBox.DataSource = this.companyBindingSource;
             this.companyComboBox.DisplayMember = "Name";
+            this.companyComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.companyComboBox.FormattingEnabled = true;
-            this.companyComboBox.Location = new System.Drawing.Point(211, 39);
+            this.companyComboBox.Location = new System.Drawing.Point(264, 39);
             this.companyComboBox.Name = "companyComboBox";
-            this.companyComboBox.Size = new System.Drawing.Size(200, 21);
+            this.companyComboBox.Size = new System.Drawing.Size(200, 24);
             this.companyComboBox.TabIndex = 6;
             this.companyComboBox.ValueMember = "ID";
             this.companyComboBox.Click += new System.EventHandler(this.companyComboBox_Click);
@@ -146,10 +147,11 @@
             // 
             this.categoryComboBox.DataSource = this.categoryBindingSource;
             this.categoryComboBox.DisplayMember = "Name";
+            this.categoryComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryComboBox.FormattingEnabled = true;
-            this.categoryComboBox.Location = new System.Drawing.Point(211, 78);
+            this.categoryComboBox.Location = new System.Drawing.Point(264, 78);
             this.categoryComboBox.Name = "categoryComboBox";
-            this.categoryComboBox.Size = new System.Drawing.Size(200, 21);
+            this.categoryComboBox.Size = new System.Drawing.Size(200, 24);
             this.categoryComboBox.TabIndex = 7;
             this.categoryComboBox.TabStop = false;
             this.categoryComboBox.ValueMember = "ID";
@@ -163,10 +165,11 @@
             // 
             this.itemComboBox.DataSource = this.itemBindingSource;
             this.itemComboBox.DisplayMember = "Name";
+            this.itemComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.itemComboBox.FormattingEnabled = true;
-            this.itemComboBox.Location = new System.Drawing.Point(211, 122);
+            this.itemComboBox.Location = new System.Drawing.Point(264, 122);
             this.itemComboBox.Name = "itemComboBox";
-            this.itemComboBox.Size = new System.Drawing.Size(200, 21);
+            this.itemComboBox.Size = new System.Drawing.Size(200, 24);
             this.itemComboBox.TabIndex = 16;
             this.itemComboBox.ValueMember = "ID";
             this.itemComboBox.SelectedIndexChanged += new System.EventHandler(this.itemComboBox_SelectedIndexChanged);
@@ -178,21 +181,21 @@
             // 
             // reorderLevelTextBox
             // 
-            this.reorderLevelTextBox.Location = new System.Drawing.Point(211, 166);
+            this.reorderLevelTextBox.Location = new System.Drawing.Point(264, 166);
             this.reorderLevelTextBox.Name = "reorderLevelTextBox";
             this.reorderLevelTextBox.Size = new System.Drawing.Size(200, 20);
             this.reorderLevelTextBox.TabIndex = 9;
             // 
             // availableQuantityTextBox
             // 
-            this.availableQuantityTextBox.Location = new System.Drawing.Point(211, 204);
+            this.availableQuantityTextBox.Location = new System.Drawing.Point(264, 204);
             this.availableQuantityTextBox.Name = "availableQuantityTextBox";
             this.availableQuantityTextBox.Size = new System.Drawing.Size(200, 20);
             this.availableQuantityTextBox.TabIndex = 10;
             // 
             // stockInQuantityTextBox
             // 
-            this.stockInQuantityTextBox.Location = new System.Drawing.Point(211, 246);
+            this.stockInQuantityTextBox.Location = new System.Drawing.Point(264, 246);
             this.stockInQuantityTextBox.Name = "stockInQuantityTextBox";
             this.stockInQuantityTextBox.Size = new System.Drawing.Size(200, 20);
             this.stockInQuantityTextBox.TabIndex = 11;
@@ -200,7 +203,7 @@
             // SaveButton
             // 
             this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveButton.Location = new System.Drawing.Point(336, 292);
+            this.SaveButton.Location = new System.Drawing.Point(389, 285);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 12;
@@ -221,7 +224,7 @@
             this.iDDataGridViewTextBoxColumn,
             this.itemIDDataGridViewTextBoxColumn});
             this.stockInDataGridView.DataSource = this.stockInBindingSource;
-            this.stockInDataGridView.Location = new System.Drawing.Point(12, 326);
+            this.stockInDataGridView.Location = new System.Drawing.Point(43, 381);
             this.stockInDataGridView.Name = "stockInDataGridView";
             this.stockInDataGridView.RowHeadersVisible = false;
             this.stockInDataGridView.Size = new System.Drawing.Size(502, 150);
@@ -281,7 +284,7 @@
             // 
             this.messageLabel.AutoSize = true;
             this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.messageLabel.Location = new System.Drawing.Point(70, 295);
+            this.messageLabel.Location = new System.Drawing.Point(123, 335);
             this.messageLabel.Name = "messageLabel";
             this.messageLabel.Size = new System.Drawing.Size(0, 16);
             this.messageLabel.TabIndex = 14;
@@ -290,7 +293,7 @@
             // 
             this.stockInDateTimePicker.CustomFormat = " dd- MM- yyyy";
             this.stockInDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.stockInDateTimePicker.Location = new System.Drawing.Point(432, 180);
+            this.stockInDateTimePicker.Location = new System.Drawing.Point(498, 180);
             this.stockInDateTimePicker.Name = "stockInDateTimePicker";
             this.stockInDateTimePicker.Size = new System.Drawing.Size(90, 20);
             this.stockInDateTimePicker.TabIndex = 17;
@@ -298,7 +301,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(432, 161);
+            this.label7.Location = new System.Drawing.Point(498, 161);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(30, 13);
             this.label7.TabIndex = 18;
@@ -328,7 +331,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 491);
+            this.ClientSize = new System.Drawing.Size(599, 552);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);

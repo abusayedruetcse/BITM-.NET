@@ -71,6 +71,7 @@ namespace StockManagementSystem
 
         private void itemComboBox_Click(object sender, EventArgs e)
         {
+            messageLabel.Text = "";
             if (categoryComboBox.Text.Equals("-Select-") || categoryComboBox.Text == null)
             {
                 messageLabel.Text = "Select a category first";
@@ -80,8 +81,7 @@ namespace StockManagementSystem
             itemComboBox.DataSource = dataTable;
             if (dataTable.Rows.Count == 0)
             {
-                itemComboBox.Text = "";
-                messageLabel.Text = "Item Not found";
+                messageLabel.Text = "Item Not found for this Company and Category";
             }
         }
               
@@ -124,6 +124,11 @@ namespace StockManagementSystem
                 if (String.IsNullOrEmpty(stockInQuantityTextBox.Text))
                 {
                     messageLabel.Text = "Enter a quantity!";                   
+                    return;
+                }
+                if(System.Text.RegularExpressions.Regex.IsMatch(stockInQuantityTextBox.Text,"[^0-9]"))
+                {
+                    messageLabel.Text = "Enter a numeric quantity";
                     return;
                 }
                 stockIn.Quantity = Convert.ToInt32(stockInQuantityTextBox.Text);
@@ -176,27 +181,35 @@ namespace StockManagementSystem
         }        
         
         private void stockInDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {           
-            int currentQuantity = Convert.ToInt32(stockInDataGridView.Rows[e.RowIndex].Cells["quantityDataGridViewTextBoxColumn"].Value);
-            item.ID = Convert.ToInt32(stockInDataGridView.Rows[e.RowIndex].Cells["itemIDDataGridViewTextBoxColumn"].Value);
-            dataTable = _stockInManager.GetItem(item);
-            //display into textbox
-            if(dataTable.Rows.Count>0)
+        {
+            messageLabel.Text = "";
+            try
             {
-                companyComboBox.SelectedValue = dataTable.Rows[0]["CompanyID"];                
-                categoryComboBox.SelectedValue = dataTable.Rows[0]["CategoryID"];               
-                itemComboBox.Text = dataTable.Rows[0]["Name"].ToString();
-                reorderLevelTextBox.Text = dataTable.Rows[0]["ReorderLevel"].ToString();
-                availableQuantityTextBox.Text = dataTable.Rows[0]["AvailableQuantity"].ToString();
+                int currentQuantity = Convert.ToInt32(stockInDataGridView.Rows[e.RowIndex].Cells["quantityDataGridViewTextBoxColumn"].Value);
+                item.ID = Convert.ToInt32(stockInDataGridView.Rows[e.RowIndex].Cells["itemIDDataGridViewTextBoxColumn"].Value);
+                dataTable = _stockInManager.GetItem(item);
+                //display into textbox
+                if (dataTable.Rows.Count > 0)
+                {
+                    companyComboBox.SelectedValue = dataTable.Rows[0]["CompanyID"];
+                    categoryComboBox.SelectedValue = dataTable.Rows[0]["CategoryID"];
+                    itemComboBox.Text = dataTable.Rows[0]["Name"].ToString();
+                    reorderLevelTextBox.Text = dataTable.Rows[0]["ReorderLevel"].ToString();
+                    availableQuantityTextBox.Text = dataTable.Rows[0]["AvailableQuantity"].ToString();
+                }
+                stockInQuantityTextBox.Text = currentQuantity.ToString();
+                SaveButton.Text = "Confirm";
+                //updating for item     
+                item.AvailableQuantity = Convert.ToInt32(availableQuantityTextBox.Text);
+                item.AvailableQuantity -= currentQuantity; //reduce currentQuantity
+
+                //updating for StockIn
+                stockIn.ID = Convert.ToInt32(stockInDataGridView.Rows[e.RowIndex].Cells["iDDataGridViewTextBoxColumn"].Value);
+            }catch(Exception exception)
+            {
+                messageLabel.ForeColor = Color.Red;
+                messageLabel.Text = exception.Message;
             }
-            stockInQuantityTextBox.Text = currentQuantity.ToString();
-            SaveButton.Text = "Confirm";
-            //updating for item     
-            item.AvailableQuantity = Convert.ToInt32(availableQuantityTextBox.Text);
-            item.AvailableQuantity -= currentQuantity; //reduce currentQuantity
-            
-            //updating for StockIn
-            stockIn.ID= Convert.ToInt32(stockInDataGridView.Rows[e.RowIndex].Cells["iDDataGridViewTextBoxColumn"].Value);   
         }
 
         private void itemComboBox_SelectedIndexChanged(object sender, EventArgs e)
