@@ -59,10 +59,15 @@ namespace StockManagementSystem
         } 
         private void display()
         {
-            foreach(DataGridViewRow row in historyDataGridView.Rows)
+            //foreach(DataGridViewRow row in historyDataGridView.Rows)
+            //{
+            //    row.Cells["SL"].Value = (row.Index + 1).ToString();
+            //    row.Cells["dateAndTimeDataGridViewTextBoxColumn"].Value = Convert.ToDateTime(row.Cells["dateAndTimeDataGridViewTextBoxColumn"].Value).ToString("dd-MM-yyyy HH:mm:ss");
+            //}
+            for(int i=0;i<historyDataGridView.Rows.Count-1;i++)
             {
-                row.Cells["SL"].Value = (row.Index + 1).ToString();
-                row.Cells["dateAndTimeDataGridViewTextBoxColumn"].Value = Convert.ToDateTime(row.Cells["dateAndTimeDataGridViewTextBoxColumn"].Value).ToString("dd-MM-yyyy HH:mm:ss");
+                historyDataGridView.Rows[i].Cells["SL"].Value = (i + 1).ToString();
+                historyDataGridView.Rows[i].Cells["dateAndTimeDataGridViewTextBoxColumn"].Value = Convert.ToDateTime(historyDataGridView.Rows[i].Cells["dateAndTimeDataGridViewTextBoxColumn"].Value).ToString("dd-MM-yyyy HH:mm:ss");
             }
         }
     }
