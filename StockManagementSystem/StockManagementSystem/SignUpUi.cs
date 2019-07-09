@@ -32,9 +32,17 @@ namespace StockManagementSystem
 
         private void SignUpButton_Click(object sender, EventArgs e)
         {
+            messageLabel.Text = "";
+            if(!confirmPasswordTextBox.Text.Equals(passwordTextBox.Text))
+            {
+                messageLabel.Text = "Password does not match";
+                confirmPasswordTextBox.Text = "";
+                passwordTextBox.Text = "";
+                return;
+            }
             UserAccount.Email = emailTextBox.Text;
             UserAccount.UserName = userNameTextBox.Text;          
-            UserAccount.Password = passwordTextBox.Text;
+            UserAccount.Password = passwordTextBox.Text;            
             if(!_signUpManager.IsPasswordUnique())
             {
                 messageLabel.Text = "Password is Duplicate";
@@ -51,5 +59,7 @@ namespace StockManagementSystem
                 messageLabel.Text = "Not Created";
             }
         }
+
+        
     }
 }
