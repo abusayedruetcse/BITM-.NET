@@ -34,25 +34,44 @@ namespace StockManagementSystem
         }
         private void ReloadCategory()
         {
-            categoryComboBox.DataSource= _searchManager.LoadCategoryToComboBox();
+            //categoryComboBox.DataSource= _searchManager.LoadCategoryToComboBox();
             isCompanyLoaded = false;
             isCategoryLoaded = false;
             companyComboBox.Text = "";
             categoryComboBox.Text = "";
         }
-
-        private void companyComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void companyComboBox_Click(object sender, EventArgs e)
         {
             isCompanyLoaded = true;
-            //dataTable = _searchManager.LoadFilteredCategoryToComboBox(Convert.ToInt32(companyComboBox.SelectedValue));           
-            //categoryComboBox.DataSource = dataTable;
-            //categoryComboBox.Text = "";
         }
-
-        private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void categoryComboBox_Click(object sender, EventArgs e)
         {
             isCategoryLoaded = true;
+            if (isCompanyLoaded)
+            {
+                categoryComboBox.DataSource = _searchManager.LoadFilteredCategoryToComboBox(Convert.ToInt32(companyComboBox.SelectedValue));
+            } 
+            else
+            {
+                categoryComboBox.DataSource = _searchManager.LoadCategoryToComboBox();
+            }
         }
+        //private void companyComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    isCompanyLoaded = true;
+        //    //dataTable = _searchManager.LoadFilteredCategoryToComboBox(Convert.ToInt32(companyComboBox.SelectedValue));           
+        //    //categoryComboBox.DataSource = dataTable;
+        //    //categoryComboBox.Text = "";
+        //}
+
+        //private void categoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    isCategoryLoaded = true;
+        //    if(isCompanyLoaded)
+        //    {
+        //        categoryComboBox.DataSource = _searchManager.LoadFilteredCategoryToComboBox(Convert.ToInt32(companyComboBox.SelectedValue));
+        //    }           
+        //}
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
@@ -67,7 +86,7 @@ namespace StockManagementSystem
             {
                 dataTable = _searchManager.LoadFilteredItemToDataGridView(Convert.ToInt32(categoryComboBox.SelectedValue),0, isCompanyLoaded, isCategoryLoaded);
             }
-            else
+            else if(isCompanyLoaded)
             {
                dataTable = _searchManager.LoadFilteredItemToDataGridView(0, Convert.ToInt32(companyComboBox.SelectedValue), isCompanyLoaded, isCategoryLoaded);
             }
@@ -123,5 +142,7 @@ namespace StockManagementSystem
             MenuUi menuUi = new MenuUi();
             menuUi.Show();
         }
+
+        
     }
 }

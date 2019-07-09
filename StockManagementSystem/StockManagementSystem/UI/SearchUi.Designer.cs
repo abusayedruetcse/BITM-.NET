@@ -67,7 +67,7 @@
             this.categoryComboBox.Size = new System.Drawing.Size(200, 24);
             this.categoryComboBox.TabIndex = 11;
             this.categoryComboBox.ValueMember = "ID";
-            this.categoryComboBox.SelectedIndexChanged += new System.EventHandler(this.categoryComboBox_SelectedIndexChanged);
+            this.categoryComboBox.Click += new System.EventHandler(this.categoryComboBox_Click);
             // 
             // categoryBindingSource
             // 
@@ -84,7 +84,7 @@
             this.companyComboBox.Size = new System.Drawing.Size(200, 24);
             this.companyComboBox.TabIndex = 10;
             this.companyComboBox.ValueMember = "ID";
-            this.companyComboBox.SelectedIndexChanged += new System.EventHandler(this.companyComboBox_SelectedIndexChanged);
+            this.companyComboBox.Click += new System.EventHandler(this.companyComboBox_Click);
             // 
             // companyBindingSource
             // 

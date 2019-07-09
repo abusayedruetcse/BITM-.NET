@@ -45,7 +45,7 @@ namespace StockManagementSystem.Repository
         }
         public DataTable LoadFilteredCategoryToComboBox(int companyID)
         {
-            commandString = @"SELECT DISTINCT cat.Name, i.CategoryID FROM Categories AS cat LEFT JOIN Items AS i ON cat.ID=i.CategoryID WHERE i.CompanyID=" + companyID + "";
+            commandString = @"SELECT DISTINCT cat.Name AS Name, i.CategoryID AS ID FROM Categories AS cat LEFT JOIN Items AS i ON cat.ID=i.CategoryID WHERE i.CompanyID=" + companyID + "";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             sqlDataAdapter = new SqlDataAdapter(sqlCommand);
