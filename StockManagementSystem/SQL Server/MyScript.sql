@@ -1,3 +1,4 @@
+CREATE DATABASE A
 CREATE DATABASE StockManagementDB
 --DROP DATABASE StockManagementDB
 -- //connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";
@@ -120,7 +121,8 @@ SELECT i.TableRowNo AS TableRowNo,item.Name AS Element,u.Email AS Email,i.DateAn
 SELECT i.TableRowNo AS TableRowNo,i.Element AS Element,u.Email AS Email,i.DateAndTime AS DateAndTime FROM InsertUpdateHistory AS i, UserAccount AS u, StockIns AS t WHERE i.TableName='StockIns' AND t.ID=i.TableRowNo AND i.UserID=u.ID ORDER BY i.DateAndTime DESC
 SELECT s.ID AS ID,ItemID, Name AS ItemName,Date,Quantity FROM StockIns AS s LEFT OUTER JOIN Items AS i ON s.ItemID=i.ID WHERE s.ItemID=2 ORDER BY s.Date DESC
 
-
+SELECT i.Name AS ItemName, com.Name AS CompanyName, cat.Name AS CategoryName, AvailableQuantity, ReorderLevel FROM Items AS i, Companies AS com, Categories AS cat WHERE i.ID=2 AND i.CompanyID=com.ID AND i.CategoryID=cat.ID
+SELECT DISTINCT cat.Name AS Name,cat.ID AS ID FROM Categories AS cat , Items AS i WHERE i.CategoryID=cat.ID AND i.CompanyID=5
 
 
 

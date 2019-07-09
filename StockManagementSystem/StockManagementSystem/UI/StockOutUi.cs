@@ -41,9 +41,7 @@ namespace StockManagementSystem
         }
 
         private void companyComboBox_Click(object sender, EventArgs e)
-        {
-            //if (categoryComboBox.Text.Equals("-Select-") || categoryComboBox.Text == null)
-            //{
+        {            
                 messageLabel.Text = "";
                 dataTable = _stockOutManager.LoadCompanyToComboBox();
                 companyComboBox.DataSource = dataTable;
@@ -51,45 +49,24 @@ namespace StockManagementSystem
                 {
                     messageLabel.Text = "No company in Database";
                     return;
-                }
-            //} 
-            //else
-            //{
-            //    dataTable = _stockOutManager.LoadFilteredCompanyToComboBox(Convert.ToInt32(categoryComboBox.SelectedValue));
-            //    companyComboBox.DataSource = dataTable;
-            //    if (dataTable.Rows.Count == 0)
-            //    {
-            //        messageLabel.Text = "No company with this Category in Database";
-            //        companyComboBox.Text = "<--Company Empty-->";
-            //        return;
-            //    }
-            //}
+                }           
         }
 
         private void categoryComboBox_Click(object sender, EventArgs e)
         {
-            //if (companyComboBox.Text.Equals("-Select-") || companyComboBox.Text == "")
-            //{
-                messageLabel.Text = "";
-                dataTable = _stockOutManager.LoadCategoryToComboBox();
-                categoryComboBox.DataSource = dataTable;
-                if (dataTable.Rows.Count == 0)
-                {
-                    messageLabel.Text = "No category in Database";
-                    return;
-                }
-            //}
-            //else
-            //{
-            //    dataTable = _stockOutManager.LoadFilteredCategoryToComboBox(Convert.ToInt32(companyComboBox.SelectedValue));
-            //    categoryComboBox.DataSource = dataTable;
-            //    if (dataTable.Rows.Count == 0)
-            //    {
-            //        messageLabel.Text = "No category with this company in Database";
-            //        categoryComboBox.Text = "<--Category Empty-->";
-            //        return;
-            //    }
-            //}
+            if (companyComboBox.Text.Equals("-Select-") || companyComboBox.Text == "")
+            {
+                messageLabel.Text = "Select Company";
+                return;
+            }                
+            dataTable = _stockOutManager.LoadFilteredCategoryToComboBox(Convert.ToInt32(companyComboBox.SelectedValue));
+            categoryComboBox.DataSource = dataTable;
+            if (dataTable.Rows.Count == 0)
+            {
+                messageLabel.Text = "No category with this company in Database";
+                categoryComboBox.Text = "-Select-";
+                return;
+            }          
         }
 
         private void itemComboBox_Click(object sender, EventArgs e)
@@ -132,7 +109,7 @@ namespace StockManagementSystem
             }
             if (itemComboBox.Text.Equals("-Select-") || itemComboBox.Text == "")
             {
-                messageLabel.Text = "Select Category";
+                messageLabel.Text = "Select Item";
                 return;
             }
             stockOut = new StockOut();
