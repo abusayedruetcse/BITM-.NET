@@ -40,13 +40,10 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp">
-      <HintPath>..\..\..\Resource\iTextSharp\itextsharp.dll</HintPath>
+      <HintPath>..\iTextSharp\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp.pdfa">
-      <HintPath>..\..\..\Resource\iTextSharp\itextsharp.pdfa.dll</HintPath>
-    </Reference>
-    <Reference Include="itextsharp.xtra">
-      <HintPath>..\..\..\Resource\iTextSharp\itextsharp.xtra.dll</HintPath>
+      <HintPath>..\iTextSharp\itextsharp.pdfa.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
