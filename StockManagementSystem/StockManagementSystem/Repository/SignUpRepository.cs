@@ -33,10 +33,10 @@ namespace StockManagementSystem.Repository
             return isExecuted > 0;
 
         } 
-        public bool IsPasswordUnique()
+        public bool IsEmailUsed()
         {
             int isExecuted = 0;
-            commandString = @"SELECT * FROM UserAccount WHERE Password='" + UserAccount.Password + "'";
+            commandString = @"SELECT * FROM UserAccount WHERE Email='" + UserAccount.Email+ "'";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             sqlDataAdapter = new SqlDataAdapter(sqlCommand);
@@ -45,8 +45,23 @@ namespace StockManagementSystem.Repository
             isExecuted = dataTable.Rows.Count;
             sqlConnection.Close();
 
-            return isExecuted == 0;
+            return isExecuted > 0;
+        } 
+        public bool IsUserNameUsed()
+        {
+            int isExecuted = 0;
+            commandString = @"SELECT * FROM UserAccount WHERE UserName='" + UserAccount.UserName + "'";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            isExecuted = dataTable.Rows.Count;
+            sqlConnection.Close();
+
+            return isExecuted > 0;
         }
+       
 
     }
 }
