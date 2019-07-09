@@ -31,8 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.historyDataGridView = new System.Windows.Forms.DataGridView();
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableRowNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Element = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateAndTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tableNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.historyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.stockOutLabel = new System.Windows.Forms.Label();
             this.stockInLabel = new System.Windows.Forms.Label();
@@ -41,14 +46,10 @@
             this.categorySetupLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.BackButton = new System.Windows.Forms.Button();
-            this.tableRowNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateAndTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.historyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.historyDataGridView)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.historyBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // historyDataGridView
@@ -77,6 +78,13 @@
             this.SL.HeaderText = "SI";
             this.SL.Name = "SL";
             // 
+            // tableRowNoDataGridViewTextBoxColumn
+            // 
+            this.tableRowNoDataGridViewTextBoxColumn.DataPropertyName = "TableRowNo";
+            this.tableRowNoDataGridViewTextBoxColumn.FillWeight = 50F;
+            this.tableRowNoDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.tableRowNoDataGridViewTextBoxColumn.Name = "tableRowNoDataGridViewTextBoxColumn";
+            // 
             // Element
             // 
             this.Element.DataPropertyName = "Element";
@@ -90,6 +98,31 @@
             this.Email.FillWeight = 120F;
             this.Email.HeaderText = "Email Address";
             this.Email.Name = "Email";
+            // 
+            // dateAndTimeDataGridViewTextBoxColumn
+            // 
+            this.dateAndTimeDataGridViewTextBoxColumn.DataPropertyName = "DateAndTime";
+            this.dateAndTimeDataGridViewTextBoxColumn.FillWeight = 93.27411F;
+            this.dateAndTimeDataGridViewTextBoxColumn.HeaderText = "Date And Time";
+            this.dateAndTimeDataGridViewTextBoxColumn.Name = "dateAndTimeDataGridViewTextBoxColumn";
+            // 
+            // userIDDataGridViewTextBoxColumn
+            // 
+            this.userIDDataGridViewTextBoxColumn.DataPropertyName = "UserID";
+            this.userIDDataGridViewTextBoxColumn.HeaderText = "UserID";
+            this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
+            this.userIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // tableNameDataGridViewTextBoxColumn
+            // 
+            this.tableNameDataGridViewTextBoxColumn.DataPropertyName = "TableName";
+            this.tableNameDataGridViewTextBoxColumn.HeaderText = "TableName";
+            this.tableNameDataGridViewTextBoxColumn.Name = "tableNameDataGridViewTextBoxColumn";
+            this.tableNameDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // historyBindingSource
+            // 
+            this.historyBindingSource.DataSource = typeof(StockManagementSystem.Models.History);
             // 
             // groupBox1
             // 
@@ -183,43 +216,22 @@
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
-            // tableRowNoDataGridViewTextBoxColumn
+            // messageLabel
             // 
-            this.tableRowNoDataGridViewTextBoxColumn.DataPropertyName = "TableRowNo";
-            this.tableRowNoDataGridViewTextBoxColumn.FillWeight = 50F;
-            this.tableRowNoDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.tableRowNoDataGridViewTextBoxColumn.Name = "tableRowNoDataGridViewTextBoxColumn";
-            // 
-            // dateAndTimeDataGridViewTextBoxColumn
-            // 
-            this.dateAndTimeDataGridViewTextBoxColumn.DataPropertyName = "DateAndTime";
-            this.dateAndTimeDataGridViewTextBoxColumn.FillWeight = 93.27411F;
-            this.dateAndTimeDataGridViewTextBoxColumn.HeaderText = "Date And Time";
-            this.dateAndTimeDataGridViewTextBoxColumn.Name = "dateAndTimeDataGridViewTextBoxColumn";
-            // 
-            // userIDDataGridViewTextBoxColumn
-            // 
-            this.userIDDataGridViewTextBoxColumn.DataPropertyName = "UserID";
-            this.userIDDataGridViewTextBoxColumn.HeaderText = "UserID";
-            this.userIDDataGridViewTextBoxColumn.Name = "userIDDataGridViewTextBoxColumn";
-            this.userIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // tableNameDataGridViewTextBoxColumn
-            // 
-            this.tableNameDataGridViewTextBoxColumn.DataPropertyName = "TableName";
-            this.tableNameDataGridViewTextBoxColumn.HeaderText = "TableName";
-            this.tableNameDataGridViewTextBoxColumn.Name = "tableNameDataGridViewTextBoxColumn";
-            this.tableNameDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // historyBindingSource
-            // 
-            this.historyBindingSource.DataSource = typeof(StockManagementSystem.Models.History);
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageLabel.ForeColor = System.Drawing.Color.Red;
+            this.messageLabel.Location = new System.Drawing.Point(258, 405);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 16);
+            this.messageLabel.TabIndex = 28;
             // 
             // HistoryUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 471);
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
@@ -228,9 +240,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Insert and Update History";
             ((System.ComponentModel.ISupportInitialize)(this.historyDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.historyBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.historyBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,5 +267,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateAndTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn userIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tableNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label messageLabel;
     }
 }
