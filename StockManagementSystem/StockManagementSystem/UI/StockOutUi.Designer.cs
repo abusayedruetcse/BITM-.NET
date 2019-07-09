@@ -59,8 +59,6 @@
             this.LostButton = new System.Windows.Forms.Button();
             this.SellButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
             this.BackButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.stockOutDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockOutBindingSource)).BeginInit();
@@ -83,7 +81,7 @@
             this.itemIDDataGridViewTextBoxColumn,
             this.actionDataGridViewTextBoxColumn});
             this.stockOutDataGridView.DataSource = this.stockOutBindingSource;
-            this.stockOutDataGridView.Location = new System.Drawing.Point(75, 288);
+            this.stockOutDataGridView.Location = new System.Drawing.Point(75, 339);
             this.stockOutDataGridView.Name = "stockOutDataGridView";
             this.stockOutDataGridView.RowHeadersVisible = false;
             this.stockOutDataGridView.Size = new System.Drawing.Size(403, 150);
@@ -158,33 +156,37 @@
             // 
             // stockOutQuantityTextBox
             // 
+            this.stockOutQuantityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stockOutQuantityTextBox.Location = new System.Drawing.Point(247, 222);
             this.stockOutQuantityTextBox.Name = "stockOutQuantityTextBox";
-            this.stockOutQuantityTextBox.Size = new System.Drawing.Size(191, 20);
+            this.stockOutQuantityTextBox.Size = new System.Drawing.Size(191, 22);
             this.stockOutQuantityTextBox.TabIndex = 25;
             // 
             // availableQuantityTextBox
             // 
+            this.availableQuantityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.availableQuantityTextBox.Location = new System.Drawing.Point(247, 180);
             this.availableQuantityTextBox.Name = "availableQuantityTextBox";
-            this.availableQuantityTextBox.Size = new System.Drawing.Size(191, 20);
+            this.availableQuantityTextBox.Size = new System.Drawing.Size(191, 22);
             this.availableQuantityTextBox.TabIndex = 24;
             // 
             // reorderLevelTextBox
             // 
+            this.reorderLevelTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reorderLevelTextBox.Location = new System.Drawing.Point(247, 142);
             this.reorderLevelTextBox.Name = "reorderLevelTextBox";
-            this.reorderLevelTextBox.Size = new System.Drawing.Size(191, 20);
+            this.reorderLevelTextBox.Size = new System.Drawing.Size(191, 22);
             this.reorderLevelTextBox.TabIndex = 23;
             // 
             // itemComboBox
             // 
             this.itemComboBox.DataSource = this.itemBindingSource;
             this.itemComboBox.DisplayMember = "Name";
+            this.itemComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.itemComboBox.FormattingEnabled = true;
             this.itemComboBox.Location = new System.Drawing.Point(247, 98);
             this.itemComboBox.Name = "itemComboBox";
-            this.itemComboBox.Size = new System.Drawing.Size(191, 21);
+            this.itemComboBox.Size = new System.Drawing.Size(191, 24);
             this.itemComboBox.TabIndex = 22;
             this.itemComboBox.ValueMember = "ID";
             this.itemComboBox.SelectedIndexChanged += new System.EventHandler(this.itemComboBox_SelectedIndexChanged);
@@ -198,10 +200,11 @@
             // 
             this.categoryComboBox.DataSource = this.categoryBindingSource;
             this.categoryComboBox.DisplayMember = "Name";
+            this.categoryComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categoryComboBox.FormattingEnabled = true;
             this.categoryComboBox.Location = new System.Drawing.Point(247, 54);
             this.categoryComboBox.Name = "categoryComboBox";
-            this.categoryComboBox.Size = new System.Drawing.Size(191, 21);
+            this.categoryComboBox.Size = new System.Drawing.Size(191, 24);
             this.categoryComboBox.TabIndex = 21;
             this.categoryComboBox.ValueMember = "ID";
             this.categoryComboBox.Click += new System.EventHandler(this.categoryComboBox_Click);
@@ -214,10 +217,11 @@
             // 
             this.companyComboBox.DataSource = this.companyBindingSource;
             this.companyComboBox.DisplayMember = "Name";
+            this.companyComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.companyComboBox.FormattingEnabled = true;
             this.companyComboBox.Location = new System.Drawing.Point(247, 15);
             this.companyComboBox.Name = "companyComboBox";
-            this.companyComboBox.Size = new System.Drawing.Size(191, 21);
+            this.companyComboBox.Size = new System.Drawing.Size(191, 24);
             this.companyComboBox.TabIndex = 20;
             this.companyComboBox.ValueMember = "ID";
             this.companyComboBox.Click += new System.EventHandler(this.companyComboBox_Click);
@@ -289,7 +293,7 @@
             // DamageButton
             // 
             this.DamageButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DamageButton.Location = new System.Drawing.Point(402, 453);
+            this.DamageButton.Location = new System.Drawing.Point(402, 504);
             this.DamageButton.Name = "DamageButton";
             this.DamageButton.Size = new System.Drawing.Size(75, 23);
             this.DamageButton.TabIndex = 28;
@@ -300,7 +304,7 @@
             // LostButton
             // 
             this.LostButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LostButton.Location = new System.Drawing.Point(312, 453);
+            this.LostButton.Location = new System.Drawing.Point(312, 504);
             this.LostButton.Name = "LostButton";
             this.LostButton.Size = new System.Drawing.Size(75, 23);
             this.LostButton.TabIndex = 29;
@@ -311,7 +315,7 @@
             // SellButton
             // 
             this.SellButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SellButton.Location = new System.Drawing.Point(221, 453);
+            this.SellButton.Location = new System.Drawing.Point(221, 504);
             this.SellButton.Name = "SellButton";
             this.SellButton.Size = new System.Drawing.Size(75, 23);
             this.SellButton.TabIndex = 30;
@@ -322,28 +326,11 @@
             // messageLabel
             // 
             this.messageLabel.AutoSize = true;
-            this.messageLabel.Location = new System.Drawing.Point(75, 257);
+            this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageLabel.Location = new System.Drawing.Point(106, 304);
             this.messageLabel.Name = "messageLabel";
-            this.messageLabel.Size = new System.Drawing.Size(0, 13);
+            this.messageLabel.Size = new System.Drawing.Size(0, 16);
             this.messageLabel.TabIndex = 31;
-            // 
-            // dateTimePicker
-            // 
-            this.dateTimePicker.CustomFormat = " dd/ MM/ yyyy";
-            this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker.Location = new System.Drawing.Point(458, 142);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(88, 20);
-            this.dateTimePicker.TabIndex = 33;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(458, 123);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(30, 13);
-            this.label7.TabIndex = 34;
-            this.label7.Text = "Date";
             // 
             // BackButton
             // 
@@ -361,10 +348,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 491);
+            this.ClientSize = new System.Drawing.Size(599, 552);
             this.Controls.Add(this.BackButton);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.SellButton);
             this.Controls.Add(this.LostButton);
@@ -419,8 +404,6 @@
         private System.Windows.Forms.Label messageLabel;
         private System.Windows.Forms.BindingSource companyBindingSource;
         private System.Windows.Forms.BindingSource categoryBindingSource;
-        private System.Windows.Forms.DateTimePicker dateTimePicker;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.BindingSource stockOutBindingSource;
         private System.Windows.Forms.BindingSource itemBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL;

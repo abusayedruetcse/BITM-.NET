@@ -41,19 +41,21 @@ namespace StockManagementSystem
         }
 
         private void companyComboBox_Click(object sender, EventArgs e)
-        {            
-                messageLabel.Text = "";
-                dataTable = _stockOutManager.LoadCompanyToComboBox();
-                companyComboBox.DataSource = dataTable;
-                if(dataTable.Rows.Count==0)
-                {
-                    messageLabel.Text = "No company in Database";
-                    return;
-                }           
+        {
+            messageLabel.ForeColor = Color.Red;
+            messageLabel.Text = "";
+            dataTable = _stockOutManager.LoadCompanyToComboBox();
+            companyComboBox.DataSource = dataTable;
+            if (dataTable.Rows.Count == 0)
+            {
+                messageLabel.Text = "No company in Database";
+                return;
+            }
         }
 
         private void categoryComboBox_Click(object sender, EventArgs e)
         {
+            messageLabel.ForeColor = Color.Red;
             if (companyComboBox.Text.Equals("-Select-") || companyComboBox.Text == "")
             {
                 messageLabel.Text = "Select Company";
@@ -71,6 +73,7 @@ namespace StockManagementSystem
 
         private void itemComboBox_Click(object sender, EventArgs e)
         {
+            messageLabel.ForeColor = Color.Red;
             messageLabel.Text = "";
             reorderLevelTextBox.Text = "";
             availableQuantityTextBox.Text = "";
@@ -89,13 +92,13 @@ namespace StockManagementSystem
             if(dataTable.Rows.Count==0)
             {
                 messageLabel.Text = "No item Found";
-                itemComboBox.Text = "";
                 return;
             }            
         }      
         
         private void AddButton_Click(object sender, EventArgs e)
         {
+            messageLabel.ForeColor = Color.Red;
             messageLabel.Text = "";
             if (companyComboBox.Text.Equals("-Select-") || companyComboBox.Text == "")
             {
@@ -181,7 +184,8 @@ namespace StockManagementSystem
         }
         private void UpdateStackOut(string action)
         {
-            if(stockOutDataGridView.DataSource==null)
+            messageLabel.ForeColor = Color.Red;
+            if(stockOutDataGridView.Rows.Count==0||stockOutDataGridView.DataSource==null)
             {
                 messageLabel.Text = "No Item is added to DataGridView";
                 return;
@@ -193,6 +197,7 @@ namespace StockManagementSystem
             stockOut = new StockOut();
             stockOut.Date = DateTime.Now.ToString("yyyy-MM-dd");
             //stockOut.Date = dateTimePicker.Value.ToString("yyyy-MM-dd");
+            int isUpdated = 0;
             foreach (DataGridViewRow row in stockOutDataGridView.Rows)
             {
                 history.TableRowNo += 1;
@@ -205,13 +210,13 @@ namespace StockManagementSystem
                 int quantity = Convert.ToInt32(dataTable.Rows[0]["AvailableQuantity"]);
                 quantity -= stockOut.Quantity;
                 item.AvailableQuantity = quantity;
-                _stockOutManager.UpdateItem(item);
-                int isUpdated = 0;
-                isUpdated = _stockOutManager.InsertStockOut(stockOut,history);
-                if (isUpdated > 0)
-                {
-                    messageLabel.Text = "Item: " + itemComboBox.Text + " Saved";
-                }
+                _stockOutManager.UpdateItem(item);                
+                isUpdated = _stockOutManager.InsertStockOut(stockOut,history);                
+            }
+            if (isUpdated > 0)
+            {
+                messageLabel.ForeColor = Color.Green;
+                messageLabel.Text = action + " Operation is Done";
             }
             listStockOut = new List<StockOut>();
             stockOutDataGridView.DataSource = null;
