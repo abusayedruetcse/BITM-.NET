@@ -28,6 +28,8 @@ namespace StockManagementSystem
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
+            messageLabel.Text = "";
+            messageLabel.ForeColor = Color.Red;
             string fromDate = fromDateTimePicker.Value.ToString("yyyy-MM-dd");
             string toDate = toDateTimePicker.Value.ToString("yyyy-MM-dd");
             string action="";
@@ -43,18 +45,23 @@ namespace StockManagementSystem
             }
             dataTable = _viewManager.LoadStockOutToDataGridView(fromDate, toDate, action);
             viewReportDataGridView.DataSource = dataTable;
-            foreach(DataGridViewRow row in viewReportDataGridView.Rows)
+            //foreach(DataGridViewRow row in viewReportDataGridView.Rows)
+            //{
+            //    row.Cells["SL"].Value = (row.Index + 1).ToString();
+            //}
+            for(int i=0;i<viewReportDataGridView.Rows.Count-1;i++)
             {
-                row.Cells["SL"].Value = (row.Index + 1).ToString();
+                viewReportDataGridView.Rows[i].Cells["SL"].Value = (i + 1).ToString();
             }
             if(dataTable.Rows.Count==0)
             {
-                MessageBox.Show("No Data Found");
+                messageLabel.Text = "No Data Found";
             }
         }
 
         private void PDFButton_Click(object sender, EventArgs e)
         {
+            messageLabel.Text = "";
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
             PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("View.pdf", FileMode.Create));
             doc.Open();
@@ -80,7 +87,8 @@ namespace StockManagementSystem
             }
             doc.Add(table);
             doc.Close();
-            MessageBox.Show("PDF successfully created");
+            messageLabel.ForeColor = Color.Green;
+            messageLabel.Text = "PDF successfully created";
         }
 
         private void BackButton_Click(object sender, EventArgs e)

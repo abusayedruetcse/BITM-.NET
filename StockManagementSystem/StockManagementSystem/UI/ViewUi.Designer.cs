@@ -37,19 +37,20 @@
             this.SearchButton = new System.Windows.Forms.Button();
             this.viewReportDataGridView = new System.Windows.Forms.DataGridView();
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fromDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.toDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.PDFButton = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
             this.itemNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.companyNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.actionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stockOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.fromDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.toDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.PDFButton = new System.Windows.Forms.Button();
-            this.BackButton = new System.Windows.Forms.Button();
+            this.messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.viewReportDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockOutBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -147,62 +148,11 @@
             this.SL.HeaderText = "SI";
             this.SL.Name = "SL";
             // 
-            // itemNameDataGridViewTextBoxColumn
-            // 
-            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
-            this.itemNameDataGridViewTextBoxColumn.HeaderText = "Item";
-            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
-            // 
-            // companyNameDataGridViewTextBoxColumn
-            // 
-            this.companyNameDataGridViewTextBoxColumn.DataPropertyName = "CompanyName";
-            this.companyNameDataGridViewTextBoxColumn.HeaderText = "Company";
-            this.companyNameDataGridViewTextBoxColumn.Name = "companyNameDataGridViewTextBoxColumn";
-            // 
             // TotalQuantity
             // 
             this.TotalQuantity.DataPropertyName = "TotalQuantity";
             this.TotalQuantity.HeaderText = "Sold/Damaged/Lost Quantity";
             this.TotalQuantity.Name = "TotalQuantity";
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // dateDataGridViewTextBoxColumn
-            // 
-            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
-            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
-            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
-            this.dateDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // quantityDataGridViewTextBoxColumn
-            // 
-            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
-            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // itemIDDataGridViewTextBoxColumn
-            // 
-            this.itemIDDataGridViewTextBoxColumn.DataPropertyName = "ItemID";
-            this.itemIDDataGridViewTextBoxColumn.HeaderText = "ItemID";
-            this.itemIDDataGridViewTextBoxColumn.Name = "itemIDDataGridViewTextBoxColumn";
-            this.itemIDDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // actionDataGridViewTextBoxColumn
-            // 
-            this.actionDataGridViewTextBoxColumn.DataPropertyName = "Action";
-            this.actionDataGridViewTextBoxColumn.HeaderText = "Action";
-            this.actionDataGridViewTextBoxColumn.Name = "actionDataGridViewTextBoxColumn";
-            this.actionDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // stockOutBindingSource
-            // 
-            this.stockOutBindingSource.DataSource = typeof(StockManagementSystem.Models.StockOut);
             // 
             // fromDateTimePicker
             // 
@@ -245,11 +195,72 @@
             this.BackButton.UseVisualStyleBackColor = true;
             this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
+            // itemNameDataGridViewTextBoxColumn
+            // 
+            this.itemNameDataGridViewTextBoxColumn.DataPropertyName = "ItemName";
+            this.itemNameDataGridViewTextBoxColumn.HeaderText = "Item";
+            this.itemNameDataGridViewTextBoxColumn.Name = "itemNameDataGridViewTextBoxColumn";
+            // 
+            // companyNameDataGridViewTextBoxColumn
+            // 
+            this.companyNameDataGridViewTextBoxColumn.DataPropertyName = "CompanyName";
+            this.companyNameDataGridViewTextBoxColumn.HeaderText = "Company";
+            this.companyNameDataGridViewTextBoxColumn.Name = "companyNameDataGridViewTextBoxColumn";
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            this.iDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dateDataGridViewTextBoxColumn
+            // 
+            this.dateDataGridViewTextBoxColumn.DataPropertyName = "Date";
+            this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
+            this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
+            this.dateDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // itemIDDataGridViewTextBoxColumn
+            // 
+            this.itemIDDataGridViewTextBoxColumn.DataPropertyName = "ItemID";
+            this.itemIDDataGridViewTextBoxColumn.HeaderText = "ItemID";
+            this.itemIDDataGridViewTextBoxColumn.Name = "itemIDDataGridViewTextBoxColumn";
+            this.itemIDDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // actionDataGridViewTextBoxColumn
+            // 
+            this.actionDataGridViewTextBoxColumn.DataPropertyName = "Action";
+            this.actionDataGridViewTextBoxColumn.HeaderText = "Action";
+            this.actionDataGridViewTextBoxColumn.Name = "actionDataGridViewTextBoxColumn";
+            this.actionDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // stockOutBindingSource
+            // 
+            this.stockOutBindingSource.DataSource = typeof(StockManagementSystem.Models.StockOut);
+            // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageLabel.Location = new System.Drawing.Point(125, 213);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 16);
+            this.messageLabel.TabIndex = 17;
+            // 
             // ViewUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 471);
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.PDFButton);
             this.Controls.Add(this.toDateTimePicker);
@@ -294,5 +305,6 @@
         private System.Windows.Forms.BindingSource stockOutBindingSource;
         private System.Windows.Forms.Button PDFButton;
         private System.Windows.Forms.Button BackButton;
+        private System.Windows.Forms.Label messageLabel;
     }
 }
