@@ -1,1 +1,6 @@
 Project 1: Stock Management System based On Windows Application,C#,MS Sql Server.
+
+Remaining Task are:
+1. Local connection
+2. Live object how to delete
+3. Execute file creation
