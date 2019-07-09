@@ -124,6 +124,8 @@ SELECT s.ID AS ID,ItemID, Name AS ItemName,Date,Quantity FROM StockIns AS s LEFT
 SELECT i.Name AS ItemName, com.Name AS CompanyName, cat.Name AS CategoryName, AvailableQuantity, ReorderLevel FROM Items AS i, Companies AS com, Categories AS cat WHERE i.ID=2 AND i.CompanyID=com.ID AND i.CategoryID=cat.ID
 SELECT DISTINCT cat.Name AS Name,cat.ID AS ID FROM Categories AS cat , Items AS i WHERE i.CategoryID=cat.ID AND i.CompanyID=5
 
+CREATE VIEW CompanyView AS SELECT * FROM Companies
+SELECT * FROM CompanyView
 
 
 
