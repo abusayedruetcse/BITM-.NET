@@ -191,7 +191,8 @@ namespace StockManagementSystem
             history.DateAndTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             history.TableRowNo = _stockOutManager.NoOfRecords();            
             stockOut = new StockOut();
-            stockOut.Date = dateTimePicker.Value.ToString("yyyy-MM-dd");
+            stockOut.Date = DateTime.Now.ToString("yyyy-MM-dd");
+            //stockOut.Date = dateTimePicker.Value.ToString("yyyy-MM-dd");
             foreach (DataGridViewRow row in stockOutDataGridView.Rows)
             {
                 history.TableRowNo += 1;
