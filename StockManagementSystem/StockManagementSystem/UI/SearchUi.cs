@@ -56,6 +56,7 @@ namespace StockManagementSystem
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
+            messageLabel.Text = "";
             if((isCategoryLoaded==true)&&(isCompanyLoaded==true))
             {
                 int cat = Convert.ToInt32(categoryComboBox.SelectedValue);
@@ -71,13 +72,18 @@ namespace StockManagementSystem
                dataTable = _searchManager.LoadFilteredItemToDataGridView(0, Convert.ToInt32(companyComboBox.SelectedValue), isCompanyLoaded, isCategoryLoaded);
             }
             searchViewSummaryDataGridView.DataSource = dataTable;
-            foreach(DataGridViewRow row in searchViewSummaryDataGridView.Rows)
+            //foreach(DataGridViewRow row in searchViewSummaryDataGridView.Rows)
+            //{
+            //    row.Cells["SL"].Value = (row.Index + 1).ToString();
+            //}
+            for(int i=0;i<searchViewSummaryDataGridView.Rows.Count-1;i++)
             {
-                row.Cells["SL"].Value = (row.Index + 1).ToString();
+                searchViewSummaryDataGridView.Rows[i].Cells["SL"].Value = (i + 1).ToString();
             }
             if(dataTable.Rows.Count==0)
             {
-                MessageBox.Show("No Data Found!");
+                messageLabel.ForeColor = Color.Red;
+                messageLabel.Text = "No Data Found!";
             }
             ReloadCategory();
 
@@ -87,10 +93,7 @@ namespace StockManagementSystem
         {
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
             PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Search.pdf",FileMode.Create));
-            doc.Open();
-            //Paragraph paragraph = new Paragraph("Search and View Item Summary"+Environment.NewLine);
-            //doc.Add(paragraph);
-            //adding the headers 
+            doc.Open();            
             int noOfColumn = 6;
             PdfPTable table = new PdfPTable(noOfColumn);           
             for(int i=0;i<noOfColumn;i++)
@@ -110,7 +113,8 @@ namespace StockManagementSystem
             }
             doc.Add(table);
             doc.Close();
-            MessageBox.Show("PDF successfully created");
+            messageLabel.ForeColor = Color.Green;
+            messageLabel.Text = "PDF successfully created";
         }
 
         private void BackButton_Click(object sender, EventArgs e)
