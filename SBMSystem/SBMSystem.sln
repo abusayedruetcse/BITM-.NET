@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SBMSystem.Models", "SBMSyst
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SBMSystem.BLL", "SBMSystem.BLL\SBMSystem.BLL.csproj", "{4E7D989C-82DD-4C19-AD6D-1D7C6254DDFC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SBMSystem.Repository", "SBMSystem.Repository\SBMSystem.Repository.csproj", "{48B11FF9-BECC-4E60-82EA-7134DB9AAC4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4E7D989C-82DD-4C19-AD6D-1D7C6254DDFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E7D989C-82DD-4C19-AD6D-1D7C6254DDFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E7D989C-82DD-4C19-AD6D-1D7C6254DDFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48B11FF9-BECC-4E60-82EA-7134DB9AAC4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48B11FF9-BECC-4E60-82EA-7134DB9AAC4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48B11FF9-BECC-4E60-82EA-7134DB9AAC4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48B11FF9-BECC-4E60-82EA-7134DB9AAC4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

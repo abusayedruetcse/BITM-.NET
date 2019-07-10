@@ -1,4 +1,5 @@
 ﻿using SBMSystem.Models.Models;
+using SBMSystem.Repository.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +11,15 @@ namespace SBMSystem.BLL.BLL
     public class CategoryManager
     {
         Category category;
+        CategoryRepository _categoryRepository;
         public CategoryManager()
         {
             category = new Category();
+            _categoryRepository = new CategoryRepository();
         }
         public string AddCategory(string code,string name)
         {
-            category.Name = name;
-            category.Code = code;
-            return "Code: " + category.Code + Environment.NewLine + "Name: " + category.Name;
+            return _categoryRepository.AddCategory(code, name);
         }
     }
 }
