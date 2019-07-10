@@ -187,6 +187,7 @@
             this.AddProductButton.TabIndex = 14;
             this.AddProductButton.Text = "+";
             this.AddProductButton.UseVisualStyleBackColor = true;
+            this.AddProductButton.Click += new System.EventHandler(this.AddProductButton_Click);
             // 
             // ProductUi
             // 

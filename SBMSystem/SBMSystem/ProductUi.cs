@@ -44,5 +44,16 @@ namespace SBMSystem
             }
             isAddCategoryButtonClicked = false;
         }
+
+        private void AddProductButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if(openFileDialog.ShowDialog()==DialogResult.OK)
+            {
+                Bitmap bitmap = new Bitmap(openFileDialog.FileName);
+                productPictureBox.Image = bitmap;
+                productPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+        }
     }
 }
