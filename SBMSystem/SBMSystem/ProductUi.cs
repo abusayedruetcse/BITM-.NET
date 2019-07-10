@@ -68,31 +68,7 @@ namespace SBMSystem
             catch (Exception exception)
             {
                 MessageBox.Show(exception.Message);
-            }
-            //try
-            //{
-            //    string FileName = "";
-            //    OpenFileDialog openFileDialog = new OpenFileDialog();
-            //    if (openFileDialog.ShowDialog() == DialogResult.OK)
-            //    {
-            //        FileName = openFileDialog.FileName;
-            //        Bitmap bitmap = new Bitmap(FileName);
-            //        productPictureBox.Image = bitmap;
-            //        productPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            //    }
-            //    byte[] imageData;
-            //    FileStream fileStream = new FileStream(FileName, FileMode.Open, FileAccess.Read);
-            //    BinaryReader binaryReader = new BinaryReader(fileStream);
-            //    imageData = binaryReader.ReadBytes((int)fileStream.Length);
-            //    binaryReader.Close();
-            //    fileStream.Close();
-            //    product.ImageProduct = imageData.ToString();
-
-            //}
-            //catch(Exception exception)
-            //{
-
-            //}
+            }          
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
