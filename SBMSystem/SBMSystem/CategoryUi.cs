@@ -1,4 +1,5 @@
-﻿using SBMSystem.Models.Models;
+﻿using SBMSystem.BLL.BLL;
+using SBMSystem.Models.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,19 +15,19 @@ namespace SBMSystem
     public partial class CategoryUi : Form
     {
         Category category;
+        CategoryManager _categoryManager;
         public CategoryUi()
         {
             InitializeComponent();
             category = new Category();
+            _categoryManager = new CategoryManager();
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
             string name = nameTextBox.Text;
             string code = codeTextBox.Text;
-            category.Name = name;
-            category.Code = code;
-            displayRichTextBox.Text = "Code: " + category.Code + Environment.NewLine + "Name: " + category.Name;
+            displayRichTextBox.Text = _categoryManager.AddCategory(code, name);
         }
     }
 }
