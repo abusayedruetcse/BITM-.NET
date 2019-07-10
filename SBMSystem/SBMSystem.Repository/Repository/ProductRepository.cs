@@ -33,6 +33,27 @@ namespace SBMSystem.Repository.Repository
             sqlConnection.Close();
             return dataTable;
         }
+        public bool AddProduct(Product product)
+        {
+            int isExecuted = 0;
+            commandString = @"INSERT INTO Products VALUES('" + product.Code + "','" + product.Name + "','"+product.CategoryCode+"',"+product.ReorderLevel+" ,' "+product.ImageProduct+" ','"+product.Description+"')";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            isExecuted = sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
+            return isExecuted > 0;
+        } 
+        public DataTable GetProducts()
+        {
+            commandString = @"SELECT * FROM Products";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            sqlConnection.Close();
+            return dataTable;
+        }
 
     }
 }

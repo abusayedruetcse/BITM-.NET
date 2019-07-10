@@ -20,5 +20,13 @@ namespace SBMSystem.BLL.BLL
         {
             return _productRepository.LoadCategoryToComboBox();
         }
+        public bool AddProduct(Product product)
+        {
+            return _productRepository.AddProduct(product);
+        }
+        public DataTable GetProducts()
+        {
+            return _productRepository.GetProducts();
+        }
     }
 }
