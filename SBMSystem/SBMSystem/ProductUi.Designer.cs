@@ -36,6 +36,7 @@
             this.reorderLevelTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.categoryComboBox = new System.Windows.Forms.ComboBox();
+            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.descriptionRichTextBox = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -44,10 +45,9 @@
             this.productPictureBox = new System.Windows.Forms.PictureBox();
             this.AddCategoryButton = new System.Windows.Forms.Button();
             this.AddProductButton = new System.Windows.Forms.Button();
-            this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -108,6 +108,11 @@
             this.categoryComboBox.Size = new System.Drawing.Size(209, 24);
             this.categoryComboBox.TabIndex = 6;
             this.categoryComboBox.ValueMember = "Code";
+            this.categoryComboBox.Click += new System.EventHandler(this.categoryComboBox_Click);
+            // 
+            // categoryBindingSource
+            // 
+            this.categoryBindingSource.DataSource = typeof(SBMSystem.Models.Models.Category);
             // 
             // label4
             // 
@@ -170,6 +175,7 @@
             this.AddCategoryButton.TabIndex = 13;
             this.AddCategoryButton.Text = "+";
             this.AddCategoryButton.UseVisualStyleBackColor = true;
+            this.AddCategoryButton.Click += new System.EventHandler(this.AddCategoryButton_Click);
             // 
             // AddProductButton
             // 
@@ -181,10 +187,6 @@
             this.AddProductButton.TabIndex = 14;
             this.AddProductButton.Text = "+";
             this.AddProductButton.UseVisualStyleBackColor = true;
-            // 
-            // categoryBindingSource
-            // 
-            this.categoryBindingSource.DataSource = typeof(SBMSystem.Models.Models.Category);
             // 
             // ProductUi
             // 
@@ -207,12 +209,13 @@
             this.Controls.Add(this.codeTextBox);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ProductUi";
             this.Text = "Product";
+            this.Load += new System.EventHandler(this.ProductUi_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
