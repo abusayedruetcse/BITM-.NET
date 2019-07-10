@@ -80,6 +80,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ClassLibApp.BLL\ClassLibApp.BLL.csproj">
+      <Project>{5d884a8f-c7cb-4fc6-8b92-0f27343c5c75}</Project>
+      <Name>ClassLibApp.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ClassLibApp.Models\ClassLibApp.Models.csproj">
       <Project>{1EA65298-2F6D-4AF6-A817-66EE15CDCBFA}</Project>
       <Name>ClassLibApp.Models</Name>

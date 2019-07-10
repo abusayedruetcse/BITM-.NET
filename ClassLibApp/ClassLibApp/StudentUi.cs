@@ -1,4 +1,5 @@
-﻿using ClassLibApp.Models.Models;
+﻿using ClassLibApp.BLL.BLL;
+using ClassLibApp.Models.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace ClassLibApp
     public partial class StudentUi : Form
     {
         Student student = new Student();
+        StudentManager _studentManager = new StudentManager();
         public StudentUi()
         {
             InitializeComponent();
@@ -21,9 +23,9 @@ namespace ClassLibApp
 
         private void StudentUi_Load(object sender, EventArgs e)
         {
-            student.Name = "Fatima";
-            student.Roll = "12345";
-            displayRichTextBox.Text = "Name: " + student.Name + Environment.NewLine + "Roll: " + student.Roll;
+            string Name = "Fatima";
+            string Roll = "12345";
+            displayRichTextBox.Text = _studentManager.AddStudent(Name, Roll);
         }
     }
 }
