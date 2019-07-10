@@ -29,6 +29,17 @@ namespace SBMSystem
         private void SaveButton_Click(object sender, EventArgs e)
         {
             messageLabel.Text = "";
+            messageLabel.ForeColor = Color.Red;
+            if (String.IsNullOrEmpty(codeTextBox.Text))
+            {
+                messageLabel.Text = "Enter Code";
+                return;
+            }
+            if (String.IsNullOrEmpty(nameTextBox.Text))
+            {
+                messageLabel.Text = "Enter Category Name";
+                return;
+            }
             category.Name = nameTextBox.Text;
             category.Code = codeTextBox.Text;
             if(SaveButton.Text.Equals("Save"))
@@ -39,8 +50,7 @@ namespace SBMSystem
                     messageLabel.Text = "Saved Successfully";
                 }
                 else
-                {
-                    messageLabel.ForeColor = Color.Red;
+                {                   
                     messageLabel.Text = "Save failed";
                 }
             }else
@@ -51,8 +61,7 @@ namespace SBMSystem
                     messageLabel.Text = "Updated Successfully";
                 } 
                 else
-                {
-                    messageLabel.ForeColor = Color.Red;
+                {    
                     messageLabel.Text = "Update failed";
                 }
                 SaveButton.Text = "Save";

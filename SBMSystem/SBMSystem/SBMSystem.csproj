@@ -52,6 +52,12 @@
     <Compile Include="CategoryUi.Designer.cs">
       <DependentUpon>CategoryUi.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductUi.Designer.cs">
+      <DependentUpon>ProductUi.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CategoryUi.resx">
