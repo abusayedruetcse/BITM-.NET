@@ -32,6 +32,17 @@ namespace SBMSystem.Repository.Repository
             isExecuted = sqlCommand.ExecuteNonQuery();
             sqlConnection.Close();
             return isExecuted > 0;
+        } 
+        public bool IsCodeDuplicate(Customer customer)
+        {
+            commandString = @"SELECT * FROM Customers WHERE Code='"+customer.Code+"'";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            sqlConnection.Close();
+            return dataTable.Rows.Count>0;
         }
     }
 }

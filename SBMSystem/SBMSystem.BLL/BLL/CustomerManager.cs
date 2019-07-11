@@ -19,5 +19,9 @@ namespace SBMSystem.BLL.BLL
         {
             return _customerRepository.AddCustomer(customer);
         }
+        public bool IsCodeDuplicate(Customer customer)
+        {
+            return _customerRepository.IsCodeDuplicate(customer);
+        }
     }
 }
