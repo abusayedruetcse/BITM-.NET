@@ -45,6 +45,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.customerPictureLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.customerPictureBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +72,7 @@
             // 
             // customerPictureBox
             // 
-            this.customerPictureBox.Location = new System.Drawing.Point(6, 16);
+            this.customerPictureBox.Location = new System.Drawing.Point(8, 16);
             this.customerPictureBox.Name = "customerPictureBox";
             this.customerPictureBox.Size = new System.Drawing.Size(158, 156);
             this.customerPictureBox.TabIndex = 27;
@@ -185,6 +186,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.customerPictureLabel);
             this.groupBox1.Controls.Add(this.customerPictureBox);
             this.groupBox1.Location = new System.Drawing.Point(533, 89);
             this.groupBox1.Name = "groupBox1";
@@ -192,6 +194,15 @@
             this.groupBox1.TabIndex = 37;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Photo";
+            // 
+            // customerPictureLabel
+            // 
+            this.customerPictureLabel.AutoSize = true;
+            this.customerPictureLabel.Location = new System.Drawing.Point(53, 88);
+            this.customerPictureLabel.Name = "customerPictureLabel";
+            this.customerPictureLabel.Size = new System.Drawing.Size(65, 16);
+            this.customerPictureLabel.TabIndex = 28;
+            this.customerPictureLabel.Text = "Customer";
             // 
             // CustomerUi
             // 
@@ -220,6 +231,7 @@
             this.Text = "Customer";
             ((System.ComponentModel.ISupportInitialize)(this.customerPictureBox)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,5 +256,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label customerPictureLabel;
     }
 }

@@ -21,7 +21,7 @@ namespace SBMSystem
       
 
         private void SaveButton_Click(object sender, EventArgs e)
-        {
+        {           
             messageLabel.Text = "";
             messageLabel.ForeColor = Color.Red;
             if (String.IsNullOrEmpty(codeTextBox.Text))
@@ -106,14 +106,15 @@ namespace SBMSystem
             contactTextBox.Text = "";
             customerPictureBox.Image = null;
             loyaltyPointTextBox.Text = "";
-
+            customerPictureLabel.Text = "Customer";
         }
 
         private void AddCustomerButton_Click(object sender, EventArgs e)
-        {
+        {            
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                customerPictureLabel.Text = "";
                 Bitmap bitmap = new Bitmap(openFileDialog.FileName);
                 customerPictureBox.Image = bitmap;
                 customerPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
