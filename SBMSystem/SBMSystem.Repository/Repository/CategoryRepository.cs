@@ -19,7 +19,8 @@ namespace SBMSystem.Repository.Repository
         DataTable dataTable;
         public CategoryRepository()
         {
-            connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS; Database=SBMSDB;Integrated Security=True";
+            connectionString = @"Server=PC-301-17\SQLEXPRESS; Database=SBMSDB;Integrated Security=True";
+            //connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS; Database=SBMSDB;Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
         }
         public bool AddCategory(Category category)
