@@ -83,6 +83,7 @@ namespace SBMSystem
             if(_customerManager.IsCodeDuplicate(customer))
             {
                 messageLabel.Text = "Code is Duplicate,Enter unique code";
+                codeTextBox.Text = "";
                 return;
             }
             customer.Name = nameTextBox.Text;

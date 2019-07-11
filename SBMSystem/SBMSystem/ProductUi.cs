@@ -120,6 +120,7 @@ namespace SBMSystem
                 if(_productManager.IsCodeDuplicate(product))
                 {
                     messageLabel.Text = "Product Code is Duplicate";
+                    codeTextBox.Text = "";
                     return;
                 }
                 if (_productManager.AddProduct(product))
