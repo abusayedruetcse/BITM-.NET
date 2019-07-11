@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SBMSystem.Models.Models
 {
-    class Customer
+    public class Customer
     {
+
     }
 }

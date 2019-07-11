@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SBMSystem.BLL.BLL
 {
-    class CustomerManager
+    public class CustomerManager
     {
     }
 }

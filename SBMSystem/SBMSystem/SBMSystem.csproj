@@ -53,6 +53,12 @@
     <Compile Include="CategoryUi.Designer.cs">
       <DependentUpon>CategoryUi.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomerUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomerUi.Designer.cs">
+      <DependentUpon>CustomerUi.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductUi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CategoryUi.resx">
       <DependentUpon>CategoryUi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomerUi.resx">
+      <DependentUpon>CustomerUi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUi.resx">
       <DependentUpon>ProductUi.cs</DependentUpon>

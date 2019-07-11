@@ -42,10 +42,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.SaveButton = new System.Windows.Forms.Button();
             this.productDataGridView = new System.Windows.Forms.DataGridView();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productPictureBox = new System.Windows.Forms.PictureBox();
-            this.AddCategoryButton = new System.Windows.Forms.Button();
-            this.AddProductButton = new System.Windows.Forms.Button();
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +53,10 @@
             this.DeleteButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.imageProductDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productPictureBox = new System.Windows.Forms.PictureBox();
+            this.AddCategoryButton = new System.Windows.Forms.Button();
+            this.AddProductButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
@@ -189,42 +189,6 @@
             this.productDataGridView.TabIndex = 11;
             this.productDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productDataGridView_CellContentClick);
             // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataSource = typeof(SBMSystem.Models.Models.Product);
-            // 
-            // productPictureBox
-            // 
-            this.productPictureBox.Location = new System.Drawing.Point(549, 64);
-            this.productPictureBox.Name = "productPictureBox";
-            this.productPictureBox.Size = new System.Drawing.Size(158, 156);
-            this.productPictureBox.TabIndex = 12;
-            this.productPictureBox.TabStop = false;
-            // 
-            // AddCategoryButton
-            // 
-            this.AddCategoryButton.AutoEllipsis = true;
-            this.AddCategoryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddCategoryButton.Location = new System.Drawing.Point(456, 160);
-            this.AddCategoryButton.Name = "AddCategoryButton";
-            this.AddCategoryButton.Size = new System.Drawing.Size(44, 34);
-            this.AddCategoryButton.TabIndex = 13;
-            this.AddCategoryButton.Text = "+";
-            this.AddCategoryButton.UseVisualStyleBackColor = true;
-            this.AddCategoryButton.Click += new System.EventHandler(this.AddCategoryButton_Click);
-            // 
-            // AddProductButton
-            // 
-            this.AddProductButton.AutoEllipsis = true;
-            this.AddProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddProductButton.Location = new System.Drawing.Point(607, 238);
-            this.AddProductButton.Name = "AddProductButton";
-            this.AddProductButton.Size = new System.Drawing.Size(44, 34);
-            this.AddProductButton.TabIndex = 14;
-            this.AddProductButton.Text = "+";
-            this.AddProductButton.UseVisualStyleBackColor = true;
-            this.AddProductButton.Click += new System.EventHandler(this.AddProductButton_Click);
-            // 
             // SL
             // 
             this.SL.FillWeight = 70F;
@@ -294,6 +258,42 @@
             this.categoryCodeDataGridViewTextBoxColumn.Name = "categoryCodeDataGridViewTextBoxColumn";
             this.categoryCodeDataGridViewTextBoxColumn.Visible = false;
             // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(SBMSystem.Models.Models.Product);
+            // 
+            // productPictureBox
+            // 
+            this.productPictureBox.Location = new System.Drawing.Point(549, 64);
+            this.productPictureBox.Name = "productPictureBox";
+            this.productPictureBox.Size = new System.Drawing.Size(158, 156);
+            this.productPictureBox.TabIndex = 12;
+            this.productPictureBox.TabStop = false;
+            // 
+            // AddCategoryButton
+            // 
+            this.AddCategoryButton.AutoEllipsis = true;
+            this.AddCategoryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddCategoryButton.Location = new System.Drawing.Point(456, 160);
+            this.AddCategoryButton.Name = "AddCategoryButton";
+            this.AddCategoryButton.Size = new System.Drawing.Size(44, 34);
+            this.AddCategoryButton.TabIndex = 13;
+            this.AddCategoryButton.Text = "+";
+            this.AddCategoryButton.UseVisualStyleBackColor = true;
+            this.AddCategoryButton.Click += new System.EventHandler(this.AddCategoryButton_Click);
+            // 
+            // AddProductButton
+            // 
+            this.AddProductButton.AutoEllipsis = true;
+            this.AddProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddProductButton.Location = new System.Drawing.Point(607, 238);
+            this.AddProductButton.Name = "AddProductButton";
+            this.AddProductButton.Size = new System.Drawing.Size(44, 34);
+            this.AddProductButton.TabIndex = 14;
+            this.AddProductButton.Text = "+";
+            this.AddProductButton.UseVisualStyleBackColor = true;
+            this.AddProductButton.Click += new System.EventHandler(this.AddProductButton_Click);
+            // 
             // messageLabel
             // 
             this.messageLabel.AutoSize = true;
@@ -306,7 +306,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 660);
+            this.ClientSize = new System.Drawing.Size(884, 661);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.AddProductButton);
             this.Controls.Add(this.AddCategoryButton);

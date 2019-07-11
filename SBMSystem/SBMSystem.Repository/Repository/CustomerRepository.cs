@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SBMSystem.Repository.Repository
 {
-    class CustomerRepository
+    public class CustomerRepository
     {
     }
 }
