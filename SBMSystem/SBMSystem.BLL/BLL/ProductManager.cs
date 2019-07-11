@@ -28,5 +28,13 @@ namespace SBMSystem.BLL.BLL
         {
             return _productRepository.GetProducts();
         }
+        public bool UpdateProduct(Product product)
+        {
+            return _productRepository.UpdateProduct(product);
+        }
+        public bool DeleteProduct(Product product)
+        {
+            return _productRepository.DeleteProduct(product);
+        }
     }
 }

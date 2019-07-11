@@ -186,6 +186,7 @@
             this.productDataGridView.RowHeadersVisible = false;
             this.productDataGridView.Size = new System.Drawing.Size(807, 173);
             this.productDataGridView.TabIndex = 11;
+            this.productDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productDataGridView_CellContentClick);
             // 
             // productBindingSource
             // 
@@ -244,6 +245,7 @@
             // 
             // Category
             // 
+            this.Category.DataPropertyName = "Category";
             this.Category.HeaderText = "Category";
             this.Category.Name = "Category";
             // 

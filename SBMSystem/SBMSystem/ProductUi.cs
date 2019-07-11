@@ -73,19 +73,41 @@ namespace SBMSystem
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            product.Code = codeTextBox.Text;
             product.Name = nameTextBox.Text;
             product.CategoryCode = categoryComboBox.SelectedValue.ToString();
             product.ReorderLevel = Convert.ToInt32(reorderLevelTextBox.Text);
             product.Description = descriptionRichTextBox.Text;
-            if(_productManager.AddProduct(product))
+            
+            if(SaveButton.Text.Equals("Save"))
             {
-                MessageBox.Show("Product saved");
-            }
-            else
+                product.Code = codeTextBox.Text;
+                if (_productManager.AddProduct(product))
+                {
+                    MessageBox.Show("Product saved");
+                }
+                else
+                {
+                    MessageBox.Show("Not saved");
+                }
+            }else
             {
-                MessageBox.Show("Not saved");
+                if(_productManager.UpdateProduct(product))
+                {
+                    MessageBox.Show("Successfully Updated");
+                } 
+                else
+                {
+                    MessageBox.Show("Updated Failed");
+                }
+
+                SaveButton.Text = "Save";
             }
+            codeTextBox.Text = "";
+            nameTextBox.Text = "";
+            categoryComboBox.Text = "-Select-";
+            reorderLevelTextBox.Text = "";
+            productPictureBox.Image = null;
+            descriptionRichTextBox.Text = "";
             DisplayProducts();
 
         }
@@ -101,10 +123,43 @@ namespace SBMSystem
                 byte[] imageBytes = Convert.FromBase64String(productDataGridView.Rows[i].Cells["imageProductDataGridViewTextBoxColumn"].Value.ToString());
                 MemoryStream memoryStream = new MemoryStream(imageBytes, 0, imageBytes.Length);
                 memoryStream.Write(imageBytes, 0, imageBytes.Length);
-                productDataGridView.Rows[i].Cells["Image"].Value = System.Drawing.Image.FromStream(memoryStream, true);
-               
+                productDataGridView.Rows[i].Cells["Image"].Value = System.Drawing.Image.FromStream(memoryStream, true);                  
+            }
+        }
+
+        private void productDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(productDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.Equals("Edit"))
+            {
+                codeTextBox.Text = productDataGridView.Rows[e.RowIndex].Cells["codeDataGridViewTextBoxColumn"].Value.ToString();
+                nameTextBox.Text = productDataGridView.Rows[e.RowIndex].Cells["nameDataGridViewTextBoxColumn"].Value.ToString();
+                categoryComboBox.Text= productDataGridView.Rows[e.RowIndex].Cells["Category"].Value.ToString();
+                reorderLevelTextBox.Text = productDataGridView.Rows[e.RowIndex].Cells["reorderLevelDataGridViewTextBoxColumn"].Value.ToString();
+                descriptionRichTextBox.Text = productDataGridView.Rows[e.RowIndex].Cells["descriptionDataGridViewTextBoxColumn"].Value.ToString();
+
+                byte[] imageBytes = Convert.FromBase64String(productDataGridView.Rows[e.RowIndex].Cells["imageProductDataGridViewTextBoxColumn"].Value.ToString());
+                MemoryStream memoryStream = new MemoryStream(imageBytes, 0, imageBytes.Length);
+                memoryStream.Write(imageBytes, 0, imageBytes.Length);
+                productDataGridView.Rows[e.RowIndex].Cells["Image"].Value = System.Drawing.Image.FromStream(memoryStream, true);
+
                 productPictureBox.Image = System.Drawing.Image.FromStream(memoryStream, true);
                 productPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                product.Code = codeTextBox.Text;
+                product.ImageProduct = Convert.ToBase64String(imageBytes);
+                SaveButton.Text = "Confirm";
+            }
+            if (productDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.Equals("Delete"))
+            {
+                if(_productManager.DeleteProduct(product))
+                {
+                    MessageBox.Show("Successfully Deleted");
+                } 
+                else
+                {
+                    MessageBox.Show("Deletion Failed");
+                }
+                DisplayProducts();
             }
         }
     }

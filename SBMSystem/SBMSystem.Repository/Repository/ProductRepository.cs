@@ -45,7 +45,7 @@ namespace SBMSystem.Repository.Repository
         } 
         public DataTable GetProducts()
         {
-            commandString = @"SELECT * FROM Products";
+            commandString = @"SELECT p.Code AS Code,p.Name AS Name, c.Name AS Category, ReorderLevel,ImageProduct, Description FROM Products AS p LEFT JOIN Categories AS c ON p.CategoryCode=c.Code";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             sqlDataAdapter = new SqlDataAdapter(sqlCommand);
@@ -53,6 +53,26 @@ namespace SBMSystem.Repository.Repository
             sqlDataAdapter.Fill(dataTable);
             sqlConnection.Close();
             return dataTable;
+        }
+        public bool UpdateProduct(Product product)
+        {
+            int isExecuted = 0;
+            commandString = @"UPDATE Products SET Name='"+product.Name+"',CategoryCode='"+product.CategoryCode+"',ReorderLevel='"+product.ReorderLevel+"',ImageProduct='"+product.ImageProduct+"',Description='"+product.Description+"' WHERE Code='"+product.Code+"'";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            isExecuted = sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
+            return isExecuted > 0;
+        }
+        public bool DeleteProduct(Product product)
+        {
+            int isExecuted = 0;
+            commandString = @"DELETE Products WHERE Code='" + product.Code + "'";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            isExecuted = sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
+            return isExecuted > 0;
         }
 
     }
