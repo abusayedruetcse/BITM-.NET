@@ -20,3 +20,7 @@ INSERT INTO Categories VALUES('','');
 UPDATE Categories SET Name='Machinaries' WHERE Code='000'
 DELETE Categories WHERE Code='004'
 SELECT * FROM Products
+SELECT p.Code AS Code,p.Name AS Name, c.Name AS Category, ReorderLevel,ImageProduct, Description FROM Products AS p LEFT JOIN Categories AS c ON p.CategoryCode=c.Code
+UPDATE Products 
+SET Name='',CategoryCode='',ReorderLevel='',ImageProduct='',Description=''
+WHERE Code=''
