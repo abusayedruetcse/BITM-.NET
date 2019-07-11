@@ -29,6 +29,7 @@ namespace SBMSystem
         {
             categoryComboBox.DataSource = _productManager.LoadCategoryToComboBox();
             categoryComboBox.Text = "-Select-";
+            productPictureBox.Image = null;
             DisplayProducts();
         }
 
@@ -49,7 +50,7 @@ namespace SBMSystem
         }
 
         private void AddProductButton_Click(object sender, EventArgs e)
-        {
+        {            
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -67,12 +68,46 @@ namespace SBMSystem
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message);
+                messageLabel.ForeColor = Color.Red;
+                messageLabel.Text = exception.Message;
             }          
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            messageLabel.Text = "";
+            messageLabel.ForeColor = Color.Red;
+            if(String.IsNullOrEmpty(codeTextBox.Text))
+            {
+                messageLabel.Text = "Enter a Product Code";
+                return;
+            }
+            if (String.IsNullOrEmpty(nameTextBox.Text))
+            {
+                messageLabel.Text = "Enter a Product Name";
+                return;
+            }
+            if (categoryComboBox.Text.Equals("-Select-"))
+            {
+                messageLabel.Text = "Select Or Add a Category";
+                return;
+            }
+            if (String.IsNullOrEmpty(reorderLevelTextBox.Text))
+            {
+                messageLabel.Text = "Enter a ReorderLevel";
+                return;
+            } 
+            if(System.Text.RegularExpressions.Regex.IsMatch(reorderLevelTextBox.Text,"[^0-9]"))
+            {
+                messageLabel.Text = "Ender Numeric Reorder Level";
+                return;
+            }
+            
+            if (productPictureBox.Image==null)
+            {
+                messageLabel.Text = "Enter a Product Pic";
+                return;
+            }
             product.Name = nameTextBox.Text;
             product.CategoryCode = categoryComboBox.SelectedValue.ToString();
             product.ReorderLevel = Convert.ToInt32(reorderLevelTextBox.Text);
@@ -83,21 +118,23 @@ namespace SBMSystem
                 product.Code = codeTextBox.Text;
                 if (_productManager.AddProduct(product))
                 {
-                    MessageBox.Show("Product saved");
+                    messageLabel.ForeColor = Color.Green;
+                    messageLabel.Text = "Product saved";
                 }
                 else
                 {
-                    MessageBox.Show("Not saved");
+                    messageLabel.Text = "Not saved";
                 }
             }else
             {
                 if(_productManager.UpdateProduct(product))
                 {
-                    MessageBox.Show("Successfully Updated");
+                    messageLabel.ForeColor = Color.Green;
+                    messageLabel.Text = "Successfully Updated";
                 } 
                 else
                 {
-                    MessageBox.Show("Updated Failed");
+                    messageLabel.Text = "Updated Failed";
                 }
 
                 SaveButton.Text = "Save";
@@ -129,37 +166,52 @@ namespace SBMSystem
 
         private void productDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(productDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.Equals("Edit"))
+            messageLabel.Text = "";
+            messageLabel.ForeColor = Color.Red;
+            try
             {
-                codeTextBox.Text = productDataGridView.Rows[e.RowIndex].Cells["codeDataGridViewTextBoxColumn"].Value.ToString();
-                nameTextBox.Text = productDataGridView.Rows[e.RowIndex].Cells["nameDataGridViewTextBoxColumn"].Value.ToString();
-                categoryComboBox.Text= productDataGridView.Rows[e.RowIndex].Cells["Category"].Value.ToString();
-                reorderLevelTextBox.Text = productDataGridView.Rows[e.RowIndex].Cells["reorderLevelDataGridViewTextBoxColumn"].Value.ToString();
-                descriptionRichTextBox.Text = productDataGridView.Rows[e.RowIndex].Cells["descriptionDataGridViewTextBoxColumn"].Value.ToString();
-
-                byte[] imageBytes = Convert.FromBase64String(productDataGridView.Rows[e.RowIndex].Cells["imageProductDataGridViewTextBoxColumn"].Value.ToString());
-                MemoryStream memoryStream = new MemoryStream(imageBytes, 0, imageBytes.Length);
-                memoryStream.Write(imageBytes, 0, imageBytes.Length);
-                productDataGridView.Rows[e.RowIndex].Cells["Image"].Value = System.Drawing.Image.FromStream(memoryStream, true);
-
-                productPictureBox.Image = System.Drawing.Image.FromStream(memoryStream, true);
-                productPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-
-                product.Code = codeTextBox.Text;
-                product.ImageProduct = Convert.ToBase64String(imageBytes);
-                SaveButton.Text = "Confirm";
-            }
-            if (productDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.Equals("Delete"))
-            {
-                if(_productManager.DeleteProduct(product))
+                if (productDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.Equals("Edit"))
                 {
-                    MessageBox.Show("Successfully Deleted");
-                } 
-                else
-                {
-                    MessageBox.Show("Deletion Failed");
+                    codeTextBox.Text = productDataGridView.Rows[e.RowIndex].Cells["codeDataGridViewTextBoxColumn"].Value.ToString();
+                    nameTextBox.Text = productDataGridView.Rows[e.RowIndex].Cells["nameDataGridViewTextBoxColumn"].Value.ToString();
+                    categoryComboBox.Text = productDataGridView.Rows[e.RowIndex].Cells["Category"].Value.ToString();
+                    reorderLevelTextBox.Text = productDataGridView.Rows[e.RowIndex].Cells["reorderLevelDataGridViewTextBoxColumn"].Value.ToString();
+                    descriptionRichTextBox.Text = productDataGridView.Rows[e.RowIndex].Cells["descriptionDataGridViewTextBoxColumn"].Value.ToString();
+
+                    byte[] imageBytes = Convert.FromBase64String(productDataGridView.Rows[e.RowIndex].Cells["imageProductDataGridViewTextBoxColumn"].Value.ToString());
+                    MemoryStream memoryStream = new MemoryStream(imageBytes, 0, imageBytes.Length);
+                    memoryStream.Write(imageBytes, 0, imageBytes.Length);
+                    productDataGridView.Rows[e.RowIndex].Cells["Image"].Value = System.Drawing.Image.FromStream(memoryStream, true);
+
+                    productPictureBox.Image = System.Drawing.Image.FromStream(memoryStream, true);
+                    productPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                    product.Code = codeTextBox.Text;
+                    product.ImageProduct = Convert.ToBase64String(imageBytes);
+                    SaveButton.Text = "Confirm";
                 }
-                DisplayProducts();
+                if (productDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.Equals("Delete"))
+                {
+                    if(SaveButton.Text.Equals("Confirm"))
+                    {
+                        messageLabel.Text = "Click Confirm first";
+                        return;
+                    }
+                    if (_productManager.DeleteProduct(product))
+                    {
+                        messageLabel.ForeColor = Color.Green;
+                        messageLabel.Text = "Successfully Deleted";
+                    }
+                    else
+                    {
+                        messageLabel.Text = "Deletion Failed";
+                    }
+                    DisplayProducts();
+                }
+            }catch(Exception exception)
+            {
+                messageLabel.ForeColor = Color.Red;
+                messageLabel.Text = exception.Message;
             }
         }
     }

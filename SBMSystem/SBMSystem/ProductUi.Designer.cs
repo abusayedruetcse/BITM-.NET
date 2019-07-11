@@ -57,6 +57,7 @@
             this.DeleteButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.imageProductDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.messageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
@@ -181,10 +182,10 @@
             this.imageProductDataGridViewTextBoxColumn,
             this.categoryCodeDataGridViewTextBoxColumn});
             this.productDataGridView.DataSource = this.productBindingSource;
-            this.productDataGridView.Location = new System.Drawing.Point(32, 387);
+            this.productDataGridView.Location = new System.Drawing.Point(32, 416);
             this.productDataGridView.Name = "productDataGridView";
             this.productDataGridView.RowHeadersVisible = false;
-            this.productDataGridView.Size = new System.Drawing.Size(807, 173);
+            this.productDataGridView.Size = new System.Drawing.Size(807, 220);
             this.productDataGridView.TabIndex = 11;
             this.productDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productDataGridView_CellContentClick);
             // 
@@ -293,11 +294,20 @@
             this.categoryCodeDataGridViewTextBoxColumn.Name = "categoryCodeDataGridViewTextBoxColumn";
             this.categoryCodeDataGridViewTextBoxColumn.Visible = false;
             // 
+            // messageLabel
+            // 
+            this.messageLabel.AutoSize = true;
+            this.messageLabel.Location = new System.Drawing.Point(139, 384);
+            this.messageLabel.Name = "messageLabel";
+            this.messageLabel.Size = new System.Drawing.Size(0, 16);
+            this.messageLabel.TabIndex = 15;
+            // 
             // ProductUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 584);
+            this.ClientSize = new System.Drawing.Size(884, 660);
+            this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.AddProductButton);
             this.Controls.Add(this.AddCategoryButton);
             this.Controls.Add(this.productPictureBox);
@@ -357,5 +367,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn DeleteButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn imageProductDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryCodeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label messageLabel;
     }
 }
