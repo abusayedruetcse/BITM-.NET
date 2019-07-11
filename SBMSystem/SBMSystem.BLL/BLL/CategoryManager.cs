@@ -32,5 +32,9 @@ namespace SBMSystem.BLL.BLL
         {
             return _categoryRepository.GetCategories();
         }
+        public bool IsCodeDuplicate(Category category)
+        {
+            return _categoryRepository.IsCodeDuplicate(category);
+        }
     }
 }

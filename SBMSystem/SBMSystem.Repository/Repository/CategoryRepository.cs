@@ -19,8 +19,8 @@ namespace SBMSystem.Repository.Repository
         DataTable dataTable;
         public CategoryRepository()
         {
-            connectionString = @"Server=PC-301-17\SQLEXPRESS; Database=SBMSDB;Integrated Security=True";
-            //connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS; Database=SBMSDB;Integrated Security=True";
+            //connectionString = @"Server=PC-301-17\SQLEXPRESS; Database=SBMSDB;Integrated Security=True";
+            connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS; Database=SBMSDB;Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
         }
         public bool AddCategory(Category category)
@@ -63,6 +63,17 @@ namespace SBMSystem.Repository.Repository
             sqlDataAdapter.Fill(dataTable);
             sqlConnection.Close();
             return dataTable;
+        }
+        public bool IsCodeDuplicate(Category category)
+        {
+            commandString = @"SELECT * FROM Categories WHERE Code='" + category.Code + "'";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            sqlConnection.Close();
+            return dataTable.Rows.Count > 0;
         }
     }
 }

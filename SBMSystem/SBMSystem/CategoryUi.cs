@@ -44,6 +44,12 @@ namespace SBMSystem
             category.Code = codeTextBox.Text;
             if(SaveButton.Text.Equals("Save"))
             {
+                if(_categoryManager.IsCodeDuplicate(category))
+                {
+                    messageLabel.Text = "Category Code is Duplicate";
+                    codeTextBox.Text = "";
+                    return;
+                }
                 if (_categoryManager.AddCategory(category))
                 {
                     messageLabel.ForeColor = Color.Green;
