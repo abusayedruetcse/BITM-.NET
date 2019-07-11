@@ -18,7 +18,9 @@ namespace SBMSystem
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new CategoryUi());
             //Application.Run(new ProductUi());
-            Application.Run(new CustomerUi());
+            //Application.Run(new CustomerUi());
+            Application.Run(new SupplierUi());
+
         }
     }
 }
