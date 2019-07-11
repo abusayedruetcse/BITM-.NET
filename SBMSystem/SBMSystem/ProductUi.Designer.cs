@@ -54,13 +54,16 @@
             this.imageProductDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productPictureBox = new System.Windows.Forms.PictureBox();
             this.AddCategoryButton = new System.Windows.Forms.Button();
             this.AddProductButton = new System.Windows.Forms.Button();
             this.messageLabel = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.productPictureLabel = new System.Windows.Forms.Label();
+            this.productPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -262,14 +265,6 @@
             // 
             this.productBindingSource.DataSource = typeof(SBMSystem.Models.Models.Product);
             // 
-            // productPictureBox
-            // 
-            this.productPictureBox.Location = new System.Drawing.Point(549, 64);
-            this.productPictureBox.Name = "productPictureBox";
-            this.productPictureBox.Size = new System.Drawing.Size(158, 156);
-            this.productPictureBox.TabIndex = 12;
-            this.productPictureBox.TabStop = false;
-            // 
             // AddCategoryButton
             // 
             this.AddCategoryButton.AutoEllipsis = true;
@@ -286,7 +281,7 @@
             // 
             this.AddProductButton.AutoEllipsis = true;
             this.AddProductButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddProductButton.Location = new System.Drawing.Point(607, 238);
+            this.AddProductButton.Location = new System.Drawing.Point(621, 242);
             this.AddProductButton.Name = "AddProductButton";
             this.AddProductButton.Size = new System.Drawing.Size(44, 34);
             this.AddProductButton.TabIndex = 14;
@@ -302,15 +297,43 @@
             this.messageLabel.Size = new System.Drawing.Size(0, 16);
             this.messageLabel.TabIndex = 15;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.productPictureLabel);
+            this.groupBox1.Controls.Add(this.productPictureBox);
+            this.groupBox1.Location = new System.Drawing.Point(557, 58);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(172, 178);
+            this.groupBox1.TabIndex = 38;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Photo";
+            // 
+            // productPictureLabel
+            // 
+            this.productPictureLabel.AutoSize = true;
+            this.productPictureLabel.Location = new System.Drawing.Point(53, 88);
+            this.productPictureLabel.Name = "productPictureLabel";
+            this.productPictureLabel.Size = new System.Drawing.Size(54, 16);
+            this.productPictureLabel.TabIndex = 28;
+            this.productPictureLabel.Text = "Product";
+            // 
+            // productPictureBox
+            // 
+            this.productPictureBox.Location = new System.Drawing.Point(6, 16);
+            this.productPictureBox.Name = "productPictureBox";
+            this.productPictureBox.Size = new System.Drawing.Size(158, 156);
+            this.productPictureBox.TabIndex = 27;
+            this.productPictureBox.TabStop = false;
+            // 
             // ProductUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 661);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.messageLabel);
             this.Controls.Add(this.AddProductButton);
             this.Controls.Add(this.AddCategoryButton);
-            this.Controls.Add(this.productPictureBox);
             this.Controls.Add(this.productDataGridView);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.label5);
@@ -331,6 +354,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -351,7 +376,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.DataGridView productDataGridView;
-        private System.Windows.Forms.PictureBox productPictureBox;
         private System.Windows.Forms.Button AddCategoryButton;
         private System.Windows.Forms.Button AddProductButton;
         private System.Windows.Forms.BindingSource categoryBindingSource;
@@ -368,5 +392,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn imageProductDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label messageLabel;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label productPictureLabel;
+        private System.Windows.Forms.PictureBox productPictureBox;
     }
 }

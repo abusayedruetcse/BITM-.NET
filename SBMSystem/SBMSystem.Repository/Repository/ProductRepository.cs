@@ -19,8 +19,8 @@ namespace SBMSystem.Repository.Repository
         DataTable dataTable;
         public ProductRepository()
         {
-            connectionString = @"Server=PC-301-17\SQLEXPRESS; Database=SBMSDB;Integrated Security=True";
-            //connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS; Database=SBMSDB;Integrated Security=True";
+            //connectionString = @"Server=PC-301-17\SQLEXPRESS; Database=SBMSDB;Integrated Security=True";
+            connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS; Database=SBMSDB;Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
         }
         public DataTable LoadCategoryToComboBox()
@@ -74,6 +74,17 @@ namespace SBMSystem.Repository.Repository
             isExecuted = sqlCommand.ExecuteNonQuery();
             sqlConnection.Close();
             return isExecuted > 0;
+        }
+        public bool IsCodeDuplicate(Product product)
+        {
+            commandString = @"SELECT * FROM Products WHERE Code='" + product.Code + "'";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            sqlConnection.Close();
+            return dataTable.Rows.Count > 0;
         }
 
     }

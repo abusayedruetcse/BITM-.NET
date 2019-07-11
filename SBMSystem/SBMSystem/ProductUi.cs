@@ -54,6 +54,7 @@ namespace SBMSystem
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                productPictureLabel.Text = "";
                 Bitmap bitmap = new Bitmap(openFileDialog.FileName);
                 productPictureBox.Image = bitmap;
                 productPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -116,6 +117,11 @@ namespace SBMSystem
             if(SaveButton.Text.Equals("Save"))
             {
                 product.Code = codeTextBox.Text;
+                if(_productManager.IsCodeDuplicate(product))
+                {
+                    messageLabel.Text = "Product Code is Duplicate";
+                    return;
+                }
                 if (_productManager.AddProduct(product))
                 {
                     messageLabel.ForeColor = Color.Green;
@@ -145,8 +151,8 @@ namespace SBMSystem
             reorderLevelTextBox.Text = "";
             productPictureBox.Image = null;
             descriptionRichTextBox.Text = "";
+            productPictureLabel.Text = "Product";
             DisplayProducts();
-
         }
         private void DisplayProducts()
         {
@@ -178,6 +184,7 @@ namespace SBMSystem
                     reorderLevelTextBox.Text = productDataGridView.Rows[e.RowIndex].Cells["reorderLevelDataGridViewTextBoxColumn"].Value.ToString();
                     descriptionRichTextBox.Text = productDataGridView.Rows[e.RowIndex].Cells["descriptionDataGridViewTextBoxColumn"].Value.ToString();
 
+                    productPictureLabel.Text = "";
                     byte[] imageBytes = Convert.FromBase64String(productDataGridView.Rows[e.RowIndex].Cells["imageProductDataGridViewTextBoxColumn"].Value.ToString());
                     MemoryStream memoryStream = new MemoryStream(imageBytes, 0, imageBytes.Length);
                     memoryStream.Write(imageBytes, 0, imageBytes.Length);

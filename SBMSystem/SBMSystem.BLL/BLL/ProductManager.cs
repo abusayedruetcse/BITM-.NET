@@ -36,5 +36,9 @@ namespace SBMSystem.BLL.BLL
         {
             return _productRepository.DeleteProduct(product);
         }
+        public bool IsCodeDuplicate(Product product)
+        {
+            return _productRepository.IsCodeDuplicate(product);
+        }
     }
 }
