@@ -42,6 +42,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.SaveButton = new System.Windows.Forms.Button();
             this.productDataGridView = new System.Windows.Forms.DataGridView();
+            this.AddCategoryButton = new System.Windows.Forms.Button();
+            this.AddProductButton = new System.Windows.Forms.Button();
+            this.messageLabel = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.productPictureLabel = new System.Windows.Forms.Label();
+            this.productPictureBox = new System.Windows.Forms.PictureBox();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,20 +58,14 @@
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EditButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.DeleteButton = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.imageProductDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoryCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.AddCategoryButton = new System.Windows.Forms.Button();
-            this.AddProductButton = new System.Windows.Forms.Button();
-            this.messageLabel = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.productPictureLabel = new System.Windows.Forms.Label();
-            this.productPictureBox = new System.Windows.Forms.PictureBox();
+            this.imageProductDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.availableQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -182,8 +183,9 @@
             this.descriptionDataGridViewTextBoxColumn,
             this.EditButton,
             this.DeleteButton,
+            this.categoryCodeDataGridViewTextBoxColumn,
             this.imageProductDataGridViewTextBoxColumn,
-            this.categoryCodeDataGridViewTextBoxColumn});
+            this.availableQuantityDataGridViewTextBoxColumn});
             this.productDataGridView.DataSource = this.productBindingSource;
             this.productDataGridView.Location = new System.Drawing.Point(32, 416);
             this.productDataGridView.Name = "productDataGridView";
@@ -191,79 +193,6 @@
             this.productDataGridView.Size = new System.Drawing.Size(807, 220);
             this.productDataGridView.TabIndex = 11;
             this.productDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.productDataGridView_CellContentClick);
-            // 
-            // SL
-            // 
-            this.SL.FillWeight = 70F;
-            this.SL.HeaderText = "SI";
-            this.SL.Name = "SL";
-            // 
-            // codeDataGridViewTextBoxColumn
-            // 
-            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-            this.codeDataGridViewTextBoxColumn.FillWeight = 70F;
-            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
-            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // Category
-            // 
-            this.Category.DataPropertyName = "Category";
-            this.Category.HeaderText = "Category";
-            this.Category.Name = "Category";
-            // 
-            // reorderLevelDataGridViewTextBoxColumn
-            // 
-            this.reorderLevelDataGridViewTextBoxColumn.DataPropertyName = "ReorderLevel";
-            this.reorderLevelDataGridViewTextBoxColumn.HeaderText = "Reorder Level";
-            this.reorderLevelDataGridViewTextBoxColumn.Name = "reorderLevelDataGridViewTextBoxColumn";
-            // 
-            // Image
-            // 
-            this.Image.HeaderText = "Image";
-            this.Image.Name = "Image";
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            // 
-            // EditButton
-            // 
-            this.EditButton.FillWeight = 80F;
-            this.EditButton.HeaderText = "Action";
-            this.EditButton.Name = "EditButton";
-            // 
-            // DeleteButton
-            // 
-            this.DeleteButton.FillWeight = 80F;
-            this.DeleteButton.HeaderText = "";
-            this.DeleteButton.Name = "DeleteButton";
-            // 
-            // imageProductDataGridViewTextBoxColumn
-            // 
-            this.imageProductDataGridViewTextBoxColumn.DataPropertyName = "ImageProduct";
-            this.imageProductDataGridViewTextBoxColumn.HeaderText = "ImageProduct";
-            this.imageProductDataGridViewTextBoxColumn.Name = "imageProductDataGridViewTextBoxColumn";
-            this.imageProductDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.imageProductDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // categoryCodeDataGridViewTextBoxColumn
-            // 
-            this.categoryCodeDataGridViewTextBoxColumn.DataPropertyName = "CategoryCode";
-            this.categoryCodeDataGridViewTextBoxColumn.HeaderText = "CategoryCode";
-            this.categoryCodeDataGridViewTextBoxColumn.Name = "categoryCodeDataGridViewTextBoxColumn";
-            this.categoryCodeDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataSource = typeof(SBMSystem.Models.Models.Product);
             // 
             // AddCategoryButton
             // 
@@ -325,6 +254,84 @@
             this.productPictureBox.TabIndex = 27;
             this.productPictureBox.TabStop = false;
             // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(SBMSystem.Models.Models.Product);
+            // 
+            // SL
+            // 
+            this.SL.FillWeight = 70F;
+            this.SL.HeaderText = "SI";
+            this.SL.Name = "SL";
+            // 
+            // codeDataGridViewTextBoxColumn
+            // 
+            this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
+            this.codeDataGridViewTextBoxColumn.HeaderText = "Code";
+            this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // Category
+            // 
+            this.Category.DataPropertyName = "Category";
+            this.Category.HeaderText = "Category";
+            this.Category.Name = "Category";
+            // 
+            // reorderLevelDataGridViewTextBoxColumn
+            // 
+            this.reorderLevelDataGridViewTextBoxColumn.DataPropertyName = "ReorderLevel";
+            this.reorderLevelDataGridViewTextBoxColumn.HeaderText = "ReorderLevel";
+            this.reorderLevelDataGridViewTextBoxColumn.Name = "reorderLevelDataGridViewTextBoxColumn";
+            // 
+            // Image
+            // 
+            this.Image.HeaderText = "Image";
+            this.Image.Name = "Image";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
+            // EditButton
+            // 
+            this.EditButton.FillWeight = 80F;
+            this.EditButton.HeaderText = "Action";
+            this.EditButton.Name = "EditButton";
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.FillWeight = 80F;
+            this.DeleteButton.HeaderText = "";
+            this.DeleteButton.Name = "DeleteButton";
+            // 
+            // categoryCodeDataGridViewTextBoxColumn
+            // 
+            this.categoryCodeDataGridViewTextBoxColumn.DataPropertyName = "CategoryCode";
+            this.categoryCodeDataGridViewTextBoxColumn.HeaderText = "CategoryCode";
+            this.categoryCodeDataGridViewTextBoxColumn.Name = "categoryCodeDataGridViewTextBoxColumn";
+            this.categoryCodeDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // imageProductDataGridViewTextBoxColumn
+            // 
+            this.imageProductDataGridViewTextBoxColumn.DataPropertyName = "ImageProduct";
+            this.imageProductDataGridViewTextBoxColumn.HeaderText = "ImageProduct";
+            this.imageProductDataGridViewTextBoxColumn.Name = "imageProductDataGridViewTextBoxColumn";
+            this.imageProductDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // availableQuantityDataGridViewTextBoxColumn
+            // 
+            this.availableQuantityDataGridViewTextBoxColumn.DataPropertyName = "AvailableQuantity";
+            this.availableQuantityDataGridViewTextBoxColumn.HeaderText = "AvailableQuantity";
+            this.availableQuantityDataGridViewTextBoxColumn.Name = "availableQuantityDataGridViewTextBoxColumn";
+            this.availableQuantityDataGridViewTextBoxColumn.Visible = false;
+            // 
             // ProductUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -353,10 +360,10 @@
             this.Load += new System.EventHandler(this.ProductUi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -379,7 +386,10 @@
         private System.Windows.Forms.Button AddCategoryButton;
         private System.Windows.Forms.Button AddProductButton;
         private System.Windows.Forms.BindingSource categoryBindingSource;
-        private System.Windows.Forms.BindingSource productBindingSource;
+        private System.Windows.Forms.Label messageLabel;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label productPictureLabel;
+        private System.Windows.Forms.PictureBox productPictureBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn SL;
         private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
@@ -389,11 +399,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn EditButton;
         private System.Windows.Forms.DataGridViewButtonColumn DeleteButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn imageProductDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label messageLabel;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label productPictureLabel;
-        private System.Windows.Forms.PictureBox productPictureBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn imageProductDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn availableQuantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource productBindingSource;
     }
 }

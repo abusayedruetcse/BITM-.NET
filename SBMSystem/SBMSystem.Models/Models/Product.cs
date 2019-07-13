@@ -14,6 +14,7 @@ namespace SBMSystem.Models.Models
         public int ReorderLevel { get; set; }
         public string ImageProduct { get; set; }
         public string Description { get; set; }
+        public int AvailableQuantity { get; set; }
 
     }
 }

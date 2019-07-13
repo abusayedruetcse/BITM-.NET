@@ -116,6 +116,7 @@ namespace SBMSystem
             
             if(SaveButton.Text.Equals("Save"))
             {
+                product.AvailableQuantity = 0;
                 product.Code = codeTextBox.Text;
                 if(_productManager.IsCodeDuplicate(product))
                 {
@@ -194,6 +195,7 @@ namespace SBMSystem
                     productPictureBox.Image = System.Drawing.Image.FromStream(memoryStream, true);
                     productPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
 
+                    product.AvailableQuantity = Convert.ToInt32(productDataGridView.Rows[e.RowIndex].Cells["availableQuantityDataGridViewTextBoxColumn"].Value);
                     product.Code = codeTextBox.Text;
                     product.ImageProduct = Convert.ToBase64String(imageBytes);
                     SaveButton.Text = "Confirm";

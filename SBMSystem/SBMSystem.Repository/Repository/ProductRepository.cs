@@ -37,7 +37,7 @@ namespace SBMSystem.Repository.Repository
         public bool AddProduct(Product product)
         {
             int isExecuted = 0;
-            commandString = @"INSERT INTO Products VALUES('" + product.Code + "','" + product.Name + "','"+product.CategoryCode+"',"+product.ReorderLevel+" ,' "+product.ImageProduct+" ','"+product.Description+"')";
+            commandString = @"INSERT INTO Products VALUES('" + product.Code + "','" + product.Name + "','"+product.CategoryCode+"',"+product.ReorderLevel+" ,' "+product.ImageProduct+" ','"+product.Description+"',"+product.AvailableQuantity+")";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             isExecuted = sqlCommand.ExecuteNonQuery();
