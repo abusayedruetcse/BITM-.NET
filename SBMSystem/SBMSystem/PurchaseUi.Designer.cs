@@ -79,8 +79,8 @@
             this.purchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SubmitButton = new System.Windows.Forms.Button();
             this.dateTextBox = new System.Windows.Forms.TextBox();
-            this.manufacturedDateTextBox = new System.Windows.Forms.TextBox();
             this.expireDateTextBox = new System.Windows.Forms.TextBox();
+            this.manufacturedDateTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -537,19 +537,19 @@
             this.dateTextBox.Size = new System.Drawing.Size(239, 22);
             this.dateTextBox.TabIndex = 7;
             // 
-            // manufacturedDateTextBox
-            // 
-            this.manufacturedDateTextBox.Location = new System.Drawing.Point(144, 130);
-            this.manufacturedDateTextBox.Name = "manufacturedDateTextBox";
-            this.manufacturedDateTextBox.Size = new System.Drawing.Size(222, 22);
-            this.manufacturedDateTextBox.TabIndex = 30;
-            // 
             // expireDateTextBox
             // 
             this.expireDateTextBox.Location = new System.Drawing.Point(144, 169);
             this.expireDateTextBox.Name = "expireDateTextBox";
             this.expireDateTextBox.Size = new System.Drawing.Size(222, 22);
             this.expireDateTextBox.TabIndex = 31;
+            // 
+            // manufacturedDateTextBox
+            // 
+            this.manufacturedDateTextBox.Location = new System.Drawing.Point(144, 130);
+            this.manufacturedDateTextBox.Name = "manufacturedDateTextBox";
+            this.manufacturedDateTextBox.Size = new System.Drawing.Size(222, 22);
+            this.manufacturedDateTextBox.TabIndex = 30;
             // 
             // PurchaseUi
             // 

@@ -84,19 +84,67 @@ namespace SBMSystem
 
         private void AddButton_Click(object sender, EventArgs e)
         {
+            messageLabel.Text = "";
             purchase = new Purchase();
-            purchase.SL = listOfPurchase.Count + 1;
-            purchase.SupplierCode = supplierComboBox.SelectedValue.ToString();
-            purchase.BillNo = invoiceNoTextBox.Text;
-            purchase.Date = Convert.ToDateTime(dateTextBox.Text).ToString("dd-MM-yyyy");
-            purchase.ProductCode = productsComboBox.SelectedValue.ToString();
-            purchase.ManufacturedDate= Convert.ToDateTime(manufacturedDateTextBox.Text).ToString("dd-MM-yyyy");
-            purchase.ExpireDate= Convert.ToDateTime(expireDateTextBox.Text).ToString("dd-MM-yyyy");
-            purchase.Quantity = Convert.ToInt32(quantityTextBox.Text);
-            purchase.UnitPrice = Convert.ToInt32(unitPriceTextBox.Text);
-            purchase.TotalPrice = purchase.Quantity * purchase.UnitPrice;
-            purchase.MRP = Convert.ToInt32(newMRPTextBox.Text);
-            purchase.Remarks = remarkRichTextBox.Text;
+            try
+            {
+                purchase.SL = listOfPurchase.Count + 1;
+                if(String.IsNullOrEmpty(dateTextBox.Text))
+                {
+                    messageLabel.Text = "Enter Date first";
+                    return;
+                }
+                if (String.IsNullOrEmpty(invoiceNoTextBox.Text))
+                {
+                    messageLabel.Text = "Enter Bill/ Invoice No.";
+                    return;
+                }
+                if(supplierComboBox.Text.Equals("-Select-"))
+                {
+                    messageLabel.Text = "Select a Supplier";
+                    return;
+                }
+                if (productsComboBox.Text.Equals("-Select-"))
+                {
+                    messageLabel.Text = "Select a product";
+                    return;
+                }
+                if(String.IsNullOrEmpty(manufacturedDateTextBox.Text))
+                {
+                    messageLabel.Text = "Enter manufacture Date";
+                    return;
+                }
+                if (String.IsNullOrEmpty(expireDateTextBox.Text))
+                {
+                    messageLabel.Text = "Enter expire Date";
+                    return;
+                }  
+                if(String.IsNullOrEmpty(quantityTextBox.Text))
+                {
+                    messageLabel.Text = "Enter Quantity";
+                    return;
+                }
+                if (String.IsNullOrEmpty(unitPriceTextBox.Text))
+                {
+                    messageLabel.Text = "Enter Unit Price";
+                    return;
+                }
+                purchase.SupplierCode = supplierComboBox.SelectedValue.ToString();
+                purchase.BillNo = invoiceNoTextBox.Text;
+                purchase.Date = Convert.ToDateTime(dateTextBox.Text).ToString("dd-MM-yyyy");
+                purchase.ProductCode = productsComboBox.SelectedValue.ToString();
+                purchase.ManufacturedDate = Convert.ToDateTime(manufacturedDateTextBox.Text).ToString("dd-MM-yyyy");
+                purchase.ExpireDate = Convert.ToDateTime(expireDateTextBox.Text).ToString("dd-MM-yyyy");
+                purchase.Quantity = Convert.ToInt32(quantityTextBox.Text);
+                purchase.UnitPrice = Convert.ToInt32(unitPriceTextBox.Text);
+                purchase.TotalPrice = purchase.Quantity * purchase.UnitPrice;
+                purchase.MRP = Convert.ToInt32(newMRPTextBox.Text);
+                purchase.Remarks = remarkRichTextBox.Text;
+            }catch(Exception exception)
+            {
+                messageLabel.Text = exception.Message;
+                return;
+            }
             if(AddButton.Text.Equals("Add"))
             {
                 listOfPurchase.Add(purchase);
@@ -137,34 +185,45 @@ namespace SBMSystem
 
         private void purchaseDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(purchaseDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.Equals("Edit"))
+            try
             {
-                index = Convert.ToInt32(purchaseDataGridView.Rows[e.RowIndex].Cells["SL"].Value);
-                productsComboBox.SelectedValue = listOfPurchase[index - 1].ProductCode;
-                manufacturedDateTextBox.Text = Convert.ToDateTime(listOfPurchase[index - 1].ManufacturedDate).ToString("dd-MM-yyyy");
-                expireDateTextBox.Text = Convert.ToDateTime(listOfPurchase[index - 1].ExpireDate).ToString("dd-MM-yyyy");
-                quantityTextBox.Text = listOfPurchase[index - 1].Quantity.ToString();
-                unitPriceTextBox.Text = listOfPurchase[index - 1].UnitPrice.ToString();
-                remarkRichTextBox.Text = listOfPurchase[index - 1].Remarks;
-                supplierComboBox.SelectedValue = listOfPurchase[index - 1].SupplierCode;
-                dateTextBox.Text = Convert.ToDateTime(listOfPurchase[index - 1].Date).ToString("dd-MM-yyyy");
-                invoiceNoTextBox.Text = listOfPurchase[index - 1].BillNo;
-                AddButton.Text = "Confirm";
-            }
-            if (purchaseDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.Equals("Delete"))
-            {
-                index = Convert.ToInt32(purchaseDataGridView.Rows[e.RowIndex].Cells["SL"].Value);
-                listOfPurchase.RemoveAt(index - 1);
-                for (int i = 0; i < listOfPurchase.Count; i++)
+                if (purchaseDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.Equals("Edit"))
                 {
-                    listOfPurchase[i].SL = i + 1;
+                    index = Convert.ToInt32(purchaseDataGridView.Rows[e.RowIndex].Cells["SL"].Value);
+                    productsComboBox.SelectedValue = listOfPurchase[index - 1].ProductCode;
+                    manufacturedDateTextBox.Text = Convert.ToDateTime(listOfPurchase[index - 1].ManufacturedDate).ToString("dd-MM-yyyy");
+                    expireDateTextBox.Text = Convert.ToDateTime(listOfPurchase[index - 1].ExpireDate).ToString("dd-MM-yyyy");
+                    quantityTextBox.Text = listOfPurchase[index - 1].Quantity.ToString();
+                    unitPriceTextBox.Text = listOfPurchase[index - 1].UnitPrice.ToString();
+                    remarkRichTextBox.Text = listOfPurchase[index - 1].Remarks;
+                    supplierComboBox.SelectedValue = listOfPurchase[index - 1].SupplierCode;
+                    dateTextBox.Text = Convert.ToDateTime(listOfPurchase[index - 1].Date).ToString("dd-MM-yyyy");
+                    invoiceNoTextBox.Text = listOfPurchase[index - 1].BillNo;
+                    AddButton.Text = "Confirm";
                 }
-                Display();
+                if (purchaseDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.Equals("Delete"))
+                {
+                    index = Convert.ToInt32(purchaseDataGridView.Rows[e.RowIndex].Cells["SL"].Value);
+                    listOfPurchase.RemoveAt(index - 1);
+                    for (int i = 0; i < listOfPurchase.Count; i++)
+                    {
+                        listOfPurchase[i].SL = i + 1;
+                    }
+                    Display();
+                }
+            }catch(Exception exception)
+            {
+                messageLabel.Text = exception.Message;
             }
         }
 
         private void SubmitButton_Click(object sender, EventArgs e)
         {
+            if(listOfPurchase.Count==0)
+            {
+                messageLabel.Text = "No Product is added";
+                return;
+            }
             for(int i=0;i<listOfPurchase.Count;i++)
             {
                 listOfPurchase[i].Date= Convert.ToDateTime(listOfPurchase[i].Date).ToString("yyyy-MM-dd");
