@@ -88,7 +88,7 @@ namespace SBMSystem
             purchase.SL = listOfPurchase.Count + 1;
             purchase.SupplierCode = supplierComboBox.SelectedValue.ToString();
             purchase.BillNo = invoiceNoTextBox.Text;
-            purchase.Date = Convert.ToDateTime(dateTextBox.Text).ToString("yyyy-MM-dd");
+            purchase.Date = Convert.ToDateTime(dateTextBox.Text).ToString("dd-MM-yyyy");
             purchase.ProductCode = productsComboBox.SelectedValue.ToString();
             purchase.ManufacturedDate= Convert.ToDateTime(manufacturedDateTextBox.Text).ToString("dd-MM-yyyy");
             purchase.ExpireDate= Convert.ToDateTime(expireDateTextBox.Text).ToString("dd-MM-yyyy");
@@ -141,13 +141,13 @@ namespace SBMSystem
             {
                 index = Convert.ToInt32(purchaseDataGridView.Rows[e.RowIndex].Cells["SL"].Value);
                 productsComboBox.SelectedValue = listOfPurchase[index - 1].ProductCode;
-                manufacturedDateTextBox.Text = listOfPurchase[index - 1].ManufacturedDate;
-                expireDateTextBox.Text = listOfPurchase[index - 1].ExpireDate;
+                manufacturedDateTextBox.Text = Convert.ToDateTime(listOfPurchase[index - 1].ManufacturedDate).ToString("dd-MM-yyyy");
+                expireDateTextBox.Text = Convert.ToDateTime(listOfPurchase[index - 1].ExpireDate).ToString("dd-MM-yyyy");
                 quantityTextBox.Text = listOfPurchase[index - 1].Quantity.ToString();
                 unitPriceTextBox.Text = listOfPurchase[index - 1].UnitPrice.ToString();
                 remarkRichTextBox.Text = listOfPurchase[index - 1].Remarks;
                 supplierComboBox.SelectedValue = listOfPurchase[index - 1].SupplierCode;
-                dateTextBox.Text = listOfPurchase[index - 1].Date;
+                dateTextBox.Text = Convert.ToDateTime(listOfPurchase[index - 1].Date).ToString("dd-MM-yyyy");
                 invoiceNoTextBox.Text = listOfPurchase[index - 1].BillNo;
                 AddButton.Text = "Confirm";
             }
@@ -167,6 +167,9 @@ namespace SBMSystem
         {
             for(int i=0;i<listOfPurchase.Count;i++)
             {
+                listOfPurchase[i].Date= Convert.ToDateTime(listOfPurchase[i].Date).ToString("yyyy-MM-dd");
+                listOfPurchase[i].ManufacturedDate = Convert.ToDateTime(listOfPurchase[i].ManufacturedDate).ToString("yyyy-MM-dd");
+                listOfPurchase[i].ExpireDate = Convert.ToDateTime(listOfPurchase[i].ExpireDate).ToString("yyyy-MM-dd");
                 _purchaseManager.AddPurchase(listOfPurchase[i]);
                 product = new Product();
                 product.CurrentMRP = listOfPurchase[i].MRP;

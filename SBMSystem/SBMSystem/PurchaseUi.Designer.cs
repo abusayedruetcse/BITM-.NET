@@ -36,7 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.invoiceNoTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.messageLabel = new System.Windows.Forms.Label();
@@ -55,18 +54,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.quantityTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.expireDateTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.codeTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.manufacturedDateTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.productsComboBox = new System.Windows.Forms.ComboBox();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.purchaseDataGridView = new System.Windows.Forms.DataGridView();
-            this.purchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.SubmitButton = new System.Windows.Forms.Button();
             this.SL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.manufacturedDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,6 +76,11 @@
             this.supplierCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.billNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.purchaseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.SubmitButton = new System.Windows.Forms.Button();
+            this.dateTextBox = new System.Windows.Forms.TextBox();
+            this.manufacturedDateTextBox = new System.Windows.Forms.TextBox();
+            this.expireDateTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -91,12 +91,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dateTextBox);
             this.groupBox1.Controls.Add(this.AddSupplierButton);
             this.groupBox1.Controls.Add(this.supplierComboBox);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.invoiceNoTextBox);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.dateTextBox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(189, 12);
             this.groupBox1.Name = "groupBox1";
@@ -157,13 +157,6 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Bill / Invoice No: ";
             // 
-            // dateTextBox
-            // 
-            this.dateTextBox.Location = new System.Drawing.Point(185, 34);
-            this.dateTextBox.Name = "dateTextBox";
-            this.dateTextBox.Size = new System.Drawing.Size(239, 22);
-            this.dateTextBox.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -175,6 +168,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.expireDateTextBox);
+            this.groupBox2.Controls.Add(this.manufacturedDateTextBox);
             this.groupBox2.Controls.Add(this.messageLabel);
             this.groupBox2.Controls.Add(this.AddButton);
             this.groupBox2.Controls.Add(this.label14);
@@ -191,11 +186,9 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.quantityTextBox);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.expireDateTextBox);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.codeTextBox);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.manufacturedDateTextBox);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.productsComboBox);
             this.groupBox2.Controls.Add(this.label4);
@@ -339,13 +332,6 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "Quantity";
             // 
-            // expireDateTextBox
-            // 
-            this.expireDateTextBox.Location = new System.Drawing.Point(144, 169);
-            this.expireDateTextBox.Name = "expireDateTextBox";
-            this.expireDateTextBox.Size = new System.Drawing.Size(222, 22);
-            this.expireDateTextBox.TabIndex = 13;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -370,13 +356,6 @@
             this.label6.Size = new System.Drawing.Size(41, 16);
             this.label6.TabIndex = 10;
             this.label6.Text = "Code";
-            // 
-            // manufacturedDateTextBox
-            // 
-            this.manufacturedDateTextBox.Location = new System.Drawing.Point(144, 130);
-            this.manufacturedDateTextBox.Name = "manufacturedDateTextBox";
-            this.manufacturedDateTextBox.Size = new System.Drawing.Size(222, 22);
-            this.manufacturedDateTextBox.TabIndex = 9;
             // 
             // label5
             // 
@@ -439,20 +418,6 @@
             this.purchaseDataGridView.Size = new System.Drawing.Size(810, 170);
             this.purchaseDataGridView.TabIndex = 2;
             this.purchaseDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.purchaseDataGridView_CellContentClick);
-            // 
-            // purchaseBindingSource
-            // 
-            this.purchaseBindingSource.DataSource = typeof(SBMSystem.Models.Models.Purchase);
-            // 
-            // SubmitButton
-            // 
-            this.SubmitButton.Location = new System.Drawing.Point(769, 660);
-            this.SubmitButton.Name = "SubmitButton";
-            this.SubmitButton.Size = new System.Drawing.Size(75, 33);
-            this.SubmitButton.TabIndex = 29;
-            this.SubmitButton.Text = "Submit";
-            this.SubmitButton.UseVisualStyleBackColor = true;
-            this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
             // 
             // SL
             // 
@@ -551,6 +516,41 @@
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             this.dateDataGridViewTextBoxColumn.Visible = false;
             // 
+            // purchaseBindingSource
+            // 
+            this.purchaseBindingSource.DataSource = typeof(SBMSystem.Models.Models.Purchase);
+            // 
+            // SubmitButton
+            // 
+            this.SubmitButton.Location = new System.Drawing.Point(769, 660);
+            this.SubmitButton.Name = "SubmitButton";
+            this.SubmitButton.Size = new System.Drawing.Size(75, 33);
+            this.SubmitButton.TabIndex = 29;
+            this.SubmitButton.Text = "Submit";
+            this.SubmitButton.UseVisualStyleBackColor = true;
+            this.SubmitButton.Click += new System.EventHandler(this.SubmitButton_Click);
+            // 
+            // dateTextBox
+            // 
+            this.dateTextBox.Location = new System.Drawing.Point(185, 34);
+            this.dateTextBox.Name = "dateTextBox";
+            this.dateTextBox.Size = new System.Drawing.Size(239, 22);
+            this.dateTextBox.TabIndex = 7;
+            // 
+            // manufacturedDateTextBox
+            // 
+            this.manufacturedDateTextBox.Location = new System.Drawing.Point(144, 130);
+            this.manufacturedDateTextBox.Name = "manufacturedDateTextBox";
+            this.manufacturedDateTextBox.Size = new System.Drawing.Size(222, 22);
+            this.manufacturedDateTextBox.TabIndex = 30;
+            // 
+            // expireDateTextBox
+            // 
+            this.expireDateTextBox.Location = new System.Drawing.Point(144, 169);
+            this.expireDateTextBox.Name = "expireDateTextBox";
+            this.expireDateTextBox.Size = new System.Drawing.Size(222, 22);
+            this.expireDateTextBox.TabIndex = 31;
+            // 
             // PurchaseUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -585,7 +585,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox invoiceNoTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox dateTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button AddButton;
@@ -603,11 +602,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox quantityTextBox;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox expireDateTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox codeTextBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox manufacturedDateTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox productsComboBox;
         private System.Windows.Forms.Label label4;
@@ -632,5 +629,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn supplierCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn billNoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox dateTextBox;
+        private System.Windows.Forms.TextBox expireDateTextBox;
+        private System.Windows.Forms.TextBox manufacturedDateTextBox;
     }
 }
