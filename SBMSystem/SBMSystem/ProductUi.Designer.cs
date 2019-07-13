@@ -61,6 +61,8 @@
             this.categoryCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageProductDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.availableQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.currentMRPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -185,7 +187,9 @@
             this.DeleteButton,
             this.categoryCodeDataGridViewTextBoxColumn,
             this.imageProductDataGridViewTextBoxColumn,
-            this.availableQuantityDataGridViewTextBoxColumn});
+            this.availableQuantityDataGridViewTextBoxColumn,
+            this.currentMRPDataGridViewTextBoxColumn,
+            this.unitPriceDataGridViewTextBoxColumn});
             this.productDataGridView.DataSource = this.productBindingSource;
             this.productDataGridView.Location = new System.Drawing.Point(32, 416);
             this.productDataGridView.Name = "productDataGridView";
@@ -332,6 +336,20 @@
             this.availableQuantityDataGridViewTextBoxColumn.Name = "availableQuantityDataGridViewTextBoxColumn";
             this.availableQuantityDataGridViewTextBoxColumn.Visible = false;
             // 
+            // currentMRPDataGridViewTextBoxColumn
+            // 
+            this.currentMRPDataGridViewTextBoxColumn.DataPropertyName = "CurrentMRP";
+            this.currentMRPDataGridViewTextBoxColumn.HeaderText = "CurrentMRP";
+            this.currentMRPDataGridViewTextBoxColumn.Name = "currentMRPDataGridViewTextBoxColumn";
+            this.currentMRPDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // unitPriceDataGridViewTextBoxColumn
+            // 
+            this.unitPriceDataGridViewTextBoxColumn.DataPropertyName = "UnitPrice";
+            this.unitPriceDataGridViewTextBoxColumn.HeaderText = "UnitPrice";
+            this.unitPriceDataGridViewTextBoxColumn.Name = "unitPriceDataGridViewTextBoxColumn";
+            this.unitPriceDataGridViewTextBoxColumn.Visible = false;
+            // 
             // ProductUi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -402,6 +420,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn categoryCodeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn imageProductDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn availableQuantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn currentMRPDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource productBindingSource;
     }
 }

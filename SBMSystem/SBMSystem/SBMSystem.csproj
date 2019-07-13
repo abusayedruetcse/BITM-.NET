@@ -60,6 +60,12 @@
     <Compile Include="CustomerUi.Designer.cs">
       <DependentUpon>CustomerUi.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuListUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuListUi.Designer.cs">
+      <DependentUpon>MenuListUi.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProductUi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurchaseUi.Designer.cs">
+      <DependentUpon>PurchaseUi.cs</DependentUpon>
+    </Compile>
     <Compile Include="SupplierUi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerUi.resx">
       <DependentUpon>CustomerUi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuListUi.resx">
+      <DependentUpon>MenuListUi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductUi.resx">
       <DependentUpon>ProductUi.cs</DependentUpon>
@@ -92,11 +107,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PurchaseUi.resx">
+      <DependentUpon>PurchaseUi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SupplierUi.resx">
       <DependentUpon>SupplierUi.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\SBMSystem.Models.Models.Category.datasource" />
     <None Include="Properties\DataSources\SBMSystem.Models.Models.Product.datasource" />
+    <None Include="Properties\DataSources\SBMSystem.Models.Models.Purchase.datasource" />
+    <None Include="Properties\DataSources\SBMSystem.Models.Models.Supplier.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

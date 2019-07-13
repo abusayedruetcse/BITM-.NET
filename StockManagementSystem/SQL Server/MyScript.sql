@@ -1,4 +1,4 @@
-CREATE DATABASE A
+CREATE DATABASE ABCDB
 CREATE DATABASE StockManagementDB
 --DROP DATABASE StockManagementDB
 -- //connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS;Database=StockManagementDB;Integrated Security=True";

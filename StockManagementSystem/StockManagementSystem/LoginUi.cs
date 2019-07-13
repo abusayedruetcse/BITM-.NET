@@ -19,6 +19,7 @@ namespace StockManagementSystem
         {
             InitializeComponent();
             _logInManager = new LogInManager();
+            messageLabel.ForeColor = Color.Red;
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -29,7 +30,18 @@ namespace StockManagementSystem
         }
 
         private void LogInButton_Click(object sender, EventArgs e)
-        {           
+        {
+            messageLabel.Text = "";
+            if(String.IsNullOrEmpty(userNameTextBox.Text))
+            {
+                messageLabel.Text = "Enter User Name";
+                return;
+            } 
+            if(String.IsNullOrEmpty(passwordTextBox.Text))
+            {
+                messageLabel.Text = "Enter Password";
+                return;
+            }
             UserAccount.Email = userNameTextBox.Text;
             UserAccount.UserName = userNameTextBox.Text;
             UserAccount.Password = passwordTextBox.Text;

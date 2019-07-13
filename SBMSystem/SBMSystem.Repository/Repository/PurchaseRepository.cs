@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SBMSystem.Repository.Repository
 {
-    public class ProductRepository
+    public class PurchaseRepository
     {
         string connectionString;
         SqlConnection sqlConnection;
@@ -17,15 +17,15 @@ namespace SBMSystem.Repository.Repository
         SqlCommand sqlCommand;
         SqlDataAdapter sqlDataAdapter;
         DataTable dataTable;
-        public ProductRepository()
+        public PurchaseRepository()
         {
             //connectionString = @"Server=PC-301-17\SQLEXPRESS; Database=SBMSDB;Integrated Security=True";
             connectionString = @"Server=DESKTOP-AAHS936\SQLEXPRESS; Database=SBMSDB;Integrated Security=True";
             sqlConnection = new SqlConnection(connectionString);
         }
-        public DataTable LoadCategoryToComboBox()
+        public DataTable LoadSupplierToComboBox()
         {
-            commandString = @"SELECT * FROM Categories";
+            commandString = @"SELECT * FROM Suppliers";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             sqlDataAdapter = new SqlDataAdapter(sqlCommand);
@@ -34,58 +34,60 @@ namespace SBMSystem.Repository.Repository
             sqlConnection.Close();
             return dataTable;
         }
-        public bool AddProduct(Product product)
+        public DataTable LoadProductToComboBox()
+        {
+            commandString = @"SELECT * FROM Products";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            sqlConnection.Close();
+            return dataTable;
+        }
+        public DataTable GetProductByCode(Product product)
+        {
+            commandString = @"SELECT * FROM Products WHERE Code='"+product.Code+"'";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            sqlConnection.Close();
+            return dataTable;
+        }
+        public bool AddPurchase(Purchase purchase)
         {
             int isExecuted = 0;
-            commandString = @"INSERT INTO Products VALUES('" + product.Code + "','" + product.Name + "','"+product.CategoryCode+"',"+product.ReorderLevel+" ,' "+product.ImageProduct+" ','"+product.Description+"',"+product.AvailableQuantity+","+product.CurrentMRP+","+product.UnitPrice+")";
+            commandString = @"INSERT INTO Purchases VALUES('"+purchase.SupplierCode+"','"+purchase.BillNo+"','"+purchase.Date+"','"+purchase.ProductCode+"','"+purchase.ManufacturedDate+"','"+purchase.ExpireDate+"',"+purchase.Quantity+","+purchase.UnitPrice+","+purchase.MRP+",'"+purchase.Remarks+"')";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             isExecuted = sqlCommand.ExecuteNonQuery();
             sqlConnection.Close();
             return isExecuted > 0;
         } 
-        public DataTable GetProducts()
+        public int GetAvailableQuantity(Product product)
         {
-            commandString = @"SELECT p.Code AS Code,p.Name AS Name, c.Name AS Category, ReorderLevel,ImageProduct, Description FROM Products AS p LEFT JOIN Categories AS c ON p.CategoryCode=c.Code";
+            commandString = @"SELECT AvailableQuantity FROM Products WHERE Code='" + product.Code + "'";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             sqlDataAdapter = new SqlDataAdapter(sqlCommand);
             dataTable = new DataTable();
             sqlDataAdapter.Fill(dataTable);
             sqlConnection.Close();
-            return dataTable;
+            return Convert.ToInt32(dataTable.Rows[0]["AvailableQuantity"]);
         }
         public bool UpdateProduct(Product product)
         {
             int isExecuted = 0;
-            commandString = @"UPDATE Products SET Name='"+product.Name+"',CategoryCode='"+product.CategoryCode+"',ReorderLevel='"+product.ReorderLevel+"',ImageProduct='"+product.ImageProduct+"',Description='"+product.Description+"' WHERE Code='"+product.Code+"'";
+            commandString = @"UPDATE Products SET AvailableQuantity= "+product.AvailableQuantity+ ", CurrentMRP="+product.CurrentMRP+ ",UnitPrice="+product.UnitPrice+" WHERE Code='" + product.Code + "'";
             sqlCommand = new SqlCommand(commandString, sqlConnection);
             sqlConnection.Open();
             isExecuted = sqlCommand.ExecuteNonQuery();
             sqlConnection.Close();
             return isExecuted > 0;
         }
-        public bool DeleteProduct(Product product)
-        {
-            int isExecuted = 0;
-            commandString = @"DELETE Products WHERE Code='" + product.Code + "'";
-            sqlCommand = new SqlCommand(commandString, sqlConnection);
-            sqlConnection.Open();
-            isExecuted = sqlCommand.ExecuteNonQuery();
-            sqlConnection.Close();
-            return isExecuted > 0;
-        }
-        public bool IsCodeDuplicate(Product product)
-        {
-            commandString = @"SELECT * FROM Products WHERE Code='" + product.Code + "'";
-            sqlCommand = new SqlCommand(commandString, sqlConnection);
-            sqlConnection.Open();
-            sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-            dataTable = new DataTable();
-            sqlDataAdapter.Fill(dataTable);
-            sqlConnection.Close();
-            return dataTable.Rows.Count > 0;
-        }
+
 
     }
 }

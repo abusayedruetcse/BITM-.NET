@@ -117,6 +117,8 @@ namespace SBMSystem
             if(SaveButton.Text.Equals("Save"))
             {
                 product.AvailableQuantity = 0;
+                product.CurrentMRP = 0;
+                product.UnitPrice = 0;
                 product.Code = codeTextBox.Text;
                 if(_productManager.IsCodeDuplicate(product))
                 {

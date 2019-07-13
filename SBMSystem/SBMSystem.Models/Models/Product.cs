@@ -15,6 +15,8 @@ namespace SBMSystem.Models.Models
         public string ImageProduct { get; set; }
         public string Description { get; set; }
         public int AvailableQuantity { get; set; }
+        public int CurrentMRP { get; set; }
+        public int UnitPrice { get; set; }
 
     }
 }
