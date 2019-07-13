@@ -49,7 +49,8 @@ namespace SBMSystem
 
         private void salesLabel_Click(object sender, EventArgs e)
         {
-            
+            SalesUi salesUi = new SalesUi();
+            salesUi.Show();
         }
     }
 }

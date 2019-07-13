@@ -80,6 +80,12 @@
     <Compile Include="PurchaseUi.Designer.cs">
       <DependentUpon>PurchaseUi.cs</DependentUpon>
     </Compile>
+    <Compile Include="SalesUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesUi.Designer.cs">
+      <DependentUpon>SalesUi.cs</DependentUpon>
+    </Compile>
     <Compile Include="SupplierUi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,12 +116,17 @@
     <EmbeddedResource Include="PurchaseUi.resx">
       <DependentUpon>PurchaseUi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SalesUi.resx">
+      <DependentUpon>SalesUi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SupplierUi.resx">
       <DependentUpon>SupplierUi.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\SBMSystem.Models.Models.Category.datasource" />
+    <None Include="Properties\DataSources\SBMSystem.Models.Models.Customer.datasource" />
     <None Include="Properties\DataSources\SBMSystem.Models.Models.Product.datasource" />
     <None Include="Properties\DataSources\SBMSystem.Models.Models.Purchase.datasource" />
+    <None Include="Properties\DataSources\SBMSystem.Models.Models.Sales.datasource" />
     <None Include="Properties\DataSources\SBMSystem.Models.Models.Supplier.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

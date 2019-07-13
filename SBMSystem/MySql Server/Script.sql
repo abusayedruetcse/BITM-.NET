@@ -50,6 +50,16 @@ UnitPrice int,
 MRP int,
 Remarks VARCHAR(45)
 )
+CREATE TABLE Sales 
+(
+CustomerCode VARCHAR(15),
+Date VARCHAR(20),
+ProductCode VARCHAR(15),
+Quantity int,
+UnitPrice int
+)
+
+
 
 -- DROP TABLE Products
 -- DROP TABLE Customers
@@ -64,3 +74,6 @@ SET Name='',CategoryCode='',ReorderLevel='',ImageProduct='',Description=''
 WHERE Code=''
 SELECT * FROM Customers WHERE Code='001'
 SELECT * FROM Suppliers
+SELECT * FROM Purchases
+ORDER BY Date DESC
+DELETE Purchases
