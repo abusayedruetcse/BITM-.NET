@@ -98,6 +98,13 @@
                                         <label for="lastName">Last Name</label>
                                         <input type="text" class="form-control" id="lastName" placeholder="Last name">
                                     </div>
+                                    
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="fullName">Full Name</label>
+                                        <input type="text" class="form-control" id="fullName" placeholder="Full name">
+                                    </div>
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
@@ -137,7 +144,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6" id="divNew">
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -174,11 +181,16 @@
 <script>
     $(document).ready(function () {
         $("#firstName").click(function () {
-            alert("First Name is Clicked");
+            //alert("First Name is Clicked");
         }); 
         $("#lastName").click(function () {
             alert("Last Name is Clicked");
         });
+        $("#firstName").keyup(function () {
+            var firstName = $("#firstName").val();
+            $("#fullName").val(firstName);
+        });
+        
     });
    
 </script>    
