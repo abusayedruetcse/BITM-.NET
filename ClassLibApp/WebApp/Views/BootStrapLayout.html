@@ -190,6 +190,28 @@
             var firstName = $("#firstName").val();
             $("#fullName").val(firstName);
         });
+        $("#save").click(function () {
+            var firstName = $("#firstName").val();
+            if (firstName == "") {
+                alert("Enter First Name");
+                return;
+            } 
+            var lastName = $("#lastName").val();
+            if (lastName == "") {
+                alert("Enter Last Name");
+                return;
+            } 
+            var email = $("#inputEmail4").val();
+            if (email == "") {
+                alert("Enter Email");
+                return;
+            } 
+            var password = $("#inputPassword4").val();
+            if (password == "") {
+                alert("Enter Password");
+            }
+        });
+
         
     });
    
