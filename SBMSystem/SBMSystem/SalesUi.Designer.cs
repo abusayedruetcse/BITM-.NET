@@ -181,7 +181,7 @@
             this.groupBox2.Controls.Add(this.salesDataGridView);
             this.groupBox2.Location = new System.Drawing.Point(384, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(488, 482);
+            this.groupBox2.Size = new System.Drawing.Size(488, 521);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Product Details";
@@ -362,7 +362,7 @@
             this.groupBox3.Controls.Add(this.productComboBox);
             this.groupBox3.Location = new System.Drawing.Point(12, 237);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(366, 258);
+            this.groupBox3.Size = new System.Drawing.Size(366, 296);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Product";
@@ -453,7 +453,7 @@
             // saveMessageLabel
             // 
             this.saveMessageLabel.AutoSize = true;
-            this.saveMessageLabel.Location = new System.Drawing.Point(18, 445);
+            this.saveMessageLabel.Location = new System.Drawing.Point(18, 491);
             this.saveMessageLabel.Name = "saveMessageLabel";
             this.saveMessageLabel.Size = new System.Drawing.Size(0, 16);
             this.saveMessageLabel.TabIndex = 23;
@@ -461,7 +461,7 @@
             // addMessageLabel
             // 
             this.addMessageLabel.AutoSize = true;
-            this.addMessageLabel.Location = new System.Drawing.Point(11, 217);
+            this.addMessageLabel.Location = new System.Drawing.Point(11, 253);
             this.addMessageLabel.Name = "addMessageLabel";
             this.addMessageLabel.Size = new System.Drawing.Size(0, 16);
             this.addMessageLabel.TabIndex = 15;
@@ -479,6 +479,7 @@
             this.Name = "SalesUi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sales";
+            this.Load += new System.EventHandler(this.SalesUi_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerBindingSource)).EndInit();
