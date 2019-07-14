@@ -20,6 +20,10 @@ namespace SBMSystem
         Product product;
         List<Sales> listOfSales;
         Sales sales;
+        double grandTotal = 0;
+        double discountPercentage = 0;
+        double discountAmount = 0;
+        double payableAmount = 0;
         public SalesUi()
         {
             InitializeComponent();
@@ -72,15 +76,29 @@ namespace SBMSystem
             sales.Date = dateTextBox.Text;
             sales.ProductCode = productComboBox.SelectedValue.ToString();
             sales.Quantity = Convert.ToInt32(quantityTextBox.Text);
-            sales.UnitPrice = Convert.ToInt32(unitPriceTextBox.Text);
+            sales.UnitPrice = Convert.ToDouble(unitPriceTextBox.Text);
             sales.SL = listOfSales.Count + 1;
             sales.Product = productComboBox.Text;
-            sales.TotalPrice = sales.Quantity * sales.UnitPrice;
+            sales.TotalPrice = (Double)sales.Quantity * sales.UnitPrice;            
+            grandTotal += sales.TotalPrice;
+            discountPercentage = Convert.ToDouble(loyaltyPointTextBox.Text) / 10;
+            sales.PayableAmount= sales.TotalPrice - (sales.TotalPrice * discountPercentage/100);
+            discountAmount += sales.TotalPrice * discountPercentage/100;
+            payableAmount += sales.PayableAmount;
             listOfSales.Add(sales);
             Display();
+            
         } 
         private void Display()
         {
+            productComboBox.Text = "-Select-";
+            availableQuantityTextBox.Text = "<View>";
+            quantityTextBox.Text = "";
+            unitPriceTextBox.Text = "";
+            grandTotalTextBox.Text = grandTotal.ToString();
+            discountPercentTextBox.Text = discountPercentage.ToString();
+            discountAmountTextBox.Text = discountAmount.ToString();
+            payableAmountTextBox.Text = payableAmount.ToString();
             salesDataGridView.DataSource = null;
             salesDataGridView.DataSource = listOfSales;
         }
@@ -90,6 +108,9 @@ namespace SBMSystem
             if(salesDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.Equals("Delete"))
             {
                 int index = Convert.ToInt32(salesDataGridView.Rows[e.RowIndex].Cells["sLDataGridViewTextBoxColumn"].Value);
+                grandTotal -= listOfSales[index - 1].TotalPrice;
+                discountAmount-=listOfSales[index-1].TotalPrice * discountPercentage / 100;
+                payableAmount -= listOfSales[index - 1].PayableAmount;
                 listOfSales.RemoveAt(index - 1);
                 for (int i = 0; i < listOfSales.Count; i++)
                 {
@@ -97,6 +118,28 @@ namespace SBMSystem
                 }
                 Display();
             }
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            if(listOfSales.Count==0)
+            {
+                saveMessageLabel.Text = "Sales item is empty";
+                return;
+            }
+            for(int i=0;i<listOfSales.Count;i++)
+            {
+                _salesManager.AddSales(listOfSales[i]);
+            }
+            listOfSales = new List<Sales>();
+            dateTextBox.Text = "";
+            loyaltyPointTextBox.Text = "<View>";
+            customerComboBox.Text = "-Select-";            
+            Display();
+            grandTotalTextBox.Text = "<View>";
+            discountPercentTextBox.Text = "";
+            discountAmountTextBox.Text = "";
+            payableAmountTextBox.Text = "";
         }
     }
 }

@@ -67,5 +67,15 @@ namespace SBMSystem.Repository.Repository
             sqlConnection.Close();
             return dataTable;
         }
+        public bool AddSales(Sales sales)
+        {
+            int isExecuted = 0;
+            commandString = @"INSERT INTO Sales VALUES('"+sales.CustomerCode+"','"+sales.Date+"','"+sales.ProductCode+"',"+sales.Quantity+","+sales.PayableAmount+")";
+            sqlCommand = new SqlCommand(commandString, sqlConnection);
+            sqlConnection.Open();
+            isExecuted = sqlCommand.ExecuteNonQuery();
+            sqlConnection.Close();
+            return isExecuted > 0;
+        }
     }
 }

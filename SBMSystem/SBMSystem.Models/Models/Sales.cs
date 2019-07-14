@@ -12,11 +12,12 @@ namespace SBMSystem.Models.Models
         public string Date { get; set; }
         public string ProductCode { get; set; }
         public int Quantity { get; set; }
-        public int UnitPrice { get; set; }
+        public double PayableAmount { get; set; }
         //
         public int SL { get; set; }
         public string Product { get; set; }
-        public int TotalPrice { get; set; }
+        public double TotalPrice { get; set; }
+        public double UnitPrice { get; set; }
         public string Action { get { return "Delete"; } }        
     }
 }

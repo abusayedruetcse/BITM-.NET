@@ -32,6 +32,10 @@ namespace SBMSystem.BLL.BLL
         {
             return _salesRepository.GetAvailableQuantityAndUnitPrice(product);
         }
+        public bool AddSales(Sales sales)
+        {
+            return _salesRepository.AddSales(sales);
+        }
 
 
 

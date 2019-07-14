@@ -56,13 +56,14 @@ CustomerCode VARCHAR(15),
 Date VARCHAR(20),
 ProductCode VARCHAR(15),
 Quantity int,
-UnitPrice int
+PayableAmount NUMERIC(9,2)
 )
 
 
 
 -- DROP TABLE Products
 -- DROP TABLE Customers
+--- DROP TABLE Sales  
 SELECT * FROM Categories
 INSERT INTO Categories VALUES('','');
 UPDATE Categories SET Name='Machinaries' WHERE Code='000'
