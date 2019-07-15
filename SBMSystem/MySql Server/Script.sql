@@ -76,5 +76,6 @@ WHERE Code=''
 SELECT * FROM Customers WHERE Code='001'
 SELECT * FROM Suppliers
 SELECT * FROM Purchases
+SELECT * FROM Sales
 ORDER BY Date DESC
 DELETE Purchases
