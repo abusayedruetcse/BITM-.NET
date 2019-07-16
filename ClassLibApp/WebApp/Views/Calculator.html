@@ -29,24 +29,6 @@
             <div class="row">
                 <div class="col-md" id="mainContent">
                     <div class="form-row">
-                        <div class="col-1">
-                            <input type="checkbox" id="addCheckBox">
-                            <label>Add</label>
-                        </div>
-                        <div class="col-1">
-                            <input type="checkbox" id="subtractCheckBox">
-                            <label>Subtract</label>
-                        </div>
-                        <div class="col-1">
-                            <input type="checkbox" id="multiplyCheckBox" />
-                            <label>Multiply</label>
-                        </div>
-                        <div class="col-1">
-                            <input type="checkbox" id="divisionCheckBox" />
-                            <label>Division</label>
-                        </div>
-                    </div>    
-                    <div class="form-row">
                         <div class="col-4">
                             <label>First Number</label>
                             <input type="" class="form-control" id="firstNumber" placeholder="First Number" />
@@ -63,6 +45,27 @@
                             <label>Result</label>
                             <input type="" class="form-control" id="result" placeholder="Result" />
                         </div>
+                        <div class="col-3">
+                            <label id="resultMessageLabel"></label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-1">
+                            <input type="checkbox" id="addCheckBox">
+                            <label>Add</label>
+                        </div>
+                        <div class="col-1">
+                            <input type="checkbox" id="subtractCheckBox">
+                            <label>Subtract</label>
+                        </div>
+                        <div class="col-1">
+                            <input type="checkbox" id="multiplyCheckBox" />
+                            <label>Multiply</label>
+                        </div>
+                        <div class="col-1">
+                            <input type="checkbox" id="divisionCheckBox" />
+                            <label>Division</label>
+                        </div>
                     </div>
 
                 </div>
@@ -74,7 +77,95 @@
     <script src="../Scripts/bootstrap.min.js"></script>
     <script>
         $(document).ready(function () {
+            $("#addCheckBox").click(function () {                
+                if ($(this).prop("checked") == true) {
+                    $("#subtractCheckBox").prop('checked', false);
+                    $("#multiplyCheckBox").prop('checked', false);
+                    $("#divisionCheckBox").prop('checked', false);
+                    if ($("#firstNumber").val() == "") {
+                        alert("Enter First Number");
+                        return;
+                    }
+                    if ($("#secondNumber").val() == "") {
+                        alert("Enter second number");
+                        return;
+                    }
+                    var firstNumber = parseInt($("#firstNumber").val());
+                    var secondNumber = parseInt($("#secondNumber").val());
+                    var result = firstNumber + secondNumber;
+                    $("#result").val(result);
+                }
+            }); 
+            $("#subtractCheckBox").click(function () {
+                if ($(this).prop("checked") == true) {
+                    $("#addCheckBox").prop('checked', false);
+                    $("#multiplyCheckBox").prop('checked', false);
+                    $("#divisionCheckBox").prop('checked', false);
+                    if ($("#firstNumber").val() == "") {
+                        alert("Enter First Number");
+                        return;
+                    }
+                    if ($("#secondNumber").val() == "") {
+                        alert("Enter second number");
+                        return;
+                    }
+                    var firstNumber = parseInt($("#firstNumber").val());
+                    var secondNumber = parseInt($("#secondNumber").val());
+                    var result = firstNumber - secondNumber;
+                    $("#result").val(result);
+                }
+            }); 
+            $("#multiplyCheckBox").click(function () {
+                if ($(this).prop("checked") == true) {
+                    $("#addCheckBox").prop('checked', false);
+                    $("#subtractCheckBox").prop('checked', false);
+                    $("#divisionCheckBox").prop('checked', false);
+                    if ($("#firstNumber").val() == "") {
+                        alert("Enter First Number");
+                        return;
+                    }
+                    if ($("#secondNumber").val() == "") {
+                        alert("Enter second number");
+                        return;
+                    }
+                    var firstNumber = parseInt($("#firstNumber").val());
+                    var secondNumber = parseInt($("#secondNumber").val());
+                    var result = firstNumber * secondNumber;
+                    $("#result").val(result);
+                }
+            }); 
+            $("#divisionCheckBox").click(function () {
+                if ($(this).prop("checked") == true) {
+                    $("#addCheckBox").prop('checked', false);
+                    $("#subtractCheckBox").prop('checked', false);
+                    $("#multiplyCheckBox").prop('checked', false);
+                    if ($("#firstNumber").val() == "") {
+                        alert("Enter First Number");
+                        return;
+                    }
+                    if ($("#secondNumber").val() == "") {
+                        alert("Enter second number");
+                        return;
+                    }
+                    var firstNumber = parseInt($("#firstNumber").val());
+                    var secondNumber = parseInt($("#secondNumber").val());
+                    if (secondNumber == 0) {
+                        $("#result").val("Infinite");
+                        return;
+                    }
+                    var result = firstNumber / secondNumber;
+                    $("#result").val(result);
+                }
+            });
             $("#firstNumber").keyup(function () {
+                if ($("#firstNumber").val() == "") {
+                    alert("Enter First Number");
+                    return;
+                }
+                if ($("#secondNumber").val() == "") {
+                    alert("Enter second number");
+                    return;
+                }
                 var firstNumber = $("#firstNumber").val();
                 var secondNumber = $("#secondNumber").val();
                 var result;
@@ -97,17 +188,29 @@
                 $("#result").val(result);
             }); 
             $("#secondNumber").keyup(function () {
+                if ($("#firstNumber").val() == "") {
+                    alert("Enter First Number");
+                    return;
+                }
+                if ($("#secondNumber").val() == "") {
+                    alert("Enter second number");
+                    return;
+                }
                 var firstNumber = $("#firstNumber").val();
                 var secondNumber = $("#secondNumber").val();
                 var result;
+                var isOperationSet = false;
                 if ($("#addCheckBox").prop("checked") == true) {
                     result = parseInt(firstNumber) + parseInt(secondNumber);
+                    isOperationSet = true;
                 }
                 if ($("#subtractCheckBox").prop("checked") == true) {
                     result = firstNumber - secondNumber;
+                    isOperationSet = true;
                 }
                 if ($("#multiplyCheckBox").prop("checked") == true) {
                     result = firstNumber * secondNumber;
+                    isOperationSet = true;
                 }
                 if ($("#divisionCheckBox").prop("checked") == true) {
                     if (secondNumber == 0) {
@@ -115,6 +218,10 @@
                         return;
                     }
                     result = firstNumber / secondNumber;
+                    isOperationSet = true;
+                }
+                if (!isOperationSet) {
+                    alert("Select operation");
                 }
                 $("#result").val(result);
             });
