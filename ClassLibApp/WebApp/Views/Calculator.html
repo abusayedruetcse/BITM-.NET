@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Calculator</title>
+    <style>
+        #header{
+            height: 50px;
+            background-color: burlywood;
+            font-size: xx-large;
+            text-align: center;
+        }
+        #mainContent{
+            background-color: aliceblue;
+            width:50px;
+            float: left;
+        }
+    </style>
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md" id="header">
+                    Calculator
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md" id="mainContent">
+                    <div class="form-row">
+                        <div class="col-1">
+                            <input type="checkbox" id="addCheckBox">
+                            <label>Add</label>
+                        </div>
+                        <div class="col-1">
+                            <input type="checkbox" id="subtractCheckBox">
+                            <label>Subtract</label>
+                        </div>
+                        <div class="col-1">
+                            <input type="checkbox" id="multiplyCheckBox" />
+                            <label>Multiply</label>
+                        </div>
+                        <div class="col-1">
+                            <input type="checkbox" id="divisionCheckBox" />
+                            <label>Division</label>
+                        </div>
+                    </div>    
+                    <div class="form-row">
+                        <div class="col-4">
+                            <label>First Number</label>
+                            <input type="" class="form-control" id="firstNumber" placeholder="First Number" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-4">
+                            <label>Second Number</label>
+                            <input type="" class="form-control" id="secondNumber" placeholder="Second Number" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-4">
+                            <label>Result</label>
+                            <input type="" class="form-control" id="result" placeholder="Result" />
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="../Scripts/jquery-3.0.0.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#firstNumber").keyup(function () {
+                var firstNumber = $("#firstNumber").val();
+                var secondNumber = $("#secondNumber").val();
+                var result;
+                if ($("#addCheckBox").prop("checked") == true) {
+                    result = parseInt(firstNumber) + parseInt(secondNumber);
+                }
+                if ($("#subtractCheckBox").prop("checked") == true) {
+                    result = firstNumber - secondNumber;
+                }
+                if ($("#multiplyCheckBox").prop("checked") == true) {
+                    result = firstNumber * secondNumber;
+                }
+                if ($("#divisionCheckBox").prop("checked") == true) {
+                    if (secondNumber == 0) {
+                        $("#result").val("Infinite");
+                        return;
+                    }
+                    result = firstNumber / secondNumber;
+                }
+                $("#result").val(result);
+            }); 
+            $("#secondNumber").keyup(function () {
+                var firstNumber = $("#firstNumber").val();
+                var secondNumber = $("#secondNumber").val();
+                var result;
+                if ($("#addCheckBox").prop("checked") == true) {
+                    result = parseInt(firstNumber) + parseInt(secondNumber);
+                }
+                if ($("#subtractCheckBox").prop("checked") == true) {
+                    result = firstNumber - secondNumber;
+                }
+                if ($("#multiplyCheckBox").prop("checked") == true) {
+                    result = firstNumber * secondNumber;
+                }
+                if ($("#divisionCheckBox").prop("checked") == true) {
+                    if (secondNumber == 0) {
+                        $("#result").val("Infinite");
+                        return;
+                    }
+                    result = firstNumber / secondNumber;
+                }
+                $("#result").val(result);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -111,6 +111,7 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Views\BootStrapLayout.html" />
+    <Content Include="Views\Calculator.html" />
     <Content Include="Views\Home.html" />
     <Content Include="Views\TotalPriceCalculationLayout.html" />
     <Content Include="Web.config" />
