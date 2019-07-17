@@ -13,7 +13,7 @@ namespace MyMVCApp.Controllers
         // GET: Student
         Student _student;
         StudentManager _studentManager;
-        public ActionResult Index()
+        public ActionResult Add()
         {
             _studentManager = new StudentManager();
             _studentManager.Add();
