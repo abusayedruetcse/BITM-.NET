@@ -13,10 +13,16 @@ namespace MyMVCApp.Controllers
         // GET: Student
         Student _student;
         StudentManager _studentManager;
-        public ActionResult Add()
+        public StudentController()
         {
             _studentManager = new StudentManager();
-            _studentManager.Add();
+        }
+        public ActionResult Add()
+        {
+            _student = new Student();
+            _student.ID = 2;
+            _student.Name = "Sayed";
+            _studentManager.Add(_student);
             return View();
         }
     }

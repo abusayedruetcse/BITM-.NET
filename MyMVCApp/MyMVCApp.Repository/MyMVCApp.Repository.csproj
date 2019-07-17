@@ -45,6 +45,10 @@
     <Compile Include="Repository\StudentRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MyMVCApp.DatabaseContext\MyMVCApp.DatabaseContext.csproj">
+      <Project>{FFBDCF70-1730-4D73-BE3E-F7E776742CDE}</Project>
+      <Name>MyMVCApp.DatabaseContext</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyMVCApp.Models\MyMVCApp.Models.csproj">
       <Project>{D36DFEA4-D284-4E31-ABBA-D3CE120C72BD}</Project>
       <Name>MyMVCApp.Models</Name>

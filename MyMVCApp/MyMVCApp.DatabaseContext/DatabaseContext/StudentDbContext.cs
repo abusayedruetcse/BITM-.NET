@@ -10,7 +10,7 @@ namespace MyMVCApp.DatabaseContext.DatabaseContext
 {
     public class StudentDbContext:DbContext 
     {
-        DbSet<Student> Students;
+        public DbSet<Student> Students { get; set; }
 
     }
 }

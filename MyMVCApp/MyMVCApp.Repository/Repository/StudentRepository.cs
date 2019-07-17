@@ -12,9 +12,13 @@ namespace MyMVCApp.Repository.Repository
     {
         Student _student;
         StudentDbContext db;
-        public void Add()
+        public StudentRepository()
         {
-
+            db = new StudentDbContext();
+        }
+        public void Add(Student student)
+        {
+            
         }
     }
 }

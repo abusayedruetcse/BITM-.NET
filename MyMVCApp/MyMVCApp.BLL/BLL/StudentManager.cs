@@ -12,10 +12,13 @@ namespace MyMVCApp.BLL.BLL
     {
         Student _student;
         StudentRepository _studentRepository;
-        public void Add()
+        public StudentManager()
         {
             _studentRepository = new StudentRepository();
-            _studentRepository.Add();
+        }
+        public void Add(Student student)
+        {           
+            _studentRepository.Add(student);
         }
     }
 }
