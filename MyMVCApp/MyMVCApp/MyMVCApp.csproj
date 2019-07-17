@@ -114,6 +114,16 @@
     <Folder Include="Models\" />
     <Folder Include="Views\Student\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyMVCApp.BLL\MyMVCApp.BLL.csproj">
+      <Project>{B99CE032-C23D-4799-8714-81BCBD8A4AB8}</Project>
+      <Name>MyMVCApp.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyMVCApp.Models\MyMVCApp.Models.csproj">
+      <Project>{D36DFEA4-D284-4E31-ABBA-D3CE120C72BD}</Project>
+      <Name>MyMVCApp.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

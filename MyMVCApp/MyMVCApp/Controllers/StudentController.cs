@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyMVCApp.BLL.BLL;
+using MyMVCApp.Models.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,8 +11,12 @@ namespace MyMVCApp.Controllers
     public class StudentController : Controller
     {
         // GET: Student
+        Student _student;
+        StudentManager _studentManager;
         public ActionResult Index()
         {
+            _studentManager = new StudentManager();
+            _studentManager.Add();
             return View();
         }
     }
