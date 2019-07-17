@@ -18,7 +18,8 @@ namespace MyMVCApp.Repository.Repository
         }
         public void Add(Student student)
         {
-            
+            db.Students.Add(student);
+            db.SaveChanges();
         }
     }
 }
