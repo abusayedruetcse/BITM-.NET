@@ -1,4 +1,5 @@
-﻿using MyMVCApp.Models.Models;
+﻿using MyMVCApp.DatabaseContext.DatabaseContext;
+using MyMVCApp.Models.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace MyMVCApp.Repository.Repository
     public class StudentRepository
     {
         Student _student;
+        StudentDbContext db;
         public void Add()
         {
 
