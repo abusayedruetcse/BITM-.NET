@@ -20,5 +20,21 @@ namespace MyMVCApp.BLL.BLL
         {           
             _studentRepository.Add(student);
         }
+        public void Delete(Student student)
+        {
+            _studentRepository.Delete(student);
+        }
+        public void Update(Student student)
+        {
+            _studentRepository.Update(student);
+        }
+        public List<Student> GetStudents()
+        {
+            return _studentRepository.GetStudents();
+        }
+        public Student GetById(Student student)
+        {
+            return _studentRepository.GetById(student);
+        }
     }
 }

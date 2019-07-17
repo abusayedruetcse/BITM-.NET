@@ -21,5 +21,39 @@ namespace MyMVCApp.Repository.Repository
             db.Students.Add(student);
             db.SaveChanges();
         }
+        public void Delete(Student student)
+        {
+            Student aStudent = db.Students.FirstOrDefault(c => c.ID == student.ID);
+            if(aStudent!=null)
+            {
+                db.Students.Remove(aStudent);
+                db.SaveChanges();
+            }
+        }
+        public void Update(Student student)
+        {
+            Student aStudent = db.Students.FirstOrDefault(c => c.ID == student.ID);
+            if(aStudent!=null)
+            {
+                aStudent.Name = student.Name;
+                db.SaveChanges();
+            }  
+        } 
+        public List<Student> GetStudents()
+        {
+            return db.Students.ToList();
+        } 
+        public Student GetById(Student student)
+        {
+            Student aStudent = db.Students.FirstOrDefault(c => c.ID == student.ID);
+            if(aStudent!=null)
+            {
+                return aStudent;
+            } 
+            else
+            {
+                return null;
+            }
+        }
     }
 }

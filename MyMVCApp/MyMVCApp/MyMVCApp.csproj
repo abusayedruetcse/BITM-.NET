@@ -107,9 +107,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="libman.json" />
     <None Include="packages.config" />
     <Content Include="Views\Student\Add.cshtml" />
+    <Content Include="Views\Student\Delete.cshtml" />
+    <Content Include="Views\Student\Update.cshtml" />
+    <Content Include="Views\Student\GetStudents.cshtml" />
+    <Content Include="Views\Student\GetById.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

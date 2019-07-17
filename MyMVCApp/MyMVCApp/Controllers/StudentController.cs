@@ -25,5 +25,34 @@ namespace MyMVCApp.Controllers
             _studentManager.Add(_student);
             return View();
         }
+        public ActionResult Delete()
+        {
+            _student = new Student();
+            _student.ID = 3;
+            _studentManager.Delete(_student);
+            return View();
+        } 
+        public ActionResult Update()
+        {
+            _student = new Student();
+            _student.ID = 4;
+            _student.Name = "Kamal";
+            _studentManager.Update(_student);
+            return View();
+        } 
+        public ActionResult GetStudents()
+        {
+            List<Student> listOfStudent;
+            listOfStudent = _studentManager.GetStudents();
+            return View();
+        } 
+        public ActionResult GetById()
+        {
+            _student = new Student();
+            _student.ID = 4;
+            Student aStudent;
+            aStudent = _studentManager.GetById(_student);
+            return View();
+        }
     }
 }
