@@ -32,12 +32,8 @@ namespace MyMVCApp.Repository.Repository
         }
         public void Update(Student student)
         {
-            Student aStudent = db.Students.FirstOrDefault(c => c.ID == student.ID);
-            if(aStudent!=null)
-            {
-                aStudent.Name = student.Name;
-                db.SaveChanges();
-            }  
+            db.Entry(student).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();  
         } 
         public List<Student> GetStudents()
         {

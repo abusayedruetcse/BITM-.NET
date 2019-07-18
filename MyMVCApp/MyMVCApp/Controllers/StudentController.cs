@@ -36,8 +36,13 @@ namespace MyMVCApp.Controllers
         {
             _student = new Student();
             _student.ID = 4;
-            _student.Name = "Kamal";
-            _studentManager.Update(_student);
+            Student aStudent = _studentManager.GetById(_student);
+            _student.Name = "jamal";
+            if(aStudent!=null)
+            {
+                aStudent.Name = _student.Name;
+                _studentManager.Update(aStudent);
+            }           
             return View();
         } 
         public ActionResult GetStudents()
