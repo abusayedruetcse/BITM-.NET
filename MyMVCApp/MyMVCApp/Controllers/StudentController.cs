@@ -86,7 +86,8 @@ namespace MyMVCApp.Controllers
             {
                 students = students.Where(s => s.Age == student.Age).ToList();
             }
-            return View(students);
+            student.Students = students;
+            return View(student);
         }
     }
 }

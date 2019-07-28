@@ -1,4 +1,4 @@
-﻿@model List<MyMVCApp.Models.Models.Student>
+﻿@model MyMVCApp.Models.Models.Student
 @{
     Layout = null;
 }
@@ -16,15 +16,15 @@
             <table>
                 <tr>
                     <td>Name</td>
-                    <td><input type="text" name="Name" /></td>
+                    <td><input type="text" name="Name" value="@Model.Name" /></td>
                 </tr>
                 <tr>
                     <td>Address</td>
-                    <td><input type="text" name="Address" /></td>
+                    <td><input type="text" name="Address" value="@Model.Address"/></td>
                 </tr>
                 <tr>
                     <td>Age</td>
-                    <td><input type="text" name="Age" /></td>
+                    <td><input type="text" name="Age" value="@Model.Age"/></td>
                 </tr>
                 <tr>
                     <td>Action</td>
@@ -45,7 +45,7 @@
             </thead>
             <tbody>
                 @{ int si = 1;}
-                @foreach (var student in Model)
+                @foreach (var student in Model.Students)
                 {
                     <tr>
                         <td>@(si++)</td>
