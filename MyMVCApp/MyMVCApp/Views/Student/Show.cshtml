@@ -21,11 +21,12 @@
                     <td>Age</td>
                 </tr>
             </thead>
-            <tbody>               
+            <tbody>   
+                @{ int si = 1;}
                 @foreach (var student in Model)
                 {
                     <tr>
-                        <td>SI</td>
+                        <td>@(si++)</td>
                         <td>@student.Name</td>
                         <td>@student.Address</td>
                         <td>@student.Age</td>
