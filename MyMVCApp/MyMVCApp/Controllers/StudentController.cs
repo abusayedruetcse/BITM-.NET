@@ -17,30 +17,22 @@ namespace MyMVCApp.Controllers
         {
             _studentManager = new StudentManager();
         }
-        public ActionResult Add()
-        {
-            _student = new Student();
-            _student.ID = 2;
-            _student.Name = "Sayed";
-            _studentManager.Add(_student);
+        public ActionResult Add(Student student)
+        {            
+            _studentManager.Add(student);
             return View();
         }
-        public ActionResult Delete()
-        {
-            _student = new Student();
-            _student.ID = 3;
-            _studentManager.Delete(_student);
+        public ActionResult Delete(Student student)
+        {            
+            _studentManager.Delete(student);
             return View();
         } 
-        public ActionResult Update()
-        {
-            _student = new Student();
-            _student.ID = 4;
-            Student aStudent = _studentManager.GetById(_student);
-            _student.Name = "jamal";
+        public ActionResult Update(Student student)
+        {            
+            Student aStudent = _studentManager.GetById(student);           
             if(aStudent!=null)
             {
-                aStudent.Name = _student.Name;
+                aStudent.Name = student.Name;
                 _studentManager.Update(aStudent);
             }           
             return View();
