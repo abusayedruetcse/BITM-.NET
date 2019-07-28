@@ -16,7 +16,13 @@ namespace MyMVCApp.Controllers
         public StudentController()
         {
             _studentManager = new StudentManager();
+        }  
+        [HttpGet]
+        public ActionResult Add()
+        {
+            return View();
         }
+        [HttpPost]
         public ActionResult Add(Student student)
         {            
             if(ModelState.IsValid)
