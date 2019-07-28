@@ -61,6 +61,10 @@
     <Compile Include="Migrations\201907281533292_course_table_added.Designer.cs">
       <DependentUpon>201907281533292_course_table_added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907281658081_Name_field_in_Student_table_Required_added.cs" />
+    <Compile Include="Migrations\201907281658081_Name_field_in_Student_table_Required_added.Designer.cs">
+      <DependentUpon>201907281658081_Name_field_in_Student_table_Required_added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -83,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907281533292_course_table_added.resx">
       <DependentUpon>201907281533292_course_table_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907281658081_Name_field_in_Student_table_Required_added.resx">
+      <DependentUpon>201907281658081_Name_field_in_Student_table_Required_added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
