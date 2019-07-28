@@ -70,6 +70,10 @@ namespace MyMVCApp.Controllers
             Student aStudent;
             aStudent = _studentManager.GetById(_student);
             return View();
+        } 
+        public ActionResult Show()
+        {
+            return View();
         }
     }
 }
