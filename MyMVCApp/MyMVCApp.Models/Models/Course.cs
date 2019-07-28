@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace MyMVCApp.Models.Models
 {
-    class Course
+    public class Course
     {
+        public int ID { get; set; }
+        public string Name { get; set; }
     }
 }
