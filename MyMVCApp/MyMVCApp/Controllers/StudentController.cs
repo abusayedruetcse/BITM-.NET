@@ -73,7 +73,8 @@ namespace MyMVCApp.Controllers
         } 
         public ActionResult Show()
         {
-            return View();
+            var students = _studentManager.GetStudents();
+            return View(students);
         }
     }
 }
