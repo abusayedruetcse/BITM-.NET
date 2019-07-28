@@ -16,10 +16,12 @@ namespace MyMVCApp.Repository.Repository
         {
             db = new StudentDbContext();
         }
-        public void Add(Student student)
+        public bool Add(Student student)
         {
+            int isExecuted = 0;
             db.Students.Add(student);
-            db.SaveChanges();
+            isExecuted=db.SaveChanges();
+            return isExecuted > 0;
         }
         public void Delete(Student student)
         {

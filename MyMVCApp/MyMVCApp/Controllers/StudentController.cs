@@ -19,7 +19,21 @@ namespace MyMVCApp.Controllers
         }
         public ActionResult Add(Student student)
         {            
-            _studentManager.Add(student);
+            if(ModelState.IsValid)
+            {
+                if(_studentManager.Add(student))
+                {
+                    ViewBag.SuccessMsg = "Saved Successfully";
+                }
+                else
+                {
+                    ViewBag.FailMsg = "Save Failed";
+                }
+            } 
+            else
+            {
+                ViewBag.FailMsg = "Validation Error";
+            }
             return View();
         }
         public ActionResult Delete(Student student)

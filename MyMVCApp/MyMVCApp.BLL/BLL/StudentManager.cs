@@ -16,9 +16,9 @@ namespace MyMVCApp.BLL.BLL
         {
             _studentRepository = new StudentRepository();
         }
-        public void Add(Student student)
+        public bool Add(Student student)
         {           
-            _studentRepository.Add(student);
+            return _studentRepository.Add(student);
         }
         public void Delete(Student student)
         {
