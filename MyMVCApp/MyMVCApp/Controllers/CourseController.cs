@@ -9,9 +9,10 @@ namespace MyMVCApp.Controllers
     public class CourseController : Controller
     {
         // GET: Course
-        public ActionResult Index()
+        public ActionResult Add()
         {
             return View();
         }
+
     }
 }
