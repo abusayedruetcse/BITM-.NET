@@ -19,6 +19,13 @@ namespace MyMVCApp.BLL.BLL
         {
             _courseRepository.Add(course);
         }
-
+        public void Update(Course course)
+        {
+            _courseRepository.Update(course);
+        }
+        public Course GetById(Course course)
+        {
+            return _courseRepository.GetById(course);
+        }
     }
 }

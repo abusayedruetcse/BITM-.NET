@@ -19,6 +19,20 @@ namespace MyMVCApp.Repository.Repository
         {
             db.Courses.Add(course);
             db.SaveChanges();
+        } 
+        public void Update(Course course)
+        {
+            db.Entry(course).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+        }
+        public Course GetById(Course course)
+        {
+            var aCourse = db.Courses.FirstOrDefault(c => c.ID == course.ID);
+            if(aCourse!=null)
+            {
+                return aCourse;
+            }
+            return null;
         }
     }
 }

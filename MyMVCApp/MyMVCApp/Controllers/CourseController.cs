@@ -16,6 +16,16 @@ namespace MyMVCApp.Controllers
         {
             _courseManager.Add(course);
             return View();
+        } 
+        public ActionResult Update(Course course)
+        {
+            var aCourse = _courseManager.GetById(course);
+            if(aCourse!=null)
+            {
+                aCourse.Name = course.Name;
+                _courseManager.Update(aCourse);
+            }            
+            return View();
         }
 
     }
