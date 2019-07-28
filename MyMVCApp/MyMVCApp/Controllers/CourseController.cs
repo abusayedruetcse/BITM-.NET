@@ -27,6 +27,11 @@ namespace MyMVCApp.Controllers
             }            
             return View();
         }
+        public ActionResult Delete(Course course)
+        {
+            _courseManager.Delete(course);
+            return View();
+        }
 
     }
 }

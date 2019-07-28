@@ -116,6 +116,7 @@
     <Content Include="Views\Student\GetById.cshtml" />
     <Content Include="Views\Course\Add.cshtml" />
     <Content Include="Views\Course\Update.cshtml" />
+    <Content Include="Views\Course\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

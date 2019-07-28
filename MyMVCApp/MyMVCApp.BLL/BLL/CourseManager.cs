@@ -27,5 +27,9 @@ namespace MyMVCApp.BLL.BLL
         {
             return _courseRepository.GetById(course);
         }
+        public void Delete(Course course)
+        {
+            _courseRepository.Delete(course);
+        }
     }
 }

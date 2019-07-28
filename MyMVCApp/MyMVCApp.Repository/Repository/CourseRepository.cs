@@ -25,6 +25,15 @@ namespace MyMVCApp.Repository.Repository
             db.Entry(course).State = System.Data.Entity.EntityState.Modified;
             db.SaveChanges();
         }
+        public void Delete(Course course)
+        {
+            var aCourse = GetById(course);
+            if(aCourse!=null)
+            {
+                db.Courses.Remove(aCourse);
+                db.SaveChanges();
+            }
+        }
         public Course GetById(Course course)
         {
             var aCourse = db.Courses.FirstOrDefault(c => c.ID == course.ID);
