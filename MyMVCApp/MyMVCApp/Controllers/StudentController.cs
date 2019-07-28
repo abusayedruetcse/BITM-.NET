@@ -71,9 +71,21 @@ namespace MyMVCApp.Controllers
             aStudent = _studentManager.GetById(_student);
             return View();
         } 
-        public ActionResult Show()
+        public ActionResult Show(Student student)
         {
             var students = _studentManager.GetStudents();
+            if(student.Name!=null)
+            {
+               students = students.Where(s => s.Name.ToLower().Contains(student.Name.ToLower())).ToList();
+            } 
+            if(student.Address!=null)
+            {
+                students = students.Where(s => s.Address.ToLower().Contains(student.Address.ToLower())).ToList();
+            }
+            if(student.Age>0)
+            {
+                students = students.Where(s => s.Age == student.Age).ToList();
+            }
             return View(students);
         }
     }
