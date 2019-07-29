@@ -23,14 +23,16 @@ namespace MyMVCApp.Repository.Repository
             isExecuted=db.SaveChanges();
             return isExecuted > 0;
         }
-        public void Delete(Student student)
+        public bool Delete(Student student)
         {
+            int isExecuted = 0;
             Student aStudent = db.Students.FirstOrDefault(c => c.ID == student.ID);
             if(aStudent!=null)
             {
                 db.Students.Remove(aStudent);
-                db.SaveChanges();
+                isExecuted = db.SaveChanges();
             }
+            return isExecuted > 0;
         }
         public bool Update(Student student)
         {

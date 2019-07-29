@@ -70,9 +70,18 @@ namespace MyMVCApp.Controllers
             }
             return View(student);
         }
-        public ActionResult Delete(Student student)
-        {            
-            _studentManager.Delete(student);
+        public ActionResult Delete(int id)
+        {
+            Student student = new Student();
+            student.ID = id;
+            if(_studentManager.Delete(student))
+            {
+                ViewBag.SuccessMsg = "Deleted Successfully";
+            } 
+            else
+            {
+                ViewBag.FailMsg = "Deletion Failed";
+            }
             return View();
         } 
         public ActionResult Update(Student student)
