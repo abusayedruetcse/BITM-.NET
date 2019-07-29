@@ -42,6 +42,34 @@ namespace MyMVCApp.Controllers
             }
             return View();
         }
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var student = new Student();
+            student.ID = id;
+            student = _studentManager.GetById(student);
+            return View(student);
+        }
+        [HttpPost]
+        public ActionResult Edit(Student student)
+        {
+            if(ModelState.IsValid)
+            {
+                if (_studentManager.Update(student))
+                {
+                    ViewBag.SuccessMsg = "Updated Successfully";                    
+                }
+                else
+                {
+                    ViewBag.FailMsg = "Update Failed";
+                }
+            } 
+            else
+            {
+                ViewBag.FailMsg = "Validation Error";
+            }
+            return View(student);
+        }
         public ActionResult Delete(Student student)
         {            
             _studentManager.Delete(student);

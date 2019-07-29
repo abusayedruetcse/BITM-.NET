@@ -32,10 +32,12 @@ namespace MyMVCApp.Repository.Repository
                 db.SaveChanges();
             }
         }
-        public void Update(Student student)
+        public bool Update(Student student)
         {
+            int isExecuted = 0;
             db.Entry(student).State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();  
+            isExecuted = db.SaveChanges();
+            return isExecuted > 0;
         } 
         public List<Student> GetStudents()
         {
