@@ -9,53 +9,66 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Show</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
-        <form>
-            <table>
-                <tr>
-                    <td>Name</td>
-                    <td><input type="text" name="Name" value="@Model.Name" /></td>
-                </tr>
-                <tr>
-                    <td>Address</td>
-                    <td><input type="text" name="Address" value="@Model.Address"/></td>
-                </tr>
-                <tr>
-                    <td>Age</td>
-                    <td><input type="text" name="Age" value="@Model.Age"/></td>
-                </tr>
-                <tr>
-                    <td>Action</td>
-                    <td><input type="submit" name="Search" value="Search" /></td>
-                </tr>
-            </table>
-        </form>
+    <div class="container">
+        <div class="row">
+            <h1 style="font-family:'Times New Roman', Times, serif;
+                       color:green;
+                       width:100%;
+                       background-color:cornflowerblue; 
+                       text-align:center">Display Table Data</h1>
+        </div>     
+        <div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <form>
+                        <div style="background-color:lightyellow">
+                            <div class="row">
+                                <div class="col-2"><h5>Name</h5></div>
+                                <div class="col-6"><input type="text" name="Name" value="@Model.Name" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2"><h5>Address</h5></div>
+                                <div class="col-6"><input type="text" name="Address" value="@Model.Address" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2"><h5>Age</h5></div>
+                                <div class="col-6"><input type="text" name="Age" value="@Model.Age" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2"><h5>Action</h5></div>
+                                <div class="col-6"><input type="submit" name="Search" value="Search" /></div>
+                            </div>
+                        </div>
+                    </form>
+                   <div style="background-color:bisque">
+                       <div class="row" style="color:red">
+                           <div class="col-3"><h5>SI</h5></div>
+                           <div class="col-3"><h5>Name</h5></div>
+                           <div class="col-3"><h5>Address</h5></div>
+                           <div class="col-3"><h5>Age</h5></div>
+                       </div>
+                       @{ int s = 1;}
+                       @foreach (var student in Model.Students)
+                       {
+                           <div class="row">
+                               <div class="col-3"><h5>@(s++)</h5></div>
+                               <div class="col-3"><h5>@student.Name</h5></div>
+                               <div class="col-3"><h5>@student.Address</h5></div>
+                               <div class="col-3"><h5>@student.Age</h5></div>
+                           </div>
+                       }
+                   </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        </div>
+        <div></div>
+        <div></div>
     </div>
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <td>SI</td>
-                    <td>Name</td>
-                    <td>Address</td>
-                    <td>Age</td>
-                </tr>
-            </thead>
-            <tbody>
-                @{ int si = 1;}
-                @foreach (var student in Model.Students)
-                {
-                    <tr>
-                        <td>@(si++)</td>
-                        <td>@student.Name</td>
-                        <td>@student.Address</td>
-                        <td>@student.Age</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
+
 </body>
 </html>
