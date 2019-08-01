@@ -1,0 +1,74 @@
+﻿
+@{
+    Layout = null;
+}
+@if (ViewBag.SuccessMsg != null)
+{
+    <h3>@ViewBag.SuccessMsg</h3>
+}
+@if (ViewBag.FailMsg != null)
+{
+    <h3>@ViewBag.FailMsg</h3>
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add Supplier Information</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div class="row">
+            <h1 style="font-family:'Times New Roman', Times, serif;
+                       color:green;
+                       width:100%;
+                       background-color:cornflowerblue;
+                       text-align:center">
+                Supplier Information
+            </h1>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-8">
+                    <form method="post">
+                        <div style="background-color:lightyellow">
+                            <div class="row">
+                                <div class="col-3"><h5>Code</h5></div>
+                                <div class="col-9"><input type="text" name="Code" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3"><h5>Name</h5></div>
+                                <div class="col-9"><input type="text" name="Name" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3"><h5>Address</h5></div>
+                                <div class="col-9"><input type="text" name="Address" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3"><h5>Email</h5></div>
+                                <div class="col-9"><input type="text" name="Email" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3"><h5>Contact</h5></div>
+                                <div class="col-9"><input type="text" name="Contact" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3"><h5> Contact Person</h5></div>
+                                <div class="col-9"><input type="text" name="ContactPerson" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3"><h5>Action</h5></div>
+                                <div class="col-9"><input type="submit" name="Save" value="Save" /></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
