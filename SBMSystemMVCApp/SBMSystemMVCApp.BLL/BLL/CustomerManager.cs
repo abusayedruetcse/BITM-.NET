@@ -27,5 +27,13 @@ namespace SBMSystemMVCApp.BLL.BLL
         {
             return _customerRepository.GetAll();
         }
+        public Customer GetById(int id)
+        {
+            return _customerRepository.GetById(id);
+        }
+        public bool isUpdated(Customer customer)
+        {
+            return _customerRepository.isUpdated(customer);
+        }
     }
 }

@@ -35,6 +35,18 @@ namespace SBMSystemMVCApp.Repository.Repository
         {
             var customers = db.Customers.ToList();
             return customers;
+        } 
+        public Customer GetById(int id)
+        {
+            var customer = db.Customers.FirstOrDefault(c => c.Id == id);
+            return customer;
+        }
+        public bool isUpdated(Customer customer)
+        {
+            int isExecuted = 0;
+            db.Entry(customer).State = System.Data.Entity.EntityState.Modified;
+            isExecuted = db.SaveChanges();
+            return isExecuted > 0;
         }
     }
 }

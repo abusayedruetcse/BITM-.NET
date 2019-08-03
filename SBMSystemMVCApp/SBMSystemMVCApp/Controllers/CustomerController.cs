@@ -19,7 +19,7 @@ namespace SBMSystemMVCApp.Controllers
         [HttpGet]
         public ActionResult Add()
         {
-            return View();
+            return View(new Customer());
         }
         [HttpPost]
         public ActionResult Add(Customer customer)
@@ -29,7 +29,8 @@ namespace SBMSystemMVCApp.Controllers
                 if(_customerManager.IsCodeDuplicate(customer))
                 {
                     ViewBag.FailMsg = "Code is Duplicate";
-                    return View();
+                    customer.Code = "";
+                    return View(customer);
                 }
                 if(_customerManager.Add(customer))
                 {
@@ -44,7 +45,7 @@ namespace SBMSystemMVCApp.Controllers
             {
                 ViewBag.FailMsg = "Validation Error";
             }
-            return View();
+            return View(new Customer());
         }
         [HttpGet]
         public ActionResult Search()
@@ -111,10 +112,45 @@ namespace SBMSystemMVCApp.Controllers
                 customers = customers.Where(c => c.Contact == customer.Contact).ToList();
             }
             return View(customers);
-        }        
+        }       
+        [HttpGet]
+        public ActionResult Update(int id)
+        {
+            Customer aCustomer = _customerManager.GetById(id);
+            return View(aCustomer);
+        }
+        [HttpPost]
         public ActionResult Update(Customer customer)
         {
+            if(ModelState.IsValid)
+            {
+                var aCustomer = _customerManager.GetById(customer.Id);
+                aCustomer.Name = customer.Name;
+                aCustomer.Address = customer.Address;
+                aCustomer.Email = customer.Email;
+                aCustomer.Contact = customer.Contact;
+                aCustomer.LoyaltyPoint = customer.LoyaltyPoint;
+                aCustomer.Code = customer.Code;
+                if (_customerManager.isUpdated(aCustomer))
+                {
+                    ViewBag.SuccessMsg = "Successfully Updated";
+                    customer.Name = "";
+                    customer.Code = "";
+                    customer.Address = "";
+                    customer.Email = "";
+                    customer.Contact = "";
+                    customer.LoyaltyPoint = 0;
+                }
+                else
+                {
+                    ViewBag.FailMsg = "Update Failed";
+                }
+            }
+            else
+            {
+                ViewBag.FailMsg = "Validation Error";
+            }
             return View(customer);
-        }        
+        }
     }
 }
