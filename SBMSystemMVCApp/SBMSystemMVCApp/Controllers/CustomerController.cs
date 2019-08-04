@@ -1,4 +1,5 @@
 ﻿using SBMSystemMVCApp.BLL.BLL;
+using SBMSystemMVCApp.Models;
 using SBMSystemMVCApp.Models.Models;
 using System;
 using System.Collections.Generic;
@@ -50,35 +51,36 @@ namespace SBMSystemMVCApp.Controllers
         [HttpGet]
         public ActionResult Search()
         {
-            List<Customer> customers;
-            customers = null;
-            return View(customers);
+            CustomerSearchViewModel customersvm = new CustomerSearchViewModel();
+            customersvm = null;           
+            return View(customersvm);
         }
         [HttpPost]
-        public ActionResult Search(Customer customer)
+        public ActionResult Search(CustomerSearchViewModel customersvm)
         {
             var customers = _customerManager.GetAll();
-            if(customer.Code!=null)
+            if(customersvm.Code!=null)
             {
-                customers = customers.Where(c => c.Code.ToLower() == customer.Code.ToLower()).ToList();
+                customers = customers.Where(c => c.Code.ToLower() == customersvm.Code.ToLower()).ToList();
             }
-            if (customer.Name != null)
+            if (customersvm.Name != null)
             {
-                customers = customers.Where(c => c.Name.ToLower().Contains(customer.Name.ToLower())).ToList();
+                customers = customers.Where(c => c.Name.ToLower().Contains(customersvm.Name.ToLower())).ToList();
             }
-            if (customer.Address != null)
+            if (customersvm.Address != null)
             {
-                customers = customers.Where(c => c.Address.ToLower().Contains(customer.Address.ToLower())).ToList();
+                customers = customers.Where(c => c.Address.ToLower().Contains(customersvm.Address.ToLower())).ToList();
             }
-            if (customer.Email != null)
+            if (customersvm.Email != null)
             {
-                customers = customers.Where(c => c.Email == customer.Email).ToList();
+                customers = customers.Where(c => c.Email == customersvm.Email).ToList();
             }
-            if (customer.Contact != null)
+            if (customersvm.Contact != null)
             {
-                customers = customers.Where(c => c.Contact == customer.Contact).ToList();
+                customers = customers.Where(c => c.Contact == customersvm.Contact).ToList();
             }
-            return View(customers);
+            customersvm.Customers = customers;
+            return View(customersvm);
         }
         [HttpGet]
         public ActionResult Edit()
