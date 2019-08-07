@@ -31,5 +31,22 @@ namespace SBMSystemMVCApp.Repository.Repository
             }
             return false;
         }
+        public List<Supplier> GetAll()
+        {
+            var suppliers = db.Suppliers.ToList();
+            return suppliers;
+        }
+        public Supplier GetById(int id)
+        {
+            var supplier = db.Suppliers.FirstOrDefault(c => c.Id == id);
+            return supplier;
+        }
+        public bool isUpdated(Supplier supplier)
+        {
+            int isExecuted = 0;
+            db.Entry(supplier).State = System.Data.Entity.EntityState.Modified;
+            isExecuted = db.SaveChanges();
+            return isExecuted > 0;
+        }
     }
 }

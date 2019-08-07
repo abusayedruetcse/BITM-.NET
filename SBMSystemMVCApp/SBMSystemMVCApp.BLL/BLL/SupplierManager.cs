@@ -23,5 +23,17 @@ namespace SBMSystemMVCApp.BLL.BLL
         {
             return _supplierRepository.IsCodeDuplicate(supplier);
         }
+        public List<Supplier> GetAll()
+        {
+            return _supplierRepository.GetAll();
+        }
+        public Supplier GetById(int id)
+        {
+            return _supplierRepository.GetById(id);
+        }
+        public bool isUpdated(Supplier supplier)
+        {
+            return _supplierRepository.isUpdated(supplier);
+        }
     }
 }

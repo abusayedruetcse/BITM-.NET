@@ -36,6 +36,12 @@ namespace SBMSystemMVCApp.Controllers
                 if(_customerManager.Add(customer))
                 {
                     ViewBag.SuccessMsg = "Successfully Saved";
+                    customer.Code = "";
+                    customer.Name = "";
+                    customer.Address = "";
+                    customer.Contact = "";
+                    customer.Email = "";
+                    customer.LoyaltyPoint = 0;
                 }
                 else
                 {
@@ -46,7 +52,7 @@ namespace SBMSystemMVCApp.Controllers
             {
                 ViewBag.FailMsg = "Validation Error";
             }
-            return View(new Customer());
+            return View(customer);
         }
         [HttpGet]
         public ActionResult Search()
@@ -61,7 +67,7 @@ namespace SBMSystemMVCApp.Controllers
             var customers = _customerManager.GetAll();
             if(customersvm.Code!=null)
             {
-                customers = customers.Where(c => c.Code.ToLower() == customersvm.Code.ToLower()).ToList();
+                customers = customers.Where(c => c.Code == customersvm.Code).ToList();
             }
             if (customersvm.Name != null)
             {
