@@ -65,6 +65,10 @@
     <Compile Include="Migrations\201908070841261_category_is_added.Designer.cs">
       <DependentUpon>201908070841261_category_is_added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908071032582_product_is_updated.cs" />
+    <Compile Include="Migrations\201908071032582_product_is_updated.Designer.cs">
+      <DependentUpon>201908071032582_product_is_updated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -86,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908070841261_category_is_added.resx">
       <DependentUpon>201908070841261_category_is_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908071032582_product_is_updated.resx">
+      <DependentUpon>201908071032582_product_is_updated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

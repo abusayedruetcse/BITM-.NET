@@ -1,12 +1,13 @@
-﻿using System;
+﻿using SBMSystemMVCApp.Models.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
-namespace SBMSystemMVCApp.Models.Models
+namespace SBMSystemMVCApp.Models
 {
-    public class Product
+    public class ProductAddViewModel
     {
         public int Id { get; set; }
         public string Code { get; set; }
@@ -16,9 +17,7 @@ namespace SBMSystemMVCApp.Models.Models
         public int ReorderLevel { get; set; }
         public string ImageProduct { get; set; }
         public string Description { get; set; }
-        public int AvailableQuantity { get; set; }
-        public int CurrentMRP { get; set; }
-        public int UnitPrice { get; set; }
-
+        public List<Product> Products { get; set; }
+        public List<SelectListItem> Categories { get; set; }
     }
 }

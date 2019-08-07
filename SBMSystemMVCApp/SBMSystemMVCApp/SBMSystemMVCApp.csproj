@@ -717,6 +717,7 @@
     </Compile>
     <Compile Include="Models\CategoryAddViewModel.cs" />
     <Compile Include="Models\CustomerSearchViewModel.cs" />
+    <Compile Include="Models\ProductAddViewModel.cs" />
     <Compile Include="Models\SupplierSearchViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -727,7 +728,6 @@
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\Supplier\Add.cshtml" />
-    <Content Include="Views\Product\Add.cshtml" />
     <Content Include="Views\Customer\Search.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\Update.cshtml" />
@@ -738,6 +738,9 @@
     <Content Include="Views\Supplier\Update.cshtml" />
     <Content Include="Views\Category\Add.cshtml" />
     <Content Include="Views\Category\Update.cshtml" />
+    <Content Include="Views\Product\Add.cshtml" />
+    <Content Include="Views\Product\Update.cshtml" />
+    <Content Include="Views\Product\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

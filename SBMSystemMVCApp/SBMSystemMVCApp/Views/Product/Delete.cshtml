@@ -1,0 +1,85 @@
+﻿@model SBMSystemMVCApp.Models.Models.Product
+
+@{
+    ViewBag.Title = "Delete Product";
+    Layout = "~/Views/Shared/_MyTheme.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @Html.HiddenFor(model => model.Id)
+        <dt>
+            @Html.DisplayNameFor(model => model.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CategoryId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReorderLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReorderLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageProduct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageProduct)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+        </div>
+    }
+    <div>
+        @if (ViewBag.SuccessMsg != null)
+        {
+            <h5 style="color:green; font-size:medium;">@ViewBag.SuccessMsg</h5>
+        }
+
+        @if (ViewBag.FailMsg != null)
+        {
+            <h5 style="color:red;font-size:medium;">@ViewBag.FailMsg</h5>
+        }
+    </div>
+</div>
