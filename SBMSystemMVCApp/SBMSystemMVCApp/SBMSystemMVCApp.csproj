@@ -708,12 +708,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CategoryAddViewModel.cs" />
     <Compile Include="Models\CustomerSearchViewModel.cs" />
     <Compile Include="Models\SupplierSearchViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -734,6 +736,8 @@
     <Content Include="Views\Supplier\Edit.cshtml" />
     <Content Include="Views\Supplier\Search.cshtml" />
     <Content Include="Views\Supplier\Update.cshtml" />
+    <Content Include="Views\Category\Add.cshtml" />
+    <Content Include="Views\Category\Update.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
