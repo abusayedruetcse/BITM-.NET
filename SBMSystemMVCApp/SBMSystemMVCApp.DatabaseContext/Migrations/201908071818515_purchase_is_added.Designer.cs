@@ -7,13 +7,13 @@ namespace SBMSystemMVCApp.DatabaseContext.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class supplier_table_added : IMigrationMetadata
+    public sealed partial class purchase_is_added : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(supplier_table_added));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(purchase_is_added));
         
         string IMigrationMetadata.Id
         {
-            get { return "201907301014328_supplier_table_added"; }
+            get { return "201908071818515_purchase_is_added"; }
         }
         
         string IMigrationMetadata.Source

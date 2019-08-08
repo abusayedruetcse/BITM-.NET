@@ -3,6 +3,7 @@ using SBMSystemMVCApp.Models.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,7 @@ namespace SBMSystemMVCApp.Repository.Repository
         } 
         public List<Product> GetProducts()
         {
-            var products = db.Products.ToList();
+            List<Product> products = db.Products.Include(c=>c.Category).ToList();
             return products;
         }
         public bool UpdateProduct(Product product)
