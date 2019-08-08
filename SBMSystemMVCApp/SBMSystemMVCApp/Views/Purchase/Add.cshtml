@@ -3,10 +3,10 @@
 @{
     ViewBag.Title = "Add Purchase";
     Layout = "~/Views/Shared/_MyTheme.cshtml";
+
 }
 
 <h2>Add</h2>
-
 
     
 <form method="post">
@@ -207,6 +207,7 @@
             var unitPrice = $('#UnitPrice').val();
             var totalPrice = quantity * unitPrice;
             $('#TotalPrice').val(totalPrice);
+            $('#MRP').val(unitPrice*(1+0.25));
         });
         var index = 0;
         $('#AddButton').click(() => {
@@ -252,7 +253,8 @@
             row = tstart + sl + product + manufacturedDate + expireDate + quantity + unitPrice + totalPrice + newMRP + remarks + action + tend;
             index++;
             return row;
-        }        
+        }
+        
 
     </script>
 }

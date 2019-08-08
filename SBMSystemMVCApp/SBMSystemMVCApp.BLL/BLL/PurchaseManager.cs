@@ -32,9 +32,9 @@ namespace SBMSystemMVCApp.BLL.BLL
         {
             return _purchaseRepository.GetAvailableQuantity(product);
         }
-        public bool UpdateProduct(Product product)
+        public bool UpdateProduct(Purchase purchase)
         {
-            return _purchaseRepository.UpdateProduct(product);
+            return _purchaseRepository.UpdateProduct(purchase);
         }
     }
 }

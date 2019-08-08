@@ -39,10 +39,15 @@ namespace SBMSystemMVCApp.Repository.Repository
             
             return 0;
         }
-        public bool UpdateProduct(Product product)
+        public bool UpdateProduct(Purchase purchase)
         {
             int isExecuted = 0;
-            
+            var aProduct = db.Products.FirstOrDefault(c => c.Id == purchase.ProductId);
+            aProduct.AvailableQuantity += purchase.Quantity;
+            aProduct.CurrentMRP = purchase.MRP;
+            aProduct.UnitPrice = purchase.UnitPrice;
+            db.Entry(aProduct).State = System.Data.Entity.EntityState.Modified;
+            isExecuted = db.SaveChanges();
             return isExecuted > 0;
         }
 
