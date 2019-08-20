@@ -41,13 +41,13 @@ namespace SBMSystemMVCApp.Controllers
                 purchase.Date = purchaseavm.Date;
                 purchase.BillNo = purchaseavm.BillNo;
                 purchase.SupplierId = purchaseavm.SupplierId;
-                purchase.ProductId = purchaseavm.ProductId;
-                purchase.ManufacturedDate = purchaseavm.ManufacturedDate;
-                purchase.ExpireDate = purchaseavm.ExpireDate;
-                purchase.Quantity = purchaseavm.Quantity;
-                purchase.UnitPrice = purchaseavm.UnitPrice;
-                purchase.MRP = purchaseavm.MRP;
-                purchase.Remarks = purchaseavm.Remarks;
+                //purchase.ProductId = purchaseavm.ProductId;
+                //purchase.ManufacturedDate = purchaseavm.ManufacturedDate;
+                //purchase.ExpireDate = purchaseavm.ExpireDate;
+                //purchase.Quantity = purchaseavm.Quantity;
+                //purchase.UnitPrice = purchaseavm.UnitPrice;
+                //purchase.MRP = purchaseavm.MRP;
+                //purchase.Remarks = purchaseavm.Remarks;
                 _purchaseManager.AddPurchase(purchase);
                 _purchaseManager.UpdateProduct(purchase);
             }
@@ -64,6 +64,11 @@ namespace SBMSystemMVCApp.Controllers
         {
             var aProduct = _productManager.GetById(productId);            
             return Json(aProduct, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Edit(int id)
+        {
+            Purchase purchase = new Purchase();
+            return View(purchase);
         }
         
     }

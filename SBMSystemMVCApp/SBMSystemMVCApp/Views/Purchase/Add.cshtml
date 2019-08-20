@@ -13,7 +13,7 @@
     <h4>Purchase</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
+    <div class="form-horizontal">
         <div class="form-group">
             @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -38,6 +38,7 @@
             </div>
         </div>
     </div>
+    <br /><br />
     <div class="form-horizontal">
         <div class="form-group">
             @Html.LabelFor(model => model.ProductId, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -247,13 +248,19 @@
             var unitPrice = '<td>' + hiddenUnitPrice + aProduct.unitPrice + '</td>';
             var totalPrice = '<td>' + hiddenTotalPrice + aProduct.totalPrice + '</td>';
             var newMRP = '<td>' + hiddenMRP + aProduct.newMRP + '</td>';
-            var remarks = '<td>' + hiddenRemarks + aProduct.remarks + '</td>';    
-            var action = '<td><div class="col-md-2">' + 'abc'+ '</div><div class="col-md-2">' + 'asfsd' +'</div></td>';    
+            var remarks = '<td>' + hiddenRemarks + aProduct.remarks + '</td>';
+            
+            var Edit = '<a href="Purchase/Edit?id=' + index + '>Edit</a>';
+            var Delete = '<a href="Purchase/Edit?id=' + index + '>Delete</a>';
+            var action = '<td><div class="col-md-2">' + Edit + '</div><div class="col-md-2">' + Delete +'</div></td>';    
             var tend = '</tr> ';
             row = tstart + sl + product + manufacturedDate + expireDate + quantity + unitPrice + totalPrice + newMRP + remarks + action + tend;
             index++;
             return row;
         }
+        $('#Submit').click(() => {
+            index = 0;
+        });
         
 
     </script>
